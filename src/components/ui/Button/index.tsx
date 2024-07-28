@@ -33,7 +33,7 @@ const buttonVariants = cva(
   }
 );
 
-import "./button.scss";
+import "./index.scss";
 
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,

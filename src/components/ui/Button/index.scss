@@ -1,0 +1,13 @@
+.react-cupertino-ui-button {
+  padding: 10px 20px;
+  background-color: #007aff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: darken(#007aff, 10%);
+  }
+}

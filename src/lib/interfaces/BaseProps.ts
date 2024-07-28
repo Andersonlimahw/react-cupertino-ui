@@ -11,6 +11,8 @@ export interface BaseProps {
     | "link";
   size?: "default" | "sm" | "lg" | "icon";
   asChild?: boolean;
+  onClick?: () => void;
+  children?: React.ReactNode | React.ReactNode[];
 }
 export const BaseVariants = cva("", {
   variants: {

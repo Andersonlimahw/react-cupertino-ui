@@ -7,6 +7,7 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "new:component": "node  ./scripts/create-component/index.js",
     "preview": "vite preview",
     "test": "vitest",
     "sb": "storybook dev -p 6006",

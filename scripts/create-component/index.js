@@ -53,7 +53,7 @@ export interface ${componentName}Props
   asChild?: boolean;
 }
 
-const ${componentName} = React.forwardRef<${componentName}Props>(
+const ${componentName} : React.FC<${componentName}Props> = (
   ({ className, variant, size, asChild = false, ...props } : ${componentName}Props) => {
     const Comp = asChild ? Slot : "${componentName}";
     return (

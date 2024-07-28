@@ -7,7 +7,7 @@ import { BaseProps, BaseVariants } from "@/lib/interfaces/BaseProps";
 import "./index.scss";
 
 export interface LabelProps extends BaseProps {
-  asChild?: boolean;
+  children?: React.ReactNode | React.ReactNode[];
 }
 
 const Label = React.forwardRef<LabelProps>(

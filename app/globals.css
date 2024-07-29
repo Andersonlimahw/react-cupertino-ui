@@ -29,6 +29,21 @@
     --chart-3: 197 37% 24%;
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
+
+    --color-red: #ff3b30;
+    --color-white: #ffffff;
+    --color-orange: #ff9500;
+    --color-yellow: #ffcc00;
+    --color-green: #34c759;
+    --color-mint: #00c7be;
+    --color-teal: #30b0c7;
+    --color-cyan: #32ade6;
+    --color-blue: #007aff;
+    --color-indigo: #5856d6;
+    --color-purple: #af52de;
+    --color-pink: #ff2d55;
+    --color-brown: #a2845e;
+    --color-white: #ffffff;
   }
 
   .dark {
@@ -40,7 +55,7 @@
     --popover-foreground: 60 9.1% 97.8%;
     --primary: 60 9.1% 97.8%;
     --primary-foreground: 24 9.8% 10%;
-    --secondary: red;
+    --secondary: 12 6.5% 15.1%;
     --secondary-foreground: 60 9.1% 97.8%;
     --muted: 12 6.5% 15.1%;
     --muted-foreground: 24 5.4% 63.9%;
@@ -56,6 +71,20 @@
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
+
+    --color-red: #ff3b30;
+    --color-orange: #ff9500;
+    --color-yellow: #ffcc00;
+    --color-green: #34c759;
+    --color-mint: #00c7be;
+    --color-teal: #30b0c7;
+    --color-cyan: #32ade6;
+    --color-blue: #007aff;
+    --color-indigo: #5856d6;
+    --color-purple: #af52de;
+    --color-pink: #ff2d55;
+    --color-brown: #a2845e;
+    --color-white: #ffffff;
   }
 }
 

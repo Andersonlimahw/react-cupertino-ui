@@ -11,7 +11,8 @@
     "preview": "vite preview",
     "test": "vitest",
     "sb": "storybook dev -p 6006",
-    "sb:build": "storybook build"
+    "sb:build": "storybook build",
+    "tailwind:watch": "tailwindcss -i ./app/globals.css -o ./dist/output.css --watch"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.1.0",

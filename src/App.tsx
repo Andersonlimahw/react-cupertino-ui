@@ -20,7 +20,8 @@ function App() {
       <h1>Vite + React</h1>
       <div className="card">
         <Button
-          variant="secondary"
+          variant="default"
+          size="lg"
           onClick={() => setCount((count) => count + 1)}
         >
           button sample count is {count}

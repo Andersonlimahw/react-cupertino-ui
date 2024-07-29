@@ -1,22 +1,23 @@
 import breakpoints from "../tokens/breakpoints";
+import { darkColors, lightColors, lemonColors } from "../tokens/colors";
 import sizeTokens from "../tokens/size";
 import spacingTokens from "../tokens/spacing";
-import { darkTheme } from "./dartk";
-import { lightTheme } from "./light";
 
 export const themes = {
   dark: {
-    colors: {
-      ...darkTheme.colors,
-    },
+    colors: darkColors,
     spacing: spacingTokens,
     size: sizeTokens,
     breakpoints,
   },
   light: {
-    colors: {
-      ...lightTheme.colors,
-    },
+    colors: lightColors,
+    spacing: spacingTokens,
+    size: sizeTokens,
+    breakpoints,
+  },
+  lemon: {
+    colors: lemonColors,
     spacing: spacingTokens,
     size: sizeTokens,
     breakpoints,

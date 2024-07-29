@@ -83,7 +83,7 @@ import { fn } from '@storybook/test';
 import ${componentName} from '@/components/ui/${componentName}';
 
 const meta = {
-  title: 'Example/${componentName}',
+  title: 'Components/${componentName}',
   component: ${componentName},
   tags: ['autodocs'],
   parameters: {

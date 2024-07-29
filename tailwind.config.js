@@ -6,6 +6,10 @@ module.exports = {
     "./components/**/*.{ts,tsx}",
     "./app/**/*.{ts,tsx}",
     "./src/**/*.{ts,tsx}",
+    "./stories/*.{js,jsx,ts,tsx,mdx}",
+    "./stories/**/*.{js,jsx,ts,tsx,mdx}",
+    "./stories/**/**/*.{js,jsx,ts,tsx,mdx}",
+    "./stories/components/ui/**/*.{js,jsx,ts,tsx,mdx}",
   ],
   prefix: "",
   theme: {

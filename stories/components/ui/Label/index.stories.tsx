@@ -1,14 +1,14 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { fn } from '@storybook/test';
+import type { Meta, StoryObj } from "@storybook/react";
+import { fn } from "@storybook/test";
 
-import Label from '@/components/ui/Label';
+import Label from "@/components/ui/Label";
 
 const meta = {
-  title: 'Example/Label',
+  title: "Components/Label",
   component: Label,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   parameters: {
-    layout: 'centered',
+    layout: "centered",
   },
   args: {
     // Define default args here

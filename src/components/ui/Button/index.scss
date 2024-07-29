@@ -1,13 +1,96 @@
 .react-cupertino-ui-button {
-  padding: 10px 20px;
-  background-color: #007aff;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  border-radius: 4rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition-property: color, background-color, border-color,
+    text-decoration-color, fill, stroke;
+  transition-duration: 150ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  outline: none;
+  box-shadow: none;
+  background-color: var(--bg-color);
+  border: 1px solid transparent;
 
-  &:hover {
-    background-color: darken(#007aff, 10%);
+  &:focus-visible {
+    outline: 2px solid;
+    outline-color: var(--ring-color);
+    outline-offset: 2px;
+  }
+  &:disabled {
+    pointer-events: none;
+    opacity: 0.5;
+  }
+  &.variant-default {
+    background-color: var(--primary);
+    color: var(--primary-foreground);
+    border-color: var(--primary);
+    &:hover {
+      background-color: var(--primary) / 90%;
+    }
+  }
+
+  &.variant-destructive {
+    background-color: var(--destructive);
+    color: var(--destructive-foreground);
+    &:hover {
+      background-color: var(--destructive) / 90%;
+    }
+  }
+
+  &.variant-outline {
+    border: 1px solid var(--input);
+    background-color: var(--background);
+    &:hover {
+      background-color: var(--accent);
+      color: var(--accent-foreground);
+    }
+  }
+
+  &.variant-secondary {
+    background-color: var(--secondary);
+    border-color: var(--secondary);
+    color: var(--secondary-foreground);
+    &:hover {
+      background-color: var(--secondary) / 80%;
+    }
+  }
+
+  &.variant-ghost {
+    &:hover {
+      background-color: var(--accent);
+      color: var(--accent-foreground);
+    }
+  }
+
+  &.variant-link {
+    color: var(--primary);
+    text-decoration: underline-offset-4;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &.size-default {
+    height: 2.5rem; // 10 * 0.25rem
+    padding: 0.5rem 1rem; // 2 * 0.25rem 4 * 0.25rem
+  }
+
+  &.size-sm {
+    height: 2.25rem; // 9 * 0.25rem
+    padding: 0.75rem; // 3 * 0.25rem
+  }
+
+  &.size-lg {
+    height: 2.75rem; // 11 * 0.25rem
+    padding: 0.5rem 2rem; // 2 * 0.25rem 8 * 0.25rem
+  }
+
+  &.size-icon {
+    height: 2.5rem; // 10 * 0.25rem
+    width: 2.5rem; // 10 * 0.25rem
   }
 }

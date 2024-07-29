@@ -14,6 +14,7 @@ export interface BaseProps {
   onClick?: () => void;
   children?: React.ReactNode | React.ReactNode[];
 }
+
 export const BaseVariants = cva("", {
   variants: {
     variant: {

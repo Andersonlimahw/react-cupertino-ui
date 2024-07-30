@@ -15,6 +15,6 @@ describe("Button Component", () => {
       </Button>
     );
     const buttonElement = screen.getByText(/Delete/i);
-    expect(buttonElement).toHaveClass("bg-destructive");
+    expect(buttonElement).toHaveClass("variant-destructive");
   });
 });

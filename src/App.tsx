@@ -3,6 +3,7 @@ import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
 import { Button } from "@/components/ui/Button";
+import Title from "./components/ui/Title";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -26,6 +27,8 @@ function App() {
         >
           button sample count is {count}
         </Button>
+        <Title variant="heading">Title</Title>
+        <Title variant="heading3">Title</Title>
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>

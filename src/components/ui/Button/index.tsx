@@ -15,7 +15,13 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     const Comp = asChild ? Slot : "button";
     return (
       <Comp
-        className={cn(BaseVariants({ variant, size, className }))}
+        className={cn(
+          BaseVariants("react-cupertino-ui-button", {
+            variant,
+            size,
+            className,
+          })
+        )}
         ref={ref}
         {...props}
       />

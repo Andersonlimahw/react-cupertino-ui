@@ -6,22 +6,22 @@ import { BaseProps, BaseVariants } from "@/lib/interfaces/BaseProps";
 
 import "./index.scss";
 
-export interface ParagraphProps extends BaseProps {
+export interface CaptionProps extends BaseProps {
   asChild?: boolean;
 }
 
-const Paragraph: React.FC<ParagraphProps> = ({
+const Caption: React.FC<CaptionProps> = ({
   className,
   variant,
   size,
   asChild = false,
   ...props
-}: ParagraphProps) => {
-  const Comp = asChild ? Slot : "p";
+}: CaptionProps) => {
+  const Comp = asChild ? Slot : "caption";
   return (
     <Comp
       className={cn(
-        BaseVariants("react-cupertino-ui-paragraph", {
+        BaseVariants("react-cupertino-ui-caption", {
           variant,
           size,
           className,
@@ -31,8 +31,8 @@ const Paragraph: React.FC<ParagraphProps> = ({
     />
   );
 };
-Paragraph.displayName = "Paragraph";
+Caption.displayName = "Caption";
 
-export { Paragraph };
+export { Caption };
 
-export default Paragraph;
+export default Caption;

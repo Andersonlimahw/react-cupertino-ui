@@ -4,6 +4,7 @@ import viteLogo from "/vite.svg";
 import "./App.css";
 import { Button } from "@/components/ui/Button";
 import Title from "./components/ui/Title";
+import Caption from "./components/ui/Caption";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -29,6 +30,10 @@ function App() {
         </Button>
         <Title variant="heading">Title</Title>
         <Title variant="heading3">Title</Title>
+        <Caption variant="default">Caption default</Caption>
+        <Caption variant="secondary" size="lg">
+          Caption secondary
+        </Caption>
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>

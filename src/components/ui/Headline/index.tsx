@@ -20,7 +20,13 @@ const Headline: React.FC<HeadlineProps> = ({
   const Comp = asChild ? Slot : "h4";
   return (
     <Comp
-      className={cn(BaseVariants({ variant, size, className }))}
+      className={cn(
+        BaseVariants("react-cupertino-ui-headline ", {
+          variant,
+          size,
+          className,
+        })
+      )}
       {...props}
     />
   );

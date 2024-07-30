@@ -4,22 +4,24 @@
   flex-wrap: wrap;
   flex-direction: column;
 
-  * {
-    margin: 8px;
-    flex: 1;
-  }
-  * {
-    flex-direction: column;
-    flex-wrap: wrap;
-    border: 1px solid #fff;
-  }
-
   .card-sample {
-    display: block;
-    flex-direction: row;
-    margin-top: 30vh;
-    width: 100%;
+    display: flex;
+    felx-wrap: nowrap;
+    flex-direction: column;
+    width: 100vw;
     padding: 8px;
     height: 100vh;
+    margin: 30vh auto;
+    gap: 4;
+
+    .react-cupertino-ui-card {
+      margin: 8px;
+      width: 80%;
+
+      .variant-secondary {
+        border-radius: 2rem;
+        box-shadow: 1px 2px 3px 1px var(--color-blue);
+      }
+    }
   }
 }

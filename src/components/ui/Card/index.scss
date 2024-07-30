@@ -1,8 +1,10 @@
 .react-cupertino-ui-card {
-  display: inline-flex;
+  display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   white-space: nowrap;
+  border: 1px solid #e5e5e5;
 
   &:focus-visible,
   &:focus {
@@ -17,40 +19,30 @@
   }
 
   &.variant-default {
-  }
-
-  &.variant-destructive {
-  }
-
-  &.variant-outline {
+    border-radius: 1.25rem;
+    box-shadow:
+      0 2px 4px rgba(0, 0, 0, 0.2),
+      0 4px 8px rgba(0, 0, 0, 0.1);
   }
 
   &.variant-secondary {
-  }
-
-  &.variant-ghost {
-  }
-
-  &.variant-link {
+    border-radius: 2rem;
+    box-shadow: 1px 2px 3px 1px var(--color-blue);
   }
 
   &.size-default {
-    height: 2.5rem;
     padding: 0.5rem 1rem;
   }
 
   &.size-sm {
-    height: 2.25rem;
     padding: 0.75rem;
   }
 
   &.size-lg {
-    height: 2.75rem;
     padding: 0.5rem 2rem;
   }
 
   &.size-icon {
-    height: 2.5rem;
-    width: 2.5rem;
+    padding: 0.5rem 2rem;
   }
 }

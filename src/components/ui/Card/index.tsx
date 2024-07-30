@@ -20,6 +20,7 @@ const CardHeader = React.forwardRef<
     {...props}
   />
 ));
+
 CardHeader.displayName = "CardHeader";
 
 const CardTitle = React.forwardRef<
@@ -68,24 +69,21 @@ const CardFooter = React.forwardRef<
   />
 ));
 CardFooter.displayName = "CardFooter";
-
-const Card: React.FC<CardProps> = ({
-  className,
-  variant,
-  size,
-  asChild = false,
-  ...props
-}: CardProps) => {
+const Card = React.forwardRef<
+  HTMLDivElement,
+  CardProps & React.HTMLAttributes<HTMLDivElement>
+>(({ className, variant, size, asChild = false, ...props }: CardProps, ref) => {
   const Comp = asChild ? Slot : "div";
   return (
     <Comp
+      ref={ref}
       className={cn(
         BaseVariants("react-cupertino-ui-card", { variant, size, className })
       )}
       {...props}
     />
   );
-};
+});
 Card.displayName = "Card";
 
 export {

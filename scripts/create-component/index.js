@@ -81,6 +81,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
 
 import ${componentName} from '@/components/ui/${componentName}';
+import "../../../../dist/output.css";
 
 const meta = {
   title: 'Components/${componentName}',

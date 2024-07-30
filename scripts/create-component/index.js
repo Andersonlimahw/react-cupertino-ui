@@ -35,7 +35,69 @@ program
     fs.ensureDirSync(componentDir);
 
     // Create styles file
-    const stylesTemplate = `.react-cupertino-ui-${componentName.toLowerCase()} {}`;
+    const stylesTemplate = `.react-cupertino-ui-${componentName.toLowerCase()} {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        white-space: nowrap;
+        
+
+        &:focus-visible,
+        &:focus {
+          outline: none;
+          outline-color: transparent;
+          outline-offset: 2px;
+        }
+
+        &:disabled {
+          pointer-events: none;
+          opacity: 0.5;
+        }
+
+        &.variant-default {
+          
+        }
+
+        &.variant-destructive {
+          
+        }
+
+        &.variant-outline {
+          
+        }
+
+        &.variant-secondary {
+        
+        }
+
+        &.variant-ghost {
+        
+        }
+
+        &.variant-link {
+          
+        }
+
+        &.size-default {
+          height: 2.5rem;
+          padding: 0.5rem 1rem;
+        }
+
+        &.size-sm {
+          height: 2.25rem;
+          padding: 0.75rem;
+        }
+
+        &.size-lg {
+          height: 2.75rem;
+          padding: 0.5rem 2rem;
+        }
+
+        &.size-icon {
+          height: 2.5rem;
+          width: 2.5rem;
+        }
+    }`;
     fs.writeFileSync(stylesFile, stylesTemplate.trim());
 
     // Create component file
@@ -134,7 +196,17 @@ describe("${componentName} Component", () => {
       </${componentName}>
     );
     const element = screen.getByText(/Delete/i);
-    expect(element).toHaveClass("bg-destructive");
+    expect(element).toHaveClass("variant-destructive");
+  });
+
+  it("applies the correct size class", () => {
+    render(
+      <${componentName} variant="destructive" size="lg" onClick={() => {}}>
+        Delete
+      </${componentName}>
+    );
+    const element = screen.getByText(/Delete/i);
+    expect(element).toHaveClass("size-lg");
   });
 });
     `;

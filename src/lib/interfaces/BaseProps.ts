@@ -14,7 +14,7 @@ export interface BaseProps {
   onClick?: () => void;
   children?: React.ReactNode | React.ReactNode[];
 }
-export const BaseVariants = (wrapperName: string, ...restProps: any) =>
+export const BaseVariants = (wrapperName: string, { ...restProps }) =>
   cva(wrapperName, {
     ...restProps,
     variants: {
@@ -25,16 +25,18 @@ export const BaseVariants = (wrapperName: string, ...restProps: any) =>
         secondary: "variant-secondary",
         ghost: "variant-ghost",
         link: "variant-link",
+        ...restProps.variant,
       },
       size: {
         default: "size-default",
         sm: "size-sm",
         lg: "size-lg",
         icon: "size-icon",
+        ...restProps.size,
       },
     },
     defaultVariants: {
       variant: "default",
       size: "default",
     },
-  })();
+  })(restProps);

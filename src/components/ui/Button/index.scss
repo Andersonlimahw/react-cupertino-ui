@@ -64,6 +64,8 @@
   }
 
   &.variant-ghost {
+    background-color: transparent;
+    color: var(--color-blue);
     &:hover {
       background-color: var(--accent);
       color: var(--accent-foreground);

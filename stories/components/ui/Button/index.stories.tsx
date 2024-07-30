@@ -64,7 +64,7 @@ Outline.args = {
 export const Secondary = Template.bind({});
 Secondary.args = {
   variant: "secondary",
-  size: "default",
+  size: "lg",
 };
 
 export const Ghost = Template.bind({});

@@ -35,7 +35,8 @@ program
     fs.ensureDirSync(componentDir);
 
     // Create styles file
-    const stylesTemplate = `.react-cupertino-ui-${componentName.toLowerCase()} {
+    const wrapperName = `react-cupertino-ui-${componentName.toLowerCase()}`;
+    const stylesTemplate = `.${wrapperName} {
         display: inline-flex;
         align-items: center;
         justify-content: center;
@@ -120,7 +121,7 @@ const ${componentName} : React.FC<${componentName}Props> = (
     const Comp = asChild ? Slot : "${componentName}";
     return (
       <Comp
-        className={cn(BaseVariants({ variant, size, className }))}
+        className={cn(BaseVariants("${wrapperName}", { variant, size, className }))}
         {...props}
       />
     );

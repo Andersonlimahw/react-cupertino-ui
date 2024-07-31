@@ -2,43 +2,42 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { fn } from "@storybook/test";
 
 import {
-  Dialog,
-  DialogClose,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
 } from "@/components/ui/Dialog";
 import "../../../../dist/output.css";
-import { Button } from "@/components/ui/Button";
 
-export function DialogSample() {
+export function AlertDialogSample() {
   return (
-    <Dialog>
-      <DialogTrigger asChild>Open</DialogTrigger>
-      <DialogContent className="sm:max-w-md w-full h-full">
-        <DialogHeader>
-          <DialogTitle>Are you absolutely sure?</DialogTitle>
-          <DialogDescription>
+    <AlertDialog>
+      <AlertDialogTrigger>Open</AlertDialogTrigger>
+      <AlertDialogContent>
+        <AlertDialogHeader>
+          <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+          <AlertDialogDescription>
             This action cannot be undone. This will permanently delete your
             account and remove your data from our servers.
-          </DialogDescription>
-        </DialogHeader>
-        <DialogFooter className="sm:justify-start flex items-center space-x-2">
-          <DialogClose asChild>
-            <Button variant="outline">Close</Button>
-          </DialogClose>
-        </DialogFooter>
-      </DialogContent>
-    </Dialog>
+          </AlertDialogDescription>
+        </AlertDialogHeader>
+        <AlertDialogFooter>
+          <AlertDialogCancel>Cancel</AlertDialogCancel>
+          <AlertDialogAction>Continue</AlertDialogAction>
+        </AlertDialogFooter>
+      </AlertDialogContent>
+    </AlertDialog>
   );
 }
 
 const meta = {
   title: "Components/Dialog",
-  component: DialogSample,
+  component: AlertDialogSample,
   tags: ["autodocs"],
   parameters: {
     layout: "centered",
@@ -46,7 +45,7 @@ const meta = {
   args: {
     // Define default args here
   },
-} satisfies Meta<typeof Dialog>;
+} satisfies Meta<typeof AlertDialogSample>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

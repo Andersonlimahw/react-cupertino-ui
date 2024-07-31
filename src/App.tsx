@@ -13,37 +13,35 @@ import {
   CardFooter,
 } from "./components/ui/Card";
 import {
-  Dialog,
-  DialogTrigger,
-  DialogHeader,
-  DialogContent,
-  DialogTitle,
-  DialogDescription,
-  DialogClose,
-  DialogFooter,
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
 } from "./components/ui/Dialog";
-import { Copy } from "lucide-react";
-import Title from "./components/ui/Title";
 
-export function DialogSample() {
+export function AlertDialogSample() {
   return (
-    <Dialog>
-      <DialogTrigger asChild>Open</DialogTrigger>
-      <DialogContent className="sm:max-w-md w-full h-full">
-        <DialogHeader>
-          <DialogTitle>Are you absolutely sure?</DialogTitle>
-          <DialogDescription>
+    <AlertDialog open>
+      <AlertDialogTrigger>Open</AlertDialogTrigger>
+      <AlertDialogContent>
+        <AlertDialogHeader>
+          <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+          <AlertDialogDescription>
             This action cannot be undone. This will permanently delete your
             account and remove your data from our servers.
-          </DialogDescription>
-        </DialogHeader>
-        <DialogFooter className="sm:justify-start flex items-center space-x-2">
-          <DialogClose asChild>
-            <Button variant="outline">Close</Button>
-          </DialogClose>
-        </DialogFooter>
-      </DialogContent>
-    </Dialog>
+          </AlertDialogDescription>
+        </AlertDialogHeader>
+        <AlertDialogFooter>
+          <AlertDialogCancel>Cancel</AlertDialogCancel>
+          <AlertDialogAction>Continue</AlertDialogAction>
+        </AlertDialogFooter>
+      </AlertDialogContent>
+    </AlertDialog>
   );
 }
 
@@ -100,7 +98,7 @@ function App() {
       </div>
 
       <div className="dialog-sample">
-        <DialogSample />
+        <AlertDialogSample />
       </div>
     </div>
   );

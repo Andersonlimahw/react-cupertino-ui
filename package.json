@@ -15,6 +15,7 @@
     "tailwind:watch": "tailwindcss -i ./app/globals.css -o ./dist/output.css --watch"
   },
   "dependencies": {
+    "@radix-ui/react-alert-dialog": "^1.1.1",
     "@radix-ui/react-dialog": "^1.1.1",
     "@radix-ui/react-slot": "^1.1.0",
     "class-variance-authority": "^0.7.0",

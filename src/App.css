@@ -5,7 +5,7 @@
   flex-direction: column;
 
   .card-sample {
-    display: flex;
+    display: none;
     felx-wrap: nowrap;
     flex-direction: column;
     width: 100vw;
@@ -23,5 +23,16 @@
         box-shadow: 1px 2px 3px 1px var(--color-blue);
       }
     }
+  }
+
+  .dialog-sample {
+    /* display: inline-flex;
+
+    > div,
+    * {
+      margin: 8px;
+      display: inline-flex;
+      flex-direction: column;
+    } */
   }
 }

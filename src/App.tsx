@@ -1,16 +1,51 @@
 import { useState } from "react";
 import "./App.css";
+import "../dist/output.css";
 
 import { Button } from "@/components/ui/Button";
-import Title from "./components/ui/Title";
-import Caption from "./components/ui/Caption";
-import Card, {
+
+import {
+  Card,
   CardHeader,
   CardTitle,
   CardDescription,
   CardContent,
   CardFooter,
 } from "./components/ui/Card";
+import {
+  Dialog,
+  DialogTrigger,
+  DialogHeader,
+  DialogContent,
+  DialogTitle,
+  DialogDescription,
+  DialogClose,
+  DialogFooter,
+} from "./components/ui/Dialog";
+import { Copy } from "lucide-react";
+import Title from "./components/ui/Title";
+
+export function DialogSample() {
+  return (
+    <Dialog>
+      <DialogTrigger asChild>Open</DialogTrigger>
+      <DialogContent className="sm:max-w-md w-full h-full">
+        <DialogHeader>
+          <DialogTitle>Are you absolutely sure?</DialogTitle>
+          <DialogDescription>
+            This action cannot be undone. This will permanently delete your
+            account and remove your data from our servers.
+          </DialogDescription>
+        </DialogHeader>
+        <DialogFooter className="sm:justify-start flex items-center space-x-2">
+          <DialogClose asChild>
+            <Button variant="outline">Close</Button>
+          </DialogClose>
+        </DialogFooter>
+      </DialogContent>
+    </Dialog>
+  );
+}
 
 function App() {
   const [count, setCount] = useState(0);
@@ -62,6 +97,10 @@ function App() {
             </CardFooter>
           </Card>
         ))}
+      </div>
+
+      <div className="dialog-sample">
+        <DialogSample />
       </div>
     </div>
   );

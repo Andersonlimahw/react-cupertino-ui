@@ -1,35 +1,44 @@
 .react-cupertino-ui-dialog {
-  width: 100vw;
-  height: 100vh;
-  // &:focus-visible,
-  // &:focus {
-  //   outline: none;
-  //   outline-color: transparent;
-  //   outline-offset: 2px;
-  // }
+  &--content {
+    padding: 1.5rem 0 1.5rem 0;
+    border-radius: 2rem;
+    background-color: var(--color-light-gray);
+    border-color: var(--color-light-gray);
+    color: var(--color-text);
+  }
 
-  // &:disabled {
-  //   pointer-events: none;
-  //   opacity: 0.5;
-  // }
+  &--header {
+    font-weight: 700;
+    line-height: normal;
+    font-size-adjust: calc(1rem + 0.5vw);
+    text-align: center;
+  }
 
-  // &.variant-default {
-  // }
+  &--description {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    font-weight: 400;
+    color: var(--muted-foreground);
+  }
 
-  // &.variant-destructive {
-  // }
+  &--footer {
+    display: flex;
+    justify-content: space-between;
+    border-top: 0.8px solid #808080;
+    border-radius: 0 0 2rem 2rem;
+    color: var(--color-blue);
 
-  // &.variant-outline {
-  // }
-
-  // &.variant-secondary {
-  // }
-
-  // &.variant-ghost {
-  // }
-
-  // &.variant-link {
-  // }
+    button {
+      padding: 1rem 0 0 0;
+      margin: 0;
+      flex: 1;
+      border-radius: 0 0 2rem 2rem;
+      font-weight: 700;
+    }
+  }
 
   // &.size-default {
   //   height: 2.5rem;

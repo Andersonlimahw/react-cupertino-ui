@@ -1,15 +1,15 @@
 import { render, screen } from "@testing-library/react";
-import { Dialog } from "@/components/ui/Dialog";
+import { AlertDialog } from "@/components/ui/Dialog";
 
 describe("Dialog Component", () => {
   it("renders correctly with default props", () => {
-    render(<Dialog>Click Me</Dialog>);
+    render(<AlertDialog>Click Me</AlertDialog>);
     const element = screen.getByText(/Click Me/i);
     expect(element).toBeInTheDocument();
   });
 
   it("renders correctly with default open props", () => {
-    render(<Dialog open>Click Me</Dialog>);
+    render(<AlertDialog open>Click Me</AlertDialog>);
     const element = screen.getByText(/Click Me/i);
     expect(element).toBeInTheDocument();
   });

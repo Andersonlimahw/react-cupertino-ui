@@ -26,7 +26,7 @@ import {
 
 export function AlertDialogSample() {
   return (
-    <AlertDialog open>
+    <AlertDialog>
       <AlertDialogTrigger>Open</AlertDialogTrigger>
       <AlertDialogContent>
         <AlertDialogHeader>

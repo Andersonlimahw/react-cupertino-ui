@@ -44,6 +44,7 @@
     --color-pink: #ff2d55;
     --color-brown: #a2845e;
     --color-white: #ffffff;
+    --color-light-gray: rgba(179, 179, 179, 0.6);
   }
 
   .dark {
@@ -85,6 +86,7 @@
     --color-pink: #ff2d55;
     --color-brown: #a2845e;
     --color-white: #ffffff;
+    --color-light-gray: rgba(179, 179, 179, 0.6);
   }
 }
 

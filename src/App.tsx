@@ -23,6 +23,7 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "./components/ui/Dialog";
+import Switcher from "./components/ui/Switcher";
 
 export function AlertDialogSample() {
   return (
@@ -99,6 +100,10 @@ function App() {
 
       <div className="dialog-sample">
         <AlertDialogSample />
+      </div>
+
+      <div className="switcher-sample">
+        <Switcher />
       </div>
     </div>
   );

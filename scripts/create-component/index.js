@@ -154,7 +154,28 @@ const meta = {
     layout: 'centered',
   },
   args: {
-    // Define default args here
+    children: "Sample",
+  },
+  argTypes: {
+    variant: {
+      control: {
+        type: "select",
+        options: [
+          "default",
+          "destructive",
+          "outline",
+          "secondary",
+          "ghost",
+          "link",
+        ],
+      },
+    },
+    size: {
+      control: {
+        type: "select",
+        options: ["default", "sm", "lg", "icon"],
+      },
+    },
   },
 } satisfies Meta<typeof ${componentName}>;
 

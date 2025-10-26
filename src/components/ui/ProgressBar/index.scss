@@ -1,0 +1,129 @@
+@keyframes progress-shimmer {
+  0% {
+    background-position: -100% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.react-cupertino-ui-progressbar-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.react-cupertino-ui-progressbar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.react-cupertino-ui-progressbar-label {
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: hsl(var(--foreground));
+}
+
+.react-cupertino-ui-progressbar-value {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: hsl(var(--muted-foreground));
+}
+
+.react-cupertino-ui-progressbar {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background-color: hsl(var(--muted));
+  border-radius: 0.5rem;
+
+  // Sizes
+  &.size-default {
+    height: 0.5rem;
+  }
+
+  &.size-sm {
+    height: 0.375rem;
+  }
+
+  &.size-lg {
+    height: 0.75rem;
+  }
+}
+
+.react-cupertino-ui-progressbar-fill {
+  height: 100%;
+  border-radius: inherit;
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  // Variants
+  .react-cupertino-ui-progressbar.variant-default & {
+    background-color: var(--blue);
+  }
+
+  .react-cupertino-ui-progressbar.variant-success & {
+    background-color: var(--green);
+  }
+
+  .react-cupertino-ui-progressbar.variant-warning & {
+    background-color: var(--yellow);
+  }
+
+  .react-cupertino-ui-progressbar.variant-error & {
+    background-color: var(--pink);
+  }
+
+  // Animated shimmer effect
+  &.animated {
+    background-image: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.3),
+      transparent
+    );
+    background-size: 200% 100%;
+    animation: progress-shimmer 1.5s infinite;
+
+    .react-cupertino-ui-progressbar.variant-default & {
+      background-color: var(--blue);
+      background-image: linear-gradient(
+        90deg,
+        var(--blue),
+        var(--cyan),
+        var(--blue)
+      );
+    }
+
+    .react-cupertino-ui-progressbar.variant-success & {
+      background-color: var(--green);
+      background-image: linear-gradient(
+        90deg,
+        var(--green),
+        var(--mint),
+        var(--green)
+      );
+    }
+
+    .react-cupertino-ui-progressbar.variant-warning & {
+      background-color: var(--yellow);
+      background-image: linear-gradient(
+        90deg,
+        var(--yellow),
+        var(--orange),
+        var(--yellow)
+      );
+    }
+
+    .react-cupertino-ui-progressbar.variant-error & {
+      background-color: var(--pink);
+      background-image: linear-gradient(
+        90deg,
+        var(--pink),
+        var(--purple),
+        var(--pink)
+      );
+    }
+  }
+}

@@ -28,3 +28,8 @@ export default {
 - Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
 - Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
 - Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+
+
+### Figma : comunity
+
+[Figma](https://www.figma.com/design/zQYMfB155AJ98y4eK7AJUx/iOS-26-Interface-Builder--Quick-Start-Your-iOS-Project--Community-?node-id=15-0&p=f&t=iE1t3XBAhtmtbS0u-0)

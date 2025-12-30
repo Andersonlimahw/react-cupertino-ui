@@ -45,6 +45,23 @@
     --color-brown: #a2845e;
     --color-white: #ffffff;
     --color-light-gray: rgba(179, 179, 179, 0.6);
+
+    --glass-blur: 40px;
+    --glass-saturation: 180%;
+    --glass-opacity: 0.7;
+    --glass-opacity-dark: 0.45;
+    --glass-border: rgba(255, 255, 255, 0.18);
+    --glass-border-dark: rgba(255, 255, 255, 0.12);
+    --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+    --glass-refraction: 1.5;
+    --glass-highlight: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.45) 0%,
+      transparent 55%
+    );
+    --glass-highlight-opacity: 0.95;
+    --glass-press-duration: 220ms;
+    --spring-duration: 500ms;
   }
 
   .dark {
@@ -87,6 +104,15 @@
     --color-brown: #a2845e;
     --color-white: #ffffff;
     --color-light-gray: rgba(179, 179, 179, 0.6);
+
+    --glass-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+    --glass-refraction: 1.35;
+    --glass-highlight: linear-gradient(
+      160deg,
+      rgba(255, 255, 255, 0.2) 0%,
+      transparent 70%
+    );
+    --glass-highlight-opacity: 0.8;
   }
 }
 

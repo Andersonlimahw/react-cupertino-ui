@@ -13,6 +13,7 @@ export interface ToastProps {
   onClose?: () => void;
   duration?: number;
   position?: "top-right" | "top-left" | "bottom-right" | "bottom-left" | "top-center" | "bottom-center";
+  glass?: boolean;
 }
 
 const variantIcons = {
@@ -34,6 +35,7 @@ const Toast = React.forwardRef<HTMLDivElement, ToastProps>(
       onClose,
       duration,
       position = "top-right",
+      glass = true,
       ...props
     },
     ref
@@ -73,6 +75,7 @@ const Toast = React.forwardRef<HTMLDivElement, ToastProps>(
           "react-cupertino-ui-toast",
           `variant-${variant}`,
           `position-${position}`,
+          glass && "is-glass",
           {
             "toast-exit": !isVisible,
           },

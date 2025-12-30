@@ -27,8 +27,17 @@
     "paths": {
       "@/*": ["./src/*"],
       "@components/*": ["./src/components/*"],
-      "@components/ui/*": ["./src/components/ui/*"],
-      "@globalstyles": ["./dist/output.css"]
+      "@components/ui/*": [
+        "./src/components/ui/*",
+        "./src/components/atoms/*",
+        "./src/components/molecules/*",
+        "./src/components/organisms/*"
+      ],
+      "@components/atoms/*": ["./src/components/atoms/*"],
+      "@components/molecules/*": ["./src/components/molecules/*"],
+      "@components/organisms/*": ["./src/components/organisms/*"],
+      "@components/templates/*": ["./src/components/templates/*"],
+      "@globalstyles": ["./app/globals.css"]
     }
   },
   "include": ["src", "stories", "tests", "Button"]

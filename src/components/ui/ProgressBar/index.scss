@@ -1,129 +1,95 @@
-@keyframes progress-shimmer {
-  0% {
-    background-position: -100% 0;
-  }
-  100% {
-    background-position: 200% 0;
-  }
-}
-
-.react-cupertino-ui-progressbar-wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  width: 100%;
-}
-
-.react-cupertino-ui-progressbar-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.react-cupertino-ui-progressbar-label {
-  font-size: 0.875rem;
-  font-weight: 400;
-  color: hsl(var(--foreground));
-}
-
-.react-cupertino-ui-progressbar-value {
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: hsl(var(--muted-foreground));
-}
+@use "@/styles/mixins/glass" as glass;
 
 .react-cupertino-ui-progressbar {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-  background-color: hsl(var(--muted));
-  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
 
-  // Sizes
-  &.size-default {
-    height: 0.5rem;
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 
-  &.size-sm {
-    height: 0.375rem;
+  &__label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: hsl(var(--foreground));
   }
 
-  &.size-lg {
-    height: 0.75rem;
+  &__value {
+    font-size: 0.8rem;
+    color: var(--color-blue);
+    padding: 0.1rem 0.5rem;
+    border-radius: 999px;
+    background: rgba(0, 122, 255, 0.12);
+  }
+
+  &__track {
+    position: relative;
+    width: 100%;
+    border-radius: 999px;
+    height: 0.45rem;
+    overflow: hidden;
+    @include glass.glass-panel(light, 30px, 0.55);
+  }
+
+  &__fill {
+    height: 100%;
+    border-radius: inherit;
+    background: linear-gradient(120deg, rgba(10, 132, 255, 0.95), rgba(90, 200, 250, 0.95));
+    box-shadow: 0 8px 25px rgba(10, 132, 255, 0.25);
+    transition: width 200ms ease;
+
+    &.animated {
+      background-image: linear-gradient(
+        120deg,
+        rgba(10, 132, 255, 0.95),
+        rgba(250, 250, 250, 0.8),
+        rgba(10, 132, 255, 0.95)
+      );
+      animation: progress-flow 1.2s infinite;
+    }
+  }
+
+  &__message {
+    font-size: 0.78rem;
+    color: hsl(var(--muted-foreground));
+
+    &.is-error {
+      color: var(--pink);
+    }
+  }
+
+  &.variant-success &__fill {
+    background: linear-gradient(120deg, rgba(52, 199, 89, 0.95), rgba(0, 199, 190, 0.95));
+    box-shadow: 0 8px 25px rgba(52, 199, 89, 0.25);
+  }
+
+  &.variant-warning &__fill {
+    background: linear-gradient(120deg, rgba(255, 204, 0, 0.95), rgba(255, 149, 0, 0.95));
+    box-shadow: 0 8px 25px rgba(255, 204, 0, 0.25);
+  }
+
+  &.variant-error &__fill {
+    background: linear-gradient(120deg, rgba(255, 59, 48, 0.95), rgba(255, 99, 71, 0.95));
+    box-shadow: 0 8px 25px rgba(255, 59, 48, 0.25);
+  }
+
+  &.size-sm &__track {
+    height: 0.3rem;
+  }
+
+  &.size-lg &__track {
+    height: 0.6rem;
   }
 }
 
-.react-cupertino-ui-progressbar-fill {
-  height: 100%;
-  border-radius: inherit;
-  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-
-  // Variants
-  .react-cupertino-ui-progressbar.variant-default & {
-    background-color: var(--blue);
+@keyframes progress-flow {
+  from {
+    background-position: 0% 50%;
   }
-
-  .react-cupertino-ui-progressbar.variant-success & {
-    background-color: var(--green);
-  }
-
-  .react-cupertino-ui-progressbar.variant-warning & {
-    background-color: var(--yellow);
-  }
-
-  .react-cupertino-ui-progressbar.variant-error & {
-    background-color: var(--pink);
-  }
-
-  // Animated shimmer effect
-  &.animated {
-    background-image: linear-gradient(
-      90deg,
-      transparent,
-      rgba(255, 255, 255, 0.3),
-      transparent
-    );
-    background-size: 200% 100%;
-    animation: progress-shimmer 1.5s infinite;
-
-    .react-cupertino-ui-progressbar.variant-default & {
-      background-color: var(--blue);
-      background-image: linear-gradient(
-        90deg,
-        var(--blue),
-        var(--cyan),
-        var(--blue)
-      );
-    }
-
-    .react-cupertino-ui-progressbar.variant-success & {
-      background-color: var(--green);
-      background-image: linear-gradient(
-        90deg,
-        var(--green),
-        var(--mint),
-        var(--green)
-      );
-    }
-
-    .react-cupertino-ui-progressbar.variant-warning & {
-      background-color: var(--yellow);
-      background-image: linear-gradient(
-        90deg,
-        var(--yellow),
-        var(--orange),
-        var(--yellow)
-      );
-    }
-
-    .react-cupertino-ui-progressbar.variant-error & {
-      background-color: var(--pink);
-      background-image: linear-gradient(
-        90deg,
-        var(--pink),
-        var(--purple),
-        var(--pink)
-      );
-    }
+  to {
+    background-position: 200% 50%;
   }
 }

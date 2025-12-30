@@ -13,12 +13,14 @@ export interface SegmentOption {
 export interface SegmentedControlProps {
   className?: string;
   size?: "default" | "sm" | "lg";
+  variant?: "glass" | "solid" | "outline";
   options: SegmentOption[];
   value?: string;
   defaultValue?: string;
   onChange?: (value: string) => void;
   fullWidth?: boolean;
   disabled?: boolean;
+  ariaLabel?: string;
 }
 
 const SegmentedControl = React.forwardRef<HTMLDivElement, SegmentedControlProps>(
@@ -26,29 +28,51 @@ const SegmentedControl = React.forwardRef<HTMLDivElement, SegmentedControlProps>
     {
       className,
       size = "default",
+      variant = "glass",
       options,
       value,
       defaultValue,
       onChange,
       fullWidth = false,
       disabled = false,
+      ariaLabel,
     },
     ref
   ) => {
-    const [selectedValue, setSelectedValue] = React.useState<string>(
-      value || defaultValue || options[0]?.value || ""
-    );
+    const initialValue = () => value ?? defaultValue ?? options[0]?.value ?? "";
+    const [selectedValue, setSelectedValue] = React.useState<string>(initialValue);
+    const isControlled = value !== undefined;
+    const currentValue = isControlled ? (value as string) : selectedValue;
 
-    const currentValue = value !== undefined ? value : selectedValue;
+    React.useEffect(() => {
+      if (!isControlled) {
+        const exists = options.some((option) => option.value === selectedValue);
+        if (!exists && options[0]) {
+          setSelectedValue(options[0].value);
+        }
+      }
+    }, [options, isControlled, selectedValue]);
 
     const handleSelect = (optionValue: string, optionDisabled?: boolean) => {
-      if (disabled || optionDisabled) return;
+      if (disabled || optionDisabled || optionValue === currentValue) {
+        return;
+      }
 
-      setSelectedValue(optionValue);
+      if (!isControlled) {
+        setSelectedValue(optionValue);
+      }
       onChange?.(optionValue);
     };
 
-    const selectedIndex = options.findIndex((opt) => opt.value === currentValue);
+    if (!options.length) {
+      return null;
+    }
+
+    const selectedIndex = Math.max(
+      options.findIndex((opt) => opt.value === currentValue),
+      0
+    );
+    const indicatorWidth = 100 / options.length;
 
     return (
       <div
@@ -56,19 +80,21 @@ const SegmentedControl = React.forwardRef<HTMLDivElement, SegmentedControlProps>
         className={cn(
           "react-cupertino-ui-segmented-control",
           `size-${size}`,
+          `variant-${variant}`,
           {
-            "full-width": fullWidth,
-            disabled: disabled,
+            "is-full-width": fullWidth,
           },
           className
         )}
+        data-disabled={disabled ? "true" : undefined}
         role="tablist"
+        aria-label={ariaLabel}
       >
         <div
-          className="react-cupertino-ui-segmented-control-indicator"
+          className="react-cupertino-ui-segmented-control__indicator"
           style={{
-            transform: `translateX(${selectedIndex * 100}%)`,
-            width: `${100 / options.length}%`,
+            width: `${indicatorWidth}%`,
+            transform: `translateX(${selectedIndex * indicatorWidth}%)`,
           }}
         />
         {options.map((option) => (
@@ -77,19 +103,20 @@ const SegmentedControl = React.forwardRef<HTMLDivElement, SegmentedControlProps>
             type="button"
             role="tab"
             aria-selected={option.value === currentValue}
+            aria-pressed={option.value === currentValue}
             disabled={disabled || option.disabled}
-            className={cn("react-cupertino-ui-segmented-control-option", {
-              active: option.value === currentValue,
-              disabled: option.disabled,
+            className={cn("react-cupertino-ui-segmented-control__option", {
+              "is-active": option.value === currentValue,
+              "is-disabled": option.disabled,
             })}
             onClick={() => handleSelect(option.value, option.disabled)}
           >
             {option.icon && (
-              <span className="react-cupertino-ui-segmented-control-icon">
+              <span className="react-cupertino-ui-segmented-control__icon">
                 {option.icon}
               </span>
             )}
-            <span className="react-cupertino-ui-segmented-control-label">
+            <span className="react-cupertino-ui-segmented-control__label">
               {option.label}
             </span>
           </button>

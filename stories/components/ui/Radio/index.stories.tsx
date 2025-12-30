@@ -1,23 +1,29 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { useState } from 'react';
+import type { Meta, StoryObj } from "@storybook/react";
 
-import Radio from '@/components/ui/Radio';
-import "../../../../dist/output.css";
+import Radio from "@/components/ui/Radio";
+import "@globalstyles";
 
 const meta = {
-  title: 'Components/Radio',
+  title: "Components/Radio",
   component: Radio,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   parameters: {
-    layout: 'centered',
+    layout: "centered",
   },
   argTypes: {
     size: {
-      control: {
-        type: "select",
-        options: ["default", "sm", "lg"],
-      },
+      control: { type: "select" },
+      options: ["sm", "default", "lg"],
     },
+    variant: {
+      control: { type: "select" },
+      options: ["glass", "solid", "outline"],
+    },
+  },
+  args: {
+    name: "radio-story",
+    label: "Option",
+    helperText: "Subtitle",
   },
 } satisfies Meta<typeof Radio>;
 
@@ -26,101 +32,38 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    label: "Option 1",
-    name: "radio-group",
+    label: "Default",
   },
 };
 
 export const Checked: Story = {
   args: {
-    label: "This is selected",
-    name: "radio-group",
     defaultChecked: true,
+    label: "Selected",
+    helperText: "Currently active",
   },
 };
 
-export const WithoutLabel: Story = {
+export const Error: Story = {
   args: {
-    name: "radio-group",
-  },
-};
-
-export const Small: Story = {
-  args: {
-    size: "sm",
-    label: "Small radio",
-    name: "radio-group",
-  },
-};
-
-export const Large: Story = {
-  args: {
-    size: "lg",
-    label: "Large radio",
-    name: "radio-group",
+    label: "Option",
+    error: "Pick one",
   },
 };
 
 export const Disabled: Story = {
   args: {
-    label: "Disabled option",
-    name: "radio-group",
+    label: "Unavailable",
     disabled: true,
   },
 };
 
-export const DisabledChecked: Story = {
-  args: {
-    label: "Disabled and selected",
-    name: "radio-group",
-    disabled: true,
-    defaultChecked: true,
-  },
-};
-
-export const WithError: Story = {
-  args: {
-    label: "This option has an error",
-    name: "radio-group",
-    error: "Please select a valid option",
-  },
-};
-
-export const RadioGroup: Story = {
-  render: () => {
-    const [selected, setSelected] = useState('option1');
-
-    return (
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-        <Radio
-          name="demo-group"
-          label="Option 1"
-          value="option1"
-          checked={selected === 'option1'}
-          onChange={(e) => setSelected(e.target.value)}
-        />
-        <Radio
-          name="demo-group"
-          label="Option 2"
-          value="option2"
-          checked={selected === 'option2'}
-          onChange={(e) => setSelected(e.target.value)}
-        />
-        <Radio
-          name="demo-group"
-          label="Option 3"
-          value="option3"
-          checked={selected === 'option3'}
-          onChange={(e) => setSelected(e.target.value)}
-        />
-        <Radio
-          name="demo-group"
-          label="Option 4 (disabled)"
-          value="option4"
-          disabled
-          checked={selected === 'option4'}
-        />
-      </div>
-    );
-  },
+export const Sizes: Story = {
+  render: () => (
+    <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+      <Radio size="sm" name="sizes" label="Small" helperText="sm" />
+      <Radio size="default" name="sizes" label="Default" helperText="default" />
+      <Radio size="lg" name="sizes" label="Large" helperText="lg" />
+    </div>
+  ),
 };

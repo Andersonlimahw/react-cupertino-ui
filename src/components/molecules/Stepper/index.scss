@@ -1,0 +1,51 @@
+@use "@/styles/mixins/glass" as glass;
+
+.react-cupertino-ui-stepper {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 0.35rem;
+
+  &__label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: hsl(var(--foreground));
+  }
+
+  &__control {
+    display: inline-flex;
+    align-items: center;
+    background: transparent;
+    border-radius: 999px;
+    padding: 0.2rem;
+    gap: 0.25rem;
+    @include glass.glass-panel(light, 28px, 0.6);
+  }
+
+  &__button {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255, 255, 255, 0.9);
+    color: #0a0a0a;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: transform 120ms ease;
+
+    &:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+  }
+
+  &__input {
+    width: 3rem;
+    border: none;
+    text-align: center;
+    background: transparent;
+    font-weight: 600;
+    font-size: 1rem;
+    color: hsl(var(--foreground));
+    appearance: textfield;
+  }
+}

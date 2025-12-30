@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Grid, List, LayoutGrid } from 'lucide-react';
 
 import SegmentedControl from '@/components/ui/SegmentedControl';
-import "../../../../dist/output.css";
+import "@globalstyles";
 
 const basicOptions = [
   { value: "day", label: "Day" },
@@ -135,6 +135,9 @@ export const FourOptions: Story = {
 };
 
 export const Controlled: Story = {
+  args: {
+    options: basicOptions,
+  },
   render: () => {
     const [value, setValue] = useState("day");
 

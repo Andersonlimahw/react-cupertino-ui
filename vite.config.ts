@@ -5,6 +5,20 @@ import { configDefaults } from "vitest/config";
 
 export default defineConfig({
   plugins: [react()],
+  build: {
+    sourcemap: false,
+    rollupOptions: {
+      onwarn(warning, warn) {
+        if (warning.code === "SOURCEMAP_ERROR") {
+          return;
+        }
+        warn(warning);
+      },
+    },
+  },
+  esbuild: {
+    sourcemap: false,
+  },
   test: {
     globals: true,
     environment: "jsdom",
@@ -14,6 +28,7 @@ export default defineConfig({
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
+      "@globalstyles": path.resolve(__dirname, "./app/globals.css"),
     },
   },
 });

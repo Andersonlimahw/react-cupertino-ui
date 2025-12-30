@@ -1,30 +1,39 @@
 import { render, screen } from "@testing-library/react";
-import { Sidesheet } from "@/components/ui/Sidesheet";
 
-describe("Sidesheet Component", () => {
-  it("renders correctly with default props", () => {
-    render(<Sidesheet onClick={() => {}}>Click Me</Sidesheet>);
-    const element = screen.getByText(/Click Me/i);
-    expect(element).toBeInTheDocument();
+import {
+  Sheet,
+  SheetTrigger,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetDescription,
+} from "@/components/ui/Sidesheet";
+
+describe("Sidesheet", () => {
+  it("renders the trigger button", () => {
+    render(
+      <Sheet>
+        <SheetTrigger>Open Sheet</SheetTrigger>
+      </Sheet>
+    );
+
+    expect(screen.getByText(/Open Sheet/i)).toBeInTheDocument();
   });
 
-  it("applies the correct variant class", () => {
+  it("shows content when opened by default", () => {
     render(
-      <Sidesheet variant="destructive" onClick={() => {}}>
-        Delete
-      </Sidesheet>
+      <Sheet defaultOpen>
+        <SheetTrigger>Open Sheet</SheetTrigger>
+        <SheetContent>
+          <SheetHeader>
+            <SheetTitle>Settings</SheetTitle>
+            <SheetDescription>Manage your preferences</SheetDescription>
+          </SheetHeader>
+        </SheetContent>
+      </Sheet>
     );
-    const element = screen.getByText(/Delete/i);
-    expect(element).toHaveClass("variant-destructive");
-  });
 
-  it("applies the correct size class", () => {
-    render(
-      <Sidesheet variant="destructive" size="lg" onClick={() => {}}>
-        Delete
-      </Sidesheet>
-    );
-    const element = screen.getByText(/Delete/i);
-    expect(element).toHaveClass("size-lg");
+    expect(screen.getByText(/Settings/i)).toBeInTheDocument();
+    expect(screen.getByText(/Manage your preferences/i)).toBeInTheDocument();
   });
 });

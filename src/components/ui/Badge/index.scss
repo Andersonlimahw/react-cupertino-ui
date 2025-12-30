@@ -1,74 +1,75 @@
+@use "@/styles/mixins/glass" as glass;
+
 .react-cupertino-ui-badge {
+  --badge-padding-y: 0.25rem;
+  --badge-padding-x: 0.75rem;
+  --badge-radius: 999px;
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  white-space: nowrap;
-  font-size: 1rem;
-  padding: 0.25rem;
-  border-radius: 1rem 1rem 1rem 0;
-  background-color: var(--color-blue);
-  color: var(--color-white);
-  border: 1px solid var(--color-blue);
-  box-shadow: 0 0 0 1px var(--color-light-gray);
+  gap: 0.35rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  padding: var(--badge-padding-y) var(--badge-padding-x);
+  border-radius: var(--badge-radius);
+  text-transform: uppercase;
+  color: hsl(var(--foreground));
 
-  &:focus-visible,
-  &:focus {
-    outline: none;
-    outline-color: transparent;
-    outline-offset: 2px;
+  &__content {
+    display: inline-flex;
+    align-items: center;
   }
 
-  &:disabled {
-    pointer-events: none;
-    opacity: 0.5;
+  &__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
   }
 
-  &.variant-default {
-    font-size: 1rem;
-    background-color: var(--color-blue);
-    color: var(--color-white);
+  &.variant-glass {
+    @include glass.glass-panel(light, 24px, 0.55);
   }
 
-  &.variant-destructive {
-    background-color: var(--destructive);
-    color: var(--destructive-foreground);
+  &.variant-solid {
+    background: linear-gradient(120deg, rgba(10, 132, 255, 0.95), rgba(90, 200, 250, 0.95));
+    color: #fff;
+    box-shadow: 0 10px 30px rgba(10, 132, 255, 0.3);
   }
 
   &.variant-outline {
-    background-color: transparent;
-    border: 1px solid var(--primary);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.08);
   }
 
-  &.variant-secondary {
-    background-color: var(--secondary);
-    color: var(--secondary-foreground);
+  &.variant-success {
+    background: rgba(52, 199, 89, 0.12);
+    color: rgba(52, 199, 89, 1);
   }
 
-  &.variant-ghost {
-    background-color: transparent;
-    border: 1px solid var(--color-light-gray);
-    color: var(--color-light-gray);
+  &.variant-warning {
+    background: rgba(255, 204, 0, 0.15);
+    color: rgba(255, 204, 0, 1);
   }
 
-  &.size-default {
-    padding: 0.5rem 1rem;
-    font-size: 1rem;
+  &.variant-error {
+    background: rgba(255, 59, 48, 0.12);
+    color: rgba(255, 59, 48, 1);
   }
 
   &.size-sm {
-    padding: 0.75rem;
-    border-radius: 0.75rem 0.75rem 0.75rem 0;
+    --badge-padding-y: 0.2rem;
+    --badge-padding-x: 0.55rem;
+    font-size: 0.75rem;
   }
 
   &.size-lg {
-    padding: 2rem;
-    font-size: 2rem;
-    border-radius: 2rem 2rem 2rem 0;
+    --badge-padding-y: 0.35rem;
+    --badge-padding-x: 0.95rem;
+    font-size: 0.95rem;
   }
 
-  &.size-icon {
-    font-size: 0.75rem;
-    padding: 0.5rem;
-    border-radius: 0.5rem 0.5rem 0.5rem 0;
+  &.size-pill {
+    --badge-radius: 1.5rem;
   }
 }

@@ -6,7 +6,7 @@ import { BaseProps, BaseVariants } from "@/lib/interfaces/BaseProps";
 
 import "./index.scss";
 
-export interface HeadlineProps extends BaseProps {
+export interface HeadlineProps extends BaseProps<HTMLHeadingElement> {
   asChild?: boolean;
 }
 

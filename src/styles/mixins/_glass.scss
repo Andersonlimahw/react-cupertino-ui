@@ -1,0 +1,69 @@
+$glass-default-blur: var(--glass-blur, 40px);
+$glass-default-saturation: var(--glass-saturation, 180%);
+$glass-light-border: var(--glass-border, rgba(255, 255, 255, 0.18));
+$glass-dark-border: var(--glass-border-dark, rgba(255, 255, 255, 0.12));
+$glass-shadow: var(--glass-shadow, 0 8px 32px rgba(0, 0, 0, 0.12));
+$glass-highlight: var(
+  --glass-highlight,
+  linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, transparent 55%)
+);
+
+@mixin glass-panel($mode: light, $blur: $glass-default-blur, $opacity: null) {
+  $surface-opacity: if($opacity == null, null, $opacity);
+  $background: if(
+    $mode == dark,
+    rgba(
+      16,
+      16,
+      16,
+      if($surface-opacity == null, var(--glass-opacity-dark, 0.45), $surface-opacity)
+    ),
+    rgba(
+      255,
+      255,
+      255,
+      if($surface-opacity == null, var(--glass-opacity, 0.7), $surface-opacity)
+    )
+  );
+
+  background: $background;
+  backdrop-filter: blur($blur) saturate($glass-default-saturation);
+  -webkit-backdrop-filter: blur($blur) saturate($glass-default-saturation);
+  border: 1px solid if($mode == dark, $glass-dark-border, $glass-light-border);
+  box-shadow: $glass-shadow;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: $glass-highlight;
+    border-radius: inherit;
+    opacity: var(--glass-highlight-opacity, 0.95);
+    pointer-events: none;
+    mix-blend-mode: screen;
+  }
+}
+
+@mixin glass-border($mode: light) {
+  border: 1px solid if($mode == dark, $glass-dark-border, $glass-light-border);
+  box-shadow: $glass-shadow;
+}
+
+@mixin glass-refraction($angle: 135deg) {
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      $angle,
+      rgba(255, 255, 255, 0.3) 0%,
+      rgba(255, 255, 255, 0.1) 28%,
+      transparent 60%
+    );
+    border-radius: inherit;
+    pointer-events: none;
+    mix-blend-mode: soft-light;
+  }
+}

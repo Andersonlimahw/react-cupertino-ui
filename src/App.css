@@ -6,7 +6,7 @@
 
   .card-sample {
     display: none;
-    felx-wrap: nowrap;
+    flex-wrap: nowrap;
     flex-direction: column;
     width: 100vw;
     padding: 8px;

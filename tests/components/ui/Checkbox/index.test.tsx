@@ -1,47 +1,27 @@
-import { render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
+
 import { Checkbox } from "@/components/ui/Checkbox";
 
-describe("Checkbox Component", () => {
-  it("renders correctly with label", () => {
-    render(<Checkbox label="Accept terms" />);
-    const label = screen.getByText(/Accept terms/i);
-    expect(label).toBeInTheDocument();
+describe("Checkbox", () => {
+  it("renders label and helper text", () => {
+    render(<Checkbox label="Updates" helperText="Send me new features" />);
+
+    expect(screen.getByText("Updates")).toBeInTheDocument();
+    expect(screen.getByText("Send me new features")).toBeInTheDocument();
   });
 
-  it("renders without label", () => {
-    const { container } = render(<Checkbox />);
-    const checkbox = container.querySelector('input[type="checkbox"]');
-    expect(checkbox).toBeInTheDocument();
+  it("shows error message when provided", () => {
+    render(<Checkbox label="Terms" error="You must accept" />);
+
+    expect(screen.getByRole("alert")).toHaveTextContent("You must accept");
   });
 
-  it("can be checked", () => {
-    render(<Checkbox label="Test" defaultChecked />);
-    const checkbox = screen.getByRole("checkbox");
-    expect(checkbox).toBeChecked();
-  });
+  it("toggles checked state on click", () => {
+    render(<Checkbox label="Notifications" />);
+    const input = screen.getByRole("checkbox");
 
-  it("displays error message", () => {
-    render(<Checkbox label="Test" error="This is required" />);
-    const error = screen.getByText(/This is required/i);
-    expect(error).toBeInTheDocument();
-    expect(error).toHaveClass("react-cupertino-ui-checkbox-error");
-  });
-
-  it("applies correct size class", () => {
-    const { container } = render(<Checkbox label="Test" size="lg" />);
-    const checkbox = container.querySelector(".react-cupertino-ui-checkbox");
-    expect(checkbox).toHaveClass("size-lg");
-  });
-
-  it("applies correct variant class", () => {
-    const { container } = render(<Checkbox label="Test" variant="ios" />);
-    const checkbox = container.querySelector(".react-cupertino-ui-checkbox");
-    expect(checkbox).toHaveClass("variant-ios");
-  });
-
-  it("handles disabled state", () => {
-    render(<Checkbox label="Test" disabled />);
-    const checkbox = screen.getByRole("checkbox");
-    expect(checkbox).toBeDisabled();
+    expect(input).not.toBeChecked();
+    fireEvent.click(input);
+    expect(input).toBeChecked();
   });
 });

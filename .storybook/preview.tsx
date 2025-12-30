@@ -8,6 +8,7 @@ import {
   Stories,
 } from "@storybook/blocks";
 import React from "react";
+import "@globalstyles";
 
 const preview: Preview = {
   parameters: {

@@ -83,11 +83,11 @@ interface CardProps {
 ```
 
 **Tarefas:**
-- [ ] Implementar glass effect
-- [ ] Adicionar variantes de blur
-- [ ] Criar animação de hover
-- [ ] Suporte a imagem de fundo com glass overlay
-- [ ] Testes e documentação
+- [x] Implementar glass effect
+- [x] Adicionar variantes de blur
+- [x] Criar animação de hover
+- [x] Suporte a imagem de fundo com glass overlay
+- [x] Testes e documentação
 
 ---
 
@@ -101,10 +101,10 @@ interface CardProps {
 - Botões glass integrados
 
 **Tarefas:**
-- [ ] Atualizar overlay para usar blur
-- [ ] Glass panel no conteúdo
-- [ ] Animações de entrada/saída
-- [ ] Integração com novos botões glass
+- [x] Atualizar overlay para usar blur
+- [x] Glass panel no conteúdo
+- [x] Animações de entrada/saída
+- [x] Integração com novos botões glass
 
 ---
 
@@ -127,10 +127,10 @@ interface CardProps {
 ```
 
 **Tarefas:**
-- [ ] Glass background
-- [ ] Focus ring atualizado
-- [ ] Label flutuante com animação
-- [ ] Estados de erro/sucesso glass
+- [x] Glass background
+- [x] Focus ring atualizado
+- [x] Label flutuante com animação
+- [x] Estados de erro/sucesso glass
 
 ---
 
@@ -149,6 +149,64 @@ interface CardProps {
 | Toast | Alta | Glass panel, blur background |
 | Sidesheet | Alta | Glass panel, overlay blur |
 | SegmentedControl | Alta | Glass container, solid selection |
+
+##### Select (UI)
+- [x] Revamp do trigger com painel Liquid Glass
+- [x] Dropdown customizado com animação de abertura
+- [x] Navegação via teclado e foco acessível
+- [x] Atualização das stories e testes unitários
+
+##### Switcher (UI)
+- [x] Estrutura com suporte a label/descrição
+- [x] Track Liquid Glass + thumb sólido com animação
+- [x] Navegação acessível e Radix iOS-like
+- [x] Stories e testes cobrindo tamanhos/estados
+
+##### Checkbox (UI)
+- [x] Caixa com painel Liquid Glass + variantes solid/outline
+- [x] Check animado e suporte a helper/error
+- [x] Stories cobrindo estados, tamanhos e variantes
+- [x] Testes de renderização e interação
+
+##### Radio (UI)
+- [x] Anel exterior Liquid Glass e ponto sólido animado
+- [x] API com variantes, helper/error e tamanhos
+- [x] Stories cobrindo estados e variantes
+- [x] Testes garantindo interação básica
+
+##### Slider (UI)
+- [x] Trilha Liquid Glass com progresso gradiente
+- [x] Thumb sólido, estados de foco/erro e variantes
+- [x] Stories cobrindo variantes/tamanhos/erros
+- [x] Testes com label, valor e mudança
+
+##### ProgressBar (UI)
+- [x] Trilha Liquid Glass com gradiente animado
+- [x] Mensagens de helper/erro e variantes de estado
+- [x] Stories cobrindo tamanhos, variantes, animação
+- [x] Testes para label, helper e atributos ARIA
+
+##### Badge (UI)
+- [x] Variantes glass/solid/outline/status
+- [x] Suporte a ícones e tamanhos pill
+- [x] Stories cobrindo estados e combinações
+- [x] Testes mínimos para conteúdo/ícones
+
+##### Toast (UI)
+- [x] Container com painel Liquid Glass e variantes de estado
+- [x] Stories mostrando posições, ícones e vidro opcional
+- [x] Testes básicos para conteúdo e fechamento
+
+##### Sidesheet (UI)
+- [x] Overlay com blur e painel Liquid Glass
+- [x] Estrutura Radix mantendo animações existentes
+- [x] Build validado após as alterações
+
+##### SegmentedControl (UI)
+- [x] Container com painel Liquid Glass e indicador animado
+- [x] Variantes glass/solid/outline e tamanhos atualizados
+- [x] Testes com modo controlado e opções desabilitadas
+- [x] Stories já existentes cobrem tamanhos/icones/full width
 
 ---
 
@@ -355,8 +413,8 @@ interface StepperProps {
 ```
 
 **Tarefas:**
-- [ ] Botões +/- glass
-- [ ] Valor central
+- [x] Botões +/- glass
+- [x] Valor central
 - [ ] Long press para incremento rápido
 - [ ] Animação de valor
 

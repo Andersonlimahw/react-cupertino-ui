@@ -1,17 +1,19 @@
 import * as React from "react";
 import { User } from "lucide-react";
+
 import { cn } from "@/lib/utils";
 
 import "./index.scss";
 
 export interface AvatarProps extends React.HTMLAttributes<HTMLDivElement> {
-  className?: string;
   size?: "default" | "sm" | "lg" | "xl";
   src?: string;
   alt?: string;
   fallback?: string;
   icon?: React.ReactNode;
   shape?: "circle" | "rounded" | "square";
+  glow?: boolean;
+  status?: "online" | "offline" | "busy" | "away";
 }
 
 const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>(
@@ -24,17 +26,13 @@ const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>(
       fallback,
       icon,
       shape = "circle",
+      glow = false,
+      status,
       ...props
     },
     ref
   ) => {
     const [imageError, setImageError] = React.useState(false);
-
-    const handleImageError = () => {
-      setImageError(true);
-    };
-
-    const showImage = src && !imageError;
     const initials = fallback
       ? fallback
           .split(" ")
@@ -43,6 +41,7 @@ const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>(
           .toUpperCase()
           .slice(0, 2)
       : "";
+    const showImage = src && !imageError;
 
     return (
       <div
@@ -51,24 +50,28 @@ const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>(
           "react-cupertino-ui-avatar",
           `size-${size}`,
           `shape-${shape}`,
+          glow && "has-glow",
           className
         )}
+        data-status={status}
         {...props}
       >
         {showImage ? (
           <img
             src={src}
             alt={alt}
-            className="react-cupertino-ui-avatar-image"
-            onError={handleImageError}
+            className="react-cupertino-ui-avatar__image"
+            onError={() => setImageError(true)}
           />
-        ) : fallback ? (
-          <span className="react-cupertino-ui-avatar-fallback">{initials}</span>
+        ) : initials ? (
+          <span className="react-cupertino-ui-avatar__fallback">{initials}</span>
         ) : icon ? (
-          <span className="react-cupertino-ui-avatar-icon">{icon}</span>
+          <span className="react-cupertino-ui-avatar__icon">{icon}</span>
         ) : (
-          <User className="react-cupertino-ui-avatar-default-icon" />
+          <User className="react-cupertino-ui-avatar__icon" />
         )}
+
+        {status && <span className="react-cupertino-ui-avatar__status" aria-hidden="true" />}
       </div>
     );
   }

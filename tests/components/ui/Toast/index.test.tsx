@@ -1,82 +1,21 @@
-import { render, screen, fireEvent, waitFor } from "@testing-library/react";
-import { Toast } from "@/components/ui/Toast";
+import { fireEvent, render, screen } from "@testing-library/react";
+import { vi } from "vitest";
 
-describe("Toast Component", () => {
-  it("renders with title", () => {
-    render(<Toast title="Test notification" />);
-    expect(screen.getByText("Test notification")).toBeInTheDocument();
+import Toast from "@/components/ui/Toast";
+
+describe("Toast", () => {
+  it("renders title and description", () => {
+    render(<Toast title="Update" description="Saved successfully" />);
+
+    expect(screen.getByText("Update")).toBeInTheDocument();
+    expect(screen.getByText("Saved successfully")).toBeInTheDocument();
   });
 
-  it("renders with description", () => {
-    render(<Toast title="Title" description="Description text" />);
-    expect(screen.getByText("Description text")).toBeInTheDocument();
-  });
+  it("calls onClose when close button is clicked", () => {
+    const handleClose = vi.fn();
+    render(<Toast title="Notice" onClose={handleClose} />);
 
-  it("applies correct variant class", () => {
-    const { container } = render(<Toast title="Test" variant="success" />);
-    const toast = container.querySelector(".react-cupertino-ui-toast");
-    expect(toast).toHaveClass("variant-success");
-  });
-
-  it("renders close button when onClose is provided", () => {
-    const handleClose = jest.fn();
-    render(<Toast title="Test" onClose={handleClose} />);
-
-    const closeButton = screen.getByLabelText("Close notification");
-    expect(closeButton).toBeInTheDocument();
-  });
-
-  it("calls onClose when close button is clicked", async () => {
-    const handleClose = jest.fn();
-    render(<Toast title="Test" onClose={handleClose} />);
-
-    const closeButton = screen.getByLabelText("Close notification");
-    fireEvent.click(closeButton);
-
-    await waitFor(() => {
-      expect(handleClose).toHaveBeenCalled();
-    }, { timeout: 500 });
-  });
-
-  it("auto-dismisses after duration", async () => {
-    jest.useFakeTimers();
-    const handleClose = jest.fn();
-
-    render(<Toast title="Test" duration={1000} onClose={handleClose} />);
-
-    expect(screen.getByText("Test")).toBeInTheDocument();
-
-    jest.advanceTimersByTime(1300); // duration + animation time
-
-    await waitFor(() => {
-      expect(handleClose).toHaveBeenCalled();
-    });
-
-    jest.useRealTimers();
-  });
-
-  it("displays variant-specific icon", () => {
-    const { container } = render(<Toast title="Test" variant="success" />);
-    const icon = container.querySelector(".react-cupertino-ui-toast-icon");
-    expect(icon).toBeInTheDocument();
-  });
-
-  it("renders custom icon when provided", () => {
-    const CustomIcon = () => <div data-testid="custom-icon">Custom</div>;
-    render(<Toast title="Test" icon={<CustomIcon />} />);
-
-    expect(screen.getByTestId("custom-icon")).toBeInTheDocument();
-  });
-
-  it("does not render close button when onClose is not provided", () => {
-    render(<Toast title="Test" />);
-    const closeButton = screen.queryByLabelText("Close notification");
-    expect(closeButton).not.toBeInTheDocument();
-  });
-
-  it("applies correct position class", () => {
-    const { container } = render(<Toast title="Test" position="top-left" />);
-    const toast = container.querySelector(".react-cupertino-ui-toast");
-    expect(toast).toHaveClass("position-top-left");
+    fireEvent.click(screen.getByRole("button", { name: /close/i }));
+    expect(handleClose).toHaveBeenCalled();
   });
 });

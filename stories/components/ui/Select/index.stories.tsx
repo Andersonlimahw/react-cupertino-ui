@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 import Select from '@/components/ui/Select';
-import "../../../../dist/output.css";
+import "@globalstyles";
 
 const sampleOptions = [
   { value: "apple", label: "Apple" },
@@ -32,7 +32,7 @@ const meta = {
     variant: {
       control: {
         type: "select",
-        options: ["default", "outline", "filled"],
+        options: ["glass", "solid", "outline"],
       },
     },
     size: {
@@ -107,10 +107,10 @@ export const Outline: Story = {
   },
 };
 
-export const Filled: Story = {
+export const Solid: Story = {
   args: {
-    variant: "filled",
-    label: "Filled Variant",
+    variant: "solid",
+    label: "Solid Variant",
     options: sampleOptions,
     placeholder: "Select...",
   },

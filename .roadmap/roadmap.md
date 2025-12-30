@@ -50,16 +50,16 @@ src/components/
 | Componente | Status Atual | Migração |
 |------------|--------------|----------|
 | Button | iOS 18 | → Liquid Glass |
-| Card | iOS 18 | → Liquid Glass |
-| Dialog | iOS 18 | → Liquid Glass |
-| TextField | iOS 18 | → Liquid Glass |
-| Select | iOS 18 | → Liquid Glass |
-| Switcher | iOS 18 | → Liquid Glass |
-| Checkbox | iOS 18 | → Liquid Glass |
-| Radio | iOS 18 | → Liquid Glass |
-| Slider | iOS 18 | → Liquid Glass |
-| ProgressBar | iOS 18 | → Liquid Glass |
-
+| Card | Liquid Glass ✅ | Entregue |
+| Dialog | Liquid Glass ✅ | Entregue |
+| TextField | Liquid Glass ✅ | Entregue |
+| Select | Liquid Glass ✅ | Entregue |
+| Switcher | Liquid Glass ✅ | Entregue |
+| Checkbox | Liquid Glass ✅ | Entregue |
+| Radio | Liquid Glass ✅ | Entregue |
+| Slider | Liquid Glass ✅ | Entregue |
+| ProgressBar | Liquid Glass ✅ | Entregue |
+| Toast | Liquid Glass ✅ | Entregue |
 ### Fase 2: Novos Componentes Nativos
 **Prioridade: Alta**
 

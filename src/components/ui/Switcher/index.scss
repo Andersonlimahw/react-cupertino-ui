@@ -1,2 +1,112 @@
+@use "@/styles/mixins/glass" as glass;
+
 .react-cupertino-ui-switcher {
+  --switch-track-width: 3.2rem;
+  --switch-track-height: 1.65rem;
+  --switch-thumb-size: 1.35rem;
+  --switch-thumb-translate: calc(var(--switch-track-width) - var(--switch-thumb-size) - 0.3rem);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
+  cursor: pointer;
+  user-select: none;
+
+  &[data-disabled="true"] {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  &__control {
+    position: relative;
+    width: var(--switch-track-width);
+    height: var(--switch-track-height);
+    border-radius: 999px;
+    border: none;
+    background: transparent;
+    padding: 0;
+    cursor: inherit;
+    isolation: isolate;
+
+    &:focus-visible {
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.25);
+    }
+
+    &[data-state="checked"] .react-cupertino-ui-switcher__track {
+      background: linear-gradient(120deg, rgba(10, 132, 255, 0.9), rgba(90, 200, 250, 0.95));
+      box-shadow: 0 8px 25px rgba(10, 132, 255, 0.35);
+    }
+
+    &[data-state="checked"] .react-cupertino-ui-switcher__thumb {
+      transform: translateX(var(--switch-thumb-translate));
+    }
+
+    &[data-state="checked"] .react-cupertino-ui-switcher__thumb-core {
+      background: #fff;
+    }
+  }
+
+  &__track {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    transition: background 220ms ease, box-shadow 220ms ease;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    @include glass.glass-panel(light, 40px, 0.55);
+  }
+
+  &__thumb {
+    position: absolute;
+    top: 50%;
+    left: 0.15rem;
+    width: var(--switch-thumb-size);
+    height: var(--switch-thumb-size);
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    transform: translateY(-50%);
+    transition: transform 220ms cubic-bezier(0.2, 0, 0.2, 1);
+  }
+
+  &__thumb-core {
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    background: linear-gradient(130deg, rgba(255, 255, 255, 0.95), rgba(245, 245, 245, 0.7));
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15), inset 0 1px rgba(255, 255, 255, 0.6);
+    transition: background 220ms ease;
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    font-size: 0.9rem;
+  }
+
+  &__label {
+    font-weight: 600;
+    color: hsl(var(--foreground));
+  }
+
+  &__helper {
+    font-size: 0.78rem;
+    color: hsl(var(--muted-foreground));
+  }
+
+  &.size-sm {
+    --switch-track-width: 2.6rem;
+    --switch-track-height: 1.35rem;
+    --switch-thumb-size: 1.05rem;
+    font-size: 0.85rem;
+  }
+
+  &.size-lg {
+    --switch-track-width: 3.75rem;
+    --switch-track-height: 1.9rem;
+    --switch-thumb-size: 1.55rem;
+    font-size: 1rem;
+  }
 }

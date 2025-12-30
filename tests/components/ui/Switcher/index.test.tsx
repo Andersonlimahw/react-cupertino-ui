@@ -1,10 +1,22 @@
-import { render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
+
 import { Switcher } from "@/components/ui/Switcher";
 
-describe("Switcher Component", () => {
-  it("renders correctly with default props", () => {
-    render(<Switcher data-testid="Switcher" />);
-    const element = screen.getByTestId("Switcher");
-    expect(element).toBeInTheDocument();
+describe("Switcher", () => {
+  it("renders the label and helper text", () => {
+    render(<Switcher label="Airplane Mode" helperText="Disable wireless radios" />);
+
+    expect(screen.getByText("Airplane Mode")).toBeInTheDocument();
+    expect(screen.getByText("Disable wireless radios")).toBeInTheDocument();
+  });
+
+  it("toggles the checked state when clicked", () => {
+    render(<Switcher label="Wi-Fi" />);
+
+    const control = screen.getByRole("switch");
+    expect(control).toHaveAttribute("data-state", "unchecked");
+
+    fireEvent.click(control);
+    expect(control).toHaveAttribute("data-state", "checked");
   });
 });

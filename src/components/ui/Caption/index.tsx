@@ -6,7 +6,7 @@ import { BaseProps, BaseVariants } from "@/lib/interfaces/BaseProps";
 
 import "./index.scss";
 
-export interface CaptionProps extends BaseProps {
+export interface CaptionProps extends BaseProps<HTMLTableCaptionElement> {
   asChild?: boolean;
 }
 

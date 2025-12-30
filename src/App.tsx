@@ -1,8 +1,7 @@
-import { useState } from "react";
 import "./App.css";
-import "../dist/output.css";
+import "../app/globals.css";
 
-import { Button } from "@/components/ui/Button";
+import { Button } from "@/components/molecules/Button";
 
 import {
   Card,
@@ -11,7 +10,7 @@ import {
   CardDescription,
   CardContent,
   CardFooter,
-} from "./components/ui/Card";
+} from "@/components/organisms/Card";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -22,7 +21,7 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
   AlertDialogTrigger,
-} from "./components/ui/Dialog";
+} from "@/components/organisms/Dialog";
 import Switcher from "./components/ui/Switcher";
 
 export function AlertDialogSample() {
@@ -47,8 +46,6 @@ export function AlertDialogSample() {
 }
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <div className="playgroud">
       <div className="card-sample gap-4">

@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import Caption from "@/components/ui/Caption";
-import "../../../../dist/output.css";
+import "@globalstyles";
 
 const meta = {
   title: "Typography/Caption",

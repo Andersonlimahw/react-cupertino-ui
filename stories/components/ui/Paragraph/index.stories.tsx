@@ -1,5 +1,5 @@
 import type { Meta, StoryFn } from "@storybook/react";
-import "../../../../dist/output.css";
+import "@globalstyles";
 import { Paragraph, ParagraphProps } from "@/components/ui/Paragraph";
 
 const meta = {

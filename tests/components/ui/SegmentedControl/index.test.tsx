@@ -1,4 +1,6 @@
-import { render, screen, fireEvent } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
+import { vi } from "vitest";
+
 import { SegmentedControl } from "@/components/ui/SegmentedControl";
 
 const mockOptions = [
@@ -21,11 +23,11 @@ describe("SegmentedControl Component", () => {
   it("selects default value", () => {
     render(<SegmentedControl options={mockOptions} defaultValue="2" />);
     const option2 = screen.getByText(/Option 2/i);
-    expect(option2.parentElement).toHaveClass("active");
+    expect(option2.closest("button")).toHaveClass("is-active");
   });
 
   it("calls onChange when option is clicked", () => {
-    const handleChange = jest.fn();
+    const handleChange = vi.fn();
     render(<SegmentedControl options={mockOptions} onChange={handleChange} />);
 
     const option2 = screen.getByText(/Option 2/i);
@@ -43,7 +45,7 @@ describe("SegmentedControl Component", () => {
   });
 
   it("handles disabled state", () => {
-    const handleChange = jest.fn();
+    const handleChange = vi.fn();
     render(
       <SegmentedControl options={mockOptions} disabled onChange={handleChange} />
     );
@@ -55,7 +57,7 @@ describe("SegmentedControl Component", () => {
   });
 
   it("handles disabled option", () => {
-    const handleChange = jest.fn();
+    const handleChange = vi.fn();
     const optionsWithDisabled = [
       { value: "1", label: "Option 1" },
       { value: "2", label: "Option 2", disabled: true },
@@ -77,7 +79,7 @@ describe("SegmentedControl Component", () => {
       <SegmentedControl options={mockOptions} fullWidth />
     );
     const control = container.querySelector(".react-cupertino-ui-segmented-control");
-    expect(control).toHaveClass("full-width");
+    expect(control).toHaveClass("is-full-width");
   });
 
   it("works in controlled mode", () => {
@@ -86,11 +88,11 @@ describe("SegmentedControl Component", () => {
     );
 
     let option1 = screen.getByText(/Option 1/i);
-    expect(option1.parentElement).toHaveClass("active");
+    expect(option1.closest("button")).toHaveClass("is-active");
 
     rerender(<SegmentedControl options={mockOptions} value="3" />);
 
     const option3 = screen.getByText(/Option 3/i);
-    expect(option3.parentElement).toHaveClass("active");
+    expect(option3.closest("button")).toHaveClass("is-active");
   });
 });

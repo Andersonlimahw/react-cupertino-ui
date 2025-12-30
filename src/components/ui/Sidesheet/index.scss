@@ -1,0 +1,26 @@
+@use "@/styles/mixins/glass" as glass;
+
+.react-cupertino-ui-sidesheet__overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(6, 6, 10, 0.6);
+  backdrop-filter: blur(18px) saturate(180%);
+  z-index: 40;
+}
+
+
+.react-cupertino-ui-sidesheet__content {
+  border-radius: 1.4rem 0 0 1.4rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 25px 80px rgba(8, 8, 20, 0.35);
+  @include glass.glass-panel(light, 40px, 0.7);
+
+  &[data-side="left"] {
+    border-radius: 0 1.4rem 1.4rem 0;
+  }
+
+  &[data-side="top"],
+  &[data-side="bottom"] {
+    border-radius: 1.4rem 1.4rem 0 0;
+  }
+}

@@ -3,7 +3,7 @@ import { Settings, User, Bell, Lock, HelpCircle, Mail, Phone, MapPin } from 'luc
 
 import { List, ListItem } from '@/components/ui/List';
 import Badge from '@/components/ui/Badge';
-import "../../../../dist/output.css";
+import "@globalstyles";
 
 const meta = {
   title: 'Components/List',
@@ -23,8 +23,12 @@ const meta = {
 
 export default meta;
 type Story = StoryObj<typeof meta>;
+const baseArgs = {
+  children: null,
+};
 
 export const Default: Story = {
+  args: baseArgs,
   render: () => (
     <List>
       <ListItem title="Profile" icon={<User />} chevron />
@@ -37,6 +41,7 @@ export const Default: Story = {
 };
 
 export const WithSubtitles: Story = {
+  args: baseArgs,
   render: () => (
     <List>
       <ListItem
@@ -62,6 +67,7 @@ export const WithSubtitles: Story = {
 };
 
 export const WithRightContent: Story = {
+  args: baseArgs,
   render: () => (
     <List>
       <ListItem
@@ -87,6 +93,7 @@ export const WithRightContent: Story = {
 };
 
 export const InsetVariant: Story = {
+  args: baseArgs,
   render: () => (
     <List variant="inset">
       <ListItem title="Profile" icon={<User />} chevron />
@@ -98,6 +105,7 @@ export const InsetVariant: Story = {
 };
 
 export const WithoutIcons: Story = {
+  args: baseArgs,
   render: () => (
     <List>
       <ListItem title="General" chevron />
@@ -109,6 +117,7 @@ export const WithoutIcons: Story = {
 };
 
 export const WithoutChevrons: Story = {
+  args: baseArgs,
   render: () => (
     <List>
       <ListItem title="App Version" rightContent="1.0.0" />
@@ -119,6 +128,7 @@ export const WithoutChevrons: Story = {
 };
 
 export const Clickable: Story = {
+  args: baseArgs,
   render: () => (
     <List>
       <ListItem
@@ -144,6 +154,7 @@ export const Clickable: Story = {
 };
 
 export const WithDisabledItems: Story = {
+  args: baseArgs,
   render: () => (
     <List>
       <ListItem title="Available Option" icon={<User />} chevron />
@@ -154,6 +165,7 @@ export const WithDisabledItems: Story = {
 };
 
 export const Mixed: Story = {
+  args: baseArgs,
   render: () => (
     <List>
       <ListItem

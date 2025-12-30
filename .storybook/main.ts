@@ -1,3 +1,4 @@
+import path from "path";
 import type { StorybookConfig } from "@storybook/react-vite";
 
 const config: StorybookConfig = {
@@ -19,6 +20,15 @@ const config: StorybookConfig = {
   },
   docs: {
     defaultName: "Documentation",
+  },
+  viteFinal: async (config) => {
+    config.resolve = config.resolve ?? {};
+    config.resolve.alias = {
+      ...(config.resolve.alias || {}),
+      "@": path.resolve(__dirname, "../src"),
+      "@globalstyles": path.resolve(__dirname, "../app/globals.css"),
+    };
+    return config;
   },
 };
 export default config;

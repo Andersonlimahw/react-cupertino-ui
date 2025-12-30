@@ -5,26 +5,62 @@ import * as SwitchPrimitives from "@radix-ui/react-switch";
 
 import { cn } from "@/lib/utils";
 
+import "./index.scss";
+
+export interface SwitcherProps
+  extends React.ComponentPropsWithoutRef<typeof SwitchPrimitives.Root> {
+  label?: string;
+  helperText?: string;
+  size?: "default" | "sm" | "lg";
+}
+
 const Switcher = React.forwardRef<
   React.ElementRef<typeof SwitchPrimitives.Root>,
-  React.ComponentPropsWithoutRef<typeof SwitchPrimitives.Root>
->(({ className, ...props }, ref) => (
-  <SwitchPrimitives.Root
-    className={cn(
-      "peer inline-flex h-5 w-9 shrink-0 cursor-pointer items-center rounded-full border-2 border-transparent shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=unchecked]:bg-input",
-      className
-    )}
-    {...props}
-    ref={ref}
-  >
-    <SwitchPrimitives.Thumb
-      className={cn(
-        "pointer-events-none block h-4 w-4 rounded-full bg-background shadow-lg ring-0 transition-transform data-[state=checked]:translate-x-4 data-[state=unchecked]:translate-x-0"
+  SwitcherProps
+>((
+  { className, label, helperText, size = "default", id, disabled, ...props },
+  ref
+) => {
+  const generatedId = React.useId();
+  const controlId = id ?? `switcher-${generatedId}`;
+  const helperId = helperText ? `${controlId}-helper` : undefined;
+
+  return (
+    <label
+      className={cn("react-cupertino-ui-switcher", `size-${size}`, className)}
+      data-disabled={disabled ? "true" : undefined}
+      htmlFor={controlId}
+    >
+      <SwitchPrimitives.Root
+        id={controlId}
+        ref={ref}
+        className="react-cupertino-ui-switcher__control"
+        {...props}
+        disabled={disabled}
+        aria-describedby={helperId}
+      >
+        <span className="react-cupertino-ui-switcher__track" aria-hidden="true" />
+        <SwitchPrimitives.Thumb className="react-cupertino-ui-switcher__thumb">
+          <span className="react-cupertino-ui-switcher__thumb-core" />
+        </SwitchPrimitives.Thumb>
+      </SwitchPrimitives.Root>
+
+      {(label || helperText) && (
+        <span className="react-cupertino-ui-switcher__text">
+          {label && (
+            <span className="react-cupertino-ui-switcher__label">{label}</span>
+          )}
+          {helperText && (
+            <span id={helperId} className="react-cupertino-ui-switcher__helper">
+              {helperText}
+            </span>
+          )}
+        </span>
       )}
-    />
-  </SwitchPrimitives.Root>
-));
-Switcher.displayName = SwitchPrimitives.Root.displayName;
+    </label>
+  );
+});
+Switcher.displayName = "Switcher";
 
 export { Switcher };
 export default Switcher;

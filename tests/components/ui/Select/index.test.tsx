@@ -1,89 +1,62 @@
-import { render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
+import { vi } from "vitest";
+
 import { Select } from "@/components/ui/Select";
 
 const mockOptions = [
   { value: "1", label: "Option 1" },
   { value: "2", label: "Option 2" },
-  { value: "3", label: "Option 3" },
+  { value: "3", label: "Option 3", disabled: true },
 ];
 
-describe("Select Component", () => {
-  it("renders correctly with options", () => {
-    const { container } = render(
-      <Select options={mockOptions} placeholder="Select..." />
-    );
-    const select = container.querySelector("select");
-    expect(select).toBeInTheDocument();
+describe("Select", () => {
+  it("renders the placeholder when no value is chosen", () => {
+    render(<Select options={mockOptions} placeholder="Select..." />);
+
+    expect(screen.getByRole("combobox")).toHaveTextContent("Select...");
   });
 
-  it("renders with label", () => {
-    render(
-      <Select label="Choose option" options={mockOptions} placeholder="Select..." />
-    );
-    const label = screen.getByText(/Choose option/i);
-    expect(label).toBeInTheDocument();
-  });
-
-  it("displays placeholder", () => {
-    render(<Select options={mockOptions} placeholder="Select an option" />);
-    const placeholder = screen.getByText(/Select an option/i);
-    expect(placeholder).toBeInTheDocument();
-  });
-
-  it("displays all options", () => {
-    render(<Select options={mockOptions} />);
-    const option1 = screen.getByText(/Option 1/i);
-    const option2 = screen.getByText(/Option 2/i);
-    const option3 = screen.getByText(/Option 3/i);
-    expect(option1).toBeInTheDocument();
-    expect(option2).toBeInTheDocument();
-    expect(option3).toBeInTheDocument();
-  });
-
-  it("displays error message", () => {
+  it("opens the dropdown and allows selecting an option", () => {
+    const handleChange = vi.fn();
     render(
       <Select
         options={mockOptions}
-        error="This field is required"
+        placeholder="Pick one"
+        onChange={handleChange}
       />
     );
-    const error = screen.getByText(/This field is required/i);
-    expect(error).toBeInTheDocument();
-    expect(error).toHaveClass("react-cupertino-ui-select-error");
+
+    fireEvent.click(screen.getByRole("combobox"));
+    fireEvent.click(screen.getByRole("option", { name: "Option 2" }));
+
+    expect(screen.getByRole("combobox")).toHaveTextContent("Option 2");
+    expect(handleChange).toHaveBeenCalledWith("2");
   });
 
-  it("displays helper text", () => {
-    render(
-      <Select
-        options={mockOptions}
-        helperText="Choose wisely"
-      />
-    );
-    const helper = screen.getByText(/Choose wisely/i);
-    expect(helper).toBeInTheDocument();
+  it("marks the control as invalid when there is an error", () => {
+    render(<Select options={mockOptions} error="Required" />);
+
+    expect(screen.getByRole("combobox")).toHaveAttribute("aria-invalid", "true");
+    expect(screen.getByText("Required")).toBeInTheDocument();
   });
 
-  it("applies correct size class", () => {
-    const { container } = render(
-      <Select options={mockOptions} size="lg" />
-    );
-    const selectContainer = container.querySelector(".react-cupertino-ui-select-container");
-    expect(selectContainer).toHaveClass("size-lg");
+  it("prevents opening when disabled", () => {
+    render(<Select options={mockOptions} disabled placeholder="Disabled" />);
+
+    fireEvent.click(screen.getByRole("combobox"));
+
+    expect(screen.queryByRole("option", { name: "Option 1" })).not.toBeInTheDocument();
   });
 
-  it("applies correct variant class", () => {
-    const { container } = render(
-      <Select options={mockOptions} variant="outline" />
-    );
-    const selectContainer = container.querySelector(".react-cupertino-ui-select-container");
-    expect(selectContainer).toHaveClass("variant-outline");
-  });
+  it("supports keyboard navigation", () => {
+    render(<Select options={mockOptions} placeholder="Pick" />);
 
-  it("handles disabled state", () => {
-    const { container } = render(
-      <Select options={mockOptions} disabled />
-    );
-    const select = container.querySelector("select");
-    expect(select).toBeDisabled();
+    const trigger = screen.getByRole("combobox");
+    trigger.focus();
+
+    fireEvent.keyDown(trigger, { key: "ArrowDown" });
+    fireEvent.keyDown(trigger, { key: "Enter" });
+
+    expect(trigger).toHaveTextContent("Option 1");
   });
 });

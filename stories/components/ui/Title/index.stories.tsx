@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import Title from "@/components/ui/Title";
-import "../../../../dist/output.css";
+import "@globalstyles";
 
 const meta = {
   title: "Typography/Title",

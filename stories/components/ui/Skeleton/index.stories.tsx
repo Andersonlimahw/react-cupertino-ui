@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import Skeleton from "@/components/ui/Skeleton";
-import "../../../../dist/output.css";
+import "@globalstyles";
 
 const meta = {
   title: "Components/Skeleton",

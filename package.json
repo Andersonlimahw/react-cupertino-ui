@@ -4,14 +4,16 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc -b && vite build",
+    "dev": "npm run sb",
+    "start": "vite",
+    "build": "npm run tailwind:build && tsc -b && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "new:component": "node  ./scripts/create-component/index.js",
     "preview": "vite preview",
     "test": "vitest",
     "sb": "storybook dev -p 6006",
     "sb:build": "storybook build",
+    "tailwind:build": "tailwindcss -i ./app/globals.css -o ./dist/output.css --minify",
     "tailwind:watch": "tailwindcss -i ./app/globals.css -o ./dist/output.css --watch"
   },
   "dependencies": {

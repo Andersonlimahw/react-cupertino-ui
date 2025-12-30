@@ -8,7 +8,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/Sidesheet";
-import "../../../../dist/output.css";
+import "@globalstyles";
 
 const SidesheetStory = () => (
   <Sheet>

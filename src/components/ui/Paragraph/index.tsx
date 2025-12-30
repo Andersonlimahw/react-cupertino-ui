@@ -6,7 +6,7 @@ import { BaseProps, BaseVariants } from "@/lib/interfaces/BaseProps";
 
 import "./index.scss";
 
-export interface ParagraphProps extends BaseProps {
+export interface ParagraphProps extends BaseProps<HTMLParagraphElement> {
   asChild?: boolean;
 }
 

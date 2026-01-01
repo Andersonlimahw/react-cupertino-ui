@@ -1,0 +1,55 @@
+.react-cupertino-ui-page-control {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  
+  &__indicator {
+    background: rgba(0, 0, 0, 0.2); // Default gray
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    
+    @media (prefers-color-scheme: dark) {
+        background: rgba(255, 255, 255, 0.2);
+    }
+    
+    &:hover {
+        opacity: 0.8;
+    }
+    
+    &.is-active {
+        background: var(--foreground); // Active color (black/white)
+        @media (prefers-color-scheme: dark) {
+             background: var(--color-white);
+        }
+    }
+  }
+
+  &.variant-dots {
+    .react-cupertino-ui-page-control__indicator {
+        width: 8px;
+        height: 8px;
+        
+        &.is-active {
+            transform: scale(1.2);
+        }
+    }
+  }
+
+  &.variant-pills {
+    gap: 6px;
+    
+    .react-cupertino-ui-page-control__indicator {
+        width: 8px;
+        height: 8px;
+        
+        &.is-active {
+            width: 20px;
+            border-radius: 4px;
+            background: var(--color-blue);
+        }
+    }
+  }
+}

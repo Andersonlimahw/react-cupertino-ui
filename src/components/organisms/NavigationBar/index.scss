@@ -1,0 +1,109 @@
+@use "@/styles/mixins/glass" as glass;
+
+.react-cupertino-ui-navigation-bar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+  transition: all 0.3s ease;
+  background: var(--background);
+  border-bottom: 1px solid var(--border);
+
+  &.transparent {
+    @include glass.glass-panel(light, 40px, 0.7);
+    border-bottom: 1px solid var(--glass-border);
+  }
+
+  &__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 44px;
+    padding: 0 16px;
+    position: relative;
+  }
+
+  &__left,
+  &__right {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    min-width: 60px;
+  }
+
+  &__left {
+    justify-content: flex-start;
+  }
+
+  &__right {
+    justify-content: flex-end;
+  }
+
+  &__center {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+
+    .title-compact {
+      font-weight: 600;
+      font-size: 17px;
+      text-align: center;
+    }
+
+    .subtitle {
+      font-size: 12px;
+      color: var(--muted-foreground);
+    }
+  }
+
+  &__large-title {
+    padding: 8px 16px 16px;
+    transition: height 0.3s ease, opacity 0.3s ease;
+
+    .title-large {
+      font-size: 34px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin: 0;
+      line-height: 1.2;
+    }
+  }
+
+  // Large title behavior
+  &.large-title {
+    &:not(.scrolled) {
+      .react-cupertino-ui-navigation-bar__center {
+        opacity: 0;
+        pointer-events: none;
+      }
+    }
+  }
+
+  &.scrolled {
+    &__large-title {
+      height: 0;
+      opacity: 0;
+      overflow: hidden;
+      padding: 0;
+    }
+    
+    // Ensure compact title is visible when scrolled
+    .react-cupertino-ui-navigation-bar__center {
+      opacity: 1;
+    }
+  }
+  
+  .back-button {
+    padding-left: 0;
+    color: var(--color-blue);
+    
+    &:hover {
+        background: transparent;
+        opacity: 0.7;
+    }
+  }
+}

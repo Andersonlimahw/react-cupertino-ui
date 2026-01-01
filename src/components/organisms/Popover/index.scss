@@ -1,0 +1,78 @@
+@use "@/styles/mixins/glass" as glass;
+
+.react-cupertino-ui-popover {
+  &__content {
+    --popover-surface: var(--background, rgba(255, 255, 255, 0.98));
+    z-index: 50;
+    width: 280px;
+    border-radius: 12px;
+    padding: 12px;
+    outline: none;
+    background: var(--popover-surface);
+    color: var(--foreground);
+    border: 1px solid var(--border);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    position: relative;
+    overflow: visible;
+    
+    // Animation
+    animation-duration: 400ms;
+    animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform, opacity;
+    
+    &[data-state="open"] {
+        &[data-side="top"] { animation-name: slideDownAndFade; }
+        &[data-side="right"] { animation-name: slideLeftAndFade; }
+        &[data-side="bottom"] { animation-name: slideUpAndFade; }
+        &[data-side="left"] { animation-name: slideRightAndFade; }
+    }
+    
+    &.glass {
+      --popover-surface: rgba(255, 255, 255, 0.72);
+      @include glass.glass-panel(light, 30px, 0.7);
+
+      @media (prefers-color-scheme: dark) {
+        --popover-surface: rgba(30, 30, 30, 0.72);
+        background: rgba(30, 30, 30, 0.72);
+      }
+    }
+  }
+
+  &__arrow {
+    fill: var(--popover-surface, rgba(255, 255, 255, 0.95));
+    stroke: color-mix(in srgb, rgba(0, 0, 0, 0.12), transparent 10%);
+    stroke-width: 1px;
+    filter: drop-shadow(0 6px 20px rgba(0, 0, 0, 0.2));
+    transition: fill 200ms ease;
+
+    &.glass {
+      fill: rgba(255, 255, 255, 0.78);
+      stroke: rgba(255, 255, 255, 0.6);
+
+      @media (prefers-color-scheme: dark) {
+        fill: rgba(30, 30, 30, 0.78);
+        stroke: rgba(255, 255, 255, 0.24);
+      }
+    }
+  }
+}
+
+@keyframes slideUpAndFade {
+  from { opacity: 0; transform: translateY(2px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideRightAndFade {
+  from { opacity: 0; transform: translateX(-2px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideDownAndFade {
+  from { opacity: 0; transform: translateY(-2px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideLeftAndFade {
+  from { opacity: 0; transform: translateX(2px); }
+  to { opacity: 1; transform: translateX(0); }
+}

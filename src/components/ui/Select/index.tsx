@@ -266,7 +266,8 @@ const Select = React.forwardRef<HTMLDivElement, SelectProps>(
     const messageToRender = error ?? helperText;
     const messageType = error ? "error" : helperText ? "helper" : undefined;
     const messageElementId = messageToRender ? `${messageId}-${messageType}` : undefined;
-    const controlId = id ?? React.useId();
+    const generatedId = React.useId();
+    const controlId = id ?? generatedId;
     const isPlaceholder = Boolean(!selectedOption && placeholder);
 
     const { autoFocus, ...restNativeProps } = nativeProps;

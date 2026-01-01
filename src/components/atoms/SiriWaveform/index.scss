@@ -1,0 +1,96 @@
+.react-cupertino-ui-siri-waveform {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  
+  &.size-sm {
+    height: 40px;
+    width: 80px;
+  }
+  
+  &.size-md {
+    height: 60px;
+    width: 120px;
+  }
+  
+  &.size-lg {
+    height: 100px;
+    width: 200px;
+  }
+
+  .waveform-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+  }
+
+  &.is-active .waveform-container {
+    opacity: 1;
+  }
+
+  .wave {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(8px);
+    opacity: 0.6;
+    animation: wave-animation 2s infinite ease-in-out;
+  }
+
+  // Simplified CSS simulation of Siri waves using blurred gradients
+  &.color-multicolor {
+      .wave-1 {
+        background: linear-gradient(135deg, #FF6B9D, #C44FE2);
+        width: 60%;
+        height: 60%;
+        animation-delay: 0s;
+      }
+      
+      .wave-2 {
+        background: linear-gradient(135deg, #4F94E2, #4FE2C4);
+        width: 50%;
+        height: 50%;
+        animation-delay: -0.5s;
+        margin-left: 20px;
+      }
+      
+      .wave-3 {
+        background: linear-gradient(135deg, #7B68EE, #FF2D55);
+        width: 40%;
+        height: 40%;
+        animation-delay: -1s;
+        margin-left: -20px;
+      }
+  }
+  
+  &.color-default {
+      .wave {
+          background: var(--color-white);
+          
+          @media (prefers-color-scheme: dark) {
+              background: var(--color-white);
+          }
+      }
+  }
+  
+  &.is-active {
+      .wave {
+          animation-duration: 1s; // Faster when active
+      }
+  }
+}
+
+@keyframes wave-animation {
+  0%, 100% {
+    transform: scale(0.8) translateY(0);
+  }
+  50% {
+    transform: scale(1.2) translateY(-5px);
+  }
+}

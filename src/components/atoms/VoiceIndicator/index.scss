@@ -1,0 +1,51 @@
+.react-cupertino-ui-voice-indicator {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .voice-circle {
+    position: absolute;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #FF6B9D, #C44FE2, #4F94E2);
+    width: 100%;
+    height: 100%;
+    transition: transform 0.1s linear;
+  }
+
+  .main-circle {
+    z-index: 2;
+    transform: scale(var(--voice-scale, 1));
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  .ripple-1,
+  .ripple-2 {
+    z-index: 1;
+    opacity: 0;
+  }
+
+  &.is-listening {
+    .ripple-1 {
+      animation: ripple 2s infinite cubic-bezier(0, 0.2, 0.8, 1);
+    }
+
+    .ripple-2 {
+      animation: ripple 2s infinite cubic-bezier(0, 0.2, 0.8, 1);
+      animation-delay: 1s;
+    }
+  }
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(2.5);
+    opacity: 0;
+  }
+}

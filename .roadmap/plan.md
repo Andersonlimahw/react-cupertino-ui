@@ -279,12 +279,12 @@ const NavigationBar = forwardRef<HTMLElement, NavigationBarProps>(
 ```
 
 **Tarefas:**
-- [ ] Estrutura base do componente
-- [ ] Large title com animação de scroll
-- [ ] Glass effect quando transparent
-- [ ] Transição para compact title
-- [ ] Integração com back button
-- [ ] Stories e testes
+- [x] Estrutura base do componente
+- [x] Large title com animação de scroll
+- [x] Glass effect quando transparent
+- [x] Transição para compact title
+- [x] Integração com back button
+- [x] Stories e testes
 
 ---
 
@@ -308,12 +308,12 @@ interface TabBarProps {
 ```
 
 **Tarefas:**
-- [ ] Layout fixo inferior
-- [ ] Ícones com labels
-- [ ] Animação de seleção
-- [ ] Badge support
-- [ ] Glass background
-- [ ] Haptic feedback indication
+- [x] Layout fixo inferior
+- [x] Ícones com labels
+- [x] Animação de seleção
+- [x] Badge support
+- [x] Glass background
+- [x] Haptic feedback indication
 
 ---
 
@@ -334,11 +334,11 @@ interface SearchBarProps {
 ```
 
 **Tarefas:**
-- [ ] Input com ícone de busca
-- [ ] Botão cancelar com animação
-- [ ] Glass background
-- [ ] Sugestões dropdown
-- [ ] Voice search button (opcional)
+- [x] Input com ícone de busca
+- [x] Botão cancelar com animação
+- [x] Glass background
+- [x] Sugestões dropdown
+- [x] Voice search button (opcional)
 
 ---
 
@@ -365,12 +365,12 @@ interface ActionSheetProps {
 ```
 
 **Tarefas:**
-- [ ] Sheet deslizante de baixo
-- [ ] Glass panel
-- [ ] Ações com ícones
-- [ ] Botão cancelar separado
-- [ ] Animação spring
-- [ ] Gesture para fechar
+- [x] Sheet deslizante de baixo
+- [x] Glass panel
+- [x] Ações com ícones
+- [x] Botão cancelar separado
+- [x] Animação spring
+- [x] Gesture para fechar
 
 ---
 
@@ -390,11 +390,11 @@ interface DatePickerProps {
 ```
 
 **Tarefas:**
-- [ ] Wheel picker iOS style
+- [x] Wheel picker iOS style
 - [ ] Calendar view alternativo
-- [ ] Compact inline mode
-- [ ] Glass container
-- [ ] Animações de scroll
+- [x] Compact inline mode
+- [x] Glass container
+- [x] Animações de scroll
 
 ---
 
@@ -433,10 +433,10 @@ interface PageControlProps {
 ```
 
 **Tarefas:**
-- [ ] Dots indicadores
-- [ ] Animação de transição
-- [ ] Click para navegar
-- [ ] Variante pills
+- [x] Dots indicadores
+- [x] Animação de transição
+- [x] Click para navegar
+- [x] Variante pills
 
 ---
 
@@ -461,11 +461,11 @@ interface ContextMenuProps {
 ```
 
 **Tarefas:**
-- [ ] Menu flutuante glass
-- [ ] Suporte a submenus
-- [ ] Ícones e shortcuts
+- [x] Menu flutuante glass
+- [x] Suporte a submenus
+- [x] Ícones e shortcuts
 - [ ] Preview na trigger (como iOS)
-- [ ] Animação de abertura
+- [x] Animação de abertura
 
 ---
 
@@ -483,10 +483,10 @@ interface PopoverProps {
 ```
 
 **Tarefas:**
-- [ ] Posicionamento inteligente
+- [x] Posicionamento inteligente
 - [ ] Arrow apontando para trigger
-- [ ] Glass background
-- [ ] Animação de entrada
+- [x] Glass background
+- [x] Animação de entrada
 
 ---
 

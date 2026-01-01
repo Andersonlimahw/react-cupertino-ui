@@ -62,8 +62,9 @@ const Slider = React.forwardRef<HTMLInputElement, SliderProps>(
     const percentage =
       ((Number(currentValue) - Number(min)) / (Number(max) - Number(min))) * 100;
 
-    const helperId = helperText ? `${props.id ?? "slider"}-${React.useId()}-helper` : undefined;
-    const errorId = error ? `${props.id ?? "slider"}-${React.useId()}-error` : undefined;
+    const uniqueId = React.useId();
+    const helperId = helperText ? `${props.id ?? "slider"}-${uniqueId}-helper` : undefined;
+    const errorId = error ? `${props.id ?? "slider"}-${uniqueId}-error` : undefined;
     const messageId = error ? errorId : helperId;
 
     return (

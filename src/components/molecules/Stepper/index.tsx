@@ -22,6 +22,11 @@ const clamp = (value: number, min?: number, max?: number) => {
   return value;
 };
 
+const HOLD_DELAY = 350;
+const HOLD_INTERVAL = 110;
+
+type HoldDirection = "increment" | "decrement";
+
 const Stepper = React.forwardRef<HTMLDivElement, StepperProps>(
   (
     {
@@ -42,25 +47,58 @@ const Stepper = React.forwardRef<HTMLDivElement, StepperProps>(
     const [internalValue, setInternalValue] = React.useState<number>(
       clamp(defaultValue, min, max)
     );
+    const [heldButton, setHeldButton] = React.useState<HoldDirection | null>(null);
+    const [valueTrend, setValueTrend] = React.useState<"up" | "down" | null>(null);
 
     const currentValue = isControlled ? clamp(value as number, min, max) : internalValue;
+    const valueRef = React.useRef(currentValue);
+    valueRef.current = currentValue;
 
-    const updateValue = (next: number) => {
-      const clamped = clamp(next, min, max);
-      if (!isControlled) {
-        setInternalValue(clamped);
+    const holdTimeoutRef = React.useRef<NodeJS.Timeout | null>(null);
+    const holdIntervalRef = React.useRef<NodeJS.Timeout | null>(null);
+    const trendTimeoutRef = React.useRef<NodeJS.Timeout | null>(null);
+    const previousValueRef = React.useRef(currentValue);
+
+    const clearHoldTimers = React.useCallback(() => {
+      if (holdTimeoutRef.current) {
+        clearTimeout(holdTimeoutRef.current);
+        holdTimeoutRef.current = null;
       }
-      onChange?.(clamped);
-    };
+      if (holdIntervalRef.current) {
+        clearInterval(holdIntervalRef.current);
+        holdIntervalRef.current = null;
+      }
+    }, []);
+
+    const updateValue = React.useCallback(
+      (next: number | ((prev: number) => number)) => {
+        const resolved = typeof next === "function" ? next(valueRef.current) : next;
+        const clamped = clamp(resolved, min, max);
+        valueRef.current = clamped;
+
+        if (!isControlled) {
+          setInternalValue(clamped);
+        }
+        onChange?.(clamped);
+      },
+      [isControlled, max, min, onChange]
+    );
+
+    const changeByStep = React.useCallback(
+      (direction: HoldDirection) => {
+        updateValue((prev) => prev + (direction === "increment" ? step : -step));
+      },
+      [step, updateValue]
+    );
 
     const handleIncrement = () => {
       if (disabled) return;
-      updateValue(currentValue + step);
+      changeByStep("increment");
     };
 
     const handleDecrement = () => {
       if (disabled) return;
-      updateValue(currentValue - step);
+      changeByStep("decrement");
     };
 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -69,6 +107,86 @@ const Stepper = React.forwardRef<HTMLDivElement, StepperProps>(
         return;
       }
       updateValue(next);
+    };
+
+    const stopHold = React.useCallback(() => {
+      clearHoldTimers();
+      setHeldButton(null);
+    }, [clearHoldTimers]);
+
+    const startHold = React.useCallback(
+      (direction: HoldDirection) => {
+        if (disabled) {
+          return;
+        }
+        setHeldButton(direction);
+        clearHoldTimers();
+
+        holdTimeoutRef.current = setTimeout(() => {
+          changeByStep(direction);
+          holdIntervalRef.current = setInterval(() => {
+            changeByStep(direction);
+          }, HOLD_INTERVAL);
+        }, HOLD_DELAY);
+      },
+      [changeByStep, clearHoldTimers, disabled]
+    );
+
+    React.useEffect(() => {
+      return () => {
+        clearHoldTimers();
+        if (trendTimeoutRef.current) {
+          clearTimeout(trendTimeoutRef.current);
+        }
+      };
+    }, [clearHoldTimers]);
+
+    React.useEffect(() => {
+      const previous = previousValueRef.current;
+      if (previous !== currentValue) {
+        const trend = currentValue > previous ? "up" : "down";
+        setValueTrend(trend);
+        if (trendTimeoutRef.current) {
+          clearTimeout(trendTimeoutRef.current);
+        }
+        trendTimeoutRef.current = setTimeout(() => {
+          setValueTrend(null);
+        }, 420);
+      }
+      previousValueRef.current = currentValue;
+    }, [currentValue]);
+
+    React.useEffect(() => {
+      if (!heldButton) {
+        return;
+      }
+
+      const handlePointerUp = () => {
+        stopHold();
+      };
+
+      window.addEventListener("pointerup", handlePointerUp);
+      window.addEventListener("pointercancel", handlePointerUp);
+
+      return () => {
+        window.removeEventListener("pointerup", handlePointerUp);
+        window.removeEventListener("pointercancel", handlePointerUp);
+      };
+    }, [heldButton, stopHold]);
+
+    const getPointerHandlers = (direction: HoldDirection) => {
+      return {
+        onPointerDown: (event: React.PointerEvent<HTMLButtonElement>) => {
+          if (event.button && event.button !== 0) {
+            return;
+          }
+          event.preventDefault();
+          startHold(direction);
+        },
+        onPointerLeave: stopHold,
+        onPointerCancel: stopHold,
+        onPointerUp: () => stopHold(),
+      } as const;
     };
 
     return (
@@ -86,6 +204,8 @@ const Stepper = React.forwardRef<HTMLDivElement, StepperProps>(
             onClick={handleDecrement}
             disabled={disabled || (min !== undefined && currentValue <= min)}
             aria-label="Decrease value"
+            data-pressing={heldButton === "decrement" ? "true" : undefined}
+            {...getPointerHandlers("decrement")}
           >
             –
           </button>
@@ -93,6 +213,8 @@ const Stepper = React.forwardRef<HTMLDivElement, StepperProps>(
             type="number"
             className="react-cupertino-ui-stepper__input"
             value={currentValue}
+            data-trend={valueTrend ?? undefined}
+            aria-live="polite"
             onChange={handleInputChange}
             min={min}
             max={max}
@@ -105,6 +227,8 @@ const Stepper = React.forwardRef<HTMLDivElement, StepperProps>(
             onClick={handleIncrement}
             disabled={disabled || (max !== undefined && currentValue >= max)}
             aria-label="Increase value"
+            data-pressing={heldButton === "increment" ? "true" : undefined}
+            {...getPointerHandlers("increment")}
           >
             +
           </button>

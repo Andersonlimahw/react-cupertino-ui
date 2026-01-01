@@ -36,3 +36,19 @@ export const Controlled: Story = {
     return <Stepper label="Controlled" value={value} onChange={setValue} min={0} max={5} />;
   },
 };
+
+export const LongPressAcceleration: Story = {
+  args: {
+    label: "Hold to adjust",
+    defaultValue: 5,
+    min: 0,
+    max: 50,
+    step: 1,
+  },
+  render: (args) => (
+    <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem", alignItems: "center" }}>
+      <p style={{ fontSize: "0.9rem", color: "#667" }}>Press and hold the buttons to accelerate.</p>
+      <Stepper {...args} />
+    </div>
+  ),
+};

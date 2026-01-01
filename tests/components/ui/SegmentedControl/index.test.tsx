@@ -87,7 +87,7 @@ describe("SegmentedControl Component", () => {
       <SegmentedControl options={mockOptions} value="1" />
     );
 
-    let option1 = screen.getByText(/Option 1/i);
+    const option1 = screen.getByText(/Option 1/i);
     expect(option1.closest("button")).toHaveClass("is-active");
 
     rerender(<SegmentedControl options={mockOptions} value="3" />);

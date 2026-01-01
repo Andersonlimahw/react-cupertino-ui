@@ -1,0 +1,70 @@
+.react-cupertino-ui-picker {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: transparent;
+  user-select: none;
+  touch-action: pan-y;
+
+  &__scroller {
+    width: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scroll-snap-type: y mandatory;
+    scrollbar-width: none; // Firefox
+    
+    &::-webkit-scrollbar {
+        display: none;
+    }
+  }
+
+  &__item {
+    width: 100%;
+    text-align: center;
+    font-size: 20px;
+    color: var(--foreground);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    scroll-snap-align: center;
+    transform: translateZ(0); // Hardware accel
+  }
+
+  &__selection-indicator {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    pointer-events: none;
+    background: rgba(118, 118, 128, 0.12);
+    border-radius: 8px;
+    z-index: 1;
+    
+    @media (prefers-color-scheme: dark) {
+        background: rgba(255, 255, 255, 0.12);
+    }
+  }
+
+  &__mask-top,
+  &__mask-bottom {
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  &__mask-top {
+    top: 0;
+    height: 40%;
+    background: linear-gradient(to bottom, var(--background) 0%, transparent 100%);
+    opacity: 0.9;
+  }
+
+  &__mask-bottom {
+    bottom: 0;
+    height: 40%;
+    background: linear-gradient(to top, var(--background) 0%, transparent 100%);
+    opacity: 0.9;
+  }
+}

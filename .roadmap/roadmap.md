@@ -65,16 +65,18 @@ src/components/
 
 | Componente | Categoria | Descrição |
 |------------|-----------|-----------|
-| NavigationBar | Organism | Barra de navegação superior |
-| TabBar | Organism | Barra de abas inferior |
-| SearchBar | Molecule | Campo de busca iOS |
-| ActionSheet | Organism | Menu de ações deslizante |
+| NavigationBar | Organism | Barra de navegação superior ✅ |
+| TabBar | Organism | Barra de abas inferior ✅ |
+| SearchBar | Molecule | Campo de busca iOS ✅ |
+| ActionSheet | Organism | Menu de ações deslizante ✅ |
 | Alert | Molecule | Alertas nativos iOS |
-| DatePicker | Molecule | Seletor de data/hora |
-| TimePicker | Molecule | Seletor de hora |
-| Picker | Molecule | Seletor wheel style |
-| Stepper | Molecule | Incrementador/decrementador |
-| PageControl | Atom | Indicadores de página |
+| DatePicker | Molecule | Seletor de data/hora ✅ |
+| TimePicker | Molecule | Seletor de hora ✅ |
+| Picker | Molecule | Seletor wheel style ✅ |
+| Stepper | Molecule | Incrementador/decrementador ✅ |
+| PageControl | Atom | Indicadores de página ✅ |
+| ContextMenu | Molecule | Menu contextual ✅ |
+| Popover | Organism | Popover flutuante ✅ |
 
 ### Fase 3: Componentes AI/Siri
 **Prioridade: Média**

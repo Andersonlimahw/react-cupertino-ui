@@ -1,0 +1,99 @@
+@use "@/styles/mixins/glass" as glass;
+@use "@/styles/mixins/animations" as motion;
+
+.react-cupertino-ui-bottom-sheet__overlay {
+  position: fixed;
+  inset: 0;
+  background: color-mix(in srgb, rgba(6, 8, 12, 0.65), transparent 20%);
+  backdrop-filter: blur(24px) saturate(140%);
+  -webkit-backdrop-filter: blur(24px) saturate(140%);
+  animation: bottom-sheet-overlay-fade 200ms ease forwards;
+}
+
+.react-cupertino-ui-bottom-sheet__content {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: 0 auto;
+  width: min(640px, 100%);
+  border-radius: 32px 32px 0 0;
+  padding: 1.5rem clamp(1.25rem, 4vw, 2rem) 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  color: inherit;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 -6px 24px rgba(0, 0, 0, 0.12), 0 -24px 60px rgba(0, 0, 0, 0.18);
+  height: calc(var(--bottom-sheet-height, 0.6) * 100vh);
+  max-height: calc(100vh - 1rem);
+  transform: translate3d(0, calc(var(--bottom-sheet-offset, 0) * 100vh), 0);
+  transition:
+    height 380ms cubic-bezier(0.2, 0.8, 0.4, 1),
+    transform 260ms cubic-bezier(0.2, 0.8, 0.4, 1),
+    box-shadow 260ms ease,
+    background 260ms ease;
+  outline: none;
+  overflow: hidden;
+
+  &.glass {
+    @include glass.glass-panel(light, var(--glass-blur, 46px));
+  }
+
+  &.is-dragging {
+    transition: none;
+    cursor: grabbing;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
+}
+
+.react-cupertino-ui-bottom-sheet__handle {
+  width: 72px;
+  height: 6px;
+  border-radius: 999px;
+  border: none;
+  background: color-mix(in srgb, rgba(15, 15, 15, 0.35), rgba(255, 255, 255, 0.6));
+  margin: 0 auto 0.5rem;
+  cursor: grab;
+  position: relative;
+  isolation: isolate;
+
+  &:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.35);
+  }
+
+  &:active {
+    cursor: grabbing;
+  }
+}
+
+.react-cupertino-ui-bottom-sheet__body {
+  flex: 1;
+  overflow-y: auto;
+  padding-bottom: 1rem;
+  mask-image: linear-gradient(180deg, transparent, #000 10%);
+}
+
+.react-cupertino-ui-bottom-sheet__title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+}
+
+.react-cupertino-ui-bottom-sheet__description {
+  font-size: 0.95rem;
+  color: color-mix(in srgb, currentColor, transparent 30%);
+}
+
+@keyframes bottom-sheet-overlay-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

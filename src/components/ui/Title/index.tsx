@@ -36,6 +36,7 @@ const titleVariants = cva("react-cupertino-ui-title", {
 const Title: React.FC<TitleProps> = ({
   className,
   variant,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   size,
   asChild = false,
   ...props

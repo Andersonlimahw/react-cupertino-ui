@@ -3,7 +3,7 @@ import ProgressBar from '@components/ui/ProgressBar';
 import "@globalstyles";
 
 const meta = {
-  title: 'Components/ProgressBar',
+  title: 'UI/ProgressBar',
   component: ProgressBar,
   tags: ['autodocs'],
   parameters: {

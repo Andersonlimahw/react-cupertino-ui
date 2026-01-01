@@ -22,7 +22,7 @@ describe("DatePicker", () => {
       <DatePicker value={date} onChange={handleChange} mode="date" layout="calendar" />
     );
 
-    const targetDay = screen.getByRole("button", { name: /Select January 20, 2023/i });
+    const targetDay = screen.getByRole("button", { name: /Select Friday, January 20, 2023/i });
     fireEvent.click(targetDay);
 
     expect(handleChange).toHaveBeenCalled();
@@ -41,7 +41,7 @@ describe("DatePicker", () => {
       />
     );
 
-    const disabledDay = screen.getByRole("button", { name: /Select January 10, 2023/i });
+    const disabledDay = screen.getByRole("button", { name: /Select Tuesday, January 10, 2023/i });
     expect(disabledDay).toBeDisabled();
   });
 

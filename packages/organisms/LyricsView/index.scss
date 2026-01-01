@@ -1,0 +1,16 @@
+.react-cupertino-ui-lyrics-view {
+  max-height: 320px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+
+  p {
+    margin: 0;
+    color: rgba(15, 15, 20, 0.5);
+    & [data-active="true"] {
+      color: rgba(0, 0, 0, 0.9);
+      font-weight: 600;
+    }
+  }
+}

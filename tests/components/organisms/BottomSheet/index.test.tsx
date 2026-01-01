@@ -14,7 +14,7 @@ if (typeof window.PointerEvent === "undefined") {
       super(type, props);
     }
   }
-  // @ts-ignore
+  // @ts-expect-error Polyfill for JSDOM
   window.PointerEvent = PointerEventPolyfill;
 }
 

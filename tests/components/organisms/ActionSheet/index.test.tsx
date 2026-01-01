@@ -61,7 +61,7 @@ describe("ActionSheet", () => {
     fireEvent.click(cancel);
     
     await waitFor(() => {
-        expect(screen.queryByText("Action 1")).not.toBeVisible();
+        expect(screen.queryByText("Action 1")).not.toBeInTheDocument();
     });
   });
 });

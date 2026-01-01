@@ -1,0 +1,103 @@
+@use "@/styles/mixins/glass" as glass;
+
+.react-cupertino-ui-list-template {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 2rem;
+  border-radius: 2rem;
+  background: rgba(255, 255, 255, 0.7);
+  @include glass.glass-panel(light, var(--glass-blur, 48px), 0.62);
+  box-shadow: 0 20px 50px rgba(10, 10, 16, 0.12);
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+
+    h1 {
+      margin: 0;
+      font-size: 1.5rem;
+    }
+
+    p {
+      margin: 0.35rem 0 0;
+      color: rgba(12, 12, 18, 0.6);
+    }
+  }
+
+  &__actions {
+    display: inline-flex;
+    gap: 0.5rem;
+  }
+
+  &__search,
+  &__refresh {
+    display: flex;
+    gap: 0.7rem;
+    align-items: center;
+
+    input {
+      flex: 1;
+      border-radius: 999px;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      padding: 0.75rem 1.1rem;
+      background: rgba(255, 255, 255, 0.85);
+    }
+
+    button {
+      border-radius: 999px;
+      border: none;
+      padding: 0.65rem 1.2rem;
+      background: var(--color-blue, #007aff);
+      color: white;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  &__group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+
+    h3 {
+      margin: 0;
+      font-size: 0.9rem;
+      color: rgba(12, 12, 18, 0.5);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+  }
+
+  &__group-items,
+  &__item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  &__item {
+    border: none;
+    text-align: left;
+    padding: 0;
+    background: transparent;
+    cursor: pointer;
+    border-radius: 1.25rem;
+    transition: background 160ms ease;
+
+    &:hover {
+      background: rgba(0, 0, 0, 0.04);
+    }
+  }
+
+  &__empty {
+    text-align: center;
+    color: rgba(10, 10, 16, 0.45);
+    margin: 2rem 0;
+  }
+}

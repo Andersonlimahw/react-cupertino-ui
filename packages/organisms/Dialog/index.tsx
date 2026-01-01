@@ -210,7 +210,7 @@ const AlertDialogAction = React.forwardRef<
         fullWidth={fullWidth}
         loading={loading}
         icon={icon}
-        className={cn("react-cupertino-ui-dialog__button", buttonClassName)}
+        className={cn("react-cupertino-ui-dialog__button", buttonClassName, className)}
       >
         {children}
       </Button>
@@ -244,7 +244,7 @@ const AlertDialogCancel = React.forwardRef<
         fullWidth={fullWidth}
         loading={loading}
         icon={icon}
-        className={cn("react-cupertino-ui-dialog__button", buttonClassName)}
+        className={cn("react-cupertino-ui-dialog__button", buttonClassName, className)}
       >
         {children}
       </Button>

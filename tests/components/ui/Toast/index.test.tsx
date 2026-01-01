@@ -11,11 +11,14 @@ describe("Toast", () => {
     expect(screen.getByText("Saved successfully")).toBeInTheDocument();
   });
 
-  it("calls onClose when close button is clicked", () => {
+  it("calls onClose when close button is clicked", async () => {
     const handleClose = vi.fn();
     render(<Toast title="Notice" onClose={handleClose} />);
 
-    fireEvent.click(screen.getByRole("button", { name: /close/i }));
-    expect(handleClose).toHaveBeenCalled();
+    fireEvent.click(screen.getByRole("button", { name: /close notification/i }));
+    // Wait for the animation delay (300ms)
+    await vi.waitFor(() => {
+      expect(handleClose).toHaveBeenCalled();
+    }, { timeout: 500 });
   });
 });

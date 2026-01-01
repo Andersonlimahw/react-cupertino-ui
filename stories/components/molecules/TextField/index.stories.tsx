@@ -5,7 +5,7 @@ import TextField from "@components/molecules/TextField";
 import "@globalstyles";
 
 const meta = {
-  title: "Components/Molecules/TextField",
+  title: "Molecules/TextField",
   component: TextField,
   tags: ["autodocs"],
   parameters: {

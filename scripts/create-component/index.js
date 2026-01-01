@@ -193,7 +193,7 @@ import ${componentName} from '@components/ui/${componentName}';
 import "../../../../dist/output.css";
 
 const meta = {
-  title: 'Components/${componentName}',
+  title: 'UI/${componentName}',
   component: ${componentName},
   tags: ['autodocs'],
   parameters: {

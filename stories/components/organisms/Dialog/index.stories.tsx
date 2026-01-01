@@ -37,7 +37,7 @@ const DialogPreview = (args: React.ComponentProps<typeof AlertDialogContent>) =>
 );
 
 const meta = {
-  title: "Components/Organisms/Dialog",
+  title: "Organisms/Dialog",
   component: DialogPreview,
   tags: ["autodocs"],
   parameters: {

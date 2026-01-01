@@ -149,6 +149,30 @@
       ],
       "@react-cupertino-ui/toast": [
         "./packages/ui/Toast"
+      ],
+      "@react-cupertino-ui/suggestion-chip": [
+        "./packages/atoms/SuggestionChip"
+      ],
+      "@react-cupertino-ui/ai-prompt-input": [
+        "./packages/molecules/AIPromptInput"
+      ],
+      "@react-cupertino-ui/ai-response-bubble": [
+        "./packages/molecules/AIResponseBubble"
+      ],
+      "@react-cupertino-ui/ai-loading-state": [
+        "./packages/atoms/AILoadingState"
+      ],
+      "@react-cupertino-ui/ai-conversation": [
+        "./packages/organisms/AIConversation"
+      ],
+      "@react-cupertino-ui/mini-player": [
+        "./packages/organisms/MiniPlayer"
+      ],
+      "@react-cupertino-ui/lyrics-view": [
+        "./packages/organisms/LyricsView"
+      ],
+      "@react-cupertino-ui/conversation-list": [
+        "./packages/organisms/ConversationList"
       ]
     }
   },

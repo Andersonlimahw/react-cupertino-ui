@@ -4,7 +4,7 @@ import Switcher from "@components/ui/Switcher";
 import "@globalstyles";
 
 const meta = {
-  title: "Components/Switcher",
+  title: "UI/Switcher",
   component: Switcher,
   tags: ["autodocs"],
   parameters: {

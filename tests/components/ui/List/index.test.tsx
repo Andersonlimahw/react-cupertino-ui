@@ -1,4 +1,5 @@
 import { render, screen, fireEvent } from "@testing-library/react";
+import { vi } from "vitest";
 import { List, ListItem } from "@components/ui/List";
 
 describe("List Component", () => {
@@ -60,7 +61,7 @@ describe("ListItem Component", () => {
   });
 
   it("calls onClick when clicked", () => {
-    const handleClick = jest.fn();
+    const handleClick = vi.fn();
     render(<ListItem title="Title" onClick={handleClick} />);
 
     const item = screen.getByText("Title").closest(".react-cupertino-ui-list-item");
@@ -70,7 +71,7 @@ describe("ListItem Component", () => {
   });
 
   it("does not call onClick when disabled", () => {
-    const handleClick = jest.fn();
+    const handleClick = vi.fn();
     render(<ListItem title="Title" onClick={handleClick} disabled />);
 
     const item = screen.getByText("Title").closest(".react-cupertino-ui-list-item");

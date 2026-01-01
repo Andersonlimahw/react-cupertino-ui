@@ -174,7 +174,7 @@ const BottomSheetContent = React.forwardRef<
       window.addEventListener("pointerup", handleUp);
       window.addEventListener("pointercancel", handleUp);
     },
-    [context?.requestClose, currentSnapIndex, getNearestSnapIndex, sanitizedSnapPoints]
+    [context, currentSnapIndex, getNearestSnapIndex, sanitizedSnapPoints]
   );
 
   const resolvedSnap = sanitizedSnapPoints[currentSnapIndex] ?? sanitizedSnapPoints[0];

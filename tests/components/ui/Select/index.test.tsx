@@ -41,11 +41,13 @@ describe("Select", () => {
   });
 
   it("prevents opening when disabled", () => {
-    render(<Select options={mockOptions} disabled placeholder="Disabled" />);
+    const { container } = render(<Select options={mockOptions} disabled placeholder="Disabled" />);
 
     fireEvent.click(screen.getByRole("combobox"));
 
-    expect(screen.queryByRole("option", { name: "Option 1" })).not.toBeInTheDocument();
+    // The dropdown should not have data-open attribute when disabled
+    const dropdown = container.querySelector(".react-cupertino-ui-select__dropdown");
+    expect(dropdown).not.toHaveAttribute("data-open");
   });
 
   it("supports keyboard navigation", () => {

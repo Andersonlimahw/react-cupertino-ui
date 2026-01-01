@@ -4,7 +4,7 @@ import Checkbox from "@components/ui/Checkbox";
 import "@globalstyles";
 
 const meta = {
-  title: "Components/Checkbox",
+  title: "UI/Checkbox",
   component: Checkbox,
   tags: ["autodocs"],
   parameters: {

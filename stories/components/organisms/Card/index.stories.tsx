@@ -27,7 +27,7 @@ const notifications = [
 ];
 
 const meta = {
-  title: "Components/Organisms/Card",
+  title: "Organisms/Card",
   component: Card,
   tags: ["autodocs"],
   parameters: {

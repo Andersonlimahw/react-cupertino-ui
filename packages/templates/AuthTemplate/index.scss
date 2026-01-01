@@ -1,0 +1,59 @@
+@use "@/styles/mixins/glass" as glass;
+
+.react-cupertino-ui-auth-template {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  text-align: center;
+
+  &__logo {
+    width: 64px;
+    height: 64px;
+  }
+
+  &__card {
+    width: min(420px, 100%);
+    border-radius: 2rem;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    text-align: left;
+    background: rgba(255, 255, 255, 0.9);
+    @include glass.glass-panel(light, var(--glass-blur, 44px), 0.7);
+
+    label {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      font-weight: 600;
+    }
+
+    input {
+      border-radius: 999px;
+      border: 1px solid rgba(15, 15, 20, 0.08);
+      padding: 0.75rem 1rem;
+      background: rgba(255, 255, 255, 0.85);
+    }
+  }
+
+  &__socials {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    button {
+      border-radius: 999px;
+      border: 1px solid rgba(15, 15, 20, 0.12);
+      padding: 0.65rem;
+      background: rgba(255, 255, 255, 0.9);
+    }
+  }
+
+  &__switch button {
+    background: none;
+    border: none;
+    color: var(--color-blue, #007aff);
+  }
+}

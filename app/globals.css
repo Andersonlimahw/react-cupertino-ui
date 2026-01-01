@@ -50,7 +50,11 @@
     --glass-saturation: 180%;
     --glass-opacity: 0.7;
     --glass-opacity-dark: 0.45;
+    --glass-surface: rgba(255, 255, 255, 0.7);
+    --glass-surface-strong: rgba(255, 255, 255, 0.95);
+    --glass-surface-hover: rgba(255, 255, 255, 0.85);
     --glass-border: rgba(255, 255, 255, 0.18);
+    --glass-border-strong: rgba(255, 255, 255, 0.3);
     --glass-border-dark: rgba(255, 255, 255, 0.12);
     --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
     --glass-refraction: 1.5;
@@ -61,6 +65,8 @@
     );
     --glass-highlight-opacity: 0.95;
     --glass-press-duration: 220ms;
+    --glass-press-scale: 0.97;
+    --glass-press-bounce: 1.02;
     --spring-duration: 500ms;
   }
 
@@ -105,6 +111,11 @@
     --color-white: #ffffff;
     --color-light-gray: rgba(179, 179, 179, 0.6);
 
+    --glass-surface: rgba(16, 16, 16, 0.6);
+    --glass-surface-hover: rgba(16, 16, 16, 0.72);
+    --glass-surface-strong: rgba(28, 28, 28, 0.9);
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --glass-border-strong: rgba(255, 255, 255, 0.18);
     --glass-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
     --glass-refraction: 1.35;
     --glass-highlight: linear-gradient(

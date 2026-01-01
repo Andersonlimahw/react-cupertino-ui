@@ -5,7 +5,7 @@ import Stepper from "@components/molecules/Stepper";
 import "@globalstyles";
 
 const meta = {
-  title: "Components/Stepper",
+  title: "Molecules/Stepper",
   component: Stepper,
   tags: ["autodocs"],
   parameters: {

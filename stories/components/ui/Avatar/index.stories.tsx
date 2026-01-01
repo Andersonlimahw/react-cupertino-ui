@@ -4,7 +4,7 @@ import Avatar from "@components/ui/Avatar";
 import "@globalstyles";
 
 const meta = {
-  title: "Components/Avatar",
+  title: "UI/Avatar",
   component: Avatar,
   tags: ["autodocs"],
   parameters: {

@@ -11,6 +11,12 @@ export const glassTokens = {
     pressed: 0.6,
     dark: 0.45,
   },
+  surface: {
+    light: "rgba(255, 255, 255, 0.7)",
+    hover: "rgba(255, 255, 255, 0.85)",
+    strong: "rgba(255, 255, 255, 0.95)",
+    dark: "rgba(16, 16, 16, 0.6)",
+  },
   border: {
     light: "rgba(255, 255, 255, 0.18)",
     dark: "rgba(255, 255, 255, 0.12)",
@@ -21,6 +27,11 @@ export const glassTokens = {
   },
   refraction: "linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, transparent 60%)",
   glow: "0 0 40px rgba(0, 122, 255, 0.35)",
+  press: {
+    duration: "220ms",
+    scale: 0.97,
+    rebound: 1.02,
+  },
 };
 
 export type GlassTokens = typeof glassTokens;

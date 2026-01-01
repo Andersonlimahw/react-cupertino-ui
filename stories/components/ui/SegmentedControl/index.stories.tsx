@@ -18,7 +18,7 @@ const viewOptions = [
 ];
 
 const meta = {
-  title: 'Components/SegmentedControl',
+  title: 'UI/SegmentedControl',
   component: SegmentedControl,
   tags: ['autodocs'],
   parameters: {

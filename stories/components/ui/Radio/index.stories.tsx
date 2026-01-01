@@ -4,7 +4,7 @@ import Radio from "@components/ui/Radio";
 import "@globalstyles";
 
 const meta = {
-  title: "Components/Radio",
+  title: "UI/Radio",
   component: Radio,
   tags: ["autodocs"],
   parameters: {

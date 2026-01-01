@@ -4,7 +4,7 @@ import { Mail } from "lucide-react";
 import "@globalstyles";
 
 const meta = {
-  title: 'Components/Toast',
+  title: 'UI/Toast',
   component: Toast,
   tags: ['autodocs'],
   parameters: {

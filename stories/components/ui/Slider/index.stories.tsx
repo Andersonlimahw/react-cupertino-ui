@@ -4,7 +4,7 @@ import Slider from "@components/ui/Slider";
 import "@globalstyles";
 
 const meta = {
-  title: "Components/Slider",
+  title: "UI/Slider",
   component: Slider,
   tags: ["autodocs"],
   parameters: {

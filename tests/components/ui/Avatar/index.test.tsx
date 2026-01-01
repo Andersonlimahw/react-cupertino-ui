@@ -9,7 +9,7 @@ describe("Avatar", () => {
   });
 
   it("displays status indicator", () => {
-    render(<Avatar status="online" fallback="Jane" />);
-    expect(screen.getByRole("img", { hidden: true })).toBeDefined();
+    const { container } = render(<Avatar status="online" fallback="Jane" />);
+    expect(container.querySelector(".react-cupertino-ui-avatar__status")).toBeInTheDocument();
   });
 });

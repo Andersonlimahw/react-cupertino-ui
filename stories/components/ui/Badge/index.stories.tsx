@@ -4,7 +4,7 @@ import Badge from "@components/ui/Badge";
 import "@globalstyles";
 
 const meta = {
-  title: "Components/Badge",
+  title: "UI/Badge",
   component: Badge,
   tags: ["autodocs"],
   parameters: {

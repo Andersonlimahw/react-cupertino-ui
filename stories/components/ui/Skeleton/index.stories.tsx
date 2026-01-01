@@ -4,7 +4,7 @@ import Skeleton from "@components/ui/Skeleton";
 import "@globalstyles";
 
 const meta = {
-  title: "Components/Skeleton",
+  title: "UI/Skeleton",
   component: Skeleton,
   tags: ["autodocs"],
   parameters: {

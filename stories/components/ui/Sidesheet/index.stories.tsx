@@ -26,7 +26,7 @@ const SidesheetStory = () => (
 );
 
 const meta = {
-  title: "Components/Sidesheet",
+  title: "UI/Sidesheet",
   component: Sheet,
   tags: ["autodocs"],
   parameters: {
@@ -55,6 +55,6 @@ export const Primary: Story = {
 
 export const Secondary: Story = {
   args: {
-    // Define secondary story args here
+    open: true
   },
 };

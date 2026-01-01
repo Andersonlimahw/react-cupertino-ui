@@ -5,7 +5,7 @@ import { Sparkles, LoaderCircle } from "lucide-react";
 import "@globalstyles";
 
 const meta = {
-  title: "Components/Molecules/Button",
+  title: "Molecules/Button",
   component: Button,
   argTypes: {
     variant: {

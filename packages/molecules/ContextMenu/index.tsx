@@ -1,13 +1,226 @@
 import * as React from "react";
+import { createPortal } from "react-dom";
 import * as ContextMenuPrimitive from "@radix-ui/react-context-menu";
 import { Check, ChevronRight, Circle } from "lucide-react";
 
 import { cn } from "@react-cupertino-ui/shared/lib/utils";
 import "./index.scss";
 
-const ContextMenu = ContextMenuPrimitive.Root;
+type PreviewPlacement = "menu" | "trigger" | "both";
 
-const ContextMenuTrigger = ContextMenuPrimitive.Trigger;
+interface PreviewConfig {
+  size: "sm" | "md" | "lg";
+  placement: PreviewPlacement;
+  offset: number;
+}
+
+interface PreviewState {
+  node: React.ReactNode | null;
+  config: PreviewConfig;
+}
+
+interface ContextMenuPreviewContextValue {
+  triggerNode: HTMLElement | null;
+  setTriggerNode: (node: HTMLElement | null) => void;
+  previewState: PreviewState;
+  setPreview: (node: React.ReactNode | null, config?: Partial<PreviewConfig>) => void;
+  isOpen: boolean;
+}
+
+const defaultPreviewConfig: PreviewConfig = {
+  size: "md",
+  placement: "menu",
+  offset: -28,
+};
+
+const ContextMenuPreviewContext = React.createContext<ContextMenuPreviewContextValue | null>(
+  null
+);
+
+const useContextMenuPreview = () => React.useContext(ContextMenuPreviewContext);
+
+const ContextMenuTriggerPreview = () => {
+  const context = useContextMenuPreview();
+  const previewNode = context?.previewState.node;
+  const { placement, size, offset } = context?.previewState.config ?? defaultPreviewConfig;
+  const triggerNode = context?.triggerNode;
+
+  const shouldShow = Boolean(
+    typeof document !== "undefined" &&
+      previewNode &&
+      triggerNode &&
+      context?.isOpen &&
+      (placement === "trigger" || placement === "both")
+  );
+
+  const [position, setPosition] = React.useState({ x: 0, y: 0 });
+
+  const updatePosition = React.useCallback(() => {
+    if (!triggerNode || typeof window === "undefined") {
+      return;
+    }
+    const rect = triggerNode.getBoundingClientRect();
+    setPosition({
+      x: rect.left + rect.width / 2,
+      y: rect.top + rect.height / 2 + offset,
+    });
+  }, [offset, triggerNode]);
+
+  React.useLayoutEffect(() => {
+    if (shouldShow) {
+      updatePosition();
+    }
+  }, [shouldShow, updatePosition]);
+
+  React.useEffect(() => {
+    if (!shouldShow) {
+      return;
+    }
+    const handle = () => updatePosition();
+    window.addEventListener("resize", handle);
+    window.addEventListener("scroll", handle, true);
+    return () => {
+      window.removeEventListener("resize", handle);
+      window.removeEventListener("scroll", handle, true);
+    };
+  }, [shouldShow, updatePosition]);
+
+  if (!shouldShow || typeof document === "undefined") {
+    return null;
+  }
+
+  return createPortal(
+    <div
+      className={cn(
+        "react-cupertino-ui-context-menu__trigger-preview",
+        `size-${size}`
+      )}
+      style={{ left: `${position.x}px`, top: `${position.y}px` }}
+      data-state={context?.isOpen ? "open" : "closed"}
+    >
+      <div className="react-cupertino-ui-context-menu__trigger-preview-inner">
+        {previewNode}
+      </div>
+    </div>,
+    document.body
+  );
+};
+
+function assignRef<T>(ref: React.ForwardedRef<T>, value: T | null) {
+  if (!ref) return;
+  if (typeof ref === "function") {
+    ref(value);
+    return;
+  }
+  (ref as React.MutableRefObject<T | null>).current = value;
+}
+
+interface ContextMenuProps extends Omit<React.ComponentPropsWithoutRef<typeof ContextMenuPrimitive.Root>, "children"> {
+  children?: React.ReactNode;
+}
+
+const ContextMenu = ({
+  children,
+  onOpenChange,
+  ...props
+}: ContextMenuProps) => {
+  const [isOpen, setIsOpen] = React.useState(false);
+  const [triggerNode, setTriggerNode] = React.useState<HTMLElement | null>(null);
+  const [previewState, setPreviewState] = React.useState<PreviewState>({
+    node: null,
+    config: defaultPreviewConfig,
+  });
+
+  const handleOpenChange = React.useCallback(
+    (nextOpen: boolean) => {
+      setIsOpen(nextOpen);
+      onOpenChange?.(nextOpen);
+    },
+    [onOpenChange]
+  );
+
+  const setPreview = React.useCallback(
+    (node: React.ReactNode | null, config?: Partial<PreviewConfig>) => {
+      if (!node) {
+        setPreviewState({ node: null, config: defaultPreviewConfig });
+        return;
+      }
+      setPreviewState((prev) => ({
+        node,
+        config: {
+          size: config?.size ?? prev.config.size,
+          placement: config?.placement ?? prev.config.placement,
+          offset: config?.offset ?? prev.config.offset,
+        },
+      }));
+    },
+    []
+  );
+
+  const contextValue = React.useMemo<ContextMenuPreviewContextValue>(
+    () => ({
+      triggerNode,
+      setTriggerNode,
+      previewState,
+      setPreview,
+      isOpen,
+    }),
+    [isOpen, previewState, setPreview, triggerNode]
+  );
+
+  return (
+    <ContextMenuPreviewContext.Provider value={contextValue}>
+      <ContextMenuPrimitive.Root
+        {...props}
+        onOpenChange={handleOpenChange}
+      >
+        {children}
+      </ContextMenuPrimitive.Root>
+      <ContextMenuTriggerPreview />
+    </ContextMenuPreviewContext.Provider>
+  );
+};
+
+const ContextMenuTrigger = React.forwardRef<
+  React.ElementRef<typeof ContextMenuPrimitive.Trigger>,
+  React.ComponentPropsWithoutRef<typeof ContextMenuPrimitive.Trigger>
+>((props, forwardedRef) => {
+  const { className, ...rest } = props;
+  const context = useContextMenuPreview();
+  const showPreview = Boolean(
+    context?.isOpen &&
+      context.previewState.node &&
+      (context.previewState.config.placement === "trigger" ||
+        context.previewState.config.placement === "both")
+  );
+
+  const setTriggerNode = context?.setTriggerNode;
+
+  const composedRef = React.useCallback(
+    (node: React.ElementRef<typeof ContextMenuPrimitive.Trigger> | null) => {
+      if (setTriggerNode) {
+        if (node instanceof HTMLElement) {
+          setTriggerNode(node);
+        } else {
+          setTriggerNode(null);
+        }
+      }
+      assignRef(forwardedRef, node);
+    },
+    [forwardedRef, setTriggerNode]
+  );
+
+  return (
+    <ContextMenuPrimitive.Trigger
+      {...rest}
+      ref={composedRef}
+      className={className}
+      data-context-menu-trigger="true"
+      data-preview-visible={showPreview ? "true" : undefined}
+    />
+  );
+});
+ContextMenuTrigger.displayName = ContextMenuPrimitive.Trigger.displayName;
 
 const ContextMenuGroup = ContextMenuPrimitive.Group;
 
@@ -54,37 +267,66 @@ interface ContextMenuContentProps
   extends React.ComponentPropsWithoutRef<typeof ContextMenuPrimitive.Content> {
   preview?: React.ReactNode;
   previewSize?: "sm" | "md" | "lg";
+  previewPlacement?: PreviewPlacement;
+  previewOffset?: number;
 }
 
 const ContextMenuContent = React.forwardRef<
   React.ElementRef<typeof ContextMenuPrimitive.Content>,
   ContextMenuContentProps
->(({ className, preview, previewSize = "md", children, ...props }, ref) => (
-  <ContextMenuPrimitive.Portal>
-    <ContextMenuPrimitive.Content
-      ref={ref}
-      className={cn(
-        "react-cupertino-ui-context-menu__content",
-        preview && "has-preview",
-        className
-      )}
-      data-has-preview={preview ? "true" : undefined}
-      {...props}
-    >
-      {preview ? (
-        <div
-          className={cn(
-            "react-cupertino-ui-context-menu__preview",
-            `size-${previewSize}`
-          )}
-        >
-          {preview}
-        </div>
-      ) : null}
-      {children}
-    </ContextMenuPrimitive.Content>
-  </ContextMenuPrimitive.Portal>
-));
+>(({ className, preview, previewSize = "md", previewPlacement = "menu", previewOffset, children, ...props }, ref) => {
+  const previewContext = useContextMenuPreview();
+  const previewApi = previewContext?.setPreview;
+  const shouldRenderInline = Boolean(
+    preview && (previewPlacement === "menu" || previewPlacement === "both")
+  );
+
+  React.useEffect(() => {
+    if (!previewApi) {
+      return;
+    }
+    if (!preview) {
+      previewApi(null);
+      return;
+    }
+    previewApi(preview, {
+      size: previewSize,
+      placement: previewPlacement,
+      offset: previewOffset ?? defaultPreviewConfig.offset,
+    });
+
+    return () => {
+      previewApi(null);
+    };
+  }, [previewApi, preview, previewSize, previewPlacement, previewOffset]);
+
+  return (
+    <ContextMenuPrimitive.Portal>
+      <ContextMenuPrimitive.Content
+        ref={ref}
+        className={cn(
+          "react-cupertino-ui-context-menu__content",
+          shouldRenderInline && "has-preview",
+          className
+        )}
+        data-has-preview={shouldRenderInline ? "true" : undefined}
+        {...props}
+      >
+        {shouldRenderInline ? (
+          <div
+            className={cn(
+              "react-cupertino-ui-context-menu__preview",
+              `size-${previewSize}`
+            )}
+          >
+            {preview}
+          </div>
+        ) : null}
+        {children}
+      </ContextMenuPrimitive.Content>
+    </ContextMenuPrimitive.Portal>
+  );
+});
 ContextMenuContent.displayName = ContextMenuPrimitive.Content.displayName;
 
 interface ContextMenuPreviewProps extends Omit<React.HTMLAttributes<HTMLDivElement>, "title"> {
@@ -249,3 +491,5 @@ export {
   ContextMenuRadioGroup,
   ContextMenuPreview,
 };
+
+export type { ContextMenuContentProps, ContextMenuProps };

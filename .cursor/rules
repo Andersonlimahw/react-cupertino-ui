@@ -158,3 +158,10 @@ When generating code for this project:
 5. Add proper TypeScript types
 6. Generate corresponding test file
 7. Generate Storybook story
+
+## AI Resources
+
+- Guides + prompts live under `AI/` (`agents`, `workflows`, `tasks`, `prompts`).
+- Each roadmap milestone should reference an agent + workflow before code edits.
+- Use `AI/prompts/create-component.md` when spawning new components and `AI/prompts/create-template.md` for templates/kits.
+- `mcp-samples.json` documents available MCP connectors (Figma, DevTools, Playwright) for Claude/Cursor automations.

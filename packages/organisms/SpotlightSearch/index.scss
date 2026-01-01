@@ -1,0 +1,369 @@
+@use "../../../src/styles/mixins/glass" as *;
+
+.react-cupertino-ui-spotlight__overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  background: rgba(0, 0, 0, 0.4);
+  animation: spotlight-overlay-in 200ms ease-out;
+
+  &.glass {
+    backdrop-filter: blur(8px) saturate(150%);
+    -webkit-backdrop-filter: blur(8px) saturate(150%);
+  }
+}
+
+.react-cupertino-ui-spotlight {
+  position: fixed;
+  top: 12%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  width: min(600px, 90vw);
+  max-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  border-radius: 16px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow:
+    0 24px 80px rgba(0, 0, 0, 0.25),
+    0 0 0 1px rgba(255, 255, 255, 0.1);
+  animation: spotlight-in 250ms cubic-bezier(0.32, 0.72, 0, 1);
+
+  &.glass {
+    @include glass($blur: 40px, $opacity: 0.85);
+    background: rgba(255, 255, 255, 0.85);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    background: rgba(30, 30, 30, 0.95);
+
+    &.glass {
+      @include glass-dark($blur: 40px, $opacity: 0.75);
+      background: rgba(30, 30, 30, 0.85);
+    }
+  }
+}
+
+.react-cupertino-ui-spotlight__search {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+
+  @media (prefers-color-scheme: dark) {
+    border-bottom-color: rgba(255, 255, 255, 0.08);
+  }
+
+  .search-icon {
+    color: rgba(0, 0, 0, 0.4);
+    flex-shrink: 0;
+
+    @media (prefers-color-scheme: dark) {
+      color: rgba(255, 255, 255, 0.5);
+    }
+  }
+
+  .spinner {
+    width: 18px;
+    height: 18px;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    border-top-color: var(--color-blue, #007aff);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    flex-shrink: 0;
+  }
+
+  .clear-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.15);
+    color: rgba(255, 255, 255, 0.9);
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: background 150ms ease;
+
+    &:hover {
+      background: rgba(0, 0, 0, 0.25);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      background: rgba(255, 255, 255, 0.2);
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.3);
+      }
+    }
+  }
+}
+
+.react-cupertino-ui-spotlight__input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  font-size: 18px;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.9);
+  outline: none;
+
+  &::placeholder {
+    color: rgba(0, 0, 0, 0.35);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    color: rgba(255, 255, 255, 0.95);
+
+    &::placeholder {
+      color: rgba(255, 255, 255, 0.4);
+    }
+  }
+}
+
+.react-cupertino-ui-spotlight__content {
+  flex: 1;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.react-cupertino-ui-spotlight__section {
+  padding: 8px 0;
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 20px;
+  }
+
+  .section-title {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: rgba(0, 0, 0, 0.45);
+
+    @media (prefers-color-scheme: dark) {
+      color: rgba(255, 255, 255, 0.5);
+    }
+  }
+
+  .clear-recent {
+    border: none;
+    background: transparent;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--color-blue, #007aff);
+    cursor: pointer;
+    padding: 4px 8px;
+    margin: -4px -8px;
+    border-radius: 6px;
+    transition: background 150ms ease;
+
+    &:hover {
+      background: rgba(0, 122, 255, 0.1);
+    }
+  }
+}
+
+.react-cupertino-ui-spotlight__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.react-cupertino-ui-spotlight__item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 10px 20px;
+  border: none;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+  transition: background 100ms ease;
+
+  &:hover,
+  &.is-focused {
+    background: rgba(0, 122, 255, 0.1);
+  }
+
+  &.is-focused {
+    background: rgba(0, 122, 255, 0.15);
+  }
+
+  .item-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.05);
+    color: rgba(0, 0, 0, 0.5);
+    flex-shrink: 0;
+
+    @media (prefers-color-scheme: dark) {
+      background: rgba(255, 255, 255, 0.1);
+      color: rgba(255, 255, 255, 0.6);
+    }
+  }
+
+  .item-content {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .item-title {
+    font-size: 15px;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.9);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    @media (prefers-color-scheme: dark) {
+      color: rgba(255, 255, 255, 0.95);
+    }
+  }
+
+  .item-subtitle {
+    font-size: 13px;
+    color: rgba(0, 0, 0, 0.5);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    @media (prefers-color-scheme: dark) {
+      color: rgba(255, 255, 255, 0.5);
+    }
+  }
+
+  .item-category {
+    font-size: 12px;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.4);
+    padding: 4px 8px;
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 6px;
+    flex-shrink: 0;
+
+    @media (prefers-color-scheme: dark) {
+      color: rgba(255, 255, 255, 0.5);
+      background: rgba(255, 255, 255, 0.1);
+    }
+  }
+
+  .item-arrow {
+    color: rgba(0, 0, 0, 0.3);
+    flex-shrink: 0;
+
+    @media (prefers-color-scheme: dark) {
+      color: rgba(255, 255, 255, 0.3);
+    }
+  }
+}
+
+.react-cupertino-ui-spotlight__empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+
+  p {
+    font-size: 15px;
+    color: rgba(0, 0, 0, 0.4);
+    margin: 0;
+
+    @media (prefers-color-scheme: dark) {
+      color: rgba(255, 255, 255, 0.4);
+    }
+  }
+}
+
+.react-cupertino-ui-spotlight__footer {
+  padding: 12px 20px;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  background: rgba(0, 0, 0, 0.02);
+
+  @media (prefers-color-scheme: dark) {
+    border-top-color: rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.02);
+  }
+
+  .keyboard-hints {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .hint {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.4);
+
+    @media (prefers-color-scheme: dark) {
+      color: rgba(255, 255, 255, 0.4);
+    }
+
+    kbd {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 20px;
+      height: 20px;
+      padding: 0 6px;
+      font-family: inherit;
+      font-size: 11px;
+      font-weight: 500;
+      background: rgba(0, 0, 0, 0.06);
+      border-radius: 4px;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+
+      @media (prefers-color-scheme: dark) {
+        background: rgba(255, 255, 255, 0.1);
+        border-color: rgba(255, 255, 255, 0.1);
+      }
+    }
+  }
+}
+
+@keyframes spotlight-overlay-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes spotlight-in {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

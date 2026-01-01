@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { Moon, SunMedium } from "lucide-react";
 
 import Switcher from "@components/ui/Switcher";
 import "@globalstyles";
@@ -25,11 +26,16 @@ export const Default: Story = {
   },
 };
 
-export const Checked: Story = {
+export const WithIcons: Story = {
   args: {
-    label: "Wi-Fi",
-    helperText: "Home Network",
+    label: "Appearance",
+    helperText: "Match system",
     defaultChecked: true,
+    checkedIcon: <Moon size={14} />,
+    uncheckedIcon: <SunMedium size={14} />,
+    hapticFeedback: true,
+    showStateLabel: true,
+    size: "lg",
   },
 };
 
@@ -44,9 +50,9 @@ export const Disabled: Story = {
 export const Sizes: Story = {
   render: () => (
     <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
-      <Switcher size="sm" label="Silent Mode" helperText="Size sm" />
-      <Switcher size="default" label="Focus" helperText="Size default" />
-      <Switcher size="lg" label="Dark Mode" helperText="Size lg" />
+      <Switcher size="sm" label="Silent Mode" helperText="Small" />
+      <Switcher size="default" label="Focus" helperText="Default" />
+      <Switcher size="lg" label="Stage Manager" helperText="Large" />
     </div>
   ),
 };

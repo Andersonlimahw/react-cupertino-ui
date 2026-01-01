@@ -1,3 +1,4 @@
+import * as React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import {
   ContextMenu,
@@ -83,6 +84,50 @@ export const Default: Story = {
           Show Full URLs
         </ContextMenuItem>
       </ContextMenuContent>
+    </ContextMenu>
+  ),
+};
+
+const TriggerPreviewContent = ContextMenuContent as React.FC<
+  React.ComponentProps<typeof ContextMenuContent> & { previewPlacement?: string; previewOffset?: number }
+>;
+
+export const TriggerPreview: Story = {
+  render: () => (
+    <ContextMenu>
+      <ContextMenuTrigger className="flex h-[200px] w-[320px] items-center justify-center rounded-[28px] border border-dashed text-sm">
+        Long press or right click
+      </ContextMenuTrigger>
+      <TriggerPreviewContent
+        className="w-60"
+        previewPlacement="trigger"
+        previewOffset={-10}
+        preview={
+          <ContextMenuPreview
+            title="Liquid Glass"
+            subtitle="Live Photo · Today"
+            meta="2.4 MB"
+            media={
+              <div
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  background:
+                    "linear-gradient(135deg, rgba(14,165,233,0.95), rgba(59,130,246,0.85), rgba(139,92,246,0.75))",
+                }}
+              />
+            }
+          >
+            Preview floats near the trigger while actions stay below.
+          </ContextMenuPreview>
+        }
+      >
+        <ContextMenuItem>Share...</ContextMenuItem>
+        <ContextMenuItem>Add to Shared Album</ContextMenuItem>
+        <ContextMenuSeparator />
+        <ContextMenuItem>Favorite</ContextMenuItem>
+        <ContextMenuItem className="text-red-500">Delete</ContextMenuItem>
+      </TriggerPreviewContent>
     </ContextMenu>
   ),
 };

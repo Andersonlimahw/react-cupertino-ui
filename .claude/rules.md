@@ -188,3 +188,18 @@ npm run lint             # ESLint
 - Don't create components without tests
 - Don't break existing API contracts
 - Don't use `any` type
+
+---
+
+## AI Resources & MCP
+
+- Use `AI/agents` + `AI/workflows` to decide which specialist persona to invoke.
+- `AI/tasks` tracks active initiatives (landing page refresh, AI knowledge base, etc.).
+- `AI/prompts` contain ready-to-use instructions for building new components/templates or AI showcases.
+- `mcp-samples.json` describes expected MCP connectors (Figma for spec sync, DevTools for network capture, Playwright for scripted flows).
+
+## Landing & Marketing Guidelines
+
+- `src/pages/Home` is the canonical marketing experience showing Buttons, QuickAction, SpotlightSearch, templates, and AI primitives.
+- Keep SEO metadata current (title + description + OG/Twitter tags) whenever messaging changes.
+- Update `.roadmap/roadmap-checklist.md` whenever the landing reflects new functionality.

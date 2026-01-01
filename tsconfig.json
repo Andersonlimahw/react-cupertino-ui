@@ -50,6 +50,9 @@
       "@react-cupertino-ui/context-menu": [
         "./packages/molecules/ContextMenu"
       ],
+      "@react-cupertino-ui/quick-action": [
+        "./packages/molecules/QuickAction"
+      ],
       "@react-cupertino-ui/date-picker": [
         "./packages/molecules/DatePicker"
       ],
@@ -130,6 +133,15 @@
       ],
       "@react-cupertino-ui/switcher": [
         "./packages/ui/Switcher"
+      ],
+      "@react-cupertino-ui/tabs": [
+        "./packages/ui/Tabs"
+      ],
+      "@react-cupertino-ui/timeline": [
+        "./packages/ui/Timeline"
+      ],
+      "@react-cupertino-ui/tooltip": [
+        "./packages/ui/Tooltip"
       ],
       "@react-cupertino-ui/title": [
         "./packages/ui/Title"

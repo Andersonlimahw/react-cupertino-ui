@@ -1,7 +1,8 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import { TabBar, TabBarProps } from "@components/organisms/TabBar";
-import { Home, Search, Library, User } from "lucide-react";
 import { useState } from "react";
+import type { Meta, StoryObj } from "@storybook/react";
+import { Compass, Home, Library, Mic2, Search } from "lucide-react";
+
+import { TabBar, type TabBarProps } from "@components/organisms/TabBar";
 
 const meta = {
   title: "Organisms/TabBar",
@@ -12,54 +13,78 @@ const meta = {
   tags: ["autodocs"],
   argTypes: {
     glass: { control: "boolean" },
+    floating: { control: "boolean" },
+    tone: {
+      control: "select",
+      options: ["auto", "light", "dark"],
+    },
   },
 } satisfies Meta<typeof TabBar>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-const items = [
+const baseItems = [
   { id: "home", icon: <Home />, label: "Home" },
   { id: "search", icon: <Search />, label: "Search" },
-  { id: "library", icon: <Library />, label: "Library", badge: 3 },
-  { id: "profile", icon: <User />, label: "Profile" },
+  { id: "listen", icon: <Mic2 />, label: "Listen", badgeShape: "dot", badgeTone: "critical" },
+  { id: "library", icon: <Library />, label: "Library", badge: 3, badgeTone: "success" },
+  { id: "explore", icon: <Compass />, label: "Explore" },
 ];
 
 const TabBarWithState = (args: TabBarProps) => {
-  const [active, setActive] = useState("home");
+  const [active, setActive] = useState(args.activeId ?? "home");
   return (
-    <div style={{ height: "100vh", position: "relative", background: "url(https://images.unsplash.com/photo-1579546929518-9e396f3cc809?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80) center/cover" }}>
-      <div style={{ padding: "20px", color: "white", textShadow: "0 2px 4px rgba(0,0,0,0.3)" }}>
-        <h1>Current Tab: {items.find((i) => i.id === active)?.label}</h1>
+    <div
+      style={{
+        height: "100vh",
+        position: "relative",
+        background:
+          "radial-gradient(circle at 10% 20%, rgba(10, 132, 255, 0.15), transparent 40%), #05060a",
+        color: "white",
+      }}
+    >
+      <div style={{ padding: "2rem", fontFamily: "-apple-system, BlinkMacSystemFont" }}>
+        <p style={{ color: "rgba(255,255,255,0.8)", marginBottom: "0.25rem" }}>Now viewing</p>
+        <h1 style={{ fontSize: "2.5rem", margin: 0 }}>
+          {baseItems.find((item) => item.id === active)?.label ?? "Home"}
+        </h1>
       </div>
-      <TabBar {...args} items={items} activeId={active} onChange={setActive} />
+      <TabBar {...args} items={args.items ?? baseItems} activeId={active} onChange={setActive} />
     </div>
   );
 };
 
 export const Default: Story = {
   args: {
-    items: items,
+    items: baseItems,
     activeId: "home",
-    onChange: () => {},
+    glass: true,
+    floating: false,
+    hapticFeedback: false,
   },
   render: (args) => <TabBarWithState {...args} />,
 };
 
-export const DarkModePreview: Story = {
+export const FloatingGlass: Story = {
   args: {
-    items: items,
-    activeId: "home",
-    onChange: () => {},
-  },
-  parameters: {
-    themes: {
-      defaultTheme: "dark",
-    },
+    items: baseItems,
+    activeId: "search",
+    floating: true,
+    glass: true,
+    hapticFeedback: true,
+    tone: "light",
   },
   render: (args) => (
-    <div className="dark" style={{ height: "100vh", background: "#000", position: "relative" }}>
-        <TabBarWithState {...args} />
+    <div
+      style={{
+        height: "100vh",
+        background:
+          "linear-gradient(180deg, rgba(15,23,42,1) 0%, rgba(15,23,42,0.65) 35%, rgba(15,23,42,0.3) 100%)",
+        position: "relative",
+      }}
+    >
+      <TabBarWithState {...args} />
     </div>
   ),
 };

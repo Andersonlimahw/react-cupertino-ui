@@ -349,3 +349,18 @@ Use Radix primitives for:
 - Manage complex variant combinations
 - Type-safe variant definitions
 - Compose variant classes
+
+---
+
+## AI Enablement
+
+- AI knowledge base lives inside `AI/agents`, `AI/workflows`, `AI/tasks`, and `AI/prompts`.
+- Follow the **Liquid Glass Architect** brief when migrating components to iOS 26 aesthetics.
+- Use the **Workflow Director** guide for multi-team changes (components + docs + roadmap updates).
+- `mcp-samples.json` enumerates the recommended MCP connectors (Figma, DevTools, Playwright) with example invocations.
+- Always log progress in `.roadmap/roadmap-checklist.md` when completing a task defined in `AI/tasks/*`.
+
+## Landing Page Source
+
+- `src/pages/Home` is the marketing landing; keep SEO tags via `useSEO` hook and highlight flagship components (Button, SpotlightSearch, templates, AI primitives, QuickAction).
+- `App.tsx` simply renders this page; update hero CTAs when Storybook/docs URLs change.

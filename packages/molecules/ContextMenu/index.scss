@@ -181,6 +181,66 @@
     font-size: 0.78rem;
     color: color-mix(in srgb, var(--foreground), transparent 20%);
   }
+
+  &__trigger-preview {
+    position: fixed;
+    z-index: 60;
+    pointer-events: none;
+    transform: translate(-50%, -50%) scale(0.95);
+    opacity: 0;
+    transition: opacity 200ms ease, transform 320ms cubic-bezier(0.18, 0.86, 0.35, 1.15);
+    --trigger-preview-width: 280px;
+
+    &.size-sm {
+      --trigger-preview-width: 220px;
+    }
+
+    &.size-lg {
+      --trigger-preview-width: 320px;
+    }
+
+    &[data-state="open"] {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+  }
+
+  &__trigger-preview-inner {
+    width: min(var(--trigger-preview-width), calc(100vw - 2rem));
+    border-radius: 22px;
+    overflow: hidden;
+    @include glass.glass-panel(light, var(--glass-blur, 48px), 0.72);
+    box-shadow:
+      0 30px 70px rgba(15, 15, 15, 0.35),
+      0 8px 24px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(var(--glass-blur, 48px)) saturate(170%);
+  }
+}
+
+[data-context-menu-trigger="true"] {
+  transition:
+    transform 240ms cubic-bezier(0.2, 0.8, 0.4, 1),
+    filter 200ms ease,
+    box-shadow 200ms ease;
+  will-change: transform;
+
+  &[data-preview-visible="true"] {
+    transform: scale(0.97) translateZ(0);
+    filter: brightness(1.02);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-context-menu-trigger="true"] {
+    transition: none;
+    &[data-preview-visible="true"] {
+      transform: none;
+    }
+  }
+
+  .react-cupertino-ui-context-menu__trigger-preview {
+    transition: none;
+  }
 }
 
 @keyframes zoomIn {

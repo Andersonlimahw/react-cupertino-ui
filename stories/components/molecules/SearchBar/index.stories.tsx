@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { SearchBar, SearchBarProps } from "@/components/molecules/SearchBar";
+import { SearchBar, SearchBarProps } from "@components/molecules/SearchBar";
 import { useState } from "react";
 
 const meta = {

@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { NavigationBar } from "@/components/organisms/NavigationBar";
-import { Button } from "@/components/molecules/Button";
+import { NavigationBar } from "@components/organisms/NavigationBar";
+import { Button } from "@components/molecules/Button";
 import { Plus, Search, Share } from "lucide-react";
 
 const meta = {

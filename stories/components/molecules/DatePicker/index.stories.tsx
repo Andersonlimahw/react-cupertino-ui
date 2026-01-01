@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { DatePicker, DatePickerProps } from "@/components/molecules/DatePicker";
+import { DatePicker, DatePickerProps } from "@components/molecules/DatePicker";
 import { useState } from "react";
 
 const meta = {

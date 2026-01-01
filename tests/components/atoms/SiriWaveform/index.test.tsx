@@ -1,5 +1,5 @@
 import { render } from "@testing-library/react";
-import { SiriWaveform } from "@/components/atoms/SiriWaveform";
+import { SiriWaveform } from "@components/atoms/SiriWaveform";
 import { describe, it, expect } from "vitest";
 
 describe("SiriWaveform", () => {

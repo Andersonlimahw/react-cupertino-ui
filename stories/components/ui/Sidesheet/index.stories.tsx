@@ -7,7 +7,7 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from "@/components/ui/Sidesheet";
+} from "@components/ui/Sidesheet";
 import "@globalstyles";
 
 const SidesheetStory = () => (

@@ -1,7 +1,7 @@
 import * as React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import Stepper from "@/components/molecules/Stepper";
+import Stepper from "@components/molecules/Stepper";
 import "@globalstyles";
 
 const meta = {

@@ -1,6 +1,6 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 
-import { Switcher } from "@/components/ui/Switcher";
+import { Switcher } from "@components/ui/Switcher";
 
 describe("Switcher", () => {
   it("renders the label and helper text", () => {

@@ -11,8 +11,8 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
   AlertDialogTrigger,
-} from "@/components/organisms/Dialog";
-import { Button } from "@/components/molecules/Button";
+} from "@components/organisms/Dialog";
+import { Button } from "@components/molecules/Button";
 import "@globalstyles";
 
 const DialogPreview = (args: React.ComponentProps<typeof AlertDialogContent>) => (

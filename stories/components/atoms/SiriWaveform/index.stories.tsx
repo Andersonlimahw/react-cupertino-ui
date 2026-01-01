@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { SiriWaveform } from "@/components/atoms/SiriWaveform";
+import { SiriWaveform } from "@components/atoms/SiriWaveform";
 
 const meta = {
   title: "Atoms/SiriWaveform",

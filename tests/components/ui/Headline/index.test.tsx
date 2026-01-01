@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import { Headline } from "@/components/ui/Headline";
+import { Headline } from "@components/ui/Headline";
 
 describe("Headline Component", () => {
   it("renders correctly with default props", () => {

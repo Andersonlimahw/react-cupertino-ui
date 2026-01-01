@@ -206,8 +206,8 @@ npm run tailwind:watch   # Watch and compile Tailwind CSS
 
 ```typescript
 @/*                 → ./src/*
-@components/*       → ./src/components/*
-@components/ui/*    → ./src/components/ui/*
+@components/*       → ./packages/*
+@components/ui/*    → ./packages/ui/*
 @globalstyles       → ./dist/output.css
 ```
 

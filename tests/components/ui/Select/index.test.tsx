@@ -1,7 +1,7 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import { vi } from "vitest";
 
-import { Select } from "@/components/ui/Select";
+import { Select } from "@components/ui/Select";
 
 const mockOptions = [
   { value: "1", label: "Option 1" },

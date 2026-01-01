@@ -3,10 +3,17 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "workspaces": [
+    "packages/*/*",
+    "packages/shared"
+  ],
   "scripts": {
     "dev": "npm run sb",
     "start": "vite",
     "build": "npm run tailwind:build && tsc -b && vite build",
+    "build:packages": "lerna run build",
+    "publish:packages": "lerna publish from-package",
+    "sync:paths": "node scripts/sync-path-aliases.mjs",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "new:component": "node  ./scripts/create-component/index.js",
     "preview": "vite preview",
@@ -56,6 +63,7 @@
     "eslint-plugin-react-refresh": "^0.4.7",
     "eslint-plugin-storybook": "^0.8.0",
     "jsdom": "^24.1.1",
+    "lerna": "^9.0.3",
     "postcss": "^8.4.40",
     "sass": "^1.77.8",
     "storybook": "^8.2.6",

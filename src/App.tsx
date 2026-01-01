@@ -1,7 +1,7 @@
 import "./App.css";
 import "../app/globals.css";
 
-import { Button } from "@/components/molecules/Button";
+import { Button } from "@components/molecules/Button";
 
 import {
   Card,
@@ -10,7 +10,7 @@ import {
   CardDescription,
   CardContent,
   CardFooter,
-} from "@/components/organisms/Card";
+} from "@components/organisms/Card";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -21,8 +21,8 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
   AlertDialogTrigger,
-} from "@/components/organisms/Dialog";
-import Switcher from "./components/ui/Switcher";
+} from "@components/organisms/Dialog";
+import Switcher from "@components/ui/Switcher";
 
 export function AlertDialogSample() {
   return (

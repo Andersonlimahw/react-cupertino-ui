@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import Toast from '@/components/ui/Toast';
+import Toast from '@components/ui/Toast';
 import { Mail } from "lucide-react";
 import "@globalstyles";
 

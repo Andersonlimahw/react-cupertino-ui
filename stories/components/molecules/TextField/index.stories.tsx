@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Eye, Mail, Search, ShieldCheck } from "lucide-react";
 
-import TextField from "@/components/molecules/TextField";
+import TextField from "@components/molecules/TextField";
 import "@globalstyles";
 
 const meta = {

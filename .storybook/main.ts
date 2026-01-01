@@ -1,5 +1,6 @@
 import path from "path";
 import type { StorybookConfig } from "@storybook/react-vite";
+import { getComponentAliases } from "../config/component-aliases";
 
 const config: StorybookConfig = {
   stories: [
@@ -26,7 +27,10 @@ const config: StorybookConfig = {
     config.resolve.alias = {
       ...(config.resolve.alias || {}),
       "@": path.resolve(__dirname, "../src"),
+      "@components": path.resolve(__dirname, "../packages"),
+      "@react-cupertino-ui/shared": path.resolve(__dirname, "../packages/shared"),
       "@globalstyles": path.resolve(__dirname, "../app/globals.css"),
+      ...getComponentAliases(),
     };
     return config;
   },

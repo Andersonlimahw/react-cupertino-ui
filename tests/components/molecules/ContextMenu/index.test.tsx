@@ -4,7 +4,7 @@ import {
   ContextMenuTrigger,
   ContextMenuContent,
   ContextMenuItem,
-} from "@/components/molecules/ContextMenu";
+} from "@components/molecules/ContextMenu";
 import { describe, it, expect } from "vitest";
 
 describe("ContextMenu", () => {

@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { useState } from 'react';
 import { Grid, List, LayoutGrid } from 'lucide-react';
 
-import SegmentedControl from '@/components/ui/SegmentedControl';
+import SegmentedControl from '@components/ui/SegmentedControl';
 import "@globalstyles";
 
 const basicOptions = [

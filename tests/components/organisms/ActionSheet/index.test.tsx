@@ -5,7 +5,7 @@ import {
     ActionSheetContent, 
     ActionSheetAction, 
     ActionSheetCancel 
-} from "@/components/organisms/ActionSheet";
+} from "@components/organisms/ActionSheet";
 import { describe, it, expect, vi } from "vitest";
 
 // Radix Dialog requires a bit of setup for testing or mocking pointer events sometimes,

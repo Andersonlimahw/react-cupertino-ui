@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import Avatar from "@/components/ui/Avatar";
+import Avatar from "@components/ui/Avatar";
 import "@globalstyles";
 
 const meta = {

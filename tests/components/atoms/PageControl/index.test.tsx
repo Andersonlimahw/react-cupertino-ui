@@ -1,5 +1,5 @@
 import { render, screen, fireEvent } from "@testing-library/react";
-import { PageControl } from "@/components/atoms/PageControl";
+import { PageControl } from "@components/atoms/PageControl";
 import { describe, it, expect, vi } from "vitest";
 
 describe("PageControl", () => {

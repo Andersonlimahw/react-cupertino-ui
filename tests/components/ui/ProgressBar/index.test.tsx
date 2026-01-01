@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 
-import ProgressBar from "@/components/ui/ProgressBar";
+import ProgressBar from "@components/ui/ProgressBar";
 
 describe("ProgressBar", () => {
   it("shows label and helper text", () => {

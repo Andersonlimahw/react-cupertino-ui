@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import Skeleton from "@/components/ui/Skeleton";
+import Skeleton from "@components/ui/Skeleton";
 import "@globalstyles";
 
 const meta = {

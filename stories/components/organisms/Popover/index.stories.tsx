@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Popover, PopoverTrigger, PopoverContent } from "@/components/organisms/Popover";
-import { Button } from "@/components/molecules/Button";
+import { Popover, PopoverTrigger, PopoverContent } from "@components/organisms/Popover";
+import { Button } from "@components/molecules/Button";
 import { Settings } from "lucide-react";
 
 interface PopoverStoryProps {

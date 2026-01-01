@@ -1,5 +1,5 @@
 import { render } from "@testing-library/react";
-import { VoiceIndicator } from "@/components/atoms/VoiceIndicator";
+import { VoiceIndicator } from "@components/atoms/VoiceIndicator";
 import { describe, it, expect } from "vitest";
 
 describe("VoiceIndicator", () => {

@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { VoiceIndicator } from "@/components/atoms/VoiceIndicator";
+import { VoiceIndicator } from "@components/atoms/VoiceIndicator";
 
 const meta = {
   title: "Atoms/VoiceIndicator",

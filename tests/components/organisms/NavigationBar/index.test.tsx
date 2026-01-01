@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import { NavigationBar } from "@/components/organisms/NavigationBar";
+import { NavigationBar } from "@components/organisms/NavigationBar";
 import { describe, it, expect } from "vitest";
 
 describe("NavigationBar", () => {

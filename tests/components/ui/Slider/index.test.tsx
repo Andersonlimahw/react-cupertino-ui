@@ -1,6 +1,6 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 
-import { Slider } from "@/components/ui/Slider";
+import { Slider } from "@components/ui/Slider";
 
 describe("Slider", () => {
   it("renders label and helper text", () => {

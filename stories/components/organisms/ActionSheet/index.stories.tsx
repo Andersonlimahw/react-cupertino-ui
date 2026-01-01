@@ -8,8 +8,8 @@ import {
     ActionSheetHeader,
     ActionSheetTitle,
     ActionSheetDescription
-} from "@/components/organisms/ActionSheet";
-import { Button } from "@/components/molecules/Button";
+} from "@components/organisms/ActionSheet";
+import { Button } from "@components/molecules/Button";
 import { Trash2, Share, Copy } from "lucide-react";
 
 const meta = {

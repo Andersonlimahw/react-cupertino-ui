@@ -1,5 +1,5 @@
 import { render, screen, fireEvent } from "@testing-library/react";
-import { Popover, PopoverTrigger, PopoverContent } from "@/components/organisms/Popover";
+import { Popover, PopoverTrigger, PopoverContent } from "@components/organisms/Popover";
 import { describe, it, expect } from "vitest";
 
 describe("Popover", () => {

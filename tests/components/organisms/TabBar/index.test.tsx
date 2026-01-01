@@ -1,5 +1,5 @@
 import { render, screen, fireEvent } from "@testing-library/react";
-import { TabBar } from "@/components/organisms/TabBar";
+import { TabBar } from "@components/organisms/TabBar";
 import { describe, it, expect, vi } from "vitest";
 
 const items = [

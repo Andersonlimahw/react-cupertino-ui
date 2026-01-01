@@ -13,7 +13,7 @@ program
   .action((componentName) => {
     const componentDir = path.join(
       __dirname,
-      "../../src/components/ui",
+      "../../packages/ui",
       componentName
     );
     const componentFile = path.join(componentDir, `index.tsx`);
@@ -33,6 +33,52 @@ program
 
     // Create component directory
     fs.ensureDirSync(componentDir);
+
+    const slug = componentName
+      .replace(/([a-z0-9])([A-Z])/g, "$1-$2")
+      .replace(/([A-Z]+)([A-Z][a-z0-9]+)/g, "$1-$2")
+      .toLowerCase();
+
+    const packageJson = {
+      name: `@react-cupertino-ui/${slug}`,
+      version: "0.0.0",
+      description: `${componentName} component from React Cupertino UI`,
+      type: "module",
+      main: "./dist/index.js",
+      module: "./dist/index.js",
+      types: "./dist/index.d.ts",
+      files: ["dist"],
+      sideEffects: ["./dist/**/*.css", "./dist/**/*.scss"],
+      scripts: {
+        build: "tsc -p tsconfig.build.json && npm run build:styles",
+        "build:styles": "node ../../../scripts/build-styles.mjs",
+      },
+      peerDependencies: {
+        react: "^18.3.1",
+        "react-dom": "^18.3.1",
+      },
+      dependencies: {
+        "@react-cupertino-ui/shared": "workspace:*",
+      },
+    };
+    fs.writeFileSync(
+      path.join(componentDir, "package.json"),
+      JSON.stringify(packageJson, null, 2)
+    );
+
+    const tsconfig = {
+      extends: "../../../tsconfig.packages.json",
+      compilerOptions: {
+        rootDir: ".",
+        outDir: "./dist",
+      },
+      include: ["**/*.ts", "**/*.tsx"],
+      exclude: ["dist", "node_modules"],
+    };
+    fs.writeFileSync(
+      path.join(componentDir, "tsconfig.build.json"),
+      JSON.stringify(tsconfig, null, 2)
+    );
 
     // Create styles file
     const wrapperName = `react-cupertino-ui-${componentName.toLowerCase()}`;
@@ -106,8 +152,8 @@ program
 import * as React from "react";
 import { Slot } from "@radix-ui/react-slot";
 
-import { cn } from "@/lib/utils";
-import { BaseProps, BaseVariants } from "@/lib/interfaces/BaseProps";
+import { cn } from "@react-cupertino-ui/shared/lib/utils";
+import { BaseProps, BaseVariants } from "@react-cupertino-ui/shared/lib/interfaces/BaseProps";
 
 import "./index.scss";
 
@@ -143,7 +189,7 @@ export default ${componentName};
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
 
-import ${componentName} from '@/components/ui/${componentName}';
+import ${componentName} from '@components/ui/${componentName}';
 import "../../../../dist/output.css";
 
 const meta = {
@@ -202,7 +248,7 @@ export const Secondary: Story = {
     // Create test file
     const testTemplate = `
 import { render, screen } from "@testing-library/react";
-import { ${componentName} } from "@/components/ui/${componentName}";
+import { ${componentName} } from "@components/ui/${componentName}";
 
 describe("${componentName} Component", () => {
   it("renders correctly with default props", () => {
@@ -235,6 +281,7 @@ describe("${componentName} Component", () => {
     fs.writeFileSync(testFile, testTemplate.trim());
 
     console.log(`Component ${componentName} created successfully.`);
+    console.log("Run 'npm run sync:paths' to refresh TypeScript aliases.");
   });
 
 program.parse(process.argv);

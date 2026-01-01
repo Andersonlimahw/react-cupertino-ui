@@ -1,5 +1,5 @@
 import { render, screen, fireEvent } from "@testing-library/react";
-import { DatePicker } from "@/components/molecules/DatePicker";
+import { DatePicker } from "@components/molecules/DatePicker";
 import { describe, it, expect, vi } from "vitest";
 
 describe("DatePicker", () => {

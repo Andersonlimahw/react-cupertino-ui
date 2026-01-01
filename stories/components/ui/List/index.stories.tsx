@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Settings, User, Bell, Lock, HelpCircle, Mail, Phone, MapPin } from 'lucide-react';
 
-import { List, ListItem } from '@/components/ui/List';
-import Badge from '@/components/ui/Badge';
+import { List, ListItem } from '@components/ui/List';
+import Badge from '@components/ui/Badge';
 import "@globalstyles";
 
 const meta = {

@@ -10,7 +10,7 @@ import {
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle,
-} from "@/components/organisms/Dialog";
+} from "@components/organisms/Dialog";
 
 const renderDialog = (
   contentProps?: Partial<React.ComponentProps<typeof AlertDialogContent>>

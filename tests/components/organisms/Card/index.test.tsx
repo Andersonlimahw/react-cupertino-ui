@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import { Card } from "@/components/organisms/Card";
+import { Card } from "@components/organisms/Card";
 
 const getCardNode = (text: string) =>
   screen

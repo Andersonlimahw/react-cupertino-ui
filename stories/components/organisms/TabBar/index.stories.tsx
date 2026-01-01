@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { TabBar, TabBarProps } from "@/components/organisms/TabBar";
+import { TabBar, TabBarProps } from "@components/organisms/TabBar";
 import { Home, Search, Library, User } from "lucide-react";
 import { useState } from "react";
 

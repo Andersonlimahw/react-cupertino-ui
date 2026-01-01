@@ -1,6 +1,6 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 
-import { Radio } from "@/components/ui/Radio";
+import { Radio } from "@components/ui/Radio";
 
 describe("Radio", () => {
   it("renders label and helper", () => {

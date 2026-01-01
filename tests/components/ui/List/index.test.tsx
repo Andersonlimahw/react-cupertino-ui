@@ -1,5 +1,5 @@
 import { render, screen, fireEvent } from "@testing-library/react";
-import { List, ListItem } from "@/components/ui/List";
+import { List, ListItem } from "@components/ui/List";
 
 describe("List Component", () => {
   it("renders correctly", () => {

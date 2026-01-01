@@ -7,7 +7,7 @@ import {
   SheetHeader,
   SheetTitle,
   SheetDescription,
-} from "@/components/ui/Sidesheet";
+} from "@components/ui/Sidesheet";
 
 describe("Sidesheet", () => {
   it("renders the trigger button", () => {

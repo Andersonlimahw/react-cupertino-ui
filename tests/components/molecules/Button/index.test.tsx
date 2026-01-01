@@ -1,5 +1,5 @@
 import { fireEvent, render, screen } from "@testing-library/react";
-import { Button } from "@/components/molecules/Button";
+import { Button } from "@components/molecules/Button";
 
 describe("Button", () => {
   it("renders with the glass variant by default", () => {

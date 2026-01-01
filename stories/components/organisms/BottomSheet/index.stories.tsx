@@ -5,9 +5,9 @@ import {
   BottomSheetContent,
   BottomSheetTitle,
   BottomSheetDescription,
-} from "@/components/organisms/BottomSheet";
-import { Button } from "@/components/molecules/Button";
-import { Switcher } from "@/components/ui/Switcher";
+} from "@components/organisms/BottomSheet";
+import { Button } from "@components/molecules/Button";
+import { Switcher } from "@components/ui/Switcher";
 import { useState } from "react";
 
 const meta = {

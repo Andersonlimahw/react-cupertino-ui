@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Picker } from "@/components/molecules/Picker";
+import { Picker } from "@components/molecules/Picker";
 import { useState } from "react";
 
 const meta = {

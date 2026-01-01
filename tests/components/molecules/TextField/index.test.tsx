@@ -1,6 +1,6 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 
-import { TextField } from "@/components/molecules/TextField";
+import { TextField } from "@components/molecules/TextField";
 
 describe("TextField Component", () => {
   it("renders correctly with default props", () => {

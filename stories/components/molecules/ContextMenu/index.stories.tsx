@@ -10,7 +10,7 @@ import {
   ContextMenuSubTrigger,
   ContextMenuSubContent,
   ContextMenuShortcut,
-} from "@/components/molecules/ContextMenu";
+} from "@components/molecules/ContextMenu";
 
 const meta = {
   title: "Molecules/ContextMenu",

@@ -5,8 +5,8 @@ import {
   BottomSheetTrigger,
   BottomSheetContent,
   BottomSheetTitle,
-} from "@/components/organisms/BottomSheet";
-import { Button } from "@/components/molecules/Button";
+} from "@components/organisms/BottomSheet";
+import { Button } from "@components/molecules/Button";
 
 if (typeof window.PointerEvent === "undefined") {
   class PointerEventPolyfill extends MouseEvent {

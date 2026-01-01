@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import { Skeleton } from "@/components/ui/Skeleton";
+import { Skeleton } from "@components/ui/Skeleton";
 
 describe("Skeleton Component", () => {
   it("renders correctly with default props", () => {

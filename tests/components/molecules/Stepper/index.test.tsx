@@ -1,7 +1,7 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import { afterEach, describe, expect, it, vi } from "vitest";
 
-import Stepper from "@/components/molecules/Stepper";
+import Stepper from "@components/molecules/Stepper";
 
 describe("Stepper", () => {
   afterEach(() => {

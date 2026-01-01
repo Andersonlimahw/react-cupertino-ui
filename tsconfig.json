@@ -11,19 +11,132 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"],
-      "@components/*": ["./src/components/*"],
-      "@components/ui/*": [
-        "./src/components/ui/*",
-        "./src/components/atoms/*",
-        "./src/components/molecules/*",
-        "./src/components/organisms/*"
+      "@/*": [
+        "./src/*"
       ],
-      "@components/atoms/*": ["./src/components/atoms/*"],
-      "@components/molecules/*": ["./src/components/molecules/*"],
-      "@components/organisms/*": ["./src/components/organisms/*"],
-      "@components/templates/*": ["./src/components/templates/*"],
-      "@globalstyles": ["./app/globals.css"]
+      "@components/*": [
+        "./packages/*"
+      ],
+      "@react-cupertino-ui/*": [
+        "./packages/*"
+      ],
+      "@react-cupertino-ui/shared": [
+        "./packages/shared"
+      ],
+      "@react-cupertino-ui/shared/*": [
+        "./packages/shared/*"
+      ],
+      "@globalstyles": [
+        "./app/globals.css"
+      ],
+      "@react-cupertino-ui/intelligence-glow": [
+        "./packages/atoms/IntelligenceGlow"
+      ],
+      "@react-cupertino-ui/page-control": [
+        "./packages/atoms/PageControl"
+      ],
+      "@react-cupertino-ui/siri-waveform": [
+        "./packages/atoms/SiriWaveform"
+      ],
+      "@react-cupertino-ui/voice-indicator": [
+        "./packages/atoms/VoiceIndicator"
+      ],
+      "@react-cupertino-ui/alert": [
+        "./packages/molecules/Alert"
+      ],
+      "@react-cupertino-ui/button": [
+        "./packages/molecules/Button"
+      ],
+      "@react-cupertino-ui/context-menu": [
+        "./packages/molecules/ContextMenu"
+      ],
+      "@react-cupertino-ui/date-picker": [
+        "./packages/molecules/DatePicker"
+      ],
+      "@react-cupertino-ui/picker": [
+        "./packages/molecules/Picker"
+      ],
+      "@react-cupertino-ui/search-bar": [
+        "./packages/molecules/SearchBar"
+      ],
+      "@react-cupertino-ui/stepper": [
+        "./packages/molecules/Stepper"
+      ],
+      "@react-cupertino-ui/text-field": [
+        "./packages/molecules/TextField"
+      ],
+      "@react-cupertino-ui/action-sheet": [
+        "./packages/organisms/ActionSheet"
+      ],
+      "@react-cupertino-ui/bottom-sheet": [
+        "./packages/organisms/BottomSheet"
+      ],
+      "@react-cupertino-ui/card": [
+        "./packages/organisms/Card"
+      ],
+      "@react-cupertino-ui/dialog": [
+        "./packages/organisms/Dialog"
+      ],
+      "@react-cupertino-ui/navigation-bar": [
+        "./packages/organisms/NavigationBar"
+      ],
+      "@react-cupertino-ui/popover": [
+        "./packages/organisms/Popover"
+      ],
+      "@react-cupertino-ui/tab-bar": [
+        "./packages/organisms/TabBar"
+      ],
+      "@react-cupertino-ui/avatar": [
+        "./packages/ui/Avatar"
+      ],
+      "@react-cupertino-ui/badge": [
+        "./packages/ui/Badge"
+      ],
+      "@react-cupertino-ui/caption": [
+        "./packages/ui/Caption"
+      ],
+      "@react-cupertino-ui/checkbox": [
+        "./packages/ui/Checkbox"
+      ],
+      "@react-cupertino-ui/headline": [
+        "./packages/ui/Headline"
+      ],
+      "@react-cupertino-ui/list": [
+        "./packages/ui/List"
+      ],
+      "@react-cupertino-ui/paragraph": [
+        "./packages/ui/Paragraph"
+      ],
+      "@react-cupertino-ui/progress-bar": [
+        "./packages/ui/ProgressBar"
+      ],
+      "@react-cupertino-ui/radio": [
+        "./packages/ui/Radio"
+      ],
+      "@react-cupertino-ui/segmented-control": [
+        "./packages/ui/SegmentedControl"
+      ],
+      "@react-cupertino-ui/select": [
+        "./packages/ui/Select"
+      ],
+      "@react-cupertino-ui/sidesheet": [
+        "./packages/ui/Sidesheet"
+      ],
+      "@react-cupertino-ui/skeleton": [
+        "./packages/ui/Skeleton"
+      ],
+      "@react-cupertino-ui/slider": [
+        "./packages/ui/Slider"
+      ],
+      "@react-cupertino-ui/switcher": [
+        "./packages/ui/Switcher"
+      ],
+      "@react-cupertino-ui/title": [
+        "./packages/ui/Title"
+      ],
+      "@react-cupertino-ui/toast": [
+        "./packages/ui/Toast"
+      ]
     }
   }
 }

@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 
-import Avatar from "@/components/ui/Avatar";
+import Avatar from "@components/ui/Avatar";
 
 describe("Avatar", () => {
   it("renders fallback initials", () => {

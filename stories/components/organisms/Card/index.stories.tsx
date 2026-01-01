@@ -7,8 +7,8 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/organisms/Card";
-import { Button } from "@/components/molecules/Button";
+} from "@components/organisms/Card";
+import { Button } from "@components/molecules/Button";
 import "@globalstyles";
 
 const notifications = [

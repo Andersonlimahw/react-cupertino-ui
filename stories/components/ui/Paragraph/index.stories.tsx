@@ -1,6 +1,6 @@
 import type { Meta, StoryFn } from "@storybook/react";
 import "@globalstyles";
-import { Paragraph, ParagraphProps } from "@/components/ui/Paragraph";
+import { Paragraph, ParagraphProps } from "@components/ui/Paragraph";
 
 const meta = {
   title: "Typography/Paragraph",

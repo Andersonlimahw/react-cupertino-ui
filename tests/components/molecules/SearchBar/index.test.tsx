@@ -1,5 +1,5 @@
 import { render, screen, fireEvent } from "@testing-library/react";
-import { SearchBar } from "@/components/molecules/SearchBar";
+import { SearchBar } from "@components/molecules/SearchBar";
 import { describe, it, expect, vi } from "vitest";
 
 describe("SearchBar", () => {

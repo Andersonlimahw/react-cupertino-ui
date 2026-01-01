@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { PageControl, PageControlProps } from "@/components/atoms/PageControl";
+import { PageControl, PageControlProps } from "@components/atoms/PageControl";
 import { useState } from "react";
 
 const meta = {

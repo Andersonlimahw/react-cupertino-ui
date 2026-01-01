@@ -1,6 +1,6 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 
-import { Checkbox } from "@/components/ui/Checkbox";
+import { Checkbox } from "@components/ui/Checkbox";
 
 describe("Checkbox", () => {
   it("renders label and helper text", () => {

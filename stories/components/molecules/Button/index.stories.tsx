@@ -1,4 +1,4 @@
-import { Button, type ButtonProps } from "@/components/molecules/Button";
+import { Button, type ButtonProps } from "@components/molecules/Button";
 import type { Meta, StoryFn } from "@storybook/react";
 import { fn } from "@storybook/test";
 import { Sparkles, LoaderCircle } from "lucide-react";

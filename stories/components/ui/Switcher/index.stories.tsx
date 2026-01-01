@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import Switcher from "@/components/ui/Switcher";
+import Switcher from "@components/ui/Switcher";
 import "@globalstyles";
 
 const meta = {

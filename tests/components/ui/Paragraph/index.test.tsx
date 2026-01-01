@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import { Paragraph } from "@/components/ui/Paragraph";
+import { Paragraph } from "@components/ui/Paragraph";
 
 describe("Paragraph Component", () => {
   it("renders correctly with default props", () => {

@@ -1,7 +1,7 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import { vi } from "vitest";
 
-import { SegmentedControl } from "@/components/ui/SegmentedControl";
+import { SegmentedControl } from "@components/ui/SegmentedControl";
 
 const mockOptions = [
   { value: "1", label: "Option 1" },

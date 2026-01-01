@@ -1,7 +1,7 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import { vi } from "vitest";
 
-import Toast from "@/components/ui/Toast";
+import Toast from "@components/ui/Toast";
 
 describe("Toast", () => {
   it("renders title and description", () => {

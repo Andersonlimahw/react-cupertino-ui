@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import { Caption } from "@/components/ui/Caption";
+import { Caption } from "@components/ui/Caption";
 
 describe("Caption Component", () => {
   it("renders correctly with default props", () => {

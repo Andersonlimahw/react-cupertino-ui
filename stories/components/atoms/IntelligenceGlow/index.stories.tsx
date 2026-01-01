@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { IntelligenceGlow } from "@/components/atoms/IntelligenceGlow";
-import { Card } from "@/components/organisms/Card";
+import { IntelligenceGlow } from "@components/atoms/IntelligenceGlow";
+import { Card } from "@components/organisms/Card";
 
 const meta = {
   title: "Atoms/IntelligenceGlow",

@@ -1,4 +1,4 @@
-import { Headline, HeadlineProps } from "@/components/ui/Headline";
+import { Headline, HeadlineProps } from "@components/ui/Headline";
 import type { Meta, StoryFn } from "@storybook/react";
 import { fn } from "@storybook/test";
 import "@globalstyles";

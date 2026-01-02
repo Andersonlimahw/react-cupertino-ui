@@ -1,86 +1,82 @@
 import * as React from "react";
 
 import { Button } from "@react-cupertino-ui/button";
-import { QuickAction } from "@components/molecules/QuickAction";
 import { SpotlightSearch } from "@components/organisms/SpotlightSearch";
-import { ListTemplate } from "@components/templates/ListTemplate";
-import { AIPromptInput } from "@components/molecules/AIPromptInput";
-import { SiriWaveform } from "@components/atoms/SiriWaveform";
 
 import "./index.scss";
 
-const quickActions = [
+const features = [
   {
-    title: "Spin up Liquid Glass",
-    subtitle: "Buttons, cards & badges",
-    helperText: "Creates CTA, tinted and ghost variants in seconds.",
-    metric: "2 min",
-    badge: "New",
+    title: "Liquid Glass",
+    description: "Blur, refraction, and depth effects that mirror iOS 26 aesthetics.",
   },
   {
-    title: "Build Spotlight",
-    subtitle: "Search experience",
-    helperText: "Drops SpotlightSearch with keyboard navigation.",
-    tone: "indigo" as const,
-    metric: "1 config",
+    title: "Atomic Design",
+    description: "Atoms, molecules, organisms, and templates for scalable architecture.",
   },
   {
-    title: "Compose AI Shell",
-    subtitle: "Prompt + Waveform",
-    helperText: "Pairs AIPromptInput with SiriWaveform and glow states.",
-    tone: "success" as const,
-  },
-];
-
-const templateGroups = [
-  {
-    title: "UIKit atoms",
-    items: [
-      { title: "Buttons", meta: "Glass, solid, outline" },
-      { title: "Indicators", meta: "SiriWaveform, VoiceIndicator" },
-    ],
+    title: "AI-Ready",
+    description: "SiriWaveform, AIPromptInput, and IntelligenceGlow built-in.",
   },
   {
-    title: "Organisms",
-    items: [
-      { title: "Spotlight", meta: "Command palette ready" },
-      { title: "Navigation", meta: "Top bars, tab bars" },
-      { title: "Sheets", meta: "ActionSheet & BottomSheet" },
-    ],
+    title: "Accessible",
+    description: "WCAG compliant with full keyboard navigation support.",
+  },
+  {
+    title: "TypeScript",
+    description: "Fully typed components with IntelliSense autocomplete.",
+  },
+  {
+    title: "Tree-Shakeable",
+    description: "Import only what you need. Zero bloat in production.",
   },
 ];
 
-const listRenderItem = (item: { title: string; meta: string }) => (
-  <div className="home-template-item">
-    <div>
-      <p>{item.title}</p>
-      <span>{item.meta}</span>
-    </div>
-    <span aria-hidden="true">›</span>
-  </div>
-);
+const components = [
+  { name: "Button", category: "Molecules" },
+  { name: "TextField", category: "Molecules" },
+  { name: "Dialog", category: "Organisms" },
+  { name: "BottomSheet", category: "Organisms" },
+  { name: "SpotlightSearch", category: "Organisms" },
+  { name: "NavigationBar", category: "Organisms" },
+  { name: "TabBar", category: "Organisms" },
+  { name: "ActionSheet", category: "Organisms" },
+  { name: "ListTemplate", category: "Templates" },
+  { name: "SettingsTemplate", category: "Templates" },
+  { name: "ProfileTemplate", category: "Templates" },
+  { name: "AIConversation", category: "AI" },
+];
 
 const useSEO = () => {
   React.useEffect(() => {
-    const title = "React Cupertino UI — Liquid Glass components for React";
+    const title = "React Cupertino UI — iOS 26 Liquid Glass Components for React";
     const description =
-      "Ship iOS 26 inspired experiences with Spotlight search, Liquid Glass buttons, AI prompts and SwiftUI-grade templates for React.";
+      "Build beautiful iOS-inspired interfaces with React Cupertino UI. 50+ Liquid Glass components, AI primitives, and SwiftUI-grade templates. TypeScript. Accessible. Production-ready.";
+    const keywords =
+      "react components, ios design system, liquid glass, cupertino ui, react ui library, ios 26, apple design, typescript components, accessible ui";
 
     document.title = title;
-    const ensureMeta = (name: string, content: string) => {
-      let tag = document.querySelector(`meta[name="${name}"]`);
+
+    const setMeta = (name: string, content: string, property = false) => {
+      const attr = property ? "property" : "name";
+      let tag = document.querySelector(`meta[${attr}="${name}"]`);
       if (!tag) {
         tag = document.createElement("meta");
-        tag.setAttribute("name", name);
+        tag.setAttribute(attr, name);
         document.head.appendChild(tag);
       }
       tag.setAttribute("content", content);
     };
 
-    ensureMeta("description", description);
-    ensureMeta("og:title", title);
-    ensureMeta("og:description", description);
-    ensureMeta("twitter:card", "summary_large_image");
+    setMeta("description", description);
+    setMeta("keywords", keywords);
+    setMeta("author", "React Cupertino UI Team");
+    setMeta("og:title", title, true);
+    setMeta("og:description", description, true);
+    setMeta("og:type", "website", true);
+    setMeta("twitter:card", "summary_large_image");
+    setMeta("twitter:title", title);
+    setMeta("twitter:description", description);
   }, []);
 };
 
@@ -88,167 +84,185 @@ const HomePage = () => {
   useSEO();
   const [spotlightOpen, setSpotlightOpen] = React.useState(false);
   const [spotlightQuery, setSpotlightQuery] = React.useState("");
-  const [recentSearches, setRecentSearches] = React.useState<string[]>([
-    "Liquid Glass buttons",
-    "Alert dialog",
-    "List template",
-  ]);
-  const [promptValue, setPromptValue] = React.useState("");
 
   const spotlightResults = React.useMemo(() => {
-    if (!spotlightQuery.trim()) {
-      return [];
-    }
+    if (!spotlightQuery.trim()) return [];
+    const q = spotlightQuery.toLowerCase();
+    const filtered = components.filter(
+      (c) => c.name.toLowerCase().includes(q) || c.category.toLowerCase().includes(q)
+    );
+    if (filtered.length === 0) return [];
 
-    return [
-      {
-        title: "Components",
-        items: [
-          {
-            id: "btn",
-            title: "Button",
-            subtitle: "Glass, solid, outline, ghost",
-            onSelect: () => setSpotlightOpen(false),
-          },
-          {
-            id: "spotlight",
-            title: "SpotlightSearch",
-            subtitle: "Overlay with keyboard hints",
-            onSelect: () => setSpotlightOpen(false),
-          },
-        ],
-      },
-      {
-        title: "Templates",
-        items: [
-          {
-            id: "list",
-            title: "ListTemplate",
-            subtitle: "Navigation ready list layout",
-            onSelect: () => setSpotlightOpen(false),
-          },
-        ],
-      },
-    ];
+    const grouped = filtered.reduce<Record<string, typeof components>>((acc, item) => {
+      if (!acc[item.category]) acc[item.category] = [];
+      acc[item.category].push(item);
+      return acc;
+    }, {});
+
+    return Object.entries(grouped).map(([title, items]) => ({
+      title,
+      items: items.map((i) => ({
+        id: i.name,
+        title: i.name,
+        subtitle: i.category,
+        onSelect: () => setSpotlightOpen(false),
+      })),
+    }));
   }, [spotlightQuery]);
 
   React.useEffect(() => {
-    const handler = (event: KeyboardEvent) => {
-      if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === "k") {
-        event.preventDefault();
+    const handler = (e: KeyboardEvent) => {
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") {
+        e.preventDefault();
         setSpotlightOpen(true);
       }
     };
-
     window.addEventListener("keydown", handler);
     return () => window.removeEventListener("keydown", handler);
   }, []);
 
-  const handleRecentSelect = (query: string) => {
-    setSpotlightQuery(query);
-  };
-
-  const handleOpenSpotlight = () => setSpotlightOpen(true);
-
   return (
-    <main className="home-page">
-      <section className="home-hero">
-        <div className="home-hero__content">
-          <p className="eyebrow">Liquid Glass Design System</p>
-          <h1>Apple-grade React components in minutes.</h1>
-          <p>
-            React Cupertino UI ships carefully crafted atoms, molecules, organisms and templates following the
-            iOS 26 Liquid Glass language. Drop Spotlight search, AI prompts, tab bars and templates directly into
-            your Vite + React apps.
+    <main className="landing">
+      {/* Hero Section */}
+      <section className="landing__hero">
+        <div className="landing__hero-content">
+          <span className="landing__badge">Open Source</span>
+          <h1>
+            Build iOS experiences
+            <br />
+            <span className="gradient-text">with React</span>
+          </h1>
+          <p className="landing__subtitle">
+            A comprehensive React component library featuring iOS 26 Liquid Glass design.
+            50+ accessible components. TypeScript-first. Production-ready.
           </p>
-          <div className="home-hero__actions">
-            <Button size="lg">Explore Storybook</Button>
-            <Button variant="ghost" size="lg" onClick={handleOpenSpotlight}>
-              Open Spotlight (⌘K)
+          <div className="landing__cta">
+            <Button size="lg">
+              Get Started
+            </Button>
+            <Button variant="outline" size="lg" onClick={() => setSpotlightOpen(true)}>
+              Search Components
+              <kbd>⌘K</kbd>
             </Button>
           </div>
-          <div className="home-hero__metrics">
-            <div>
-              <strong>45+</strong>
-              <span>components</span>
-            </div>
-            <div>
-              <strong>12</strong>
-              <span>templates</span>
-            </div>
-            <div>
-              <strong>5</strong>
-              <span>AI primitives</span>
-            </div>
+        </div>
+
+        <div className="landing__hero-visual">
+          <div className="glass-card glass-card--hero">
+            <div className="glass-card__glow" />
+            <pre className="code-preview">
+              <code>{`import { Button } from 'react-cupertino-ui'
+
+<Button variant="glass">
+  Get Started
+</Button>`}</code>
+            </pre>
           </div>
         </div>
       </section>
 
-      <section className="home-actions">
-        {quickActions.map((action) => (
-          <QuickAction key={action.title} {...action} icon={<span>✨</span>} />
-        ))}
+      {/* Stats Section */}
+      <section className="landing__stats">
+        <div className="stat">
+          <span className="stat__number">50+</span>
+          <span className="stat__label">Components</span>
+        </div>
+        <div className="stat">
+          <span className="stat__number">12</span>
+          <span className="stat__label">Templates</span>
+        </div>
+        <div className="stat">
+          <span className="stat__number">100%</span>
+          <span className="stat__label">TypeScript</span>
+        </div>
+        <div className="stat">
+          <span className="stat__number">A11y</span>
+          <span className="stat__label">Accessible</span>
+        </div>
       </section>
 
-      <section className="home-showcase">
-        <div className="home-showcase__spotlight">
-          <div className="home-card">
-            <div className="home-card__header">
-              <h2>Spotlight built-in</h2>
-              <p>Use SpotlightSearch to get cmd+K overlays with grouped results, recents and keyboard navigation.</p>
+      {/* Features Section */}
+      <section className="landing__features">
+        <header className="section-header">
+          <h2>Why React Cupertino UI?</h2>
+          <p>Everything you need to build premium iOS-inspired interfaces</p>
+        </header>
+
+        <div className="features-grid">
+          {features.map((feature) => (
+            <article key={feature.title} className="feature-card">
+              <h3>{feature.title}</h3>
+              <p>{feature.description}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      {/* Components Preview */}
+      <section className="landing__components">
+        <header className="section-header">
+          <h2>Explore Components</h2>
+          <p>From atomic elements to complete page templates</p>
+        </header>
+
+        <div className="components-preview">
+          {components.slice(0, 8).map((component) => (
+            <div key={component.name} className="component-tag">
+              <span className="component-tag__name">{component.name}</span>
+              <span className="component-tag__category">{component.category}</span>
             </div>
-            <Button variant="ghost" onClick={handleOpenSpotlight}>
-              Launch Spotlight
+          ))}
+          <div className="component-tag component-tag--more">
+            <span>+{components.length - 8} more</span>
+          </div>
+        </div>
+
+        <div className="landing__components-cta">
+          <Button variant="outline" onClick={() => setSpotlightOpen(true)}>
+            Browse All Components
+          </Button>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="landing__final-cta">
+        <div className="glass-card glass-card--cta">
+          <h2>Start Building Today</h2>
+          <p>
+            Install React Cupertino UI and ship beautiful interfaces in minutes.
+            Free and open source.
+          </p>
+          <div className="install-command">
+            <code>npm install react-cupertino-ui</code>
+          </div>
+          <div className="landing__cta">
+            <Button size="lg">View Documentation</Button>
+            <Button variant="ghost" size="lg">
+              GitHub Repository
             </Button>
           </div>
-          <SpotlightSearch
-            open={spotlightOpen}
-            onOpenChange={setSpotlightOpen}
-            value={spotlightQuery}
-            onValueChange={setSpotlightQuery}
-            results={spotlightResults}
-            recentSearches={recentSearches}
-            onSelectRecent={handleRecentSelect}
-            onClearRecent={() => setRecentSearches([])}
-            placeholder="Search components"
-          />
-        </div>
-
-        <div className="home-showcase__template">
-          <div className="home-card">
-            <div className="home-card__header">
-              <h2>Templates ready</h2>
-              <p>Kickstart navigation flows with ListTemplate, DetailTemplate, ProfileTemplate and more.</p>
-            </div>
-          </div>
-          <ListTemplate
-            title="Component browser"
-            description="Every atom to organism with helper metadata"
-            groups={templateGroups}
-            renderItem={(item) => listRenderItem(item as { title: string; meta: string })}
-            searchable
-            onItemPress={() => undefined}
-          />
         </div>
       </section>
 
-      <section className="home-ai">
-        <div className="home-ai__prompt">
-          <h3>Apple Intelligence ready</h3>
-          <p>AIPromptInput, SiriWaveform, IntelligenceGlow and VoiceIndicator are prewired for spatial UIs.</p>
-          <AIPromptInput
-            value={promptValue}
-            onChange={setPromptValue}
-            onSubmit={() => setPromptValue("")}
-            placeholder="Ask Cupertino Intelligence..."
-            suggestions={["Create a glass tab bar", "Summarize latest design", "Mock navigation" ]}
-            attachments
-          />
-        </div>
-        <div className="home-ai__wave">
-          <SiriWaveform active size="lg" />
-        </div>
-      </section>
+      {/* Footer */}
+      <footer className="landing__footer">
+        <p>
+          Built with care by the React Cupertino UI team.
+          <br />
+          Inspired by Apple's design language. Not affiliated with Apple Inc.
+        </p>
+      </footer>
+
+      {/* Spotlight Search */}
+      <SpotlightSearch
+        open={spotlightOpen}
+        onOpenChange={setSpotlightOpen}
+        value={spotlightQuery}
+        onValueChange={setSpotlightQuery}
+        results={spotlightResults}
+        placeholder="Search components, templates..."
+        emptyMessage="No components found"
+      />
     </main>
   );
 };

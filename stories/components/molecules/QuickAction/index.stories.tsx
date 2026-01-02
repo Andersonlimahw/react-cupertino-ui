@@ -4,17 +4,17 @@ import { Sparkles, Wand2, Layers } from "lucide-react";
 import { QuickAction } from "@components/molecules/QuickAction";
 import "@globalstyles";
 
-const meta = {
+const meta: Meta<typeof QuickAction> = {
   title: "Molecules/QuickAction",
   component: QuickAction,
   tags: ["autodocs"],
   parameters: {
     layout: "centered",
   },
-} satisfies Meta<typeof QuickAction>;
+};
 
 export default meta;
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<typeof QuickAction>;
 
 export const Default: Story = {
   args: {

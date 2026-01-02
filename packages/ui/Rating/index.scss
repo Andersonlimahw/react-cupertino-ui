@@ -1,0 +1,84 @@
+@use "@/styles/mixins/glass" as glass;
+
+.react-cupertino-ui-rating {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  color: var(--foreground, #05060a);
+
+  &__stars {
+    display: inline-flex;
+    gap: 0.35rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.65);
+    @include glass.glass-panel(light, var(--glass-blur, 24px), 0.7);
+    box-shadow: 0 18px 45px rgba(15, 15, 15, 0.18);
+  }
+
+  &__slot {
+    border: none;
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--rating-size, 32px);
+    height: var(--rating-size, 32px);
+    border-radius: 999px;
+    transition: transform 160ms ease, filter 160ms ease;
+
+    &[data-active="true"] {
+      filter: drop-shadow(0 6px 12px rgba(10, 132, 255, 0.35));
+    }
+
+    &:focus-visible {
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.35);
+    }
+  }
+
+  &[data-readonly="true"] &__slot {
+    cursor: default;
+  }
+
+  &__star {
+    width: 100%;
+    height: 100%;
+
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__helper {
+    font-size: 0.82rem;
+    color: color-mix(in srgb, currentColor, transparent 35%);
+    margin: 0;
+  }
+
+  &.size-sm {
+    --rating-size: 22px;
+  }
+
+  &.size-md {
+    --rating-size: 30px;
+  }
+
+  &.size-lg {
+    --rating-size: 38px;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .react-cupertino-ui-rating {
+    color: rgba(248, 250, 252, 0.95);
+
+    &__stars {
+      background: rgba(15, 15, 20, 0.68);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+    }
+  }
+}

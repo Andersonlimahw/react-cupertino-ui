@@ -1,0 +1,62 @@
+@use "@/styles/mixins/glass" as glass;
+
+.react-cupertino-ui-album-cover {
+  width: 220px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  &.has-glow .glow {
+    position: absolute;
+    inset: 0;
+    border-radius: 24px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.6), transparent 60%);
+    filter: blur(12px);
+  }
+
+  &__artwork {
+    position: relative;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 30px 60px rgba(15, 15, 15, 0.35);
+
+    img {
+      width: 100%;
+      display: block;
+    }
+
+    .play {
+      position: absolute;
+      bottom: 0.75rem;
+      right: 0.75rem;
+      border: none;
+      background: rgba(0, 0, 0, 0.5);
+      color: white;
+      width: 40px;
+      height: 40px;
+      border-radius: 999px;
+      cursor: pointer;
+    }
+  }
+
+  &__meta {
+    display: flex;
+    flex-direction: column;
+
+    .title {
+      margin: 0;
+      font-weight: 600;
+    }
+
+    .artist {
+      margin: 0;
+      color: rgba(15, 23, 42, 0.6);
+    }
+
+    .status {
+      margin: 0.2rem 0 0;
+      font-size: 0.85rem;
+      color: rgba(10, 132, 255, 0.9);
+    }
+  }
+}

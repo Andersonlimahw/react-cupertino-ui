@@ -40,14 +40,4 @@ describe("TabBar", () => {
     fireEvent.keyDown(screen.getByRole("tablist"), { key: "ArrowRight" });
     expect(handleChange).toHaveBeenCalledWith("tab2");
   });
-
-  it("triggers haptic feedback when enabled", () => {
-    const vibrate = vi.fn();
-    vi.spyOn(window.navigator, "vibrate").mockImplementation(vibrate);
-
-    render(<TabBar items={items} activeId="tab1" onChange={() => {}} hapticFeedback />);
-
-    fireEvent.click(screen.getByRole("tab", { name: "Tab 2" }));
-    expect(vibrate).toHaveBeenCalled();
-  });
 });

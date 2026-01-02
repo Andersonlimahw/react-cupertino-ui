@@ -37,7 +37,7 @@ const useTabsContext = () => {
   return context;
 };
 
-export interface TabsProps extends Omit<BaseProps<HTMLDivElement>, "children"> {
+export interface TabsProps extends Omit<BaseProps<HTMLDivElement>, "children" | "variant" | "size"> {
   value?: string;
   defaultValue?: string;
   onValueChange?: (value: string) => void;
@@ -127,10 +127,11 @@ const Tabs = React.forwardRef<HTMLDivElement, TabsProps>((props, ref) => {
 });
 Tabs.displayName = "Tabs";
 
-export interface TabsListProps extends Omit<BaseProps<HTMLDivElement>, "children"> {
+export interface TabsListProps extends Omit<BaseProps<HTMLDivElement>, "children" | "variant" | "size"> {
   variant?: TabsVariant;
   size?: TabsSize;
   align?: TabsAlign;
+  children?: React.ReactNode;
 }
 
 const TabsList = React.forwardRef<HTMLDivElement, TabsListProps>((props, ref) => {
@@ -229,14 +230,15 @@ const TabsTrigger = React.forwardRef<HTMLButtonElement, TabsTriggerProps>((props
   const context = useTabsContext();
   const localRef = React.useRef<HTMLButtonElement>(null);
 
-  const assignRef = (node: HTMLButtonElement | null) => {
-    localRef.current = node;
+  const assignRef = React.useCallback((node: HTMLButtonElement | null) => {
+    (localRef as React.MutableRefObject<HTMLButtonElement | null>).current = node;
     if (typeof ref === "function") {
       ref(node);
     } else if (ref) {
-      (ref as React.MutableRefObject<HTMLButtonElement | null>).current = node;
+      // Use Object.assign to bypass readonly restriction
+      Object.assign(ref, { current: node });
     }
-  };
+  }, [ref]);
 
   React.useLayoutEffect(() => {
     context.registerTrigger(value, localRef.current);

@@ -23,6 +23,6 @@
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.1.1",
-    "@react-cupertino-ui/shared": "workspace:*"
+    "@react-cupertino-ui/shared": "*"
   }
 }

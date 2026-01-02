@@ -13,4 +13,13 @@ describe("SiriWaveform", () => {
     const { container } = render(<SiriWaveform active={true} size="lg" />);
     expect(container.firstChild).toHaveClass("size-lg");
   });
+
+  it("supports palette and motion props", () => {
+    const { container } = render(
+      <SiriWaveform active palette="sunset" motion="calm" amplitude={1.3} />
+    );
+    expect(container.firstChild).toHaveClass("palette-sunset");
+    expect(container.firstChild).toHaveClass("motion-calm");
+    expect((container.firstChild as HTMLElement).style.getPropertyValue("--wave-amplitude")).toBe("1.3");
+  });
 });

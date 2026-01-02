@@ -4,7 +4,7 @@ import { Compass, Home, Library, Mic2, Search } from "lucide-react";
 
 import { TabBar, type TabBarProps } from "@components/organisms/TabBar";
 
-const meta = {
+const meta: Meta<typeof TabBar> = {
   title: "Organisms/TabBar",
   component: TabBar,
   parameters: {
@@ -13,13 +13,8 @@ const meta = {
   tags: ["autodocs"],
   argTypes: {
     glass: { control: "boolean" },
-    floating: { control: "boolean" },
-    tone: {
-      control: "select",
-      options: ["auto", "light", "dark"],
-    },
   },
-} satisfies Meta<typeof TabBar>;
+};
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -60,8 +55,6 @@ export const Default: Story = {
     items: baseItems,
     activeId: "home",
     glass: true,
-    floating: false,
-    hapticFeedback: false,
   },
   render: (args) => <TabBarWithState {...args} />,
 };
@@ -70,10 +63,7 @@ export const FloatingGlass: Story = {
   args: {
     items: baseItems,
     activeId: "search",
-    floating: true,
     glass: true,
-    hapticFeedback: true,
-    tone: "light",
   },
   render: (args) => (
     <div

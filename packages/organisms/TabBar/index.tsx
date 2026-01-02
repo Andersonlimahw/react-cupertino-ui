@@ -13,7 +13,7 @@ export interface TabBarItem {
   disabled?: boolean;
 }
 
-export interface TabBarProps extends React.HTMLAttributes<HTMLElement> {
+export interface TabBarProps extends Omit<React.HTMLAttributes<HTMLElement>, "onChange"> {
   items: TabBarItem[];
   activeId: string;
   onChange: (id: string) => void;

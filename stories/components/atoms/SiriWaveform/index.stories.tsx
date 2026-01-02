@@ -10,8 +10,10 @@ const meta = {
   tags: ["autodocs"],
   argTypes: {
     active: { control: "boolean" },
-    color: { control: "radio", options: ["default", "multicolor"] },
+    palette: { control: "radio", options: ["multicolor", "mono", "ocean", "sunset"] },
     size: { control: "radio", options: ["sm", "md", "lg"] },
+    motion: { control: "radio", options: ["calm", "pulse"] },
+    amplitude: { control: { type: "range", min: 0.5, max: 1.5, step: 0.1 } },
   },
 } satisfies Meta<typeof SiriWaveform>;
 
@@ -21,7 +23,9 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     active: true,
-    color: "multicolor",
+    palette: "multicolor",
+    motion: "pulse",
+    amplitude: 1,
     size: "md",
   },
   render: (args) => (
@@ -31,15 +35,13 @@ export const Default: Story = {
   ),
 };
 
-export const Inactive: Story = {
-  args: {
-    active: false,
-    color: "multicolor",
-    size: "md",
-  },
-  render: (args) => (
-    <div style={{ background: "#000", padding: "20px", borderRadius: "12px" }}>
-        <SiriWaveform {...args} />
+export const Variants: Story = {
+  render: () => (
+    <div style={{ display: "flex", gap: "1.5rem", flexWrap: "wrap", background: "#010101", padding: "20px", borderRadius: "12px" }}>
+      <SiriWaveform active palette="multicolor" />
+      <SiriWaveform active palette="ocean" motion="calm" />
+      <SiriWaveform active palette="sunset" amplitude={1.2} />
+      <SiriWaveform active palette="mono" amplitude={0.7} />
     </div>
   ),
 };

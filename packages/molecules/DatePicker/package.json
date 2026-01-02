@@ -22,8 +22,8 @@
     "react-dom": "^18.3.1"
   },
   "dependencies": {
-    "@react-cupertino-ui/picker": "workspace:*",
-    "@react-cupertino-ui/shared": "workspace:*",
+    "@react-cupertino-ui/picker": "*",
+    "@react-cupertino-ui/shared": "*",
     "lucide-react": "^0.417.0"
   }
 }

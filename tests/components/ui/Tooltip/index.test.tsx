@@ -93,7 +93,7 @@ describe("Tooltip", () => {
           <TooltipTrigger asChild>
             <button>Trigger</button>
           </TooltipTrigger>
-          <TooltipContent>
+          <TooltipContent arrow={false}>
             Content
           </TooltipContent>
         </Tooltip>

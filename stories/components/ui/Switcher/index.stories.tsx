@@ -1,10 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Moon, SunMedium } from "lucide-react";
 
 import Switcher from "@components/ui/Switcher";
 import "@globalstyles";
 
-const meta = {
+const meta: Meta<typeof Switcher> = {
   title: "UI/Switcher",
   component: Switcher,
   tags: ["autodocs"],
@@ -14,7 +13,7 @@ const meta = {
   args: {
     label: "Airplane Mode",
   },
-} satisfies Meta<typeof Switcher>;
+};
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -31,10 +30,6 @@ export const WithIcons: Story = {
     label: "Appearance",
     helperText: "Match system",
     defaultChecked: true,
-    checkedIcon: <Moon size={14} />,
-    uncheckedIcon: <SunMedium size={14} />,
-    hapticFeedback: true,
-    showStateLabel: true,
     size: "lg",
   },
 };

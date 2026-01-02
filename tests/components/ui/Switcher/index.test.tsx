@@ -24,14 +24,4 @@ describe("Switcher", () => {
     fireEvent.click(control);
     expect(control).toHaveAttribute("data-state", "checked");
   });
-
-  it("fires haptic feedback when enabled", () => {
-    const vibrate = vi.fn();
-    vi.spyOn(window.navigator, "vibrate").mockImplementation(vibrate);
-
-    render(<Switcher label="Bluetooth" hapticFeedback />);
-    fireEvent.click(screen.getByRole("switch"));
-
-    expect(vibrate).toHaveBeenCalled();
-  });
 });

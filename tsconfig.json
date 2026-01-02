@@ -95,11 +95,17 @@
       "@react-cupertino-ui/badge": [
         "./packages/ui/Badge"
       ],
+      "@react-cupertino-ui/breadcrumb": [
+        "./packages/ui/Breadcrumb"
+      ],
       "@react-cupertino-ui/caption": [
         "./packages/ui/Caption"
       ],
       "@react-cupertino-ui/checkbox": [
         "./packages/ui/Checkbox"
+      ],
+      "@react-cupertino-ui/accordion": [
+        "./packages/ui/Accordion"
       ],
       "@react-cupertino-ui/headline": [
         "./packages/ui/Headline"
@@ -119,6 +125,12 @@
       "@react-cupertino-ui/segmented-control": [
         "./packages/ui/SegmentedControl"
       ],
+      "@react-cupertino-ui/segmented-tabs": [
+        "./packages/ui/SegmentedTabs"
+      ],
+      "@react-cupertino-ui/rating": [
+        "./packages/ui/Rating"
+      ],
       "@react-cupertino-ui/select": [
         "./packages/ui/Select"
       ],
@@ -128,14 +140,32 @@
       "@react-cupertino-ui/skeleton": [
         "./packages/ui/Skeleton"
       ],
+      "@react-cupertino-ui/notification-banner": [
+        "./packages/ui/NotificationBanner"
+      ],
+      "@react-cupertino-ui/media-transport": [
+        "./packages/ui/MediaTransport"
+      ],
+      "@react-cupertino-ui/photos-grid": [
+        "./packages/ui/PhotosGrid"
+      ],
+      "@react-cupertino-ui/album-cover": [
+        "./packages/ui/AlbumCover"
+      ],
       "@react-cupertino-ui/slider": [
         "./packages/ui/Slider"
       ],
       "@react-cupertino-ui/switcher": [
         "./packages/ui/Switcher"
       ],
+      "@react-cupertino-ui/command-palette": [
+        "./packages/ui/CommandPalette"
+      ],
       "@react-cupertino-ui/tabs": [
         "./packages/ui/Tabs"
+      ],
+      "@react-cupertino-ui/carousel": [
+        "./packages/ui/Carousel"
       ],
       "@react-cupertino-ui/timeline": [
         "./packages/ui/Timeline"

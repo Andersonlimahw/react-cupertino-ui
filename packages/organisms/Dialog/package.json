@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "@radix-ui/react-alert-dialog": "^1.1.1",
-    "@react-cupertino-ui/button": "workspace:*",
-    "@react-cupertino-ui/shared": "workspace:*"
+    "@react-cupertino-ui/button": "*",
+    "@react-cupertino-ui/shared": "*"
   }
 }

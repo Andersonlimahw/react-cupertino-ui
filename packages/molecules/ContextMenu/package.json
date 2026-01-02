@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "@radix-ui/react-context-menu": "^2.2.16",
-    "@react-cupertino-ui/shared": "workspace:*",
+    "@react-cupertino-ui/shared": "*",
     "lucide-react": "^0.417.0"
   }
 }

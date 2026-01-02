@@ -21,7 +21,7 @@ export interface TimelineItem {
   disabled?: boolean;
 }
 
-export interface TimelineProps extends Omit<BaseProps<HTMLDivElement>, "children"> {
+export interface TimelineProps extends Omit<BaseProps<HTMLDivElement>, "children" | "variant"> {
   items: TimelineItem[];
   variant?: "glass" | "minimal";
   density?: "comfortable" | "compact";

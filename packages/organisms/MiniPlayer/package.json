@@ -17,7 +17,7 @@
     "react-dom": "^18.3.1"
   },
   "dependencies": {
-    "@react-cupertino-ui/shared": "workspace:*",
-    "@react-cupertino-ui/slider": "workspace:*"
+    "@react-cupertino-ui/shared": "*",
+    "@react-cupertino-ui/slider": "*"
   }
 }

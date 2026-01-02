@@ -18,7 +18,7 @@
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.1.0",
-    "@react-cupertino-ui/shared": "workspace:*",
-    "@react-cupertino-ui/suggestion-chip": "workspace:*"
+    "@react-cupertino-ui/shared": "*",
+    "@react-cupertino-ui/suggestion-chip": "*"
   }
 }

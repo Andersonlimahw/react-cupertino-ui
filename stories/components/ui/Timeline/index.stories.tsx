@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Timeline } from "@components/ui/Timeline";
+import { Timeline, type TimelineItem } from "@components/ui/Timeline";
 import "@globalstyles";
 
 const meta: Meta<typeof Timeline> = {
@@ -15,7 +15,7 @@ const meta: Meta<typeof Timeline> = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-const baseItems = [
+const baseItems: TimelineItem[] = [
   {
     id: "1",
     title: "Design briefing",

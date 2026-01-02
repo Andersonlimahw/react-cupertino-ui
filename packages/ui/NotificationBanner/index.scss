@@ -1,0 +1,83 @@
+@use "@/styles/mixins/glass" as glass;
+
+.react-cupertino-ui-notification-banner {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  border-radius: 32px;
+  background: rgba(255, 255, 255, 0.72);
+  color: rgba(15, 23, 42, 0.92);
+  box-shadow: 0 25px 55px rgba(15, 15, 15, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  @include glass.glass-panel(light, var(--glass-blur, 40px), 0.68);
+  backdrop-filter: blur(30px);
+
+  &__icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.85);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 999px;
+      background: currentColor;
+    }
+  }
+
+  &__content {
+    flex: 1;
+    min-width: 0;
+
+    .title {
+      margin: 0;
+      font-weight: 600;
+    }
+
+    .message {
+      margin: 0.2rem 0 0;
+      color: rgba(15, 23, 42, 0.65);
+    }
+  }
+
+  &__actions {
+    display: flex;
+    gap: 0.5rem;
+
+    button {
+      border: none;
+      background: rgba(0, 122, 255, 0.12);
+      border-radius: 999px;
+      padding: 0.35rem 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+  }
+
+  &__dismiss {
+    border: none;
+    background: transparent;
+    opacity: 0.6;
+    cursor: pointer;
+  }
+
+  &.tone-success {
+    border-color: rgba(34, 197, 94, 0.45);
+    color: #065f46;
+  }
+
+  &.tone-warning {
+    border-color: rgba(245, 158, 11, 0.45);
+    color: #92400e;
+  }
+
+  &.tone-critical {
+    border-color: rgba(239, 68, 68, 0.45);
+    color: #7f1d1d;
+  }
+}

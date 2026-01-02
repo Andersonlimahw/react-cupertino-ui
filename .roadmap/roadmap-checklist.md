@@ -129,12 +129,18 @@
 |------------|--------|-----------|
 | SpotlightSearch | ✅ Completo | Busca estilo Spotlight iOS |
 | Tooltip | ✅ Completo | `packages/ui/Tooltip/` |
-| Breadcrumb | ⏳ Pendente | Navegação breadcrumb |
-| Accordion | ⏳ Pendente | Expansível com animação |
+| Breadcrumb | ✅ Completo | `packages/ui/Breadcrumb/` |
+| Accordion | ✅ Completo | `packages/ui/Accordion/` |
 | Tabs | ✅ Completo | `packages/ui/Tabs/` |
-| Carousel | ⏳ Pendente | Carrossel de conteúdo |
+| Carousel | ✅ Completo | `packages/ui/Carousel/` |
 | Timeline | ✅ Completo | `packages/ui/Timeline/` |
-| Rating | ⏳ Pendente | Estrelas de avaliação |
+| Rating | ✅ Completo | `packages/ui/Rating/` |
+| NotificationBanner | ✅ Completo | `packages/ui/NotificationBanner/` |
+| CommandPalette | ✅ Completo | `packages/ui/CommandPalette/` |
+| SegmentedTabs | ✅ Completo | `packages/ui/SegmentedTabs/` |
+| MediaTransport | ✅ Completo | `packages/ui/MediaTransport/` |
+| PhotosGrid | ✅ Completo | `packages/ui/PhotosGrid/` |
+| AlbumCover | ✅ Completo | `packages/ui/AlbumCover/` |
 
 ---
 
@@ -170,3 +176,13 @@ Build: Passando ✅
 - [x] **Tabs (UI)**: Liquid Glass tab system with glass/soft/underline variants, keyboard navigation, icon badges, and integrated stories/tests at `packages/ui/Tabs/`.
 - [x] **Timeline (UI)**: Vertical Liquid Glass timeline with connectors, status-indicator glow, interactive mode, stories and tests in `packages/ui/Timeline/`.
 - [x] **Tooltip (UI)**: Radix-based Liquid Glass tooltip with tones, motion presets, new package metadata, stories and tests in `packages/ui/Tooltip/`.
+- [x] **Rating (UI)**: New Liquid Glass star rating component with half-step support, stories and tests in `packages/ui/Rating/`.
+- [x] **Breadcrumb (UI)**: Cupertino-style breadcrumb trail with overflow handling and glass styling in `packages/ui/Breadcrumb/`.
+- [x] **Carousel (UI)**: New Liquid Glass carousel with autoplay, controls, and indicators in `packages/ui/Carousel/`.
+- [x] **Accordion (UI)**: Liquid Glass accordion supporting single/multiple expansion at `packages/ui/Accordion/`.
+- [x] **NotificationBanner (UI)**: Cupertino notification ribbon with tones, actions, and dismiss/auto-hide in `packages/ui/NotificationBanner/`.
+- [x] **CommandPalette (UI)**: Spotlight-inspired command overlay with search, keyboard navigation, and stories/tests at `packages/ui/CommandPalette/`.
+- [x] **SegmentedTabs (UI)**: Segmented control with tab content in `packages/ui/SegmentedTabs/`.
+- [x] **MediaTransport (UI)**: Liquid Glass media controls with play/pause/skip and loading state in `packages/ui/MediaTransport/`.
+- [x] **PhotosGrid (UI)**: Flexible Photos app-inspired grid in `packages/ui/PhotosGrid/`.
+- [x] **AlbumCover (UI)**: Liquid Glass album art card with play overlay in `packages/ui/AlbumCover/`.

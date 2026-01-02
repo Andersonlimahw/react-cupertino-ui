@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.1.0",
-    "@react-cupertino-ui/shared": "workspace:*",
+    "@react-cupertino-ui/shared": "*",
     "class-variance-authority": "^0.7.0"
   }
 }

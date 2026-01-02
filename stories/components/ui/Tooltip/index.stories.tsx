@@ -105,8 +105,8 @@ export const WithIcons: Story = {
 export const Tones: Story = {
   render: () => (
     <div style={{ display: "flex", gap: "16px", flexWrap: "wrap" }}>
-      {["neutral", "info", "success", "warning", "critical"].map((tone) => (
-        <SimpleTooltip key={tone} content={`${tone} tone`} tone={tone as any}>
+      {(["neutral", "info", "success", "warning", "critical"] as const).map((tone) => (
+        <SimpleTooltip key={tone} content={`${tone} tone`} tone={tone}>
           <Button variant="outline">{tone}</Button>
         </SimpleTooltip>
       ))}

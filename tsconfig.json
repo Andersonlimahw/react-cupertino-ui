@@ -149,6 +149,12 @@
       "@react-cupertino-ui/photos-grid": [
         "./packages/ui/PhotosGrid"
       ],
+      "@react-cupertino-ui/playback-queue": [
+        "./packages/ui/PlaybackQueue"
+      ],
+      "@react-cupertino-ui/mini-notification": [
+        "./packages/ui/MiniNotification"
+      ],
       "@react-cupertino-ui/album-cover": [
         "./packages/ui/AlbumCover"
       ],

@@ -9,8 +9,9 @@
   ],
   "scripts": {
     "dev": "npm run sb",
-    "start": "vite",
-    "build": "npm run tailwind:build && tsc -b && vite build",
+    "start:dev": "vite",
+    "start:prod": "vite preview && npm run build:docs",
+    "build": "npm run tailwind:build && tsc -b && vite build && npm run build:packages && npm run build:docs",
     "build:packages": "lerna run build",
     "publish:packages": "lerna publish from-package",
     "sync:paths": "node scripts/sync-path-aliases.mjs",
@@ -21,8 +22,8 @@
     "sb": "storybook dev -p 6006",
     "sb:build": "storybook build",
     "tailwind:build": "tailwindcss -i ./app/globals.css -o ./dist/output.css --minify",
-    "tailwind:watch": "tailwindcss -i ./app/globals.css -o ./dist/output.css --watch"
-    ,"build:docs": "npm run build && npm run sb:build"
+    "tailwind:watch": "tailwindcss -i ./app/globals.css -o ./dist/output.css --watch",
+    "build:docs": "npm run build && npm run sb:build"
   },
   "dependencies": {
     "@radix-ui/react-alert-dialog": "^1.1.1",

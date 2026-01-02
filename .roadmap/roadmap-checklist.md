@@ -141,6 +141,8 @@
 | MediaTransport | ✅ Completo | `packages/ui/MediaTransport/` |
 | PhotosGrid | ✅ Completo | `packages/ui/PhotosGrid/` |
 | AlbumCover | ✅ Completo | `packages/ui/AlbumCover/` |
+| PlaybackQueue | ✅ Completo | `packages/ui/PlaybackQueue/` |
+| MiniNotification | ✅ Completo | `packages/ui/MiniNotification/` |
 
 ---
 
@@ -186,3 +188,5 @@ Build: Passando ✅
 - [x] **MediaTransport (UI)**: Liquid Glass media controls with play/pause/skip and loading state in `packages/ui/MediaTransport/`.
 - [x] **PhotosGrid (UI)**: Flexible Photos app-inspired grid in `packages/ui/PhotosGrid/`.
 - [x] **AlbumCover (UI)**: Liquid Glass album art card with play overlay in `packages/ui/AlbumCover/`.
+- [x] **PlaybackQueue (UI)**: Music queue list component at `packages/ui/PlaybackQueue/`.
+- [x] **MiniNotification (UI)**: Compact banner for inline alerts in `packages/ui/MiniNotification/`.

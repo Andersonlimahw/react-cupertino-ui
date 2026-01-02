@@ -143,6 +143,8 @@
 | AlbumCover | ✅ Completo | `packages/ui/AlbumCover/` |
 | PlaybackQueue | ✅ Completo | `packages/ui/PlaybackQueue/` |
 | MiniNotification | ✅ Completo | `packages/ui/MiniNotification/` |
+| PlaybackControls | ✅ Completo | `packages/molecules/PlaybackControls/` |
+| NowPlayingBar | ✅ Completo | `packages/organisms/NowPlayingBar/` |
 
 ---
 
@@ -190,3 +192,5 @@ Build: Passando ✅
 - [x] **AlbumCover (UI)**: Liquid Glass album art card with play overlay in `packages/ui/AlbumCover/`.
 - [x] **PlaybackQueue (UI)**: Music queue list component at `packages/ui/PlaybackQueue/`.
 - [x] **MiniNotification (UI)**: Compact banner for inline alerts in `packages/ui/MiniNotification/`.
+- [x] **PlaybackControls (Molecule)**: Play/pause/skip/shuffle controls in `packages/molecules/PlaybackControls/`.
+- [x] **NowPlayingBar (Organism)**: Mini music bar with artwork and timeline in `packages/organisms/NowPlayingBar/`.

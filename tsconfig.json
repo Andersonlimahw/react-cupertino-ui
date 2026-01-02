@@ -155,6 +155,9 @@
       "@react-cupertino-ui/mini-notification": [
         "./packages/ui/MiniNotification"
       ],
+      "@react-cupertino-ui/playback-controls": [
+        "./packages/molecules/PlaybackControls"
+      ],
       "@react-cupertino-ui/album-cover": [
         "./packages/ui/AlbumCover"
       ],
@@ -208,6 +211,9 @@
       ],
       "@react-cupertino-ui/conversation-list": [
         "./packages/organisms/ConversationList"
+      ],
+      "@react-cupertino-ui/now-playing-bar": [
+        "./packages/organisms/NowPlayingBar"
       ]
     }
   }

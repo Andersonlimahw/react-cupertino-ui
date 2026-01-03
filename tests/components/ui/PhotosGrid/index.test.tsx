@@ -4,8 +4,8 @@ import { describe, expect, it, vi } from "vitest";
 import { PhotosGrid } from "@components/ui/PhotosGrid";
 
 const items = [
-  { id: "1", src: "https://picsum.photos/seed/1/100/100" },
-  { id: "2", src: "https://picsum.photos/seed/2/100/100" },
+  { id: "1", src: "https://picsum.photos/seed/1/100/100", alt: "Photo 1" },
+  { id: "2", src: "https://picsum.photos/seed/2/100/100", alt: "Photo 2" },
 ];
 
 describe("PhotosGrid", () => {

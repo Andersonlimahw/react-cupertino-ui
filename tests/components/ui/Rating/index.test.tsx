@@ -11,7 +11,8 @@ describe("Rating", () => {
 
   it("changes value when clicked", () => {
     const handleChange = vi.fn();
-    render(<Rating onValueChange={handleChange} />);
+    // Disable allowHalf to get deterministic click behavior (full star values)
+    render(<Rating onValueChange={handleChange} allowHalf={false} />);
 
     fireEvent.click(screen.getAllByRole("button")[3]);
     expect(handleChange).toHaveBeenCalledWith(4);

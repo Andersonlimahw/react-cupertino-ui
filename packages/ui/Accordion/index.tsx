@@ -18,7 +18,7 @@ export interface AccordionItem {
   disabled?: boolean;
 }
 
-export interface AccordionProps extends Omit<BaseProps<HTMLDivElement>, "children"> {
+export interface AccordionProps extends Omit<BaseProps<HTMLDivElement>, "children" | "variant"> {
   items: AccordionItem[];
   type?: AccordionType;
   defaultValue?: AccordionValue;

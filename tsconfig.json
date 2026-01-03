@@ -158,8 +158,38 @@
       "@react-cupertino-ui/playback-controls": [
         "./packages/molecules/PlaybackControls"
       ],
+      "@react-cupertino-ui/voice-command-bar": [
+        "./packages/molecules/VoiceCommandBar"
+      ],
+      "@react-cupertino-ui/message-bubble": [
+        "./packages/molecules/MessageBubble"
+      ],
       "@react-cupertino-ui/album-cover": [
         "./packages/ui/AlbumCover"
+      ],
+      "@react-cupertino-ui/siri-shortcut-chip": [
+        "./packages/ui/SiriShortcutChip"
+      ],
+      "@react-cupertino-ui/suggestion-bar": [
+        "./packages/ui/SuggestionBar"
+      ],
+      "@react-cupertino-ui/siri-status-indicator": [
+        "./packages/atoms/SiriStatusIndicator"
+      ],
+      "@react-cupertino-ui/ai-insight-card": [
+        "./packages/ui/AIInsightCard"
+      ],
+      "@react-cupertino-ui/calendar-heatmap": [
+        "./packages/ui/CalendarHeatmap"
+      ],
+      "@react-cupertino-ui/ai-recommender-grid": [
+        "./packages/ui/AIRecommenderGrid"
+      ],
+      "@react-cupertino-ui/ai-action-list": [
+        "./packages/ui/AIActionList"
+      ],
+      "@react-cupertino-ui/color-tokens-viewer": [
+        "./packages/ui/ColorTokensViewer"
       ],
       "@react-cupertino-ui/slider": [
         "./packages/ui/Slider"
@@ -214,6 +244,12 @@
       ],
       "@react-cupertino-ui/now-playing-bar": [
         "./packages/organisms/NowPlayingBar"
+      ],
+      "@react-cupertino-ui/media-session-card": [
+        "./packages/organisms/MediaSessionCard"
+      ],
+      "@react-cupertino-ui/maps-poi-card": [
+        "./packages/organisms/MapsPOICard"
       ]
     }
   }

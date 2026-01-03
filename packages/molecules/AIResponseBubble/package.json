@@ -6,8 +6,13 @@
   "main": "./dist/index.js",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
-  "files": ["dist"],
-  "sideEffects": ["./dist/**/*.css", "./dist/**/*.scss"],
+  "files": [
+    "dist"
+  ],
+  "sideEffects": [
+    "./dist/**/*.css",
+    "./dist/**/*.scss"
+  ],
   "scripts": {
     "build": "tsc -p tsconfig.build.json && npm run build:styles",
     "build:styles": "node ../../../scripts/build-styles.mjs"
@@ -17,6 +22,12 @@
     "react-dom": "^18.3.1"
   },
   "dependencies": {
-    "@react-cupertino-ui/shared": "*"
+    "@react-cupertino-ui/shared": "*",
+    "dompurify": "^3.0.6",
+    "marked": "^11.0.0"
+  },
+  "devDependencies": {
+    "@types/dompurify": "^3.0.5",
+    "@types/marked": "^5.0.2"
   }
 }

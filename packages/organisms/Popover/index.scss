@@ -39,6 +39,7 @@
   }
 
   &__arrow {
+    position: absolute;
     fill: var(--popover-surface, rgba(255, 255, 255, 0.95));
     stroke: color-mix(in srgb, rgba(0, 0, 0, 0.12), transparent 10%);
     stroke-width: 1px;
@@ -54,6 +55,25 @@
         stroke: rgba(255, 255, 255, 0.24);
       }
     }
+  }
+
+  &__content[data-side="top"] .react-cupertino-ui-popover__arrow {
+    bottom: -6px;
+    transform: rotate(180deg);
+  }
+
+  &__content[data-side="bottom"] .react-cupertino-ui-popover__arrow {
+    top: -6px;
+  }
+
+  &__content[data-side="left"] .react-cupertino-ui-popover__arrow {
+    right: -6px;
+    transform: rotate(90deg);
+  }
+
+  &__content[data-side="right"] .react-cupertino-ui-popover__arrow {
+    left: -6px;
+    transform: rotate(-90deg);
   }
 }
 

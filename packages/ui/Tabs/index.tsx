@@ -230,6 +230,9 @@ const TabsTrigger = React.forwardRef<HTMLButtonElement, TabsTriggerProps>((props
   const context = useTabsContext();
   const localRef = React.useRef<HTMLButtonElement>(null);
 
+  // Extract stable references to avoid infinite loop from context changes
+  const { registerTrigger, unregisterTrigger } = context;
+
   const assignRef = React.useCallback((node: HTMLButtonElement | null) => {
     (localRef as React.MutableRefObject<HTMLButtonElement | null>).current = node;
     if (typeof ref === "function") {
@@ -241,9 +244,9 @@ const TabsTrigger = React.forwardRef<HTMLButtonElement, TabsTriggerProps>((props
   }, [ref]);
 
   React.useLayoutEffect(() => {
-    context.registerTrigger(value, localRef.current);
-    return () => context.unregisterTrigger(value);
-  }, [context, value]);
+    registerTrigger(value, localRef.current);
+    return () => unregisterTrigger(value);
+  }, [registerTrigger, unregisterTrigger, value]);
 
   const isActive = context.value === value;
 

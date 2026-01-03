@@ -21,6 +21,7 @@ type Story = StoryObj<typeof meta>;
 export const Assistant: Story = {
   args: {
     timestamp: new Date(),
+    markdown: true,
     actions: (
       <SuggestionChip size="sm" onClick={() => {}}>
         Copy response

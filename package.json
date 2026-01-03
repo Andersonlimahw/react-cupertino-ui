@@ -8,7 +8,7 @@
     "packages/shared"
   ],
   "scripts": {
-    "dev": "npm run sb",
+    "dev": "vite && npm run sb",
     "start:dev": "vite",
     "start:prod": "vite preview && npm run build:docs",
     "build": "npm run tailwind:build && tsc -b && vite build && npm run build:packages && npm run build:docs",
@@ -26,6 +26,8 @@
     "build:docs": "npm run build && npm run sb:build"
   },
   "dependencies": {
+    "dompurify": "^3.0.6",
+    "marked": "^11.0.0",
     "@radix-ui/react-alert-dialog": "^1.1.1",
     "@radix-ui/react-context-menu": "^2.2.16",
     "@radix-ui/react-dialog": "^1.1.1",

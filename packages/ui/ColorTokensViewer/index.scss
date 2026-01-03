@@ -1,0 +1,32 @@
+.react-cupertino-ui-color-tokens-viewer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+
+  .token {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.85);
+    padding: 0.65rem 0.9rem;
+    box-shadow: 0 12px 30px rgba(15, 15, 15, 0.15);
+
+    .swatch {
+      width: 36px;
+      height: 36px;
+      border-radius: 12px;
+    }
+
+    .name {
+      margin: 0;
+      font-weight: 600;
+    }
+
+    .value {
+      margin: 0.15rem 0 0;
+      font-size: 0.85rem;
+      color: rgba(15, 23, 42, 0.6);
+    }
+  }
+}

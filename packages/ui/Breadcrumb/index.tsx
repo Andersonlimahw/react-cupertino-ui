@@ -108,7 +108,6 @@ const Breadcrumb = React.forwardRef<HTMLDivElement, BreadcrumbProps>((props, ref
     >
       <ol className="react-cupertino-ui-breadcrumb__list">
         {visibleItems.map((item, index) => {
-          const isFirst = index === 0;
           const isLast = index === visibleItems.length - 1;
 
           if (needsCollapse && index === 1 && visibleItems.length > 2) {

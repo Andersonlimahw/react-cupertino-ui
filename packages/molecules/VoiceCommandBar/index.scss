@@ -1,0 +1,32 @@
+.react-cupertino-ui-voice-command-bar {
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 32px;
+  padding: 0.75rem;
+  box-shadow: 0 22px 45px rgba(15, 15, 15, 0.2);
+
+  form {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+  }
+
+  input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    outline: none;
+  }
+
+  .suggestions {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+
+    button {
+      border: none;
+      border-radius: 999px;
+      padding: 0.3rem 0.7rem;
+      background: rgba(255, 255, 255, 0.6);
+    }
+  }
+}

@@ -70,3 +70,26 @@ export const WithoutArrow: Story = {
   },
   render: (args) => <PopoverStory {...args} />,
 };
+
+export const Positioned: Story = {
+  render: () => (
+    <div className="flex gap-4">
+      <Popover>
+        <PopoverTrigger asChild>
+          <Button>Top</Button>
+        </PopoverTrigger>
+        <PopoverContent side="top" glass showArrow className="w-48">
+          <DemoContent />
+        </PopoverContent>
+      </Popover>
+      <Popover>
+        <PopoverTrigger asChild>
+          <Button>Left</Button>
+        </PopoverTrigger>
+        <PopoverContent side="left" glass showArrow className="w-48">
+          <DemoContent />
+        </PopoverContent>
+      </Popover>
+    </div>
+  ),
+};

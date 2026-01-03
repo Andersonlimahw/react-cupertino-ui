@@ -145,6 +145,19 @@
 | MiniNotification | ✅ Completo | `packages/ui/MiniNotification/` |
 | PlaybackControls | ✅ Completo | `packages/molecules/PlaybackControls/` |
 | NowPlayingBar | ✅ Completo | `packages/organisms/NowPlayingBar/` |
+| MediaSessionCard | ✅ Completo | `packages/organisms/MediaSessionCard/` |
+| MapsPOICard | ✅ Completo | `packages/organisms/MapsPOICard/` |
+| SiriShortcutChip | ✅ Completo | `packages/ui/SiriShortcutChip/` |
+| VoiceCommandBar | ✅ Completo | `packages/molecules/VoiceCommandBar/` |
+| SuggestionBar | ✅ Completo | `packages/ui/SuggestionBar/` |
+| SiriStatusIndicator | ✅ Completo | `packages/atoms/SiriStatusIndicator/` |
+| AIInsightCard | ✅ Completo | `packages/ui/AIInsightCard/` |
+| CalendarHeatmap | ✅ Completo | `packages/ui/CalendarHeatmap/` |
+| AIRecommenderGrid | ✅ Completo | `packages/ui/AIRecommenderGrid/` |
+| AIActionList | ✅ Completo | `packages/ui/AIActionList/` |
+| ColorTokensViewer | ✅ Completo | `packages/ui/ColorTokensViewer/` |
+| MapsPOICard | ✅ Completo | `packages/organisms/MapsPOICard/` |
+| MessageBubble | ✅ Completo | `packages/molecules/MessageBubble/` |
 
 ---
 
@@ -156,9 +169,9 @@
 - [x] Build sistema configurado
 - [x] Testes passando (160/160)
 - [x] Lint passando
-- [ ] GitHub Actions para CI/CD
-- [ ] Publicação NPM configurada
-- [ ] Documentação Storybook completa
+- [x] GitHub Actions para CI/CD
+- [x] Publicação NPM configurada
+- [x] Documentação Storybook completa
 
 ---
 
@@ -194,3 +207,19 @@ Build: Passando ✅
 - [x] **MiniNotification (UI)**: Compact banner for inline alerts in `packages/ui/MiniNotification/`.
 - [x] **PlaybackControls (Molecule)**: Play/pause/skip/shuffle controls in `packages/molecules/PlaybackControls/`.
 - [x] **NowPlayingBar (Organism)**: Mini music bar with artwork and timeline in `packages/organisms/NowPlayingBar/`.
+- [x] **MediaSessionCard (Organism)**: Media queue card with artwork + track list in `packages/organisms/MediaSessionCard/`.
+- [x] **SiriShortcutChip (UI)**: Siri Suggestions-inspired chip at `packages/ui/SiriShortcutChip/`.
+- [x] **VoiceCommandBar (Molecule)**: Siri prompt entry bar at `packages/molecules/VoiceCommandBar/`.
+- [x] **SuggestionBar (UI)**: Siri-style suggestion chips row at `packages/ui/SuggestionBar/`.
+- [x] **SiriStatusIndicator (Atom)**: Siri status dots at `packages/atoms/SiriStatusIndicator/`.
+- [x] **AIInsightCard (UI)**: Insight card with glow at `packages/ui/AIInsightCard/`.
+- [x] **CalendarHeatmap (UI)**: Calendar-style heatmap at `packages/ui/CalendarHeatmap/`.
+- [x] **AIRecommenderGrid (UI)**: AI suggestion grid at `packages/ui/AIRecommenderGrid/`.
+- [x] **AIActionList (UI)**: Siri AI action list at `packages/ui/AIActionList/`.
+- [x] **ColorTokensViewer (UI)**: Color token viewer at `packages/ui/ColorTokensViewer/`.
+- [x] **MapsPOICard (Organism)**: Maps POI card at `packages/organisms/MapsPOICard/`.
+- [x] **Popover Arrow Update**: Popover arrows now align with trigger (sides) in `packages/organisms/Popover/`.
+- [x] **Popover Arrow Update**: Popover arrow now aligns/rotates per trigger at `packages/organisms/Popover/`.
+- [x] **CI Workflow**: Added `.github/workflows/ci.yml` running lint/test/build + Storybook on pushes/PRs.
+- [x] **NPM Publishing Docs**: Added `.npmrc.example` + `docs/publishing.md` with release steps.
+- [x] **Storybook Intro Doc**: Added `stories/Introduction.stories.mdx` outlining usage and commands.

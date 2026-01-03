@@ -26,7 +26,7 @@ describe("CommandPalette", () => {
 
   it("closes when clicking backdrop", () => {
     const onClose = vi.fn();
-    render(
+    const { container } = render(
       <CommandPalette
         open
         onClose={onClose}
@@ -36,7 +36,10 @@ describe("CommandPalette", () => {
       />
     );
 
-    fireEvent.click(screen.getByRole("status").parentElement!);
+    // Click the backdrop element directly
+    const backdrop = container.querySelector(".react-cupertino-ui-command-palette__backdrop");
+    expect(backdrop).toBeInTheDocument();
+    fireEvent.click(backdrop!);
     expect(onClose).toHaveBeenCalled();
   });
 

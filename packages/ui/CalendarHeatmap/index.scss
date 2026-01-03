@@ -1,0 +1,16 @@
+.react-cupertino-ui-calendar-heatmap {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(12px, 1fr));
+  gap: 0.25rem;
+
+  .cell {
+    width: 12px;
+    height: 12px;
+    border-radius: 4px;
+    background: rgba(15, 23, 42, 0.2);
+
+    &.has-value {
+      background: linear-gradient(135deg, #0ea5e9, #6366f1);
+    }
+  }
+}

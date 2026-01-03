@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { useMemo } from "react";
 
 import { Carousel } from "@components/ui/Carousel";
 import { Card, CardContent, CardHeader, CardTitle } from "@components/organisms/Card";

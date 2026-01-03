@@ -1,0 +1,14 @@
+.react-cupertino-ui-suggestion-bar {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+
+  button {
+    border: none;
+    border-radius: 999px;
+    padding: 0.35rem 0.9rem;
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 12px 25px rgba(15, 15, 15, 0.18);
+    cursor: pointer;
+  }
+}

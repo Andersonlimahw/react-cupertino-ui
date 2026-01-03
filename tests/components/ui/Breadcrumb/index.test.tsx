@@ -11,9 +11,12 @@ const sampleItems = [
 
 describe("Breadcrumb", () => {
   it("renders all items when under maxVisible", () => {
-    render(<Breadcrumb items={sampleItems} />);
+    const { container } = render(<Breadcrumb items={sampleItems} />);
     expect(screen.getByText("Home")).toBeInTheDocument();
-    expect(screen.getByText("Photos")).toHaveAttribute("aria-current", "page");
+    // aria-current is on the parent breadcrumb item, not the text element itself
+    const photosItem = container.querySelector('.react-cupertino-ui-breadcrumb__item.is-current');
+    expect(photosItem).toBeInTheDocument();
+    expect(photosItem).toHaveAttribute("aria-current", "page");
   });
 
   it("collapses when exceeding maxVisible", () => {

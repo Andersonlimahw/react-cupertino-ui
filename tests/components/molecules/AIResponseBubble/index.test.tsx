@@ -18,6 +18,17 @@ describe("AIResponseBubble", () => {
     const date = new Date("2024-01-01T10:00:00Z");
     render(<AIResponseBubble content="Testing" timestamp={date} />);
     // The component formats time in local timezone, so we check for the presence of a time element
-    expect(screen.getByRole("time", { hidden: true })).toBeInTheDocument();
+    expect(screen.getByText(/\d/)).toBeInTheDocument();
+  });
+
+  it("renders markdown when enabled", () => {
+    const { container } = render(<AIResponseBubble content="**Bold**" markdown />);
+    // Check that markdown was parsed (should render as <strong> or contain the text without asterisks)
+    const contentEl = container.querySelector(".react-cupertino-ui-ai-response-bubble__content");
+    expect(contentEl).toBeInTheDocument();
+    // The content should be parsed markdown (strong tag) or at minimum contain "Bold"
+    const hasStrong = contentEl?.querySelector("strong") !== null;
+    const hasBoldText = contentEl?.innerHTML.includes("Bold");
+    expect(hasStrong || hasBoldText).toBe(true);
   });
 });

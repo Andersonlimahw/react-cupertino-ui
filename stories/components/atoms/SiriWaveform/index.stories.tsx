@@ -36,8 +36,11 @@ export const Default: Story = {
 };
 
 export const Variants: Story = {
-  render: () => (
-    <div style={{ display: "flex", gap: "1.5rem", flexWrap: "wrap", background: "#010101", padding: "20px", borderRadius: "12px" }}>
+    args: {
+        active: true,
+        palette: "multicolor",
+    },
+    render: () => (    <div style={{ display: "flex", gap: "1.5rem", flexWrap: "wrap", background: "#010101", padding: "20px", borderRadius: "12px" }}>
       <SiriWaveform active palette="multicolor" />
       <SiriWaveform active palette="ocean" motion="calm" />
       <SiriWaveform active palette="sunset" amplitude={1.2} />

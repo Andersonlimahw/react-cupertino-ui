@@ -3,7 +3,7 @@ import type { Meta, StoryFn } from "@storybook/react";
 import { fn } from "@storybook/test";
 import "@globalstyles";
 
-const meta = {
+const meta: Meta<typeof Headline> = {
   title: "Typography/Headline",
   component: Headline,
   argTypes: {

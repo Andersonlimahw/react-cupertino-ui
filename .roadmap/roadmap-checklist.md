@@ -79,14 +79,14 @@
 |------------|--------|-------------|
 | ConversationList | ✅ Completo | `packages/organisms/ConversationList/` |
 | ReactionPicker | ✅ Completo | `packages/molecules/ReactionPicker/` |
-| MessageBubble | ⏳ Pendente | - |
-| MessageInput | ⏳ Pendente | - |
-| ConversationHeader | ⏳ Pendente | - |
-| TypingIndicator | ⏳ Pendente | - |
-| ReadReceipt | ⏳ Pendente | - |
-| MediaPreview | ⏳ Pendente | - |
-| LinkPreview | ⏳ Pendente | - |
-| AudioMessage | ⏳ Pendente | - |
+| MessageBubble | ✅ Completo | `packages/molecules/MessageBubble/` |
+| MessageInput | ✅ Completo | `packages/molecules/MessageInput/` |
+| ConversationHeader | ✅ Completo | `packages/organisms/ConversationHeader/` |
+| TypingIndicator | ✅ Completo | `packages/atoms/TypingIndicator/` |
+| ReadReceipt | ✅ Completo | `packages/atoms/ReadReceipt/` |
+| MediaPreview | ✅ Completo | `packages/molecules/MediaPreview/` |
+| LinkPreview | ✅ Completo | `packages/molecules/LinkPreview/` |
+| AudioMessage | ✅ Completo | `packages/molecules/AudioMessage/` |
 
 ### 4.2 MusicKit
 | Componente | Status | Localização |
@@ -94,21 +94,21 @@
 | MiniPlayer | ✅ Completo | `packages/organisms/MiniPlayer/` |
 | FullPlayerTemplate | ✅ Completo | `packages/templates/FullPlayerTemplate/` |
 | LyricsView | ✅ Completo | `packages/organisms/LyricsView/` |
-| TrackList | ⏳ Pendente | - |
-| AlbumCover | ⏳ Pendente | - |
-| ProgressSlider | ⏳ Pendente | - |
-| VolumeControl | ⏳ Pendente | - |
-| PlaybackControls | ⏳ Pendente | - |
-| NowPlayingBar | ⏳ Pendente | - |
-| QueueList | ⏳ Pendente | - |
+| TrackList | ✅ Completo | `packages/organisms/TrackList/` |
+| AlbumCover | ✅ Completo | `packages/ui/AlbumCover/` |
+| ProgressSlider | ✅ Completo | `packages/molecules/ProgressSlider/` |
+| VolumeControl | ✅ Completo | `packages/molecules/VolumeControl/` |
+| PlaybackControls | ✅ Completo | `packages/molecules/PlaybackControls/` |
+| NowPlayingBar | ✅ Completo | `packages/organisms/NowPlayingBar/` |
+| QueueList | ✅ Completo | `packages/ui/PlaybackQueue/` |
 
 ### 4.3 MailKit
 | Componente | Status | Localização |
 |------------|--------|-------------|
 | MailDetailTemplate | ✅ Completo | `packages/templates/MailDetailTemplate/` |
-| MailList | ⏳ Pendente | - |
-| MailItem | ⏳ Pendente | - |
-| ComposeEmail | ⏳ Pendente | - |
+| MailList | ✅ Completo | `packages/organisms/MailList/` |
+| MailComposer | ✅ Completo | `packages/organisms/MailComposer/` |
+| SwipeActions | ✅ Completo | `packages/molecules/SwipeActions/` |
 | RecipientField | ⏳ Pendente | - |
 | AttachmentPicker | ⏳ Pendente | - |
 | MailToolbar | ⏳ Pendente | - |

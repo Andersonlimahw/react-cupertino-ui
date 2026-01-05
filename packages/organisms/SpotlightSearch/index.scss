@@ -32,7 +32,7 @@
   animation: spotlight-in 250ms cubic-bezier(0.32, 0.72, 0, 1);
 
   &.glass {
-    @include glass($blur: 40px, $opacity: 0.85);
+    @include glass-panel(light, $blur: 40px, $opacity: 0.85);
     background: rgba(255, 255, 255, 0.85);
   }
 
@@ -40,7 +40,7 @@
     background: rgba(30, 30, 30, 0.95);
 
     &.glass {
-      @include glass-dark($blur: 40px, $opacity: 0.75);
+      @include glass-panel(dark, $blur: 40px, $opacity: 0.75);
       background: rgba(30, 30, 30, 0.85);
     }
   }

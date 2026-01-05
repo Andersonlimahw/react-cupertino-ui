@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { fn } from "@storybook/test";
-import { useState } from "react";
+import { useState, type ComponentProps } from "react";
 
-import { AIPromptInput, type AIPromptInputProps } from "@components/molecules/AIPromptInput";
+import { AIPromptInput } from "@components/molecules/AIPromptInput";
 
-const meta = {
+const meta: Meta<typeof AIPromptInput> = {
   title: "Molecules/AIPromptInput",
   component: AIPromptInput,
   parameters: {
@@ -22,7 +22,10 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-const Stateful = (args: AIPromptInputProps) => {
+type AIPromptInputProps = ComponentProps<typeof AIPromptInput>;
+type AIPromptInputStoryProps = Partial<AIPromptInputProps>;
+
+const Stateful = (args: AIPromptInputStoryProps) => {
   const [value, setValue] = useState(args.value ?? "Summarize the last conversation");
 
   return (

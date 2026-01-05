@@ -4,7 +4,7 @@ import { fn } from "@storybook/test";
 import { Sparkles, LoaderCircle } from "lucide-react";
 import "@globalstyles";
 
-const meta = {
+const meta: Meta<typeof Button> = {
   title: "Molecules/Button",
   component: Button,
   argTypes: {

@@ -1,0 +1,28 @@
+{
+    "name": "@react-cupertino-ui/mail-composer",
+    "version": "0.0.0",
+    "description": "MailComposer component from React Cupertino UI",
+    "type": "module",
+    "main": "./dist/index.js",
+    "module": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "files": [
+        "dist"
+    ],
+    "sideEffects": [
+        "./dist/**/*.css",
+        "./dist/**/*.scss"
+    ],
+    "scripts": {
+        "build": "tsc -p tsconfig.build.json && npm run build:styles",
+        "build:styles": "node ../../../scripts/build-styles.mjs"
+    },
+    "peerDependencies": {
+        "react": "^18.3.1",
+        "react-dom": "^18.3.1",
+        "lucide-react": "^0.417.0"
+    },
+    "dependencies": {
+        "@react-cupertino-ui/shared": "workspace:*"
+    }
+}

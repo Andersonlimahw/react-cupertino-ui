@@ -1,0 +1,87 @@
+.react-cupertino-ui-link-preview {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    border-radius: 18px;
+    overflow: hidden;
+    background-color: #f2f2f7;
+    max-width: 300px;
+    width: 100%;
+    color: inherit;
+    transition: background-color 0.2s;
+
+    /* Glass border via box-shadow */
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.05);
+
+    &:hover {
+        background-color: #e5e5ea;
+    }
+
+    /* Dark mode */
+    @media (prefers-color-scheme: dark) {
+        background-color: #2c2c2e;
+        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+
+        &:hover {
+            background-color: #3a3a3c;
+        }
+    }
+
+    .preview-image {
+        width: 100%;
+        aspect-ratio: 1.91;
+        /* Standard OG image ratio */
+        background-color: rgba(0, 0, 0, 0.05);
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+    }
+
+    .preview-content {
+        padding: 12px;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+
+        /* Make text align based on direction, default left */
+        text-align: left;
+    }
+
+    .preview-title {
+        margin: 0;
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 1.3;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        color: #000;
+
+        @media (prefers-color-scheme: dark) {
+            color: #fff;
+        }
+    }
+
+    .preview-description {
+        margin: 0;
+        font-size: 12px;
+        line-height: 1.4;
+        color: #8e8e93;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    .preview-domain {
+        margin-top: 4px;
+        font-size: 11px;
+        color: #8e8e93;
+        text-transform: lowercase;
+    }
+}

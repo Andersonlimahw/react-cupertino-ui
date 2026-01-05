@@ -1,0 +1,197 @@
+.react-cupertino-ui-mail-composer {
+    position: fixed;
+    top: 10px;
+    /* Card Modal style */
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #f2f2f7;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    box-shadow: 0 -4px 30px rgba(0, 0, 0, 0.1);
+    transform: translateY(0);
+    animation: slide-up 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+
+    @media (min-width: 768px) {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 600px;
+        height: 700px;
+        border-radius: 12px;
+        bottom: auto;
+        animation: zoom-in 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    @media (prefers-color-scheme: dark) {
+        background-color: #1c1c1e;
+    }
+
+    .composer-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 16px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+
+        @media (prefers-color-scheme: dark) {
+            border-bottom-color: rgba(255, 255, 255, 0.1);
+        }
+
+        button {
+            border: none;
+            background: none;
+            padding: 4px;
+            font-size: 17px;
+            cursor: pointer;
+            color: #007aff;
+
+            &:disabled {
+                color: #8e8e93;
+                cursor: default;
+            }
+        }
+
+        .title {
+            font-size: 17px;
+            font-weight: 600;
+            color: #000;
+
+            @media (prefers-color-scheme: dark) {
+                color: #fff;
+            }
+        }
+    }
+
+    .send-button {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background-color: #007aff !important;
+        color: white !important;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &:disabled {
+            background-color: #e5e5ea !important;
+            color: #8e8e93 !important;
+
+            @media (prefers-color-scheme: dark) {
+                background-color: #2c2c2e !important;
+            }
+        }
+    }
+
+    .composer-fields {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        background: white;
+
+        @media (prefers-color-scheme: dark) {
+            background: #1c1c1e;
+        }
+    }
+
+    .field-row {
+        display: flex;
+        align-items: center;
+        padding: 10px 16px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        min-height: 44px;
+
+        @media (prefers-color-scheme: dark) {
+            border-bottom-color: rgba(255, 255, 255, 0.1);
+        }
+
+        &.animate-in {
+            animation: expand-row 0.2s ease-out;
+        }
+
+        label {
+            color: #8e8e93;
+            font-size: 15px;
+            margin-right: 8px;
+        }
+
+        .ghost-input {
+            flex: 1;
+            border: none;
+            outline: none;
+            background: transparent;
+            font-size: 15px;
+            color: #000;
+
+            @media (prefers-color-scheme: dark) {
+                color: #fff;
+            }
+        }
+
+        .details-toggle {
+            border: none;
+            background: none;
+            color: #007aff;
+            font-size: 13px;
+            cursor: pointer;
+            margin-left: 8px;
+        }
+    }
+
+    .body-input {
+        flex: 1;
+        border: none;
+        outline: none;
+        resize: none;
+        padding: 16px;
+        background: transparent;
+        font-size: 16px;
+        font-family: inherit;
+        color: #000;
+
+        @media (prefers-color-scheme: dark) {
+            color: #fff;
+        }
+    }
+}
+
+@keyframes slide-up {
+    from {
+        transform: translateY(100%);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes zoom-in {
+    from {
+        transform: translate(-50%, -50%) scale(0.95);
+        opacity: 0;
+    }
+
+    to {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes expand-row {
+    from {
+        height: 0;
+        min-height: 0;
+        opacity: 0;
+        padding: 0 16px;
+    }
+
+    to {
+        height: 44px;
+        min-height: 44px;
+        opacity: 1;
+        padding: 10px 16px;
+    }
+}

@@ -2,6 +2,84 @@
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
+## Getting Started
+
+### Prerequisites
+
+- [Node.js](https://nodejs.org/) (v18 or higher)
+- [pnpm](https://pnpm.io/) (v9 or higher recommended)
+
+If you don't have pnpm installed, you can enable it via corepack:
+```bash
+corepack enable
+corepack prepare pnpm@latest --activate
+```
+
+### Installation
+
+Clone the repository and install dependencies using pnpm:
+
+```bash
+pnpm install
+```
+
+## Development
+
+This repository is a monorepo managed by **Lerna** and **pnpm workspaces**.
+
+### Common Commands
+
+- **Start Development Server**: 
+  ```bash
+  pnpm run dev
+  # or
+  pnpm run sb # for Storybook
+  ```
+
+- **Build Project**:
+  ```bash
+  pnpm run build
+  ```
+
+- **Run Tests**:
+  ```bash
+  pnpm run test
+  ```
+
+- **Linting**:
+  ```bash
+  pnpm run lint
+  ```
+
+## Working with Packages (Lerna)
+
+We use [Lerna](https://lerna.js.org/) for managing packages in `packages/*`.
+
+- **Build all packages**:
+  ```bash
+  pnpm exec lerna run build
+  ```
+
+- **Run command in specific package**:
+  ```bash
+  pnpm exec lerna run <command> --scope=<package-name>
+  ```
+
+- **Publish packages**:
+  ```bash
+  pnpm exec lerna publish
+  ```
+
+- **Create a new component**:
+  ```bash
+  pnpm run new:component
+  ```
+
+## Contributing
+
+Please read our [Contributing Guide](CONTRIBUTING.md) (if available) and check the [Pull Request Template](.github/PULL_REQUEST_TEMPLATE.md) before submitting a PR.
+Ensure you follow the conventional commits specification.
+
 Currently, two official plugins are available:
 
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh

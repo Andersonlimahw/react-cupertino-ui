@@ -3,15 +3,18 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "packageManager": "pnpm@9.4.0",
+  "engines": {
+    "node": ">=18",
+    "pnpm": ">=9"
+  },
   "workspaces": [
     "packages/*/*",
     "packages/shared"
   ],
   "scripts": {
-    "dev": "vite && npm run sb",
-    "start:dev": "vite",
-    "start:prod": "vite preview && npm run build:docs",
-    "build": "npm run tailwind:build && tsc -b && vite build && npm run build:packages && npm run build:docs",
+    "start:prod": "vite preview && pnpm run build:docs",
+    "build": "pnpm run tailwind:build && tsc -b && vite build && pnpm run build:packages && pnpm run build:docs",
     "build:packages": "lerna run build",
     "publish:packages": "lerna publish from-package",
     "sync:paths": "node scripts/sync-path-aliases.mjs",
@@ -23,7 +26,7 @@
     "sb:build": "storybook build",
     "tailwind:build": "tailwindcss -i ./app/globals.css -o ./dist/output.css --minify",
     "tailwind:watch": "tailwindcss -i ./app/globals.css -o ./dist/output.css --watch",
-    "build:docs": "npm run build && npm run sb:build"
+    "build:docs": "pnpm run build && pnpm run sb:build"
   },
   "dependencies": {
     "dompurify": "^3.0.6",

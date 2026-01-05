@@ -57,7 +57,7 @@ const AlertDialogOverlay = React.forwardRef<
 });
 AlertDialogOverlay.displayName = AlertDialogPrimitive.Overlay.displayName;
 
-interface AlertDialogContentProps
+export interface AlertDialogContentProps
   extends React.ComponentPropsWithoutRef<typeof AlertDialogPrimitive.Content> {
   glass?: boolean;
   blur?: GlassBlur;

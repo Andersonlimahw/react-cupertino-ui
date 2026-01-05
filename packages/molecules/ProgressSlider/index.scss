@@ -1,0 +1,83 @@
+.react-cupertino-ui-progress-slider {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    .progress-bar-container {
+        height: 20px;
+        /* Touch target size */
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        position: relative;
+        user-select: none;
+
+        &:hover .track {
+            height: 4px;
+            /* Grow on hover like native iOS */
+        }
+    }
+
+    .track {
+        width: 100%;
+        height: 3px;
+        background-color: rgba(60, 60, 67, 0.18);
+        border-radius: 2px;
+        position: relative;
+        transition: height 0.2s cubic-bezier(0.25, 0.1, 0.25, 1);
+
+        @media (prefers-color-scheme: dark) {
+            background-color: rgba(255, 255, 255, 0.18);
+        }
+    }
+
+    .fill {
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        background-color: #8e8e93;
+        /* Default inactive color */
+        border-radius: 2px;
+        pointer-events: none;
+    }
+
+    /* When hovering or dragging, fill becomes active color */
+    .progress-bar-container:active .fill,
+    .progress-bar-container:hover .fill {
+        background-color: #8e8e93;
+    }
+
+    .thumb {
+        position: absolute;
+        top: 50%;
+        width: 7px;
+        height: 7px;
+        background-color: #8e8e93;
+        border-radius: 50%;
+        transform: translate(-50%, -50%) scale(0);
+        /* Hidden by default */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        pointer-events: none;
+        transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    /* Show thumb on hover/drag */
+    .progress-bar-container:hover .thumb,
+    .progress-bar-container:active .thumb {
+        transform: translate(-50%, -50%) scale(2);
+        /* Scale up to visible size */
+    }
+
+    .time-labels {
+        display: flex;
+        justify-content: space-between;
+        font-size: 11px;
+        font-weight: 500;
+        color: #8e8e93;
+        font-variant-numeric: tabular-nums;
+        margin-top: -4px;
+        opacity: 0.8;
+    }
+}

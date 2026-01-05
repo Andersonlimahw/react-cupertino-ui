@@ -173,6 +173,9 @@
       ],
       "@react-cupertino-ui/conversation-list": [
         "./packages/organisms/ConversationList"
+      ],
+      "@react-cupertino-ui/swipe-actions": [
+        "./packages/molecules/SwipeActions"
       ]
     }
   },

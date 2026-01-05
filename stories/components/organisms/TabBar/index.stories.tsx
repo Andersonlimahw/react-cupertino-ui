@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { useState, type ComponentProps } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { Compass, Home, Library, Mic2, Search } from "lucide-react";
 
-import { TabBar, type TabBarProps } from "@components/organisms/TabBar";
+import { TabBar } from "@components/organisms/TabBar";
 
 const meta: Meta<typeof TabBar> = {
   title: "Organisms/TabBar",
@@ -19,6 +19,9 @@ const meta: Meta<typeof TabBar> = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+type TabBarProps = ComponentProps<typeof TabBar>;
+type TabBarStoryProps = Partial<TabBarProps>;
+
 const baseItems = [
   { id: "home", icon: <Home />, label: "Home" },
   { id: "search", icon: <Search />, label: "Search" },
@@ -27,7 +30,7 @@ const baseItems = [
   { id: "explore", icon: <Compass />, label: "Explore" },
 ];
 
-const TabBarWithState = (args: TabBarProps) => {
+const TabBarWithState = (args: TabBarStoryProps) => {
   const [active, setActive] = useState(args.activeId ?? "home");
   return (
     <div
@@ -66,15 +69,8 @@ export const FloatingGlass: Story = {
     glass: true,
   },
   render: (args) => (
-    <div
-      style={{
-        height: "100vh",
-        background:
-          "linear-gradient(180deg, rgba(15,23,42,1) 0%, rgba(15,23,42,0.65) 35%, rgba(15,23,42,0.3) 100%)",
-        position: "relative",
-      }}
-    >
-      <TabBarWithState {...args} />
+    <div className="dark bg-black p-4">
+      <TabBarWithState items={[]} activeId="tabs" onChange={() => {}} {...args} />
     </div>
   ),
 };

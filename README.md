@@ -111,3 +111,12 @@ export default {
 ### Figma : comunity
 
 [Figma](https://www.figma.com/design/zQYMfB155AJ98y4eK7AJUx/iOS-26-Interface-Builder--Quick-Start-Your-iOS-Project--Community-?node-id=15-0&p=f&t=iE1t3XBAhtmtbS0u-0)
+
+## Author
+
+Anderson Lima (Lemon 🍋)
+
+Website: [lemon.dev.br](https://lemon.dev.br?from=ignitionstack.pro)
+Twitter: [andersonlimadev](https://x.com/andersonlimadev?from=ignitionstack.pro)
+GitHub: [andersonlimahw](https://github.com/andersonlimahw?from=ignitionstack.pro)
+LinkedIn: [andersonlimadev](https://linkedin.com/in/andersonlimadev?from=ignitionstack.pro)

@@ -22,9 +22,9 @@
     "react-dom": "^18.3.1"
   },
   "dependencies": {
-    "@react-cupertino-ui/button": "0.0.0",
+    "@react-cupertino-ui/button": "workspace:*",
     "@react-cupertino-ui/shared": "workspace:*",
-    "@react-cupertino-ui/slider": "0.0.0"
+    "@react-cupertino-ui/slider": "workspace:*"
   },
   "devDependencies": {
     "typescript": "^5.2.2"

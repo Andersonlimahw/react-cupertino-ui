@@ -22,10 +22,10 @@
     "react-dom": "^18.3.1"
   },
   "dependencies": {
-    "@react-cupertino-ui/ai-prompt-input": "0.0.0",
-    "@react-cupertino-ui/ai-response-bubble": "0.0.0",
+    "@react-cupertino-ui/ai-prompt-input": "workspace:*",
+    "@react-cupertino-ui/ai-response-bubble": "workspace:*",
     "@react-cupertino-ui/shared": "workspace:*",
-    "@react-cupertino-ui/suggestion-chip": "0.0.0"
+    "@react-cupertino-ui/suggestion-chip": "workspace:*"
   },
   "devDependencies": {
     "typescript": "^5.2.2"

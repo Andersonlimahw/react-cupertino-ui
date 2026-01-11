@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "@react-cupertino-ui/shared": "workspace:*",
-    "@react-cupertino-ui/switcher": "0.0.0"
+    "@react-cupertino-ui/switcher": "workspace:*"
   },
   "devDependencies": {
     "typescript": "^5.2.2"

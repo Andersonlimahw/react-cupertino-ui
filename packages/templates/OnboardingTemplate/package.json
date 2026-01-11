@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "@react-cupertino-ui/page-control": "0.0.0",
-    "@react-cupertino-ui/shared": "0.0.0"
+    "@react-cupertino-ui/shared": "workspace:*"
   },
   "devDependencies": {
     "typescript": "^5.2.2"

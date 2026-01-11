@@ -24,7 +24,7 @@
   },
   "dependencies": {
     "@react-cupertino-ui/list": "0.0.0",
-    "@react-cupertino-ui/shared": "0.0.0",
+    "@react-cupertino-ui/shared": "workspace:*",
     "@react-cupertino-ui/swipe-actions": "0.0.0"
   },
   "devDependencies": {

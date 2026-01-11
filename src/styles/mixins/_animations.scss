@@ -1,0 +1,21 @@
+@mixin spring-transition($property: all, $duration: var(--spring-duration, 500ms)) {
+  transition-property: $property;
+  transition-duration: $duration;
+  transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@mixin pressable($scale: 0.97) {
+  will-change: transform;
+  transition: transform var(--pressable-duration, 220ms)
+      cubic-bezier(0.2, 0, 0.2, 1),
+    filter var(--pressable-duration, 220ms) cubic-bezier(0.2, 0, 0.2, 1);
+
+  &:active {
+    transform: scale($scale);
+    filter: brightness(0.98);
+  }
+}
+
+@mixin elevate($shadow: var(--glass-shadow, 0 8px 32px rgba(0, 0, 0, 0.12))) {
+  box-shadow: $shadow;
+}

@@ -1,0 +1,201 @@
+@use "@/styles/mixins/glass" as glass;
+
+.react-cupertino-ui-select {
+  --select-height: 2.75rem;
+  --select-font-size: 0.95rem;
+  --select-padding-inline: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  width: 100%;
+
+  &__label {
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: hsl(var(--foreground));
+  }
+
+  &[data-disabled="true"] {
+    opacity: 0.6;
+    pointer-events: none;
+  }
+
+  &__control {
+    position: relative;
+  }
+
+  &__trigger {
+    width: 100%;
+    min-height: var(--select-height);
+    border-radius: 1.25rem;
+    border: none;
+    padding: 0 calc(var(--select-padding-inline) + 1.4rem) 0 var(--select-padding-inline);
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    font-size: var(--select-font-size);
+    font-weight: 500;
+    color: hsl(var(--foreground));
+    background: transparent;
+    text-align: left;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    transition: transform 180ms cubic-bezier(0.2, 0, 0.2, 1),
+      box-shadow 220ms cubic-bezier(0.2, 0, 0.2, 1),
+      background 220ms cubic-bezier(0.2, 0, 0.2, 1);
+    position: relative;
+    isolation: isolate;
+
+    &:focus-visible {
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.35);
+    }
+
+    &[data-open="true"] {
+      transform: translateY(1px) scale(0.996);
+    }
+
+    &.is-placeholder {
+      color: var(--color-light-gray);
+    }
+
+    &.variant-glass {
+      @include glass.glass-panel(light, var(--glass-blur, 40px));
+    }
+
+    &.variant-solid {
+      background: linear-gradient(120deg, rgba(10, 132, 255, 0.95), rgba(90, 200, 250, 0.95));
+      box-shadow: 0 10px 35px rgba(10, 132, 255, 0.25);
+      color: #fff;
+    }
+
+    &.variant-outline {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      box-shadow: 0 4px 18px rgba(15, 15, 15, 0.12);
+    }
+  }
+
+  &__value {
+    flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &__chevron {
+    position: absolute;
+    right: 1rem;
+    width: 1.1rem;
+    height: 1.1rem;
+    color: hsl(var(--muted-foreground));
+    transition: transform 220ms cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
+  }
+
+  [data-open="true"] &__chevron {
+    transform: rotate(180deg);
+  }
+
+  &__dropdown {
+    position: absolute;
+    top: calc(100% + 0.45rem);
+    left: 0;
+    width: 100%;
+    border-radius: 1.2rem;
+    padding: 0.25rem;
+    background: transparent;
+    opacity: 0;
+    transform: translateY(-4px) scale(0.98);
+    pointer-events: none;
+    transition: opacity 220ms ease, transform 220ms ease;
+    z-index: 10;
+    max-height: 14rem;
+    overflow-y: auto;
+
+    @include glass.glass-panel(light, var(--glass-blur, 32px));
+
+    &::-webkit-scrollbar {
+      width: 0.4rem;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.25);
+      border-radius: 999px;
+    }
+  }
+
+  [data-open="true"] &__dropdown {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+  }
+
+  &__option {
+    border-radius: 0.95rem;
+    padding: 0.75rem 0.9rem;
+    font-size: 0.95rem;
+    color: hsl(var(--foreground));
+    cursor: pointer;
+    transition: background 160ms ease, color 160ms ease;
+
+    &[aria-selected="true"] {
+      background: rgba(0, 122, 255, 0.12);
+      color: var(--color-blue);
+      font-weight: 600;
+    }
+
+    &[data-disabled="true"] {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+
+    &.is-active:not([data-disabled="true"]) {
+      background: rgba(0, 122, 255, 0.18);
+      color: hsl(var(--foreground));
+    }
+  }
+
+  &__native {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    width: 1px;
+    height: 1px;
+    pointer-events: none;
+  }
+
+  &__message {
+    font-size: 0.78rem;
+    color: hsl(var(--muted-foreground));
+
+    &.is-error {
+      color: var(--pink);
+    }
+  }
+
+  &[data-state="error"] &__trigger {
+    box-shadow: 0 0 0 2px rgba(255, 45, 85, 0.25);
+  }
+
+  &.size-sm {
+    --select-height: 2.35rem;
+    --select-font-size: 0.85rem;
+    --select-padding-inline: 0.85rem;
+
+    &__chevron {
+      right: 0.8rem;
+    }
+  }
+
+  &.size-lg {
+    --select-height: 3.25rem;
+    --select-font-size: 1rem;
+    --select-padding-inline: 1.35rem;
+
+    &__chevron {
+      right: 1.2rem;
+    }
+  }
+}

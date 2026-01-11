@@ -1,0 +1,33 @@
+{
+  "name": "@react-cupertino-ui/ai-prompt-input",
+  "version": "0.0.0",
+  "description": "AI Prompt Input component from React Cupertino UI",
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "sideEffects": [
+    "./dist/**/*.css",
+    "./dist/**/*.scss"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json && npm run build:styles",
+    "build:styles": "node ../../../scripts/build-styles.mjs"
+  },
+  "peerDependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "dependencies": {
+    "@radix-ui/react-slot": "^1.1.0",
+    "@react-cupertino-ui/shared": "0.0.0",
+    "@react-cupertino-ui/suggestion-chip": "0.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.2.2"
+  },
+  "gitHead": "1986ed14497e40f93ce8dc8a1ca734cf647e0f1e"
+}

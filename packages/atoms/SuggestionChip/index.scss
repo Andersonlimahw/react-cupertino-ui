@@ -1,0 +1,150 @@
+@use "@/styles/mixins/glass" as glass;
+
+.react-cupertino-ui-suggestion-chip {
+  --chip-height: 2.35rem;
+  --chip-padding-inline: 1rem;
+  --chip-gap: 0.45rem;
+  --chip-foreground: var(--button-foreground-color, hsl(var(--foreground, 20 14.3% 4.1%)));
+
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--chip-gap);
+  border-radius: 999px;
+  border: none;
+  background: transparent;
+  padding-inline: var(--chip-padding-inline);
+  height: var(--chip-height);
+  min-height: var(--chip-height);
+  color: var(--chip-foreground);
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: background 220ms ease, box-shadow 220ms ease, color 220ms ease,
+    transform 220ms ease, filter 220ms ease;
+  isolation: isolate;
+
+  &:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.25), 0 0 1px rgba(255, 255, 255, 0.9);
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:disabled,
+  &[aria-disabled="true"] {
+    opacity: 0.55;
+    cursor: not-allowed;
+  }
+
+  &[data-active="true"] {
+    transform: translateY(-1px);
+  }
+
+  &[data-loading="true"] {
+    cursor: progress;
+  }
+
+  &__icon,
+  &__trailing,
+  &__spinner {
+    width: 1.15rem;
+    height: 1.15rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: inherit;
+  }
+
+  &__label {
+    white-space: nowrap;
+  }
+
+  &__spinner {
+    border-radius: inherit;
+    border: 2px solid color-mix(in srgb, currentColor, transparent 50%);
+    border-top-color: currentColor;
+    animation: chip-spin 0.85s linear infinite;
+  }
+
+  &.variant-glass {
+    @include glass.glass-panel(light, var(--glass-blur, 28px), 0.65);
+    background: var(--glass-surface, rgba(255, 255, 255, 0.72));
+
+    &:hover:not(:disabled) {
+      background: var(--glass-surface-hover, rgba(255, 255, 255, 0.85));
+      box-shadow: 0 12px 35px rgba(6, 6, 8, 0.14);
+    }
+
+    &[data-active="true"] {
+      filter: brightness(0.98);
+    }
+  }
+
+  &.variant-outline {
+    background: transparent;
+    border: 1px solid var(--glass-border-strong, rgba(255, 255, 255, 0.4));
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35);
+
+    &:hover:not(:disabled) {
+      background: rgba(255, 255, 255, 0.08);
+    }
+  }
+
+  &.variant-ghost {
+    background: transparent;
+    color: var(--color-blue, #0a84ff);
+
+    &:hover:not(:disabled) {
+      background: rgba(0, 122, 255, 0.08);
+    }
+  }
+
+  &.variant-secondary {
+    background: rgba(15, 15, 15, 0.05);
+    color: color-mix(in srgb, #0b0b0b, white 10%);
+
+    &:hover:not(:disabled) {
+      background: rgba(15, 15, 15, 0.08);
+    }
+  }
+
+  &.size-sm {
+    --chip-height: 2rem;
+    --chip-padding-inline: 0.85rem;
+    font-size: 0.85rem;
+  }
+
+  &.size-default {
+    --chip-height: 2.35rem;
+  }
+
+  &.has-icon .react-cupertino-ui-suggestion-chip__label {
+    font-weight: 600;
+  }
+
+  &.has-trailing-icon {
+    padding-inline-end: calc(var(--chip-padding-inline) - 0.2rem);
+  }
+}
+
+@keyframes chip-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .react-cupertino-ui-suggestion-chip {
+    transition-duration: 0.15s;
+
+    &[data-active="true"] {
+      transform: none;
+    }
+  }
+}

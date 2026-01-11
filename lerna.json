@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json.schemastore.org/lerna",
+  "version": "independent",
+  "npmClient": "pnpm",
+  "packages": [
+    "packages/*/*",
+    "packages/shared"
+  ],
+  "command": {
+    "publish": {
+      "verifyAccess": false,
+      "npmClientArgs": ["--access", "public"]
+    }
+  }
+}

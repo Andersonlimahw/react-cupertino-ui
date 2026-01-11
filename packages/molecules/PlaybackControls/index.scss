@@ -1,0 +1,49 @@
+.react-cupertino-ui-playback-controls {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  &__button {
+    border: none;
+    border-radius: 999px;
+    width: 40px;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 12px 24px rgba(15, 15, 15, 0.18);
+    transition: transform 120ms ease;
+
+    &:hover:not(:disabled) {
+      transform: translateY(-2px);
+    }
+
+    &:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+
+    &--primary {
+      width: 52px;
+      height: 52px;
+      background: linear-gradient(135deg, #0ea5e9, #6366f1);
+      color: white;
+    }
+  }
+
+  &__spinner {
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(255, 255, 255, 0.7);
+    border-top-color: transparent;
+    border-radius: 999px;
+    animation: playback-controls-spin 1s linear infinite;
+  }
+}
+
+@keyframes playback-controls-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

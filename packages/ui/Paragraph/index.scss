@@ -1,0 +1,63 @@
+.react-cupertino-ui-paragraph {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+
+  &:focus-visible,
+  &:focus {
+    outline: none;
+    outline-color: transparent;
+    outline-offset: 2px;
+  }
+
+  &:disabled {
+    pointer-events: none;
+    opacity: 0.5;
+  }
+
+  &.variant-default {
+    color: var(--color-primary);
+  }
+
+  &.variant-destructive {
+    color: var(--color-destructive);
+  }
+
+  &.variant-outline {
+    background-color: transparent;
+    border: 1px solid;
+  }
+
+  &.variant-secondary {
+    font-weight: 600;
+  }
+
+  &.variant-ghost {
+    opacity: 0.7;
+  }
+
+  &.variant-link {
+    text-decoration: underline;
+  }
+
+  &.size-default {
+    font-size: 1.5rem;
+    padding: 0.5rem 1rem;
+  }
+
+  &.size-sm {
+    font-size: 1rem;
+    padding: 0.75rem;
+  }
+
+  &.size-lg {
+    font-size: 2.5rem;
+    padding: 0.5rem 2rem;
+  }
+
+  &.size-icon {
+    font-size: 0.5rem;
+    opacity: 0.7;
+  }
+}

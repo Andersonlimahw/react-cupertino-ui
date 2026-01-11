@@ -1,0 +1,31 @@
+{
+  "connectors": [
+    {
+      "name": "figma",
+      "provider": "figma",
+      "description": "Pull component specs, typography scales and spacing tokens from our Cupertino UI Figma file.",
+      "samplePrompts": [
+        "Fetch the latest Liquid Glass Button specs (frame id: 45:812).",
+        "List typography styles for iOS 26 Headline and Title text." ],
+      "usage": "Use before implementing or updating any component referenced in .roadmap/plan.md to keep parity with design." 
+    },
+    {
+      "name": "dev-tools",
+      "provider": "browser-tools",
+      "description": "Record network traces + performance metrics for Storybook stories or Vite playground builds.",
+      "samplePrompts": [
+        "Open Storybook story 'Organisms/TabBar' and capture the performance profile while switching tabs.",
+        "Inspect console logs for AIPromptInput interactions in Home landing page." ],
+      "usage": "Run after major UI changes to ensure no warnings/errors and to capture metrics for release notes." 
+    },
+    {
+      "name": "playwright",
+      "provider": "playwright",
+      "description": "Automate visual + interaction regression flows (SpotlightSearch, QuickAction grid, templates).",
+      "samplePrompts": [
+        "Run Playwright smoke suite on Storybook to verify SpotlightSearch keyboard navigation.",
+        "Capture screenshot diffs for src/pages/Home hero interactions." ],
+      "usage": "Trigger before merges touching navigation, overlays, or AI components." 
+    }
+  ]
+}

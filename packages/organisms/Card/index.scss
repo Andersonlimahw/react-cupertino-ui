@@ -1,0 +1,174 @@
+@use "@/styles/mixins/glass" as glass;
+@use "@/styles/mixins/animations" as motion;
+
+.react-cupertino-ui-card {
+  --card-glass-blur: var(--glass-blur, 32px);
+  --card-glass-opacity: var(--glass-opacity, 0.7);
+  --card-padding-block: 1.75rem;
+  --card-padding-inline: 1.5rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 0.75rem;
+  padding: var(--card-padding-block) var(--card-padding-inline);
+  border-radius: 1.5rem;
+  border: 1px solid rgba(10, 10, 10, 0.04);
+  background: rgba(250, 250, 252, 0.9);
+  color: var(--foreground, #0a0a0a);
+  isolation: isolate;
+  overflow: hidden;
+  box-shadow:
+    0 1px 1px rgba(15, 15, 15, 0.06),
+    0 16px 40px rgba(15, 15, 15, 0.08);
+  @include motion.spring-transition(all, var(--card-transition-duration, 320ms));
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: var(--card-background-image);
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 320ms ease, filter 320ms ease;
+    z-index: 0;
+    mix-blend-mode: multiply;
+  }
+
+  > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  &:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.35),
+      0 10px 50px rgba(10, 10, 10, 0.18);
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &[data-interactive="true"] {
+    @media (hover: hover) {
+      &:hover {
+        transform: translateY(-6px) scale(1.01);
+        box-shadow:
+          0 8px 18px rgba(9, 9, 9, 0.08),
+          0 30px 60px rgba(9, 9, 9, 0.15);
+      }
+    }
+
+    &:focus-visible {
+      transform: translateY(-2px) scale(1.005);
+    }
+  }
+
+  &[data-has-background="true"] {
+    &::after {
+      opacity: 0.55;
+      filter: saturate(120%) contrast(105%);
+    }
+
+    &::before {
+      mix-blend-mode: screen;
+    }
+  }
+
+  &.react-cupertino-ui-card--glass {
+    @include glass.glass-panel(light, var(--card-glass-blur), var(--card-glass-opacity));
+
+    @supports not ((backdrop-filter: blur(2px))) {
+      background: rgba(255, 255, 255, 0.92);
+    }
+  }
+
+  &.react-cupertino-ui-card--media {
+    color: color-mix(in srgb, white 92%, rgba(0, 0, 0, 0.95));
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+
+    .react-cupertino-ui-card__muted,
+    p,
+    span {
+      color: color-mix(in srgb, white 88%, rgba(0, 0, 0, 0.5));
+    }
+  }
+
+  &.variant-glass {
+    border: 1px solid rgba(255, 255, 255, 0.25);
+  }
+
+  &.variant-default {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(245, 246, 248, 0.96));
+    border: 1px solid rgba(12, 12, 12, 0.08);
+    box-shadow:
+      0 10px 35px rgba(15, 15, 15, 0.08),
+      inset 0 1px 0 rgba(255, 255, 255, 0.45);
+  }
+
+  &.variant-solid {
+    background: linear-gradient(140deg, #0a84ff 0%, #30d158 45%, #5ac8fa 100%);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    box-shadow: 0 20px 40px rgba(10, 132, 255, 0.3);
+  }
+
+  &.variant-outline {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    color: var(--foreground, #0a0a0a);
+  }
+
+  &.variant-secondary {
+    background: rgba(0, 0, 0, 0.04);
+    border-color: rgba(0, 0, 0, 0.08);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  }
+
+  &.variant-destructive {
+    background: color-mix(in srgb, var(--color-red, #ff3b30), white 15%);
+    color: white;
+    box-shadow: 0 25px 45px rgba(255, 59, 48, 0.35);
+  }
+
+  &.variant-ghost {
+    background: transparent;
+    border-color: transparent;
+  }
+
+  &.variant-link {
+    background: transparent;
+    border-color: transparent;
+    color: var(--color-blue, #0a84ff);
+    padding: 0;
+  }
+
+  &.size-default {
+    --card-padding-block: 1.75rem;
+    --card-padding-inline: 1.5rem;
+    border-radius: 1.5rem;
+  }
+
+  &.size-sm {
+    --card-padding-block: 1.25rem;
+    --card-padding-inline: 1.25rem;
+    border-radius: 1.25rem;
+  }
+
+  &.size-lg {
+    --card-padding-block: 2rem;
+    --card-padding-inline: 2rem;
+    border-radius: 1.75rem;
+  }
+
+  &.size-icon {
+    --card-padding-block: 1rem;
+    --card-padding-inline: 1rem;
+    align-items: center;
+    justify-content: center;
+    min-height: 5rem;
+    min-width: 5rem;
+  }
+}

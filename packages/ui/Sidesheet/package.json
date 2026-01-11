@@ -1,0 +1,34 @@
+{
+  "name": "@react-cupertino-ui/sidesheet",
+  "version": "0.0.0",
+  "description": "Sidesheet component from React Cupertino UI",
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "sideEffects": [
+    "./dist/**/*.css",
+    "./dist/**/*.scss"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json && npm run build:styles",
+    "build:styles": "node ../../../scripts/build-styles.mjs"
+  },
+  "peerDependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "dependencies": {
+    "@radix-ui/react-dialog": "^1.1.1",
+    "@react-cupertino-ui/shared": "0.0.0",
+    "class-variance-authority": "^0.7.0",
+    "lucide-react": "^0.417.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.2.2"
+  },
+  "gitHead": "1986ed14497e40f93ce8dc8a1ca734cf647e0f1e"
+}

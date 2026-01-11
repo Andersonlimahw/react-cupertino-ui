@@ -1,0 +1,183 @@
+@use "@/styles/mixins/glass" as glass;
+
+.react-cupertino-ui-quick-action {
+  --quick-action-radius: 26px;
+  --quick-action-surface: rgba(255, 255, 255, 0.82);
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1rem;
+  width: 100%;
+  border: none;
+  border-radius: var(--quick-action-radius);
+  padding: 1rem 1.1rem;
+  text-align: left;
+  cursor: pointer;
+  background: transparent;
+  color: inherit;
+  transition:
+    transform 240ms cubic-bezier(0.2, 0.8, 0.4, 1),
+    box-shadow 240ms ease,
+    background 240ms ease;
+  -webkit-tap-highlight-color: transparent;
+  isolation: isolate;
+
+  &.glass {
+    @include glass.glass-panel(light, var(--glass-blur, 40px), 0.72);
+    box-shadow: 0 20px 50px rgba(15, 15, 15, 0.15);
+  }
+
+  &.layout-horizontal {
+    flex-direction: row;
+  }
+
+  &.layout-vertical {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+
+    .react-cupertino-ui-quick-action__media {
+      width: auto;
+      height: auto;
+    }
+
+    .react-cupertino-ui-quick-action__cta {
+      align-self: flex-end;
+    }
+  }
+
+  &.align-center {
+    align-items: center;
+  }
+
+  &:hover:not(.is-disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 24px 60px rgba(15, 15, 15, 0.18);
+  }
+
+  &:active:not(.is-disabled) {
+    transform: scale(0.98);
+  }
+
+  &.is-disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  &__media {
+    width: 52px;
+    height: 52px;
+    border-radius: 18px;
+    background: color-mix(in srgb, var(--color-blue, #0a84ff), transparent 35%);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+
+    .icon-slot {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+    }
+
+    .badge {
+      position: absolute;
+      bottom: -2px;
+      right: -2px;
+      min-width: 18px;
+      height: 18px;
+      padding: 0 0.35rem;
+      border-radius: 11px;
+      font-size: 0.68rem;
+      font-weight: 700;
+      background: rgba(255, 255, 255, 0.95);
+      color: #0a84ff;
+      box-shadow: 0 4px 12px rgba(15, 15, 15, 0.2);
+    }
+  }
+
+  &__body {
+    flex: 1;
+    min-width: 0;
+  }
+
+  &__header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 0.75rem;
+
+    .title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: hsl(var(--foreground, 240 10% 3.9%));
+    }
+
+    .subtitle {
+      display: block;
+      font-size: 0.85rem;
+      color: color-mix(in srgb, currentColor, transparent 35%);
+      margin-top: 0.1rem;
+    }
+
+    .metric {
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 0.15rem 0.55rem;
+      border-radius: 999px;
+      background: rgba(0, 0, 0, 0.06);
+      color: inherit;
+    }
+  }
+
+  &__cta {
+    width: 36px;
+    height: 36px;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.65);
+    box-shadow: 0 10px 20px rgba(15, 15, 15, 0.12);
+  }
+
+  .helper {
+    margin: 0.25rem 0 0;
+    font-size: 0.85rem;
+    color: color-mix(in srgb, currentColor, transparent 40%);
+  }
+
+  &.tone-success {
+    .react-cupertino-ui-quick-action__media {
+      background: color-mix(in srgb, var(--color-green, #34c759), transparent 30%);
+    }
+  }
+
+  &.tone-warning {
+    .react-cupertino-ui-quick-action__media {
+      background: color-mix(in srgb, #ff9f0a, transparent 35%);
+    }
+  }
+
+  &.tone-danger {
+    .react-cupertino-ui-quick-action__media {
+      background: color-mix(in srgb, var(--color-red, #ff3b30), transparent 30%);
+    }
+  }
+
+  &.tone-indigo {
+    .react-cupertino-ui-quick-action__media {
+      background: color-mix(in srgb, #7c3aed, transparent 25%);
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .react-cupertino-ui-quick-action {
+    transition: none;
+  }
+}

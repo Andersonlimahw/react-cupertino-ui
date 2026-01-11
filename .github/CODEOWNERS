@@ -1,0 +1,19 @@
+# React Cupertino UI - Code Owners
+# These owners will be requested for review when someone opens a pull request.
+
+# Default owner for everything in the repo
+* @andersonlimahw
+
+# Specific package owners
+/packages/ui/** @andersonlimahw
+/packages/templates/** @andersonlimahw
+/packages/shared/** @andersonlimahw
+
+# Configuration files
+/.github/** @andersonlimahw
+/config/** @andersonlimahw
+
+# Documentation
+/docs/** @andersonlimahw
+/.storybook/** @andersonlimahw
+/stories/** @andersonlimahw

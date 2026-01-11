@@ -1,0 +1,98 @@
+.react-cupertino-ui-track-list {
+    width: 100%;
+
+    .react-cupertino-ui-list {
+        background: transparent;
+    }
+
+    .track-item {
+        &.is-active {
+            .react-cupertino-ui-list-item-title {
+                color: #fa2d48;
+                /* Apple Music Red */
+                font-weight: 600;
+            }
+
+            .playing-indicator .bar {
+                background-color: #fa2d48;
+            }
+        }
+    }
+
+    .track-prefix {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        width: 32px;
+        /* Fixed width for alignment */
+        justify-content: center;
+
+        /* Expand width if artwork is shown */
+        &:has(.track-artwork) {
+            width: auto;
+            min-width: 32px;
+        }
+    }
+
+    .track-index {
+        color: #8e8e93;
+        font-size: 14px;
+        font-variant-numeric: tabular-nums;
+    }
+
+    .track-artwork {
+        width: 40px;
+        height: 40px;
+        border-radius: 6px;
+        object-fit: cover;
+        background-color: #f2f2f7;
+    }
+
+    .track-duration {
+        color: #8e8e93;
+        font-size: 13px;
+        font-variant-numeric: tabular-nums;
+    }
+
+    /* Animated playing indicator */
+    .playing-indicator {
+        display: flex;
+        align-items: flex-end;
+        gap: 2px;
+        height: 12px;
+
+        .bar {
+            width: 3px;
+            background-color: #fa2d48;
+            border-radius: 1px;
+            animation: track-list-equalizer 1s infinite ease-in-out;
+        }
+
+        .bar:nth-child(1) {
+            height: 60%;
+            animation-delay: 0s;
+        }
+
+        .bar:nth-child(2) {
+            height: 100%;
+            animation-delay: 0.1s;
+        }
+
+        .bar:nth-child(3) {
+            height: 40%;
+            animation-delay: 0.2s;
+        }
+    }
+}
+
+@keyframes track-list-equalizer {
+
+    0%,
+    100% {
+        transform: scaleY(0.4);
+    }
+
+    50% {
+        transform: scaleY(1);
+    }
+}

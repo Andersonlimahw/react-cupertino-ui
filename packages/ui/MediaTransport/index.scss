@@ -1,0 +1,61 @@
+@use "@/styles/mixins/glass" as glass;
+
+.react-cupertino-ui-media-transport {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  padding: 0.4rem 0.7rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 22px 50px rgba(15, 15, 15, 0.2);
+
+  &.glass {
+    @include glass.glass-panel(light, var(--glass-blur, 32px), 0.65);
+  }
+
+  &__button {
+    border: none;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 999px;
+    width: 44px;
+    height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 10px 25px rgba(15, 15, 15, 0.18);
+    transition: transform 120ms ease, filter 120ms ease;
+
+    &--primary {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #0ea5e9, #6366f1);
+      color: white;
+    }
+
+    &:hover:not(:disabled) {
+      transform: translateY(-2px);
+    }
+
+    &:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+  }
+
+  &__spinner {
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-top-color: transparent;
+    border-radius: 999px;
+    animation: media-transport-spin 0.9s linear infinite;
+  }
+}
+
+@keyframes media-transport-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

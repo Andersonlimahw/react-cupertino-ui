@@ -1,0 +1,22 @@
+@use "@/styles/mixins/glass" as glass;
+
+.react-cupertino-ui-split-view {
+  display: flex;
+  height: 100%;
+  border-radius: 2rem;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.7);
+  @include glass.glass-panel(light, var(--glass-blur, 40px), 0.68);
+
+  &__sidebar {
+    border-right: 1px solid rgba(15, 15, 20, 0.06);
+    background: rgba(255, 255, 255, 0.85);
+    overflow-y: auto;
+  }
+
+  &__content {
+    flex: 1;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.92);
+  }
+}

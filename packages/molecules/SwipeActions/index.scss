@@ -1,0 +1,92 @@
+.react-cupertino-ui-swipe-actions {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+
+    .swipe-container {
+        display: flex;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+        /* Firefox */
+        -ms-overflow-style: none;
+        /* IE/Edge */
+
+        &::-webkit-scrollbar {
+            display: none;
+            /* Chrome/Safari */
+        }
+    }
+
+    .content {
+        min-width: 100%;
+        scroll-snap-align: start;
+        background: white;
+        z-index: 2;
+        position: relative;
+
+        @media (prefers-color-scheme: dark) {
+            background: #1c1c1e;
+        }
+    }
+
+    /* Actions need to be visible but "under" content logic handled by scroll placement */
+    /* In this CSS-only approach, we actually place them adjacent */
+
+    .actions {
+        display: flex;
+        scroll-snap-align: start;
+
+        &.start {
+            /* To effectively make content "slide over" left actions, 
+         we rely on the flex order and scroll snap. */
+            order: -1;
+        }
+    }
+
+    .action-button {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border: none;
+        color: white;
+        padding: 0 20px;
+        min-width: 74px;
+        font-size: 13px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: background-color 0.2s;
+        gap: 4px;
+
+        &.color-danger {
+            background-color: #ff3b30;
+        }
+
+        &.color-primary {
+            background-color: #007aff;
+        }
+
+        &.color-secondary {
+            background-color: #5856d6;
+        }
+
+        &.color-gray {
+            background-color: #8e8e93;
+        }
+
+        &.color-orange {
+            background-color: #ff9500;
+        }
+
+        &:active {
+            filter: brightness(0.9);
+        }
+
+        svg {
+            width: 20px;
+            height: 20px;
+        }
+    }
+}

@@ -1,0 +1,30 @@
+.react-cupertino-ui-title {
+  font-weight: regular;
+  line-height: normal;
+  font-size-adjust: calc(1rem + 0.5vw);
+
+  &.variant-large {
+    font-size: 5.25rem;
+    font-weight: 900;
+  }
+
+  &.variant-heading {
+    font-size: 4rem;
+    font-weight: 700;
+  }
+
+  &.variant-heading1 {
+    font-size: 3rem;
+    font-weight: 700;
+  }
+
+  &.variant-heading2 {
+    font-size: 2.25rem;
+    font-weight: 400;
+  }
+
+  &.variant-heading3 {
+    font-size: 1.75rem;
+    font-weight: normal;
+  }
+}

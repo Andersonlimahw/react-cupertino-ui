@@ -1,0 +1,206 @@
+@use "@/styles/mixins/glass" as glass;
+
+.react-cupertino-ui-tabs {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.react-cupertino-ui-tabs__list {
+  position: relative;
+  display: inline-flex;
+  border-radius: 999px;
+  padding: 0.35rem;
+  background: rgba(255, 255, 255, 0.3);
+  isolation: isolate;
+  overflow: hidden;
+  gap: 0.25rem;
+  min-width: 220px;
+
+  &.variant-glass {
+    @include glass.glass-panel(light, var(--glass-blur, 34px), 0.55);
+    border: 1px solid color-mix(in srgb, rgba(255, 255, 255, 0.65), transparent 50%);
+  }
+
+  &.variant-soft {
+    background: rgba(17, 24, 39, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+  }
+
+  &.variant-underline {
+    border-radius: 18px;
+    background: transparent;
+    padding: 0;
+  }
+
+  &.align-full {
+    width: 100%;
+  }
+
+  &.align-start {
+    margin-right: auto;
+  }
+
+  &.align-center {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  &.size-sm {
+    --tabs-trigger-height: 2.1rem;
+    --tabs-trigger-padding: 0 0.85rem;
+    --tabs-font-size: 0.85rem;
+  }
+
+  &.size-md {
+    --tabs-trigger-height: 2.55rem;
+    --tabs-trigger-padding: 0 1rem;
+    --tabs-font-size: 0.92rem;
+  }
+
+  &.size-lg {
+    --tabs-trigger-height: 3rem;
+    --tabs-trigger-padding: 0 1.2rem;
+    --tabs-font-size: 1rem;
+  }
+}
+
+.react-cupertino-ui-tabs__indicator {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 4px;
+    bottom: 4px;
+    left: calc((100% / var(--tabs-count, 1)) * var(--tabs-active-index, 0));
+    width: calc((100% / var(--tabs-count, 1)) - 8px);
+    border-radius: inherit;
+    background: rgba(255, 255, 255, 0.65);
+    box-shadow: 0 8px 25px rgba(15, 15, 15, 0.15);
+    transition: transform 260ms cubic-bezier(0.22, 1, 0.36, 1), left 260ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+}
+
+.react-cupertino-ui-tabs__trigger {
+  position: relative;
+  border: none;
+  background: transparent;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  height: var(--tabs-trigger-height, 2.55rem);
+  padding: var(--tabs-trigger-padding, 0 1rem);
+  font-size: var(--tabs-font-size, 0.95rem);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: rgba(15, 23, 42, 0.7);
+  cursor: pointer;
+  transition: color 160ms ease;
+  -webkit-tap-highlight-color: transparent;
+
+  &:focus-visible {
+    outline: none;
+    box-shadow: inset 0 0 0 2px rgba(0, 122, 255, 0.35);
+  }
+
+  &[data-state="active"] {
+    color: rgba(5, 6, 10, 0.95);
+  }
+
+  &:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+}
+
+.react-cupertino-ui-tabs__list.variant-underline {
+  .react-cupertino-ui-tabs__trigger {
+    border-radius: 0;
+    padding: 0.75rem 1rem;
+    color: rgba(248, 250, 252, 0.8);
+  }
+
+  .react-cupertino-ui-tabs__trigger[data-state="active"] {
+    color: #fff;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  .react-cupertino-ui-tabs__indicator::after {
+    display: block;
+    height: 3px;
+    width: calc(100% / var(--tabs-count, 1));
+    left: calc((100% / var(--tabs-count, 1)) * var(--tabs-active-index, 0));
+    top: auto;
+    bottom: -1px;
+    border-radius: 99px;
+    background: linear-gradient(90deg, #4f46e5, #0ea5e9);
+  }
+}
+
+.react-cupertino-ui-tabs__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+}
+
+.react-cupertino-ui-tabs__badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.1rem 0.45rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.8);
+  color: rgba(15, 23, 42, 0.8);
+}
+
+.react-cupertino-ui-tabs__content {
+  border-radius: 32px;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(24px);
+
+  &.is-hidden {
+    display: none;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .react-cupertino-ui-tabs__list.variant-glass {
+    @include glass.glass-panel(light, var(--glass-blur, 34px), 0.45);
+  }
+
+  .react-cupertino-ui-tabs__trigger {
+    color: rgba(248, 250, 252, 0.6);
+
+    &[data-state="active"] {
+      color: #fff;
+    }
+  }
+
+  .react-cupertino-ui-tabs__content {
+    background: rgba(15, 15, 20, 0.6);
+    border-color: rgba(255, 255, 255, 0.08);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .react-cupertino-ui-tabs__indicator::after {
+    transition: none;
+  }
+}

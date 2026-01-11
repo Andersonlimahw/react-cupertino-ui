@@ -1,0 +1,201 @@
+@use "@/styles/mixins/glass" as glass;
+
+.react-cupertino-ui-timeline {
+  width: 100%;
+
+  &.density-compact {
+    --timeline-gap: 0.75rem;
+  }
+
+  &.density-comfortable {
+    --timeline-gap: 1.25rem;
+  }
+
+  &.variant-glass {
+    --timeline-card-bg: rgba(255, 255, 255, 0.85);
+    --timeline-card-shadow: 0 15px 35px rgba(15, 15, 15, 0.15);
+  }
+
+  &.variant-minimal {
+    --timeline-card-bg: rgba(15, 15, 20, 0.04);
+    --timeline-card-shadow: none;
+  }
+
+  &__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--timeline-gap, 1.25rem);
+  }
+
+  &__item {
+    position: relative;
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 0.85rem;
+    align-items: start;
+    min-height: 4rem;
+
+    &.is-disabled {
+      opacity: 0.55;
+    }
+  }
+
+  &__rail {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 24px;
+  }
+
+  &__indicator {
+    width: 16px;
+    height: 16px;
+    border-radius: 999px;
+    border: 2px solid rgba(255, 255, 255, 0.9);
+    background: var(--timeline-indicator-bg, rgba(15, 23, 42, 0.7));
+    box-shadow: 0 6px 12px rgba(15, 15, 15, 0.25);
+  }
+
+  &__connector {
+    position: absolute;
+    top: 16px;
+    width: 2px;
+    height: calc(100% + var(--timeline-gap, 1.25rem) - 16px);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.7), rgba(148, 163, 184, 0.4));
+  }
+
+  &__card {
+    width: 100%;
+    border-radius: 28px;
+    padding: 1rem 1.35rem;
+    background: var(--timeline-card-bg);
+    box-shadow: var(--timeline-card-shadow);
+    border: 1px solid color-mix(in srgb, rgba(255, 255, 255, 0.65), transparent 45%);
+    text-align: left;
+    transition: transform 180ms ease, box-shadow 180ms ease;
+
+    &.is-interactive {
+      cursor: pointer;
+
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 24px 50px rgba(15, 15, 15, 0.18);
+      }
+    }
+
+    @include glass.glass-panel(light, var(--glass-blur, 32px), 0.72);
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    align-items: flex-start;
+
+    .title {
+      margin: 0;
+      font-size: 1rem;
+      font-weight: 600;
+      color: hsl(var(--foreground, 240 10% 3.9%));
+    }
+
+    .meta {
+      font-size: 0.85rem;
+      color: color-mix(in srgb, currentColor, transparent 35%);
+    }
+  }
+
+  &__header-right {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+
+    .badge {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      padding: 0.15rem 0.5rem;
+      border-radius: 12px;
+      background: rgba(15, 23, 42, 0.08);
+      color: rgba(15, 23, 42, 0.65);
+    }
+
+    time {
+      font-size: 0.8rem;
+      color: color-mix(in srgb, currentColor, transparent 45%);
+    }
+  }
+
+  .description {
+    margin: 0.5rem 0 0.25rem;
+    color: color-mix(in srgb, currentColor, transparent 15%);
+    line-height: 1.5;
+  }
+
+  .helper {
+    margin: 0;
+    font-size: 0.85rem;
+    color: color-mix(in srgb, currentColor, transparent 40%);
+  }
+
+  &__glow {
+    position: absolute;
+    left: 4px;
+    top: -8px;
+    width: 36px;
+    height: 36px;
+    border-radius: 999px;
+    background: radial-gradient(circle, rgba(10, 132, 255, 0.45), transparent 70%);
+    animation: timeline-glow 2.4s ease-in-out infinite;
+    filter: blur(2px);
+  }
+
+  .status-complete {
+    --timeline-indicator-bg: #10b981;
+  }
+
+  .status-current {
+    --timeline-indicator-bg: #0ea5e9;
+  }
+
+  .status-warning {
+    --timeline-indicator-bg: #f59e0b;
+  }
+
+  .status-critical {
+    --timeline-indicator-bg: #ef4444;
+  }
+}
+
+@keyframes timeline-glow {
+  0% {
+    opacity: 0.2;
+    transform: scale(0.85);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0.2;
+    transform: scale(0.9);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .react-cupertino-ui-timeline {
+    &.variant-glass {
+      --timeline-card-bg: rgba(15, 15, 20, 0.75);
+      --timeline-card-shadow: 0 25px 60px rgba(0, 0, 0, 0.45);
+    }
+
+    &__header .title,
+    .description {
+      color: rgba(248, 250, 252, 0.9);
+    }
+  }
+}

@@ -1,0 +1,111 @@
+@use "@/styles/mixins/glass" as glass;
+
+.react-cupertino-ui-slider {
+  --slider-track-height: 0.35rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+
+  &[data-disabled="true"] {
+    opacity: 0.55;
+    cursor: not-allowed;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: hsl(var(--foreground));
+  }
+
+  &__value {
+    font-size: 0.8rem;
+    color: var(--color-blue);
+    padding: 0.1rem 0.5rem;
+    border-radius: 999px;
+    background: rgba(0, 122, 255, 0.12);
+  }
+
+  &__track {
+    position: relative;
+    width: 100%;
+    height: var(--slider-track-height);
+    border-radius: 999px;
+    @include glass.glass-panel(light, 28px, 0.55);
+  }
+
+  &__progress {
+    position: absolute;
+    height: 100%;
+    border-radius: inherit;
+    background: linear-gradient(120deg, rgba(10, 132, 255, 0.95), rgba(90, 200, 250, 0.95));
+    box-shadow: 0 10px 30px rgba(10, 132, 255, 0.25);
+    transition: width 120ms ease;
+  }
+
+  &__input {
+    position: absolute;
+    inset: -0.75rem 0;
+    width: 100%;
+    opacity: 0;
+    pointer-events: auto;
+  }
+
+  &__thumb {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    pointer-events: none;
+    transition: transform 120ms ease;
+  }
+
+  &:focus-within &__thumb {
+    transform: translate(-50%, -50%) scale(1.05);
+  }
+
+  &__message {
+    font-size: 0.78rem;
+    color: hsl(var(--muted-foreground));
+
+    &.is-error {
+      color: var(--pink);
+    }
+  }
+
+  &.variant-solid &__track {
+    background: rgba(20, 20, 20, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+  }
+
+  &.variant-outline &__track {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+  }
+
+  &.size-sm {
+    --slider-track-height: 0.25rem;
+    &__thumb {
+      width: 1.2rem;
+      height: 1.2rem;
+    }
+  }
+
+  &.size-lg {
+    --slider-track-height: 0.45rem;
+    &__thumb {
+      width: 1.7rem;
+      height: 1.7rem;
+    }
+  }
+}

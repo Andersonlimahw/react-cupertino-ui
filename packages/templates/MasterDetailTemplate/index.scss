@@ -1,0 +1,22 @@
+@use "@/styles/mixins/glass" as glass;
+
+.react-cupertino-ui-master-detail {
+  display: flex;
+  height: 100%;
+  border-radius: 2rem;
+  overflow: hidden;
+  @include glass.glass-panel(light, var(--glass-blur, 40px), 0.7);
+
+  &__master {
+    width: 360px;
+    border-right: 1px solid rgba(15, 15, 20, 0.08);
+    background: rgba(255, 255, 255, 0.9);
+    overflow-y: auto;
+  }
+
+  &__detail {
+    flex: 1;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.95);
+  }
+}

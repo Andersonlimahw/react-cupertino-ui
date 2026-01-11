@@ -1,0 +1,75 @@
+@use "@/styles/mixins/glass" as glass;
+
+.react-cupertino-ui-badge {
+  --badge-padding-y: 0.25rem;
+  --badge-padding-x: 0.75rem;
+  --badge-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  padding: var(--badge-padding-y) var(--badge-padding-x);
+  border-radius: var(--badge-radius);
+  text-transform: uppercase;
+  color: hsl(var(--foreground));
+
+  &__content {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  &__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+  }
+
+  &.variant-glass {
+    @include glass.glass-panel(light, 24px, 0.55);
+  }
+
+  &.variant-solid {
+    background: linear-gradient(120deg, rgba(10, 132, 255, 0.95), rgba(90, 200, 250, 0.95));
+    color: #fff;
+    box-shadow: 0 10px 30px rgba(10, 132, 255, 0.3);
+  }
+
+  &.variant-outline {
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  &.variant-success {
+    background: rgba(52, 199, 89, 0.12);
+    color: rgba(52, 199, 89, 1);
+  }
+
+  &.variant-warning {
+    background: rgba(255, 204, 0, 0.15);
+    color: rgba(255, 204, 0, 1);
+  }
+
+  &.variant-error {
+    background: rgba(255, 59, 48, 0.12);
+    color: rgba(255, 59, 48, 1);
+  }
+
+  &.size-sm {
+    --badge-padding-y: 0.2rem;
+    --badge-padding-x: 0.55rem;
+    font-size: 0.75rem;
+  }
+
+  &.size-lg {
+    --badge-padding-y: 0.35rem;
+    --badge-padding-x: 0.95rem;
+    font-size: 0.95rem;
+  }
+
+  &.size-pill {
+    --badge-radius: 1.5rem;
+  }
+}

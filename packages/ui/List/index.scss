@@ -1,0 +1,135 @@
+.react-cupertino-ui-list {
+  display: flex;
+  flex-direction: column;
+  background-color: hsl(var(--background));
+  border: 1px solid hsl(var(--border));
+  border-radius: 0.75rem;
+  overflow: hidden;
+  width: 100%;
+
+  &.variant-inset {
+    background-color: hsl(var(--muted));
+    border: none;
+
+    .react-cupertino-ui-list-item {
+      background-color: hsl(var(--background));
+      margin: 0.125rem 0.5rem;
+      border-radius: 0.5rem;
+
+      &:first-child {
+        margin-top: 0.5rem;
+      }
+
+      &:last-child {
+        margin-bottom: 0.5rem;
+      }
+    }
+  }
+}
+
+.react-cupertino-ui-list-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.875rem 1rem;
+  background-color: hsl(var(--background));
+  border-bottom: 1px solid hsl(var(--border));
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  min-height: 3.5rem;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  &.clickable {
+    cursor: pointer;
+
+    &:hover:not(.disabled) {
+      background-color: hsl(var(--muted) / 0.5);
+    }
+
+    &:active:not(.disabled) {
+      background-color: hsl(var(--muted));
+      transform: scale(0.99);
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--blue);
+      outline-offset: -2px;
+    }
+  }
+
+  &.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  .react-cupertino-ui-list.variant-inset & {
+    border-bottom: none;
+
+    &:hover:not(.disabled) {
+      background-color: hsl(var(--muted) / 0.3);
+    }
+  }
+}
+
+.react-cupertino-ui-list-item-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 0.5rem;
+  background-color: var(--blue);
+  color: white;
+
+  svg {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+}
+
+.react-cupertino-ui-list-item-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  min-width: 0;
+}
+
+.react-cupertino-ui-list-item-title {
+  font-size: 1rem;
+  font-weight: 400;
+  color: hsl(var(--foreground));
+  line-height: 1.4;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.react-cupertino-ui-list-item-subtitle {
+  font-size: 0.875rem;
+  color: hsl(var(--muted-foreground));
+  line-height: 1.4;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.react-cupertino-ui-list-item-right {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  font-size: 0.9375rem;
+  color: hsl(var(--muted-foreground));
+  margin-left: auto;
+}
+
+.react-cupertino-ui-list-item-chevron {
+  flex-shrink: 0;
+  width: 1.25rem;
+  height: 1.25rem;
+  color: hsl(var(--muted-foreground));
+  margin-left: 0.25rem;
+}

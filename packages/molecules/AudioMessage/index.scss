@@ -1,0 +1,114 @@
+.react-cupertino-ui-audio-message {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    border-radius: 20px;
+    background-color: #f2f2f7;
+    max-width: 280px;
+    width: 100%;
+
+    /* Glass border equivalent */
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.05);
+
+    /* Dark mode */
+    @media (prefers-color-scheme: dark) {
+        background-color: #2c2c2e;
+        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+    }
+
+    .play-button {
+        flex-shrink: 0;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background-color: #007aff;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.2s, transform 0.1s;
+
+        &:active {
+            transform: scale(0.95);
+            background-color: #0062cc;
+        }
+
+        svg {
+            margin-left: 1px;
+            /* Optical centering for Play icon */
+        }
+    }
+
+    /* When playing, fix Pause icon centering */
+    &.is-playing .play-button svg {
+        margin-left: 0;
+    }
+
+    .waveform-container {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        gap: 2px;
+        height: 24px;
+        overflow: hidden;
+    }
+
+    .wave-bar {
+        flex: 1;
+        background-color: #8e8e93;
+        border-radius: 2px;
+        min-width: 2px;
+        height: 4px;
+        /* Default static height */
+        transition: height 0.2s ease;
+
+        /* Create a static waveform pattern */
+        &:nth-child(odd) {
+            height: 12px;
+        }
+
+        &:nth-child(even) {
+            height: 8px;
+        }
+
+        &:nth-child(3n) {
+            height: 16px;
+        }
+
+        &:nth-child(4n) {
+            height: 6px;
+        }
+
+        &:nth-child(5n) {
+            height: 20px;
+        }
+    }
+
+    &.is-playing .wave-bar {
+        animation: audio-wave-animation 1s infinite ease-in-out;
+        background-color: #007aff;
+        /* Active color */
+    }
+
+    .duration {
+        font-size: 12px;
+        font-weight: 500;
+        color: #8e8e93;
+        font-variant-numeric: tabular-nums;
+    }
+}
+
+@keyframes audio-wave-animation {
+
+    0%,
+    100% {
+        height: 4px;
+    }
+
+    50% {
+        height: 20px;
+    }
+}

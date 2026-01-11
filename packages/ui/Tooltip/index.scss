@@ -1,0 +1,177 @@
+@use "@/styles/mixins/glass" as glass;
+
+.react-cupertino-ui-tooltip {
+  --tooltip-surface: rgba(255, 255, 255, 0.95);
+  --tooltip-foreground: rgba(15, 23, 42, 0.92);
+  --tooltip-shadow: 0 18px 35px rgba(15, 15, 15, 0.22);
+  --tooltip-radius: 16px;
+  --tooltip-padding-y: 0.55rem;
+  --tooltip-padding-x: 0.85rem;
+  --tooltip-font-size: 0.9rem;
+  z-index: 70;
+  border-radius: var(--tooltip-radius);
+  padding: var(--tooltip-padding-y) var(--tooltip-padding-x);
+  color: var(--tooltip-foreground);
+  background: var(--tooltip-surface);
+  box-shadow: var(--tooltip-shadow);
+  backdrop-filter: blur(20px);
+  max-width: min(320px, calc(100vw - 2rem));
+  line-height: 1.4;
+  letter-spacing: 0.01em;
+  border: 1px solid color-mix(in srgb, rgba(255, 255, 255, 0.85), transparent 60%);
+  will-change: transform, opacity;
+  transform-origin: var(--radix-tooltip-content-transform-origin);
+
+  &.glass {
+    @include glass.glass-panel(light, var(--glass-blur, 22px), 0.82);
+  }
+
+  &.size-sm {
+    --tooltip-padding-y: 0.4rem;
+    --tooltip-padding-x: 0.7rem;
+    --tooltip-font-size: 0.78rem;
+  }
+
+  &.size-md {
+    --tooltip-font-size: 0.88rem;
+  }
+
+  &.tone-info {
+    --tooltip-accent: #0ea5e9;
+  }
+
+  &.tone-success {
+    --tooltip-accent: #22c55e;
+  }
+
+  &.tone-warning {
+    --tooltip-accent: #f59e0b;
+  }
+
+  &.tone-critical {
+    --tooltip-accent: #ef4444;
+  }
+
+  &:not(.tone-neutral) {
+    border-color: color-mix(in srgb, var(--tooltip-accent), transparent 55%);
+    box-shadow:
+      0 22px 40px color-mix(in srgb, var(--tooltip-accent), rgba(0, 0, 0, 0.35)),
+      inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  }
+
+  &[data-state="delayed-open"][data-side="top"] {
+    animation: tooltip-slide-up 180ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  &[data-state="delayed-open"][data-side="bottom"] {
+    animation: tooltip-slide-down 180ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  &[data-state="delayed-open"][data-side="left"] {
+    animation: tooltip-slide-left 180ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  &[data-state="delayed-open"][data-side="right"] {
+    animation: tooltip-slide-right 180ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  &[data-state="closed"] {
+    animation: tooltip-exit 140ms ease forwards;
+  }
+
+  &[data-motion="scale"] {
+    animation-duration: 160ms;
+    &[data-state="delayed-open"] {
+      animation-name: tooltip-scale-in;
+    }
+  }
+}
+
+.react-cupertino-ui-tooltip__arrow {
+  fill: var(--tooltip-surface);
+  filter: drop-shadow(0 4px 12px rgba(15, 15, 15, 0.18));
+
+  &.glass {
+    fill: var(--tooltip-surface);
+  }
+}
+
+@keyframes tooltip-slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes tooltip-slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes tooltip-slide-left {
+  from {
+    opacity: 0;
+    transform: translateX(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes tooltip-slide-right {
+  from {
+    opacity: 0;
+    transform: translateX(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes tooltip-scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes tooltip-exit {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    transform: translateY(2px);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .react-cupertino-ui-tooltip {
+    --tooltip-surface: rgba(15, 16, 24, 0.9);
+    --tooltip-foreground: rgba(248, 250, 252, 0.9);
+    border-color: rgba(255, 255, 255, 0.07);
+
+    &:not(.tone-neutral) {
+      border-color: color-mix(in srgb, var(--tooltip-accent), transparent 30%);
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .react-cupertino-ui-tooltip {
+    animation: none !important;
+  }
+}

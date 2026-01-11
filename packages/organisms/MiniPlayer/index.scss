@@ -1,0 +1,52 @@
+@use "@/styles/mixins/glass" as glass;
+
+.react-cupertino-ui-mini-player {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 1.5rem;
+  background: rgba(255, 255, 255, 0.85);
+  @include glass.glass-panel(light, var(--glass-blur, 32px), 0.65);
+  box-shadow: 0 18px 40px rgba(10, 10, 16, 0.15);
+
+  img {
+    width: 64px;
+    height: 64px;
+    border-radius: 1rem;
+    object-fit: cover;
+  }
+
+  &__info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+
+    strong {
+      font-size: 1rem;
+    }
+
+    span {
+      color: rgba(15, 15, 20, 0.55);
+      font-size: 0.9rem;
+    }
+  }
+
+  &__slider {
+    margin-top: 0.25rem;
+  }
+
+  &__actions {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+
+    button {
+      border: none;
+      background: rgba(15, 15, 20, 0.08);
+      border-radius: 999px;
+      padding: 0.4rem 0.75rem;
+    }
+  }
+}

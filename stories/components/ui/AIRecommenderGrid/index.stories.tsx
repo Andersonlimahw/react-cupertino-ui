@@ -12,6 +12,7 @@ const meta: Meta<typeof AIRecommenderGrid> = {
   title: "UI/AIRecommenderGrid",
   component: AIRecommenderGrid,
   args: { tiles },
+  tags: ["autodocs"],
   parameters: { layout: "centered" },
 };
 

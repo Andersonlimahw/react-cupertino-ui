@@ -10,6 +10,7 @@ const meta: Meta<typeof AIInsightCard> = {
     description: "Apple Intelligence drafted a summary of your last meeting.",
     badge: "AI",
   },
+  tags: ["autodocs"],
   parameters: { layout: "centered" },
 };
 

@@ -12,6 +12,7 @@ const meta: Meta<typeof AIActionList> = {
   title: "UI/AIActionList",
   component: AIActionList,
   args: { items },
+  tags: ["autodocs"],
   parameters: { layout: "centered" },
 };
 

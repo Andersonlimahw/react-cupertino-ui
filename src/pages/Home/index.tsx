@@ -5,19 +5,27 @@ import { SpotlightSearch } from "@components/organisms/SpotlightSearch";
 
 import "./index.scss";
 
+type ComponentCategory = "AI" | "Atoms" | "Molecules" | "Organisms" | "Templates";
+
+type ComponentInfo = {
+  name: string;
+  category: ComponentCategory;
+  storybookCategory?: Exclude<ComponentCategory, "AI"> | "UI";
+};
+
 // Complete list of all available components
-const allComponents = [
+const allComponents: ComponentInfo[] = [
   // AI Components
-  { name: "AIActionList", category: "AI" },
-  { name: "AIConversation", category: "AI" },
-  { name: "AIInsightCard", category: "AI" },
-  { name: "AILoadingState", category: "AI" },
-  { name: "AIPromptInput", category: "AI" },
-  { name: "AIRecommenderGrid", category: "AI" },
-  { name: "AIResponseBubble", category: "AI" },
-  { name: "IntelligenceGlow", category: "AI" },
-  { name: "SiriStatusIndicator", category: "AI" },
-  { name: "SiriWaveform", category: "AI" },
+  { name: "AIActionList", category: "AI", storybookCategory: "UI" },
+  { name: "AIConversation", category: "AI", storybookCategory: "Organisms" },
+  { name: "AIInsightCard", category: "AI", storybookCategory: "UI" },
+  { name: "AILoadingState", category: "AI", storybookCategory: "Atoms" },
+  { name: "AIPromptInput", category: "AI", storybookCategory: "Molecules" },
+  { name: "AIRecommenderGrid", category: "AI", storybookCategory: "UI" },
+  { name: "AIResponseBubble", category: "AI", storybookCategory: "Molecules" },
+  { name: "IntelligenceGlow", category: "AI", storybookCategory: "Atoms" },
+  { name: "SiriStatusIndicator", category: "AI", storybookCategory: "Atoms" },
+  { name: "SiriWaveform", category: "AI", storybookCategory: "Atoms" },
 
   // Atoms
   { name: "Avatar", category: "Atoms" },
@@ -248,7 +256,17 @@ const ThemeToggle = ({ theme, onToggle }: { theme: Theme; onToggle: () => void }
 );
 
 const STORYBOOK_URL = "./storybook";
-const GITHUB_URL = "https://github.com/AugustinMauworworSossou/react-cupertino-ui";
+const GITHUB_URL = "https://github.com/andersonlimahw/react-cupertino-ui";
+
+const toStorySlug = (value: string) => value.toLowerCase().replace(/\s+/g, "-");
+
+const getStorybookCategory = (component: ComponentInfo) => component.storybookCategory ?? component.category;
+
+const buildStorybookDocsUrl = (component: ComponentInfo) => {
+  const categorySlug = toStorySlug(getStorybookCategory(component));
+  const componentSlug = toStorySlug(component.name);
+  return `${STORYBOOK_URL}/?path=/docs/${categorySlug}-${componentSlug}--docs`;
+};
 
 const HomePage = () => {
   useSEO();
@@ -277,7 +295,7 @@ const HomePage = () => {
         title: i.name,
         subtitle: i.category,
         onSelect: () => {
-          window.open(`${STORYBOOK_URL}/?path=/docs/${i.category.toLowerCase()}-${i.name.toLowerCase()}--docs`, "_blank");
+          window.open(buildStorybookDocsUrl(i), "_blank");
           setSpotlightOpen(false);
         },
       })),
@@ -416,7 +434,7 @@ function App() {
                     <button
                       key={component.name}
                       className="component-tag"
-                      onClick={() => window.open(`${STORYBOOK_URL}/?path=/docs/${category.toLowerCase()}-${component.name.toLowerCase()}--docs`, "_blank")}
+                      onClick={() => window.open(buildStorybookDocsUrl(component), "_blank")}
                     >
                       <span className="component-tag__name">{component.name}</span>
                     </button>

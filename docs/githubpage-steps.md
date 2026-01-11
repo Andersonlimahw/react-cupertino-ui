@@ -91,7 +91,7 @@ Certifique-se de que o `package.json` raiz tem as informações corretas:
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/seu-usuario/react-cupertino-ui"
+    "url": "https://github.com/andersonlimahw/react-cupertino-ui"
   },
   "homepage": "https://seu-usuario.github.io/react-cupertino-ui",
   "keywords": [

@@ -19,6 +19,30 @@ You are working on **React Cupertino UI**, a React component library implementin
 
 ---
 
+## Virtual Slash Commands
+
+Use these commands to accelerate development. Detailed definitions are located in `.claude/commands/*.md`.
+
+### `/project-component "Name"`
+Scaffolds a new UI component. [Read details](.claude/commands/project-component.md)
+
+### `/project-template "Name"`
+Scaffolds a new Template. [Read details](.claude/commands/project-template.md)
+
+### `/project-test "Name"`
+Runs tests for a specific component. [Read details](.claude/commands/project-test.md)
+
+### `/project-docs "Name"`
+Generates documentation skeleton. [Read details](.claude/commands/project-docs.md)
+
+### `/project-campaign "Topic"`
+Generates marketing copy for a feature. [Read details](.claude/commands/project-campaign.md)
+
+### `/project-analyze "Name"`
+Deep analysis of component quality. [Read details](.claude/commands/project-analyze.md)
+
+---
+
 ## Code Style Rules
 
 ### Component Creation

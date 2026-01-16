@@ -27,3 +27,5 @@ dist-ssr
 storybook-static
 
 .npmrc
+
+.marketing-campaign

@@ -250,6 +250,51 @@
       ],
       "@react-cupertino-ui/maps-poi-card": [
         "./packages/organisms/MapsPOICard"
+      ],
+      "@react-cupertino-ui/read-receipt": [
+        "./packages/atoms/ReadReceipt"
+      ],
+      "@react-cupertino-ui/typing-indicator": [
+        "./packages/atoms/TypingIndicator"
+      ],
+      "@react-cupertino-ui/audio-message": [
+        "./packages/molecules/AudioMessage"
+      ],
+      "@react-cupertino-ui/link-preview": [
+        "./packages/molecules/LinkPreview"
+      ],
+      "@react-cupertino-ui/media-preview": [
+        "./packages/molecules/MediaPreview"
+      ],
+      "@react-cupertino-ui/message-input": [
+        "./packages/molecules/MessageInput"
+      ],
+      "@react-cupertino-ui/progress-slider": [
+        "./packages/molecules/ProgressSlider"
+      ],
+      "@react-cupertino-ui/reaction-picker": [
+        "./packages/molecules/ReactionPicker"
+      ],
+      "@react-cupertino-ui/swipe-actions": [
+        "./packages/molecules/SwipeActions"
+      ],
+      "@react-cupertino-ui/volume-control": [
+        "./packages/molecules/VolumeControl"
+      ],
+      "@react-cupertino-ui/conversation-header": [
+        "./packages/organisms/ConversationHeader"
+      ],
+      "@react-cupertino-ui/mail-composer": [
+        "./packages/organisms/MailComposer"
+      ],
+      "@react-cupertino-ui/mail-list": [
+        "./packages/organisms/MailList"
+      ],
+      "@react-cupertino-ui/spotlight-search": [
+        "./packages/organisms/SpotlightSearch"
+      ],
+      "@react-cupertino-ui/track-list": [
+        "./packages/organisms/TrackList"
       ]
     }
   }

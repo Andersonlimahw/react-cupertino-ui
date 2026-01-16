@@ -167,6 +167,138 @@
       ],
       "@react-cupertino-ui/swipe-actions": [
         "./packages/molecules/SwipeActions"
+      ],
+      "@react-cupertino-ui/read-receipt": [
+        "./packages/atoms/ReadReceipt"
+      ],
+      "@react-cupertino-ui/siri-status-indicator": [
+        "./packages/atoms/SiriStatusIndicator"
+      ],
+      "@react-cupertino-ui/typing-indicator": [
+        "./packages/atoms/TypingIndicator"
+      ],
+      "@react-cupertino-ui/audio-message": [
+        "./packages/molecules/AudioMessage"
+      ],
+      "@react-cupertino-ui/link-preview": [
+        "./packages/molecules/LinkPreview"
+      ],
+      "@react-cupertino-ui/media-preview": [
+        "./packages/molecules/MediaPreview"
+      ],
+      "@react-cupertino-ui/message-bubble": [
+        "./packages/molecules/MessageBubble"
+      ],
+      "@react-cupertino-ui/message-input": [
+        "./packages/molecules/MessageInput"
+      ],
+      "@react-cupertino-ui/playback-controls": [
+        "./packages/molecules/PlaybackControls"
+      ],
+      "@react-cupertino-ui/progress-slider": [
+        "./packages/molecules/ProgressSlider"
+      ],
+      "@react-cupertino-ui/quick-action": [
+        "./packages/molecules/QuickAction"
+      ],
+      "@react-cupertino-ui/reaction-picker": [
+        "./packages/molecules/ReactionPicker"
+      ],
+      "@react-cupertino-ui/voice-command-bar": [
+        "./packages/molecules/VoiceCommandBar"
+      ],
+      "@react-cupertino-ui/volume-control": [
+        "./packages/molecules/VolumeControl"
+      ],
+      "@react-cupertino-ui/conversation-header": [
+        "./packages/organisms/ConversationHeader"
+      ],
+      "@react-cupertino-ui/mail-composer": [
+        "./packages/organisms/MailComposer"
+      ],
+      "@react-cupertino-ui/mail-list": [
+        "./packages/organisms/MailList"
+      ],
+      "@react-cupertino-ui/maps-poi-card": [
+        "./packages/organisms/MapsPOICard"
+      ],
+      "@react-cupertino-ui/media-session-card": [
+        "./packages/organisms/MediaSessionCard"
+      ],
+      "@react-cupertino-ui/now-playing-bar": [
+        "./packages/organisms/NowPlayingBar"
+      ],
+      "@react-cupertino-ui/spotlight-search": [
+        "./packages/organisms/SpotlightSearch"
+      ],
+      "@react-cupertino-ui/track-list": [
+        "./packages/organisms/TrackList"
+      ],
+      "@react-cupertino-ui/ai-action-list": [
+        "./packages/ui/AIActionList"
+      ],
+      "@react-cupertino-ui/ai-insight-card": [
+        "./packages/ui/AIInsightCard"
+      ],
+      "@react-cupertino-ui/ai-recommender-grid": [
+        "./packages/ui/AIRecommenderGrid"
+      ],
+      "@react-cupertino-ui/accordion": [
+        "./packages/ui/Accordion"
+      ],
+      "@react-cupertino-ui/album-cover": [
+        "./packages/ui/AlbumCover"
+      ],
+      "@react-cupertino-ui/breadcrumb": [
+        "./packages/ui/Breadcrumb"
+      ],
+      "@react-cupertino-ui/calendar-heatmap": [
+        "./packages/ui/CalendarHeatmap"
+      ],
+      "@react-cupertino-ui/carousel": [
+        "./packages/ui/Carousel"
+      ],
+      "@react-cupertino-ui/color-tokens-viewer": [
+        "./packages/ui/ColorTokensViewer"
+      ],
+      "@react-cupertino-ui/command-palette": [
+        "./packages/ui/CommandPalette"
+      ],
+      "@react-cupertino-ui/media-transport": [
+        "./packages/ui/MediaTransport"
+      ],
+      "@react-cupertino-ui/mini-notification": [
+        "./packages/ui/MiniNotification"
+      ],
+      "@react-cupertino-ui/notification-banner": [
+        "./packages/ui/NotificationBanner"
+      ],
+      "@react-cupertino-ui/photos-grid": [
+        "./packages/ui/PhotosGrid"
+      ],
+      "@react-cupertino-ui/playback-queue": [
+        "./packages/ui/PlaybackQueue"
+      ],
+      "@react-cupertino-ui/rating": [
+        "./packages/ui/Rating"
+      ],
+      "@react-cupertino-ui/segmented-tabs": [
+        "./packages/ui/SegmentedTabs"
+      ],
+      "@react-cupertino-ui/siri-shortcut-chip": [
+        "./packages/ui/SiriShortcutChip"
+      ],
+      "@react-cupertino-ui/suggestion-bar": [
+        "./packages/ui/SuggestionBar"
+      ],
+      "@react-cupertino-ui/tabs": [
+        "./packages/ui/Tabs"
+      ],
+      "@react-cupertino-ui/timeline": [
+        "./packages/ui/Timeline"
+      ],
+      "@react-cupertino-ui/tooltip": [
+        "./packages/ui/Tooltip"
       ]
     }
   }

@@ -1138,6 +1138,31 @@ importers:
         specifier: ^5.2.2
         version: 5.9.3
 
+  packages/templates/LandingPageTemplate:
+    dependencies:
+      '@react-cupertino-ui/button':
+        specifier: workspace:*
+        version: link:../../molecules/Button
+      '@react-cupertino-ui/card':
+        specifier: workspace:*
+        version: link:../../organisms/Card
+      '@react-cupertino-ui/shared':
+        specifier: workspace:*
+        version: link:../../shared
+      '@react-cupertino-ui/text-field':
+        specifier: workspace:*
+        version: link:../../molecules/TextField
+      react:
+        specifier: ^18.3.1
+        version: 18.3.1
+      react-dom:
+        specifier: ^18.3.1
+        version: 18.3.1(react@18.3.1)
+    devDependencies:
+      typescript:
+        specifier: ^5.2.2
+        version: 5.9.3
+
   packages/templates/ListTemplate:
     dependencies:
       '@react-cupertino-ui/shared':

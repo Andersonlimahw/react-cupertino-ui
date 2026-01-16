@@ -1,0 +1,38 @@
+import * as React from "react";
+import { Slot } from "@radix-ui/react-slot";
+
+import { cn } from "@react-cupertino-ui/shared/lib/utils";
+import { BaseProps, BaseVariants } from "@react-cupertino-ui/shared/lib/interfaces/BaseProps";
+
+import "./index.scss";
+
+export interface HeadlineProps extends BaseProps<HTMLHeadingElement> {
+  asChild?: boolean;
+}
+
+const Headline: React.FC<HeadlineProps> = ({
+  className,
+  variant,
+  size,
+  asChild = false,
+  ...props
+}: HeadlineProps) => {
+  const Comp = asChild ? Slot : "h4";
+  return (
+    <Comp
+      className={cn(
+        BaseVariants("react-cupertino-ui-headline ", {
+          variant,
+          size,
+          className,
+        })
+      )}
+      {...props}
+    />
+  );
+};
+Headline.displayName = "Headline";
+
+export { Headline };
+
+export default Headline;

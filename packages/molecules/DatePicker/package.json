@@ -1,0 +1,36 @@
+{
+  "name": "@react-cupertino-ui/date-picker",
+  "version": "1.0.0",
+  "description": "DatePicker component from React Cupertino UI",
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "sideEffects": [
+    "./dist/**/*.css",
+    "./dist/**/*.scss"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json && npm run build:styles",
+    "build:styles": "node ../../../scripts/build-styles.mjs"
+  },
+  "peerDependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "dependencies": {
+    "@react-cupertino-ui/picker": "workspace:*",
+    "@react-cupertino-ui/shared": "workspace:*",
+    "lucide-react": "^0.417.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.2.2"
+  },
+  "gitHead": "3f53987bdb936a331665691b517c2ba9984777f8",
+  "publishConfig": {
+    "access": "public"
+  }
+}

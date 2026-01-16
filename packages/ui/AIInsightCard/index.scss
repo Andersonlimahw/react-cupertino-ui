@@ -1,0 +1,16 @@
+@use "@/styles/mixins/glass" as glass;
+
+.react-cupertino-ui-ai-insight-card {
+  border-radius: 32px;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.75);
+  position: relative;
+  overflow: hidden;
+  @include glass.glass-panel(light, var(--glass-blur, 42px), 0.7);
+
+  .badge {
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+  }
+}

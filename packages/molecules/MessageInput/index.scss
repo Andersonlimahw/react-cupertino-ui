@@ -1,0 +1,25 @@
+.react-cupertino-ui-message-input {
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.85);
+  padding: 0.5rem 0.75rem;
+
+  form {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    outline: none;
+  }
+
+  button {
+    border: none;
+    border-radius: 999px;
+    padding: 0.4rem 0.9rem;
+    background: linear-gradient(120deg, #0ea5e9, #6366f1);
+    color: white;
+  }
+}

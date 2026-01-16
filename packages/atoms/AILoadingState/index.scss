@@ -1,0 +1,86 @@
+.react-cupertino-ui-ai-loading-state {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.85rem 1.1rem;
+  border-radius: 1.25rem;
+  background: rgba(13, 13, 15, 0.08);
+  backdrop-filter: blur(26px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 14px 30px rgba(5, 5, 10, 0.15);
+
+  &__orb {
+    position: relative;
+    width: 2.4rem;
+    height: 2.4rem;
+    border-radius: 999px;
+    background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.9), rgba(0, 0, 0, 0));
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+
+    span {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: inherit;
+      border: 1px solid rgba(255, 255, 255, 0.65);
+      animation: ai-orb 1.8s infinite ease-in-out;
+
+      &:nth-child(2) {
+        animation-delay: 0.2s;
+      }
+
+      &:nth-child(3) {
+        animation-delay: 0.4s;
+      }
+    }
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+    color: rgba(10, 10, 15, 0.75);
+
+    strong {
+      font-size: 0.95rem;
+    }
+
+    span {
+      font-size: 0.85rem;
+      color: rgba(10, 10, 15, 0.5);
+    }
+  }
+
+  &.variant-generating {
+    background: rgba(15, 10, 60, 0.2);
+
+    .react-cupertino-ui-ai-loading-state__orb {
+      background: radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.95), rgba(15, 10, 60, 0.1));
+    }
+  }
+
+  &.variant-searching {
+    background: rgba(0, 122, 255, 0.12);
+
+    .react-cupertino-ui-ai-loading-state__orb {
+      background: radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.95), rgba(0, 122, 255, 0.15));
+    }
+  }
+}
+
+@keyframes ai-orb {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.9;
+  }
+  70% {
+    transform: scale(1.3);
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}

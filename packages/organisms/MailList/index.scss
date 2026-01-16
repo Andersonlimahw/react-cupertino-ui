@@ -1,0 +1,120 @@
+.react-cupertino-ui-mail-list {
+    width: 100%;
+
+    .react-cupertino-ui-list {
+        background: transparent;
+    }
+
+    .mail-item-wrapper {
+        position: relative;
+
+        /* Ensure border separator logic works with SwipeActions wrapper */
+        &:not(:last-child)::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 20px;
+            /* Inset separator */
+            right: 0;
+            height: 1px;
+            background-color: #c6c6c8;
+            z-index: 5;
+            /* Above swipe content */
+
+            @media (prefers-color-scheme: dark) {
+                background-color: #38383a;
+            }
+        }
+    }
+
+    /* Override generic List Item padding/layout for custom mail content */
+    .react-cupertino-ui-list-item {
+        &.mail-item {
+            padding: 0;
+
+            /* Remove default list item structure constraints if needed */
+            .react-cupertino-ui-list-item-content {
+                width: 100%;
+            }
+        }
+    }
+
+    .mail-content {
+        padding: 10px 20px 10px 36px;
+        /* Left padding space for unread dot */
+        width: 100%;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+    }
+
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        margin-bottom: 1px;
+    }
+
+    .sender {
+        font-size: 16px;
+        font-weight: 600;
+        color: #000;
+
+        @media (prefers-color-scheme: dark) {
+            color: #fff;
+        }
+
+        &.unread::before {
+            content: "";
+            position: absolute;
+            left: 14px;
+            top: 18px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #007aff;
+        }
+    }
+
+    .date {
+        font-size: 14px;
+        color: #8e8e93;
+        flex-shrink: 0;
+    }
+
+    .subject {
+        font-size: 14px;
+        font-weight: 500;
+        /* Medium weight */
+        color: #000;
+
+        @media (prefers-color-scheme: dark) {
+            color: #fff;
+        }
+    }
+
+    .preview {
+        font-size: 14px;
+        color: #8e8e93;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        line-height: 1.35;
+    }
+
+    .flag-indicator {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        color: #ff9500;
+        /* Orange */
+    }
+
+    /* Custom action color for Flag */
+    .action-button.color-orange {
+        background-color: #ff9500;
+    }
+}

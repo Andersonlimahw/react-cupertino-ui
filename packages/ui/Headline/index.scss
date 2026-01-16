@@ -1,0 +1,58 @@
+.react-cupertino-ui-headline {
+  font-size: 1.5rem;
+  font-weight: 500;
+
+  &.variant-default {
+    color: var(--color-blue);
+  }
+
+  &.variant-destructive {
+    color: var(--color-orange);
+  }
+
+  &.variant-outline {
+    color: var(--color-blue);
+    border-bottom: 1px solid var(--color-blue);
+  }
+
+  &.variant-secondary {
+    background-color: var(--secondary);
+    border-color: var(--secondary);
+    color: var(--secondary-foreground);
+    &:hover {
+      background-color: var(--secondary) / 80%;
+    }
+  }
+
+  &.variant-ghost {
+    color: var(--muted);
+  }
+
+  &.variant-link {
+    color: var(--color-cyan);
+    text-decoration: underline-offset-4;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &.size-default {
+    height: 2.5rem;
+    padding: 0.5rem 1rem;
+  }
+
+  &.size-sm {
+    height: 2.25rem;
+    padding: 0.75rem;
+  }
+
+  &.size-lg {
+    height: 2.75rem;
+    padding: 0.5rem 2rem;
+  }
+
+  &.size-icon {
+    height: 2.5rem;
+    width: 2.5rem;
+  }
+}

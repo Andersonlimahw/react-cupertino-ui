@@ -1,0 +1,31 @@
+{
+  "name": "@react-cupertino-ui/shared",
+  "version": "1.0.0",
+  "description": "Shared utilities and tokens for React Cupertino UI",
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json"
+  },
+  "peerDependencies": {
+    "react": "^18.3.1"
+  },
+  "dependencies": {
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.1",
+    "tailwind-merge": "^2.4.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.2.2"
+  },
+  "gitHead": "a6b07a7a8a0ab6f4c80884b6fb9d5eb16ee6da1d",
+  "publishConfig": {
+    "access": "public"
+  }
+}

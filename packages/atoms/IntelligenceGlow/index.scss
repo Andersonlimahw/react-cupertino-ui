@@ -1,0 +1,42 @@
+.react-cupertino-ui-intelligence-glow {
+  position: relative;
+  display: inline-block; // Or block depending on usage, usually wrapping content
+  border-radius: inherit;
+  
+  .content-container {
+      position: relative;
+      z-index: 1;
+      border-radius: inherit;
+      background: var(--background); // Ensure content covers glow center usually
+  }
+
+  .glow-container {
+    position: absolute;
+    inset: -4px;
+    z-index: 0;
+    border-radius: inherit;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    background: linear-gradient(
+      135deg,
+      #FF6B9D,
+      #C44FE2,
+      #7B68EE,
+      #4F94E2,
+      #4FE2C4
+    );
+    background-size: 300% 300%;
+    filter: blur(12px);
+  }
+
+  &.is-active .glow-container {
+    opacity: var(--glow-intensity, 0.8);
+    animation: glow-rotate 3s ease infinite;
+  }
+}
+
+@keyframes glow-rotate {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}

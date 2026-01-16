@@ -1,0 +1,118 @@
+name: Publish to npm
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      batch_size:
+        description: 'Number of packages to publish per run (to avoid rate limits)'
+        required: false
+        default: '20'
+      delay_seconds:
+        description: 'Delay between each publish in seconds'
+        required: false
+        default: '30'
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          registry-url: 'https://registry.npmjs.org'
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --no-frozen-lockfile
+
+      - name: Build packages
+        run: pnpm run build:packages
+
+      - name: Publish packages with rate limit handling
+        run: |
+          BATCH_SIZE=${{ inputs.batch_size || '20' }}
+          DELAY=${{ inputs.delay_seconds || '30' }}
+          PUBLISHED=0
+          SKIPPED=0
+          FAILED=0
+
+          echo "========================================"
+          echo "  npm Package Publisher"
+          echo "  Batch size: $BATCH_SIZE"
+          echo "  Delay: ${DELAY}s"
+          echo "========================================"
+
+          for dir in packages/shared packages/atoms/* packages/molecules/* packages/organisms/* packages/templates/* packages/ui/*; do
+            if [ -d "$dir" ] && [ -f "$dir/package.json" ]; then
+              PKG_NAME=$(grep -o '"name": "[^"]*"' "$dir/package.json" | head -1 | cut -d'"' -f4)
+              PKG_VERSION=$(grep -o '"version": "[^"]*"' "$dir/package.json" | head -1 | cut -d'"' -f4)
+
+              echo ""
+              echo "Checking $PKG_NAME@$PKG_VERSION..."
+
+              # Check if already published
+              NPM_VERSIONS=$(npm view "$PKG_NAME" versions --json 2>/dev/null || echo "[]")
+              if echo "$NPM_VERSIONS" | grep -q "\"$PKG_VERSION\""; then
+                echo "  -> Already published, skipping"
+                SKIPPED=$((SKIPPED + 1))
+                continue
+              fi
+
+              # Stop if we've published enough in this batch
+              if [ $PUBLISHED -ge $BATCH_SIZE ]; then
+                echo ""
+                echo "Reached batch limit of $BATCH_SIZE packages."
+                echo "Run this workflow again to continue publishing."
+                break
+              fi
+
+              # Publish
+              echo "  -> Publishing..."
+              cd "$dir"
+              if npm publish --access public 2>&1; then
+                echo "  -> Success!"
+                PUBLISHED=$((PUBLISHED + 1))
+              else
+                echo "  -> Failed"
+                FAILED=$((FAILED + 1))
+              fi
+              cd - > /dev/null
+
+              # Delay between publishes
+              if [ $PUBLISHED -lt $BATCH_SIZE ]; then
+                echo "  -> Waiting ${DELAY}s..."
+                sleep $DELAY
+              fi
+            fi
+          done
+
+          echo ""
+          echo "========================================"
+          echo "  Results:"
+          echo "  Published: $PUBLISHED"
+          echo "  Skipped: $SKIPPED"
+          echo "  Failed: $FAILED"
+          echo "========================================"
+
+          if [ $FAILED -gt 0 ]; then
+            echo ""
+            echo "Some packages failed. Run this workflow again after waiting."
+            exit 1
+          fi
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

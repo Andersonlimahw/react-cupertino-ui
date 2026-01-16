@@ -1,0 +1,21 @@
+.react-cupertino-ui-message-bubble {
+  max-width: 70%;
+  border-radius: 20px;
+  padding: 0.75rem 1rem;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 15px 35px rgba(15, 15, 15, 0.18);
+
+  &.is-user {
+    margin-left: auto;
+    background: linear-gradient(120deg, #0ea5e9, #6366f1);
+    color: white;
+  }
+
+  .meta {
+    margin-top: 0.3rem;
+    font-size: 0.75rem;
+    opacity: 0.7;
+    display: flex;
+    gap: 0.5rem;
+  }
+}

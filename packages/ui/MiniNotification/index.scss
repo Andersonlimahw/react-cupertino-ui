@@ -1,0 +1,47 @@
+.react-cupertino-ui-mini-notification {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 22px 45px rgba(15, 15, 15, 0.18);
+
+  .title {
+    margin: 0;
+    font-weight: 600;
+  }
+
+  .message {
+    margin: 0.2rem 0 0;
+    color: rgba(15, 23, 42, 0.6);
+    font-size: 0.9rem;
+  }
+
+  &__action {
+    border: none;
+    background: transparent;
+    color: #0ea5e9;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  &__dismiss {
+    border: none;
+    background: transparent;
+    opacity: 0.6;
+    cursor: pointer;
+  }
+
+  &.tone-success {
+    border-left: 3px solid #22c55e;
+  }
+
+  &.tone-warning {
+    border-left: 3px solid #f59e0b;
+  }
+
+  &.tone-critical {
+    border-left: 3px solid #ef4444;
+  }
+}

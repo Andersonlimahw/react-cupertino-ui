@@ -1,0 +1,86 @@
+@use "@/styles/mixins/glass" as glass;
+
+.react-cupertino-ui-now-playing-bar {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 1rem;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.75);
+  @include glass.glass-panel(light, var(--glass-blur, 32px), 0.7);
+  box-shadow: 0 25px 60px rgba(15, 15, 15, 0.2);
+
+  .artwork {
+    border: none;
+    background: transparent;
+    border-radius: 22px;
+    padding: 0;
+
+    img {
+      width: 64px;
+      height: 64px;
+      border-radius: 18px;
+      object-fit: cover;
+    }
+  }
+
+  .meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+
+    .title {
+      margin: 0;
+      font-weight: 600;
+    }
+
+    .artist,
+    .album {
+      margin: 0;
+      font-size: 0.85rem;
+      color: rgba(15, 23, 42, 0.6);
+    }
+
+    .progress {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+
+      .progress-track {
+        position: relative;
+        height: 6px;
+        border-radius: 999px;
+        background: rgba(15, 15, 20, 0.15);
+        overflow: hidden;
+      }
+
+      .progress-fill {
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        border-radius: inherit;
+        background: linear-gradient(90deg, #0ea5e9, #6366f1);
+      }
+
+      .timestamps {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.75rem;
+        color: rgba(15, 23, 42, 0.6);
+      }
+    }
+  }
+
+  .like {
+    border: none;
+    background: transparent;
+    color: rgba(15, 15, 20, 0.4);
+    cursor: pointer;
+
+    &.is-liked {
+      color: #f43f5e;
+    }
+  }
+}

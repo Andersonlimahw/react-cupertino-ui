@@ -1,0 +1,41 @@
+# Development
+.github/
+.storybook/
+docs/
+samples/
+stories/
+
+# Config files
+.eslintrc*
+.prettierrc*
+tsconfig*.json
+vite.config.ts
+vitest.config.ts
+tailwind.config.*
+postcss.config.*
+
+# Build artifacts
+storybook-static/
+
+# Tests
+**/*.test.ts
+**/*.test.tsx
+**/*.spec.ts
+**/*.spec.tsx
+__tests__/
+tests/
+
+# Source files (we only ship dist)
+src/
+app/
+config/
+scripts/
+
+# Other
+*.md
+!README.md
+.gitignore
+.editorconfig
+pnpm-lock.yaml
+pnpm-workspace.yaml
+lerna.json

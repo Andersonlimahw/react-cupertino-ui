@@ -1,0 +1,118 @@
+.react-cupertino-ui-siri-waveform {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  --wave-amplitude: 1;
+  --wave-motion-duration: 1.6s;
+  
+  &.size-sm {
+    height: 40px;
+    width: 80px;
+  }
+  
+  &.size-md {
+    height: 60px;
+    width: 120px;
+  }
+  
+  &.size-lg {
+    height: 100px;
+    width: 200px;
+  }
+
+  .waveform-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+    transform: scale(var(--wave-amplitude));
+  }
+
+  &.is-active .waveform-container {
+    opacity: 1;
+  }
+
+  .wave {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(8px);
+    opacity: 0.6;
+    animation: wave-animation var(--wave-motion-duration) infinite ease-in-out;
+  }
+
+  &.palette-multicolor {
+      .wave-1 {
+        background: linear-gradient(135deg, #FF6B9D, #C44FE2);
+        width: 60%;
+        height: 60%;
+        animation-delay: 0s;
+      }
+      
+      .wave-2 {
+        background: linear-gradient(135deg, #4F94E2, #4FE2C4);
+        width: 50%;
+        height: 50%;
+        animation-delay: -0.5s;
+        margin-left: 20px;
+      }
+      
+      .wave-3 {
+        background: linear-gradient(135deg, #7B68EE, #FF2D55);
+        width: 40%;
+        height: 40%;
+        animation-delay: -1s;
+        margin-left: -20px;
+      }
+  }
+
+  &.palette-mono {
+      .wave {
+          background: rgba(255, 255, 255, 0.85);
+
+          @media (prefers-color-scheme: dark) {
+              background: rgba(255, 255, 255, 0.85);
+          }
+      }
+  }
+
+  &.palette-ocean {
+    .wave-1 { background: linear-gradient(135deg, #0ea5e9, #2563eb); }
+    .wave-2 { background: linear-gradient(135deg, #22d3ee, #0ea5e9); }
+    .wave-3 { background: linear-gradient(135deg, #38bdf8, #6366f1); }
+  }
+
+  &.palette-sunset {
+    .wave-1 { background: linear-gradient(135deg, #fb923c, #f97316); }
+    .wave-2 { background: linear-gradient(135deg, #f43f5e, #ec4899); }
+    .wave-3 { background: linear-gradient(135deg, #c026d3, #9333ea); }
+  }
+
+  &.is-active {
+      .wave {
+          animation-duration: calc(var(--wave-motion-duration) * 0.8);
+      }
+  }
+
+  &.motion-calm {
+    --wave-motion-duration: 2.4s;
+  }
+
+  &.motion-pulse {
+    --wave-motion-duration: 1.4s;
+  }
+}
+
+@keyframes wave-animation {
+  0%, 100% {
+    transform: scale(0.8) translateY(0);
+  }
+  50% {
+    transform: scale(1.2) translateY(-5px);
+  }
+}

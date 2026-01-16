@@ -1,0 +1,154 @@
+@use "@/styles/mixins/glass" as glass;
+
+.react-cupertino-ui-ai-prompt-input {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  width: 100%;
+
+  &__shell {
+    display: flex;
+    align-items: flex-end;
+    gap: 0.6rem;
+    padding: 0.9rem 1rem;
+    border-radius: 1.25rem;
+    @include glass.glass-panel(light, var(--glass-blur, 36px), 0.65);
+    box-shadow: 0 20px 45px rgba(10, 10, 13, 0.14);
+    position: relative;
+  }
+
+  &[data-disabled="true"] {
+    opacity: 0.6;
+  }
+
+  &__attachment {
+    width: 2.4rem;
+    height: 2.4rem;
+    border-radius: 999px;
+    border: none;
+    background: rgba(255, 255, 255, 0.55);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 240ms ease, transform 240ms ease;
+
+    span::before {
+      content: "";
+      width: 1.05rem;
+      height: 1.05rem;
+      border: 2px solid rgba(0, 0, 0, 0.6);
+      border-top: transparent;
+      border-right: transparent;
+      border-radius: 4px;
+      transform: rotate(-45deg);
+    }
+
+    &:hover:not(:disabled) {
+      background: rgba(255, 255, 255, 0.8);
+    }
+
+    &:active:not(:disabled) {
+      transform: scale(0.96);
+    }
+  }
+
+  &__textarea {
+    flex: 1;
+    border: none;
+    background: transparent;
+    resize: none;
+    font: inherit;
+    color: inherit;
+    line-height: 1.4;
+    max-height: 200px;
+    padding: 0;
+    margin: 0;
+    outline: none;
+
+    &::placeholder {
+      color: rgba(15, 15, 20, 0.45);
+    }
+  }
+
+  &__submit {
+    width: 2.4rem;
+    height: 2.4rem;
+    border-radius: 999px;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background: var(--color-blue, #007aff);
+    color: white;
+    transition: transform 240ms ease, filter 240ms ease, opacity 240ms ease;
+
+    &[disabled] {
+      opacity: 0.45;
+      cursor: not-allowed;
+    }
+
+    span {
+      width: 1rem;
+      height: 1rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    span:not(.spinner)::before,
+    span:not(.spinner)::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 1px;
+      background: currentColor;
+    }
+
+    span:not(.spinner)::before {
+      width: 2px;
+      height: 100%;
+      left: 45%;
+    }
+
+    span:not(.spinner)::after {
+      width: 60%;
+      height: 2px;
+      top: 48%;
+      transform: rotate(45deg);
+      transform-origin: center right;
+    }
+
+    .spinner {
+      border: 2px solid rgba(255, 255, 255, 0.6);
+      border-top-color: white;
+      animation: prompt-spin 0.8s linear infinite;
+      border-radius: 999px;
+    }
+  }
+
+  &__helper {
+    margin: 0;
+    font-size: 0.85rem;
+    color: rgba(16, 16, 20, 0.5);
+  }
+
+  &__suggestions {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+}
+
+@keyframes prompt-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .react-cupertino-ui-ai-prompt-input__submit,
+  .react-cupertino-ui-ai-prompt-input__attachment {
+    transition-duration: 0.1s;
+  }
+}

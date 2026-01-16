@@ -1,0 +1,36 @@
+{
+  "name": "@react-cupertino-ui/title",
+  "version": "1.0.3",
+  "description": "Title component from React Cupertino UI",
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "sideEffects": [
+    "./dist/**/*.css",
+    "./dist/**/*.scss"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json && npm run build:styles",
+    "build:styles": "node ../../../scripts/build-styles.mjs"
+  },
+  "peerDependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "dependencies": {
+    "@radix-ui/react-slot": "^1.1.0",
+    "@react-cupertino-ui/shared": "workspace:*",
+    "class-variance-authority": "^0.7.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.2.2"
+  },
+  "gitHead": "3f53987bdb936a331665691b517c2ba9984777f8",
+  "publishConfig": {
+    "access": "public"
+  }
+}

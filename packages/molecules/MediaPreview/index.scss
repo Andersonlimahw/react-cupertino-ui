@@ -1,0 +1,66 @@
+.react-cupertino-ui-media-preview {
+    position: relative;
+    border-radius: 18px;
+    overflow: hidden;
+    background-color: #f2f2f7;
+    max-width: 100%;
+
+    /* Glass border via box-shadow */
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.05);
+
+    /* Dark mode */
+    @media (prefers-color-scheme: dark) {
+        background-color: #2c2c2e;
+        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+    }
+
+    /* Image styling */
+    img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    /* Video container */
+    .video-container {
+        position: relative;
+        width: 100%;
+        height: 100%;
+
+        video {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Custom play button overlay (hidden when controls are active generally, 
+       but useful for the preview state before interaction) */
+        .play-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 48px;
+            height: 48px;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            pointer-events: none;
+            transition: opacity 0.2s ease;
+            opacity: 0;
+        }
+
+        /* Show play overlay only when video is paused/not playing - 
+       Implementing this purely with CSS is tricky without JS state. 
+       For a preview component, we might default to showing it or rely on browser controls.
+       Let's keep it simple for now and rely on native controls, 
+       or show it if we decide to have a custom player later. 
+       For now, let's hide it by default as native controls are better. */
+    }
+}

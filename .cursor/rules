@@ -1,0 +1,167 @@
+# Cursor Rules - React Cupertino UI
+
+## Project Overview
+
+React Cupertino UI is a React component library implementing the Apple Design System (Cupertino UI). Components follow iOS/macOS design patterns with accessibility as a priority.
+
+## Tech Stack
+
+- React 18.3.1 + TypeScript 5.2.2
+- Vite 5.3.4 (build tool)
+- Tailwind CSS 3.4.7 + SCSS (hybrid styling)
+- Radix UI (accessible primitives)
+- Lucide React (icons)
+- Class Variance Authority - CVA (variants)
+- Vitest + Testing Library (testing)
+- Storybook 8.2.6 (docs)
+
+## Project Structure
+
+```
+src/
+├── components/ui/        # UI Components
+│   └── {Component}/
+│       ├── index.tsx     # Component logic
+│       └── index.scss    # Component styles
+├── lib/
+│   ├── constants/
+│   │   ├── themes/       # Theme definitions
+│   │   └── tokens/       # Design tokens (colors, spacing, size)
+│   ├── interfaces/       # BaseProps interface
+│   ├── types/            # TypeScript types
+│   └── utils.ts          # Utilities (cn function)
+stories/                  # Storybook stories
+tests/                    # Unit tests
+scripts/create-component/ # Component generator
+```
+
+## Coding Standards
+
+### Components
+- Extend BaseProps from @/lib/interfaces/BaseProps
+- Use forwardRef for DOM element access
+- Apply cn() utility for class merging
+- Set displayName for all components
+- CSS wrapper: react-cupertino-ui-{component-name}
+
+### TypeScript
+- Strict mode - no any types
+- All props typed with interfaces
+- Path aliases: @/, @components/, @components/ui/
+
+### Styling
+- Tailwind for layout/spacing
+- SCSS for component-specific styles
+- Variants: variant-{name}
+- Sizes: size-{name}
+
+### Naming
+- Components: PascalCase
+- CSS classes: lowercase-hyphenated
+- Props: {ComponentName}Props
+
+## Apple/Cupertino Design
+
+### Principles
+1. Large border-radius (4rem buttons)
+2. 150ms transitions with ease
+3. 50% opacity for disabled
+4. Ring-based focus states
+5. iOS-style controls
+
+### Theme Variables
+- --color-blue (primary)
+- --color-white
+- --pink, --green, --purple (accents)
+
+### Themes: light, dark, lemon
+
+## Component Template
+
+```tsx
+import React, { forwardRef } from 'react';
+import { cn } from '@/lib/utils';
+import { BaseProps } from '@/lib/interfaces/BaseProps';
+import './index.scss';
+
+export interface ComponentProps extends BaseProps {}
+
+const Component = forwardRef<HTMLDivElement, ComponentProps>(
+  ({ className, variant = "default", size = "default", children, ...props }, ref) => (
+    <div
+      ref={ref}
+      className={cn("react-cupertino-ui-component", `variant-${variant}`, `size-${size}`, className)}
+      {...props}
+    >
+      {children}
+    </div>
+  )
+);
+
+Component.displayName = "Component";
+export { Component };
+```
+
+## SCSS Template
+
+```scss
+.react-cupertino-ui-component {
+  transition: all 150ms ease;
+
+  &.variant-default { background: var(--color-blue); color: var(--color-white); }
+  &.variant-destructive { background: #ef4444; }
+
+  &.size-sm { padding: 0.5rem 1rem; }
+  &.size-default { padding: 0.75rem 1.5rem; }
+  &.size-lg { padding: 1rem 2rem; }
+
+  &:hover { opacity: 0.9; }
+  &:disabled { opacity: 0.5; cursor: not-allowed; }
+  &:focus-visible { outline: 2px solid var(--color-blue); outline-offset: 2px; }
+}
+```
+
+## Commands
+
+```bash
+npm run dev              # Dev server
+npm run build            # Build
+npm run new:component X  # Generate component
+npm run test             # Tests
+npm run sb               # Storybook
+npm run lint             # Lint
+```
+
+## Rules
+
+### DO
+- Follow existing patterns
+- Use Radix UI for complex components
+- Write tests for all components
+- Document in Storybook
+- Use strict TypeScript
+
+### DON'T
+- Use inline styles
+- Skip accessibility
+- Create untested components
+- Use any type
+- Break existing APIs
+
+## Autocomplete Preferences
+
+When generating code for this project:
+1. Use functional components with forwardRef
+2. Import from path aliases (@/)
+3. Follow the component/SCSS template above
+4. Include all standard variants and sizes
+5. Add proper TypeScript types
+6. Generate corresponding test file
+7. Generate Storybook story
+
+## AI Resources
+
+- Guides + prompts live under `AI/` (`agents`, `workflows`, `tasks`, `prompts`).
+- Each roadmap milestone should reference an agent + workflow before code edits.
+- Use `AI/prompts/create-component.md` when spawning new components and `AI/prompts/create-template.md` for templates/kits.
+- `mcp-samples.json` documents available MCP connectors (Figma, DevTools, Playwright) for Claude/Cursor automations.

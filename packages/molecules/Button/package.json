@@ -1,6 +1,6 @@
 {
   "name": "@react-cupertino-ui/button",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Button component from React Cupertino UI",
   "type": "module",
   "main": "./dist/index.js",

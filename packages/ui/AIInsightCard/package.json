@@ -1,6 +1,6 @@
 {
   "name": "@react-cupertino-ui/ai-insight-card",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "AI insight card with gradient glow",
   "type": "module",
   "main": "./dist/index.js",

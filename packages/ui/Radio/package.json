@@ -1,6 +1,6 @@
 {
   "name": "@react-cupertino-ui/radio",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Radio component from React Cupertino UI",
   "type": "module",
   "main": "./dist/index.js",

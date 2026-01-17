@@ -1,6 +1,6 @@
 {
   "name": "@react-cupertino-ui/carousel",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Liquid Glass carousel component",
   "type": "module",
   "main": "./dist/index.js",

@@ -1,6 +1,6 @@
 {
   "name": "@react-cupertino-ui/skeleton",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Skeleton component from React Cupertino UI",
   "type": "module",
   "main": "./dist/index.js",

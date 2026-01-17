@@ -1,6 +1,6 @@
 {
   "name": "@react-cupertino-ui/siri-status-indicator",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Animated Siri status indicator dot",
   "type": "module",
   "main": "./dist/index.js",

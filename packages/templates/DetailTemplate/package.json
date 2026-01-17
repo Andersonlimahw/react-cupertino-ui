@@ -1,6 +1,6 @@
 {
   "name": "@react-cupertino-ui/detail-template",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Detail page template for React Cupertino UI",
   "type": "module",
   "main": "./dist/index.js",

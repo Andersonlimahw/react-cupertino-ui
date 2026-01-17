@@ -1,6 +1,6 @@
 {
   "name": "@react-cupertino-ui/read-receipt",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "ReadReceipt component from React Cupertino UI",
   "type": "module",
   "main": "./dist/index.js",

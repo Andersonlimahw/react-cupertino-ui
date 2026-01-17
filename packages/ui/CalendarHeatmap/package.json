@@ -1,6 +1,6 @@
 {
   "name": "@react-cupertino-ui/calendar-heatmap",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Calendar heatmap component",
   "type": "module",
   "main": "./dist/index.js",

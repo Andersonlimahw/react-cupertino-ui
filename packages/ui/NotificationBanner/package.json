@@ -1,6 +1,6 @@
 {
   "name": "@react-cupertino-ui/notification-banner",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Cupertino-style notification banner",
   "type": "module",
   "main": "./dist/index.js",

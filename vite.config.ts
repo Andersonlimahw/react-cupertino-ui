@@ -5,7 +5,7 @@ import { configDefaults } from "vitest/config";
 import { getComponentAliases } from "./config/component-aliases";
 
 export default defineConfig({
-  base: process.env.GITHUB_ACTIONS ? "/react-cupertino-ui/" : "/",
+  base: "/",
   plugins: [react()],
   build: {
     sourcemap: false,

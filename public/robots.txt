@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://andersonlimahw.github.io/react-cupertino-ui/sitemap.xml
+Sitemap: https://react-cupertino-ui.pro/sitemap.xml

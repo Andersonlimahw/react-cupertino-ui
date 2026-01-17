@@ -166,7 +166,7 @@ const useSEO = () => {
       "The most comprehensive React component library featuring iOS 26 Liquid Glass design. 100+ accessible, TypeScript-first components for building premium interfaces.";
     const keywords =
       "react components, ios design system, liquid glass, cupertino ui, react ui library, ios 26, apple design, typescript, accessible ui, glassmorphism, ai ui, react native, swiftui, web design";
-    const siteUrl = "https://andersonlimahw.github.io/react-cupertino-ui";
+    const siteUrl = "https://react-cupertino-ui.pro";
     const ogImageUrl = `${siteUrl}/og-image.png`;
 
     document.title = title;

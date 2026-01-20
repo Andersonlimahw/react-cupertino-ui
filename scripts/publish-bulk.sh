@@ -86,6 +86,19 @@ for dir in "${VALID_PACKAGES[@]}"; do
 
   echo "  Version: $CURRENT_VERSION -> $NEW_VERSION"
 
+  # Replace workspace:* dependencies with the actual version
+  if grep -q '"workspace:\*"' package.json; then
+    echo "  Updating workspace dependencies to version $NEW_VERSION..."
+    # Use sed to replace "workspace:*" with the new version for @react-cupertino-ui packages
+    if [[ "$OSTYPE" == "darwin"* ]]; then
+      # macOS sed requires empty string for -i
+      sed -i '' "s/\"workspace:\*\"/\"$NEW_VERSION\"/g" package.json
+    else
+      # Linux sed
+      sed -i "s/\"workspace:\*\"/\"$NEW_VERSION\"/g" package.json
+    fi
+  fi
+
   # Build the package first (if build script exists)
   if grep -q '"build"' package.json; then
     echo "  Building package..."

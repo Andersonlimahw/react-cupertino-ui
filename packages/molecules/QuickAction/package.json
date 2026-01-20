@@ -1,6 +1,6 @@
 {
   "name": "@react-cupertino-ui/quick-action",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "QuickAction tiles inspired by iOS quick actions",
   "type": "module",
   "main": "./dist/index.js",

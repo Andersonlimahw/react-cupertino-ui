@@ -10,22 +10,19 @@ PROJECT_ROOT="$(dirname "$SCRIPT_DIR")"
 cd "$PROJECT_ROOT"
 
 VERSION_TYPE=${1:-patch}
+OTP=${2}
 DELAY=30
+
+OTP_FLAG=""
+if [ -n "$OTP" ]; then
+  OTP_FLAG="--otp=$OTP"
+fi
 
 echo "========================================"
 echo "  Bulk Package Publisher"
 echo "  Version increment: $VERSION_TYPE"
+if [ -n "$OTP" ]; then echo "  OTP: Provided"; fi
 echo "========================================"
-echo ""
-
-# Check if logged in to npm
-if ! npm whoami &> /dev/null; then
-  echo "Error: Not logged in to npm. Run 'npm login' first."
-  exit 1
-fi
-
-echo "Logged in as: $(npm whoami)"
-echo ""
 
 # Find all package directories
 PACKAGE_DIRS=(
@@ -73,8 +70,18 @@ for dir in "${VALID_PACKAGES[@]}"; do
 
   cd "$dir"
 
-  # Increment version
-  npm version $VERSION_TYPE --no-git-tag-version > /dev/null 2>&1
+  # Check if we need to update version
+  SHOULD_UPDATE=true
+  # If VERSION_TYPE looks like a specific version (contains dot) and equals current, skip update
+  if [[ "$VERSION_TYPE" == *.* ]] && [ "$VERSION_TYPE" == "$CURRENT_VERSION" ]; then
+    SHOULD_UPDATE=false
+  fi
+
+  if [ "$SHOULD_UPDATE" = true ]; then
+    # Increment version
+    npm version $VERSION_TYPE --no-git-tag-version > /dev/null 2>&1
+  fi
+
   NEW_VERSION=$(grep -o '"version": "[^"]*"' package.json | head -1 | cut -d'"' -f4)
 
   echo "  Version: $CURRENT_VERSION -> $NEW_VERSION"
@@ -86,31 +93,52 @@ for dir in "${VALID_PACKAGES[@]}"; do
   fi
 
   # Publish
-  if npm publish --access public 2>&1 | grep -q "npm notice"; then
-    echo "  Status: Published"
-    SUCCESS=$((SUCCESS + 1))
-  else
-    # Check if it's a rate limit or other error
-    RESULT=$(npm publish --access public 2>&1)
-    if echo "$RESULT" | grep -q "E429"; then
-      echo "  Status: Rate limited - waiting extra time..."
-      sleep 30
-      # Retry once
-      if npm publish --access public 2>&1 | grep -q "npm notice"; then
-        echo "  Status: Published (retry)"
+  while true; do
+    OUTPUT=$(pnpm publish --access public --no-git-checks $OTP_FLAG 2>&1)
+    PUBLISH_CODE=$?
+
+    if [ $PUBLISH_CODE -eq 0 ]; then
+      echo "  Status: Published"
+      SUCCESS=$((SUCCESS + 1))
+      break
+    else
+      # Check if it's a 2FA error
+      if echo "$OUTPUT" | grep -q "EOTP"; then
+        echo "  Status: Error - One-Time Password (OTP) required"
+        read -p "  Enter OTP code: " NEW_OTP
+        OTP_FLAG="--otp=$NEW_OTP"
+        echo "  Retrying with new OTP..."
+        continue
+      fi
+
+      # Check if it's a rate limit or other error
+      if echo "$OUTPUT" | grep -q "E429"; then
+        echo "  Status: Rate limited - waiting extra time..."
+        sleep 30
+        # Retry once
+        OUTPUT=$(pnpm publish --access public --no-git-checks $OTP_FLAG 2>&1)
+        if [ $? -eq 0 ]; then
+          echo "  Status: Published (retry)"
+          SUCCESS=$((SUCCESS + 1))
+          break
+        else
+          echo "  Status: Failed"
+          FAILED=$((FAILED + 1))
+          break
+        fi
+      elif echo "$OUTPUT" | grep -q "already exists" || echo "$OUTPUT" | grep -q "npm ERR! 403"; then
+        echo "  Status: Already published"
         SUCCESS=$((SUCCESS + 1))
+        break
       else
         echo "  Status: Failed"
+        # Print the error for debugging
+        echo "  Error: $OUTPUT"
         FAILED=$((FAILED + 1))
+        break
       fi
-    elif echo "$RESULT" | grep -q "already exists"; then
-      echo "  Status: Already published"
-      SUCCESS=$((SUCCESS + 1))
-    else
-      echo "  Status: Failed"
-      FAILED=$((FAILED + 1))
     fi
-  fi
+  done
 
   cd - > /dev/null
 

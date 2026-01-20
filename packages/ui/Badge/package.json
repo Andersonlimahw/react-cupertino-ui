@@ -1,6 +1,6 @@
 {
   "name": "@react-cupertino-ui/badge",
-  "version": "1.0.3",
+  "version": "2.0.0",
   "description": "Badge component from React Cupertino UI",
   "type": "module",
   "main": "./dist/index.js",

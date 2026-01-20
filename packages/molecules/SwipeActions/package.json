@@ -1,6 +1,6 @@
 {
   "name": "@react-cupertino-ui/swipe-actions",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "SwipeActions component from React Cupertino UI",
   "type": "module",
   "main": "./dist/index.js",

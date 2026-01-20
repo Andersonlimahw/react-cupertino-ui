@@ -12,6 +12,7 @@ cd "$PROJECT_ROOT"
 # Parse arguments
 NAME=""
 VERSION_TYPE="patch"
+OTP=""
 
 for arg in "$@"; do
   case $arg in
@@ -23,17 +24,18 @@ for arg in "$@"; do
       VERSION_TYPE="${arg#*=}"
       shift
       ;;
+    --otp=*)
+      OTP="${arg#*=}"
+      shift
+      ;;
     -h|--help)
-      echo "Usage: ./scripts/publish-component.sh --name=<component> [--version=patch|minor|major]"
+      echo "Usage: ./scripts/publish-component.sh --name=<component> [--version=patch|minor|major] [--otp=123456]"
       echo ""
       echo "Options:"
       echo "  --name=<component>    Component name (e.g., button, avatar, card)"
       echo "  --version=<type>      Version increment type: patch (default), minor, major"
+      echo "  --otp=<code>          NPM One-Time Password for 2FA"
       echo ""
-      echo "Examples:"
-      echo "  ./scripts/publish-component.sh --name=button"
-      echo "  ./scripts/publish-component.sh --name=avatar --version=minor"
-      echo "  ./scripts/publish-component.sh --name=dialog --version=major"
       exit 0
       ;;
   esac
@@ -41,10 +43,14 @@ done
 
 if [ -z "$NAME" ]; then
   echo "Error: Component name is required"
-  echo "Usage: ./scripts/publish-component.sh --name=<component> [--version=patch|minor|major]"
+  echo "Usage: ./scripts/publish-component.sh --name=<component> [--version=patch|minor|major] [--otp=123456]"
   echo ""
-  echo "Run with --help for more information"
   exit 1
+fi
+
+OTP_FLAG=""
+if [ -n "$OTP" ]; then
+  OTP_FLAG="--otp=$OTP"
 fi
 
 # Convert name to different cases for searching
@@ -56,15 +62,6 @@ echo "  Single Component Publisher"
 echo "  Component: $NAME"
 echo "  Version increment: $VERSION_TYPE"
 echo "========================================"
-echo ""
-
-# Check if logged in to npm
-if ! npm whoami &> /dev/null; then
-  echo "Error: Not logged in to npm. Run 'npm login' first."
-  exit 1
-fi
-
-echo "Logged in as: $(npm whoami)"
 echo ""
 
 # Search for the component in all package directories
@@ -146,11 +143,11 @@ if grep -q '"build"' package.json; then
   echo "Building package..."
   pnpm run build 2>&1 | tail -5
   echo ""
-fi
+endif
 
 # Publish
 echo "Publishing..."
-npm publish --access public
+pnpm publish --access public --no-git-checks $OTP_FLAG
 
 RESULT=$?
 

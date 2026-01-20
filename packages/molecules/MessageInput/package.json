@@ -1,6 +1,6 @@
 {
   "name": "@react-cupertino-ui/message-input",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "Chat message input",
   "type": "module",
   "main": "./dist/index.js",

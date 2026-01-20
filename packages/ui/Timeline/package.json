@@ -1,6 +1,6 @@
 {
   "name": "@react-cupertino-ui/timeline",
-  "version": "1.0.4",
+  "version": "2.0.0",
   "description": "Timeline component for Cupertino-style progress/history flows",
   "type": "module",
   "main": "./dist/index.js",

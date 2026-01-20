@@ -1,6 +1,6 @@
 {
   "name": "@react-cupertino-ui/segmented-tabs",
-  "version": "1.0.3",
+  "version": "2.0.0",
   "description": "Segmented control with tab content",
   "type": "module",
   "main": "./dist/index.js",

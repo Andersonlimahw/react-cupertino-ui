@@ -1,6 +1,6 @@
 {
   "name": "@react-cupertino-ui/tabs",
-  "version": "1.0.4",
+  "version": "2.0.0",
   "description": "Tabs component inspired by iOS segmented/tab layouts",
   "type": "module",
   "main": "./dist/index.js",

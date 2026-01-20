@@ -138,12 +138,23 @@ NEW_VERSION=$(grep -o '"version": "[^"]*"' package.json | head -1 | cut -d'"' -f
 echo "New version: $NEW_VERSION"
 echo ""
 
+# Replace workspace:* dependencies with the actual version
+if grep -q '"workspace:\*"' package.json; then
+  echo "Updating workspace dependencies to version $NEW_VERSION..."
+  if [[ "$OSTYPE" == "darwin"* ]]; then
+    sed -i '' "s/\"workspace:\*\"/\"$NEW_VERSION\"/g" package.json
+  else
+    sed -i "s/\"workspace:\*\"/\"$NEW_VERSION\"/g" package.json
+  fi
+  echo ""
+fi
+
 # Build the package first (if build script exists)
 if grep -q '"build"' package.json; then
   echo "Building package..."
   pnpm run build 2>&1 | tail -5
   echo ""
-endif
+fi
 
 # Publish
 echo "Publishing..."

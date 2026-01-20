@@ -88,6 +88,16 @@ for dir in "${VALID_PACKAGES[@]}"; do
   while [ $RETRY -lt $MAX_RETRIES ] && [ "$SUCCESS" = false ]; do
     cd "$dir"
 
+    # Replace workspace:* dependencies with the actual version (only on first attempt)
+    if [ $RETRY -eq 0 ] && grep -q '"workspace:\*"' package.json; then
+      echo "  -> Updating workspace dependencies to version $LOCAL_VERSION..."
+      if [[ "$OSTYPE" == "darwin"* ]]; then
+        sed -i '' "s/\"workspace:\*\"/\"$LOCAL_VERSION\"/g" package.json
+      else
+        sed -i "s/\"workspace:\*\"/\"$LOCAL_VERSION\"/g" package.json
+      fi
+    fi
+
     # Build the package first (if build script exists)
     if grep -q '"build"' package.json; then
       echo "  -> Building package..."

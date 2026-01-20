@@ -29,6 +29,16 @@ for dir in packages/shared packages/atoms/* packages/molecules/* packages/organi
       if [[ $REPLY =~ ^[Yy]$ ]]; then
         cd "$dir"
 
+        # Replace workspace:* dependencies with the actual version
+        if grep -q '"workspace:\*"' package.json; then
+          echo "Updating workspace dependencies to version $PKG_VERSION..."
+          if [[ "$OSTYPE" == "darwin"* ]]; then
+            sed -i '' "s/\"workspace:\*\"/\"$PKG_VERSION\"/g" package.json
+          else
+            sed -i "s/\"workspace:\*\"/\"$PKG_VERSION\"/g" package.json
+          fi
+        fi
+
         # Build the package first (if build script exists)
         if grep -q '"build"' package.json; then
           echo "Building package..."

@@ -1,11 +1,19 @@
 {
   "name": "@react-cupertino-ui/tooltip",
-  "version": "2.0.0",
+  "version": "2.0.2",
   "description": "Liquid Glass tooltip component",
   "type": "module",
   "main": "./dist/index.js",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./styles.css": "./dist/styles.css"
+  },
   "files": [
     "dist"
   ],
@@ -23,7 +31,7 @@
   },
   "dependencies": {
     "@radix-ui/react-tooltip": "^1.1.2",
-    "@react-cupertino-ui/shared": "workspace:*"
+    "@react-cupertino-ui/shared": "2.0.1"
   },
   "devDependencies": {
     "typescript": "^5.2.2"

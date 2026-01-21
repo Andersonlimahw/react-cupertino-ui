@@ -1,11 +1,19 @@
 {
   "name": "@react-cupertino-ui/ai-conversation",
-  "version": "2.0.0",
+  "version": "2.0.2",
   "description": "AI Conversation organism for React Cupertino UI",
   "type": "module",
   "main": "./dist/index.js",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./styles.css": "./dist/styles.css"
+  },
   "files": [
     "dist"
   ],
@@ -22,10 +30,10 @@
     "react-dom": "^18.3.1"
   },
   "dependencies": {
-    "@react-cupertino-ui/ai-prompt-input": "workspace:*",
-    "@react-cupertino-ui/ai-response-bubble": "workspace:*",
-    "@react-cupertino-ui/shared": "workspace:*",
-    "@react-cupertino-ui/suggestion-chip": "workspace:*"
+    "@react-cupertino-ui/ai-prompt-input": "2.0.1",
+    "@react-cupertino-ui/ai-response-bubble": "2.0.1",
+    "@react-cupertino-ui/shared": "2.0.1",
+    "@react-cupertino-ui/suggestion-chip": "2.0.1"
   },
   "devDependencies": {
     "typescript": "^5.2.2"

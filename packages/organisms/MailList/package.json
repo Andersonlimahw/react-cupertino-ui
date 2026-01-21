@@ -1,11 +1,19 @@
 {
   "name": "@react-cupertino-ui/mail-list",
-  "version": "2.0.0",
+  "version": "2.0.2",
   "description": "MailList component from React Cupertino UI",
   "type": "module",
   "main": "./dist/index.js",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./styles.css": "./dist/styles.css"
+  },
   "files": [
     "dist"
   ],
@@ -23,9 +31,9 @@
     "react-dom": "^18.3.1"
   },
   "dependencies": {
-    "@react-cupertino-ui/list": "workspace:*",
-    "@react-cupertino-ui/shared": "workspace:*",
-    "@react-cupertino-ui/swipe-actions": "workspace:*"
+    "@react-cupertino-ui/list": "2.0.1",
+    "@react-cupertino-ui/shared": "2.0.1",
+    "@react-cupertino-ui/swipe-actions": "2.0.1"
   },
   "devDependencies": {
     "typescript": "^5.2.2"

@@ -1,11 +1,19 @@
 {
   "name": "@react-cupertino-ui/sidesheet",
-  "version": "2.0.0",
+  "version": "2.0.2",
   "description": "Sidesheet component from React Cupertino UI",
   "type": "module",
   "main": "./dist/index.js",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./styles.css": "./dist/styles.css"
+  },
   "files": [
     "dist"
   ],
@@ -23,7 +31,7 @@
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.1.1",
-    "@react-cupertino-ui/shared": "workspace:*",
+    "@react-cupertino-ui/shared": "2.0.1",
     "class-variance-authority": "^0.7.0",
     "lucide-react": "^0.417.0"
   },

@@ -58,4 +58,40 @@ const result = sass.compile(scssPath, {
   ]
 });
 await fs.writeFile(path.join(distDir, 'index.css'), result.css);
-await fs.copyFile(scssPath, path.join(distDir, 'index.scss'));
+
+// Copy src/styles to dist/styles to ensure relative imports work for consumers
+const srcStylesPath = path.resolve(process.cwd(), '../../../src/styles');
+const distStylesPath = path.join(distDir, 'styles');
+
+// Helper to copy directory recursively
+const copyDir = async (src, dest) => {
+  await fs.mkdir(dest, { recursive: true });
+  const entries = await fs.readdir(src, { withFileTypes: true });
+
+  for (const entry of entries) {
+    const srcPath = path.join(src, entry.name);
+    const destPath = path.join(dest, entry.name);
+
+    if (entry.isDirectory()) {
+      await copyDir(srcPath, destPath);
+    } else {
+      await fs.copyFile(srcPath, destPath);
+    }
+  }
+};
+
+try {
+  await copyDir(srcStylesPath, distStylesPath);
+} catch (error) {
+  console.warn('Warning: Could not copy styles directory:', error.message);
+}
+
+// Read the original SCSS file
+let scssContent = await fs.readFile(scssPath, 'utf-8');
+
+// Replace alias imports with relative path to the copied styles
+// @/styles -> ./styles
+scssContent = scssContent.replace(/@use\s+['"]@\/styles\/(.*)['"]/g, '@use "./styles/$1"');
+
+// Write the modified SCSS to dist
+await fs.writeFile(path.join(distDir, 'index.scss'), scssContent);

@@ -157,8 +157,8 @@ importers:
   packages/atoms/AILoadingState:
     dependencies:
       '@react-cupertino-ui/shared':
-        specifier: workspace:*
-        version: link:../../shared
+        specifier: 2.0.1
+        version: 2.0.1(react@18.3.1)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -173,8 +173,8 @@ importers:
   packages/atoms/IntelligenceGlow:
     dependencies:
       '@react-cupertino-ui/shared':
-        specifier: workspace:*
-        version: link:../../shared
+        specifier: 2.0.1
+        version: 2.0.1(react@18.3.1)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -189,8 +189,8 @@ importers:
   packages/atoms/PageControl:
     dependencies:
       '@react-cupertino-ui/shared':
-        specifier: workspace:*
-        version: link:../../shared
+        specifier: 2.0.1
+        version: 2.0.1(react@18.3.1)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -205,8 +205,8 @@ importers:
   packages/atoms/ReadReceipt:
     dependencies:
       '@react-cupertino-ui/shared':
-        specifier: workspace:*
-        version: link:../../shared
+        specifier: 2.0.1
+        version: 2.0.1(react@18.3.1)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -221,8 +221,8 @@ importers:
   packages/atoms/SiriStatusIndicator:
     dependencies:
       '@react-cupertino-ui/shared':
-        specifier: workspace:*
-        version: link:../../shared
+        specifier: 2.0.1
+        version: 2.0.1(react@18.3.1)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -237,8 +237,8 @@ importers:
   packages/atoms/SiriWaveform:
     dependencies:
       '@react-cupertino-ui/shared':
-        specifier: workspace:*
-        version: link:../../shared
+        specifier: 2.0.1
+        version: 2.0.1(react@18.3.1)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -256,8 +256,8 @@ importers:
         specifier: ^1.1.0
         version: 1.2.4(@types/react@18.3.27)(react@18.3.1)
       '@react-cupertino-ui/shared':
-        specifier: workspace:*
-        version: link:../../shared
+        specifier: 2.0.1
+        version: 2.0.1(react@18.3.1)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -272,8 +272,8 @@ importers:
   packages/atoms/TypingIndicator:
     dependencies:
       '@react-cupertino-ui/shared':
-        specifier: workspace:*
-        version: link:../../shared
+        specifier: 2.0.1
+        version: 2.0.1(react@18.3.1)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -288,8 +288,8 @@ importers:
   packages/atoms/VoiceIndicator:
     dependencies:
       '@react-cupertino-ui/shared':
-        specifier: workspace:*
-        version: link:../../shared
+        specifier: 2.0.1
+        version: 2.0.1(react@18.3.1)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -307,11 +307,11 @@ importers:
         specifier: ^1.1.0
         version: 1.2.4(@types/react@18.3.27)(react@18.3.1)
       '@react-cupertino-ui/shared':
-        specifier: workspace:*
-        version: link:../../shared
+        specifier: 2.0.1
+        version: 2.0.1(react@18.3.1)
       '@react-cupertino-ui/suggestion-chip':
-        specifier: workspace:*
-        version: link:../../atoms/SuggestionChip
+        specifier: 2.0.1
+        version: 2.0.1(@types/react@18.3.27)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -326,8 +326,8 @@ importers:
   packages/molecules/AIResponseBubble:
     dependencies:
       '@react-cupertino-ui/shared':
-        specifier: workspace:*
-        version: link:../../shared
+        specifier: 2.0.1
+        version: 2.0.1(react@18.3.1)
       dompurify:
         specifier: ^3.0.6
         version: 3.3.1
@@ -354,11 +354,11 @@ importers:
   packages/molecules/Alert:
     dependencies:
       '@react-cupertino-ui/button':
-        specifier: workspace:*
-        version: link:../Button
+        specifier: 2.0.1
+        version: 2.0.1(@types/react@18.3.27)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@react-cupertino-ui/shared':
-        specifier: workspace:*
-        version: link:../../shared
+        specifier: 2.0.1
+        version: 2.0.1(react@18.3.1)
       lucide-react:
         specifier: ^0.417.0
         version: 0.417.0(react@18.3.1)
@@ -376,8 +376,8 @@ importers:
   packages/molecules/AudioMessage:
     dependencies:
       '@react-cupertino-ui/shared':
-        specifier: workspace:*
-        version: link:../../shared
+        specifier: 2.0.1
+        version: 2.0.1(react@18.3.1)
       lucide-react:
         specifier: ^0.417.0
         version: 0.417.0(react@18.3.1)
@@ -398,8 +398,8 @@ importers:
         specifier: ^1.1.0
         version: 1.2.4(@types/react@18.3.27)(react@18.3.1)
       '@react-cupertino-ui/shared':
-        specifier: workspace:*
-        version: link:../../shared
+        specifier: 2.0.1
+        version: 2.0.1(react@18.3.1)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -417,8 +417,8 @@ importers:
         specifier: ^2.2.16
         version: 2.2.16(@types/react-dom@18.3.7(@types/react@18.3.27))(@types/react@18.3.27)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@react-cupertino-ui/shared':
-        specifier: workspace:*
-        version: link:../../shared
+        specifier: 2.0.1
+        version: 2.0.1(react@18.3.1)
       lucide-react:
         specifier: ^0.417.0
         version: 0.417.0(react@18.3.1)
@@ -436,11 +436,11 @@ importers:
   packages/molecules/DatePicker:
     dependencies:
       '@react-cupertino-ui/picker':
-        specifier: workspace:*
-        version: link:../Picker
+        specifier: 2.0.1
+        version: 2.0.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@react-cupertino-ui/shared':
-        specifier: workspace:*
-        version: link:../../shared
+        specifier: 2.0.1
+        version: 2.0.1(react@18.3.1)
       lucide-react:
         specifier: ^0.417.0
         version: 0.417.0(react@18.3.1)
@@ -458,8 +458,8 @@ importers:
   packages/molecules/LinkPreview:
     dependencies:
       '@react-cupertino-ui/shared':
-        specifier: workspace:*
-        version: link:../../shared
+        specifier: 2.0.1
+        version: 2.0.1(react@18.3.1)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -474,8 +474,8 @@ importers:
   packages/molecules/MediaPreview:
     dependencies:
       '@react-cupertino-ui/shared':
-        specifier: workspace:*
-        version: link:../../shared
+        specifier: 2.0.1
+        version: 2.0.1(react@18.3.1)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -490,8 +490,8 @@ importers:
   packages/molecules/MessageBubble:
     dependencies:
       '@react-cupertino-ui/shared':
-        specifier: workspace:*
-        version: link:../../shared
+        specifier: 2.0.1
+        version: 2.0.1(react@18.3.1)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -506,8 +506,8 @@ importers:
   packages/molecules/MessageInput:
     dependencies:
       '@react-cupertino-ui/shared':
-        specifier: workspace:*
-        version: link:../../shared
+        specifier: 2.0.1
+        version: 2.0.1(react@18.3.1)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -522,8 +522,8 @@ importers:
   packages/molecules/Picker:
     dependencies:
       '@react-cupertino-ui/shared':
-        specifier: workspace:*
-        version: link:../../shared
+        specifier: 2.0.1
+        version: 2.0.1(react@18.3.1)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -538,8 +538,8 @@ importers:
   packages/molecules/PlaybackControls:
     dependencies:
       '@react-cupertino-ui/shared':
-        specifier: workspace:*
-        version: link:../../shared
+        specifier: 2.0.1
+        version: 2.0.1(react@18.3.1)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -554,8 +554,8 @@ importers:
   packages/molecules/ProgressSlider:
     dependencies:
       '@react-cupertino-ui/shared':
-        specifier: workspace:*
-        version: link:../../shared
+        specifier: 2.0.1
+        version: 2.0.1(react@18.3.1)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -570,8 +570,8 @@ importers:
   packages/molecules/QuickAction:
     dependencies:
       '@react-cupertino-ui/shared':
-        specifier: workspace:*
-        version: link:../../shared
+        specifier: 2.0.1
+        version: 2.0.1(react@18.3.1)
       lucide-react:
         specifier: ^0.417.0
         version: 0.417.0(react@18.3.1)
@@ -589,8 +589,8 @@ importers:
   packages/molecules/ReactionPicker:
     dependencies:
       '@react-cupertino-ui/shared':
-        specifier: workspace:*
-        version: link:../../shared
+        specifier: 2.0.1
+        version: 2.0.1(react@18.3.1)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -605,8 +605,8 @@ importers:
   packages/molecules/SearchBar:
     dependencies:
       '@react-cupertino-ui/shared':
-        specifier: workspace:*
-        version: link:../../shared
+        specifier: 2.0.1
+        version: 2.0.1(react@18.3.1)
       lucide-react:
         specifier: ^0.417.0
         version: 0.417.0(react@18.3.1)
@@ -624,8 +624,8 @@ importers:
   packages/molecules/Stepper:
     dependencies:
       '@react-cupertino-ui/shared':
-        specifier: workspace:*
-        version: link:../../shared
+        specifier: 2.0.1
+        version: 2.0.1(react@18.3.1)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -640,8 +640,8 @@ importers:
   packages/molecules/SwipeActions:
     dependencies:
       '@react-cupertino-ui/shared':
-        specifier: workspace:*
-        version: link:../../shared
+        specifier: 2.0.1
+        version: 2.0.1(react@18.3.1)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -656,8 +656,8 @@ importers:
   packages/molecules/TextField:
     dependencies:
       '@react-cupertino-ui/shared':
-        specifier: workspace:*
-        version: link:../../shared
+        specifier: 2.0.1
+        version: 2.0.1(react@18.3.1)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -672,8 +672,8 @@ importers:
   packages/molecules/VoiceCommandBar:
     dependencies:
       '@react-cupertino-ui/shared':
-        specifier: workspace:*
-        version: link:../../shared
+        specifier: 2.0.1
+        version: 2.0.1(react@18.3.1)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -688,8 +688,8 @@ importers:
   packages/molecules/VolumeControl:
     dependencies:
       '@react-cupertino-ui/shared':
-        specifier: workspace:*
-        version: link:../../shared
+        specifier: 2.0.1
+        version: 2.0.1(react@18.3.1)
       lucide-react:
         specifier: ^0.417.0
         version: 0.417.0(react@18.3.1)
@@ -707,17 +707,17 @@ importers:
   packages/organisms/AIConversation:
     dependencies:
       '@react-cupertino-ui/ai-prompt-input':
-        specifier: workspace:*
-        version: link:../../molecules/AIPromptInput
+        specifier: 2.0.1
+        version: 2.0.1(@types/react@18.3.27)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@react-cupertino-ui/ai-response-bubble':
-        specifier: workspace:*
-        version: link:../../molecules/AIResponseBubble
+        specifier: 2.0.1
+        version: 2.0.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@react-cupertino-ui/shared':
-        specifier: workspace:*
-        version: link:../../shared
+        specifier: 2.0.1
+        version: 2.0.1(react@18.3.1)
       '@react-cupertino-ui/suggestion-chip':
-        specifier: workspace:*
-        version: link:../../atoms/SuggestionChip
+        specifier: 2.0.1
+        version: 2.0.1(@types/react@18.3.27)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -735,8 +735,8 @@ importers:
         specifier: ^1.1.1
         version: 1.1.15(@types/react-dom@18.3.7(@types/react@18.3.27))(@types/react@18.3.27)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@react-cupertino-ui/shared':
-        specifier: workspace:*
-        version: link:../../shared
+        specifier: 2.0.1
+        version: 2.0.1(react@18.3.1)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -754,8 +754,8 @@ importers:
         specifier: ^1.1.1
         version: 1.1.15(@types/react-dom@18.3.7(@types/react@18.3.27))(@types/react@18.3.27)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@react-cupertino-ui/shared':
-        specifier: workspace:*
-        version: link:../../shared
+        specifier: 2.0.1
+        version: 2.0.1(react@18.3.1)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -773,8 +773,8 @@ importers:
         specifier: ^1.1.0
         version: 1.2.4(@types/react@18.3.27)(react@18.3.1)
       '@react-cupertino-ui/shared':
-        specifier: workspace:*
-        version: link:../../shared
+        specifier: 2.0.1
+        version: 2.0.1(react@18.3.1)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -789,8 +789,8 @@ importers:
   packages/organisms/ConversationHeader:
     dependencies:
       '@react-cupertino-ui/shared':
-        specifier: workspace:*
-        version: link:../../shared
+        specifier: 2.0.1
+        version: 2.0.1(react@18.3.1)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -805,8 +805,8 @@ importers:
   packages/organisms/ConversationList:
     dependencies:
       '@react-cupertino-ui/shared':
-        specifier: workspace:*
-        version: link:../../shared
+        specifier: 2.0.1
+        version: 2.0.1(react@18.3.1)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -824,11 +824,11 @@ importers:
         specifier: ^1.1.1
         version: 1.1.15(@types/react-dom@18.3.7(@types/react@18.3.27))(@types/react@18.3.27)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@react-cupertino-ui/button':
-        specifier: workspace:*
-        version: link:../../molecules/Button
+        specifier: 2.0.1
+        version: 2.0.1(@types/react@18.3.27)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@react-cupertino-ui/shared':
-        specifier: workspace:*
-        version: link:../../shared
+        specifier: 2.0.1
+        version: 2.0.1(react@18.3.1)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -843,8 +843,8 @@ importers:
   packages/organisms/LyricsView:
     dependencies:
       '@react-cupertino-ui/shared':
-        specifier: workspace:*
-        version: link:../../shared
+        specifier: 2.0.1
+        version: 2.0.1(react@18.3.1)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -859,8 +859,8 @@ importers:
   packages/organisms/MailComposer:
     dependencies:
       '@react-cupertino-ui/shared':
-        specifier: workspace:*
-        version: link:../../shared
+        specifier: 2.0.1
+        version: 2.0.1(react@18.3.1)
       lucide-react:
         specifier: ^0.417.0
         version: 0.417.0(react@18.3.1)
@@ -878,14 +878,14 @@ importers:
   packages/organisms/MailList:
     dependencies:
       '@react-cupertino-ui/list':
-        specifier: workspace:*
-        version: link:../../ui/List
+        specifier: 2.0.1
+        version: 2.0.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@react-cupertino-ui/shared':
-        specifier: workspace:*
-        version: link:../../shared
+        specifier: 2.0.1
+        version: 2.0.1(react@18.3.1)
       '@react-cupertino-ui/swipe-actions':
-        specifier: workspace:*
-        version: link:../../molecules/SwipeActions
+        specifier: 2.0.1
+        version: 2.0.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       lucide-react:
         specifier: ^0.417.0
         version: 0.417.0(react@18.3.1)
@@ -903,8 +903,8 @@ importers:
   packages/organisms/MapsPOICard:
     dependencies:
       '@react-cupertino-ui/shared':
-        specifier: workspace:*
-        version: link:../../shared
+        specifier: 2.0.1
+        version: 2.0.1(react@18.3.1)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -919,8 +919,8 @@ importers:
   packages/organisms/MediaSessionCard:
     dependencies:
       '@react-cupertino-ui/shared':
-        specifier: workspace:*
-        version: link:../../shared
+        specifier: 2.0.1
+        version: 2.0.1(react@18.3.1)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -935,11 +935,11 @@ importers:
   packages/organisms/MiniPlayer:
     dependencies:
       '@react-cupertino-ui/shared':
-        specifier: workspace:*
-        version: link:../../shared
+        specifier: 2.0.1
+        version: 2.0.1(react@18.3.1)
       '@react-cupertino-ui/slider':
-        specifier: workspace:*
-        version: link:../../ui/Slider
+        specifier: 2.0.1
+        version: 2.0.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -954,11 +954,11 @@ importers:
   packages/organisms/NavigationBar:
     dependencies:
       '@react-cupertino-ui/button':
-        specifier: workspace:*
-        version: link:../../molecules/Button
+        specifier: 2.0.1
+        version: 2.0.1(@types/react@18.3.27)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@react-cupertino-ui/shared':
-        specifier: workspace:*
-        version: link:../../shared
+        specifier: 2.0.1
+        version: 2.0.1(react@18.3.1)
       lucide-react:
         specifier: ^0.417.0
         version: 0.417.0(react@18.3.1)
@@ -976,8 +976,8 @@ importers:
   packages/organisms/NowPlayingBar:
     dependencies:
       '@react-cupertino-ui/shared':
-        specifier: workspace:*
-        version: link:../../shared
+        specifier: 2.0.1
+        version: 2.0.1(react@18.3.1)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -995,8 +995,8 @@ importers:
         specifier: ^1.1.15
         version: 1.1.15(@types/react-dom@18.3.7(@types/react@18.3.27))(@types/react@18.3.27)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@react-cupertino-ui/shared':
-        specifier: workspace:*
-        version: link:../../shared
+        specifier: 2.0.1
+        version: 2.0.1(react@18.3.1)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -1011,8 +1011,8 @@ importers:
   packages/organisms/TabBar:
     dependencies:
       '@react-cupertino-ui/shared':
-        specifier: workspace:*
-        version: link:../../shared
+        specifier: 2.0.1
+        version: 2.0.1(react@18.3.1)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -1027,11 +1027,11 @@ importers:
   packages/organisms/TrackList:
     dependencies:
       '@react-cupertino-ui/list':
-        specifier: workspace:*
-        version: link:../../ui/List
+        specifier: 2.0.1
+        version: 2.0.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@react-cupertino-ui/shared':
-        specifier: workspace:*
-        version: link:../../shared
+        specifier: 2.0.1
+        version: 2.0.1(react@18.3.1)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -1065,11 +1065,11 @@ importers:
   packages/templates/AuthTemplate:
     dependencies:
       '@react-cupertino-ui/button':
-        specifier: workspace:*
-        version: link:../../molecules/Button
+        specifier: 2.0.1
+        version: 2.0.1(@types/react@18.3.27)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@react-cupertino-ui/shared':
-        specifier: workspace:*
-        version: link:../../shared
+        specifier: 2.0.1
+        version: 2.0.1(react@18.3.1)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -1084,8 +1084,8 @@ importers:
   packages/templates/DetailTemplate:
     dependencies:
       '@react-cupertino-ui/shared':
-        specifier: workspace:*
-        version: link:../../shared
+        specifier: 2.0.1
+        version: 2.0.1(react@18.3.1)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -1100,11 +1100,11 @@ importers:
   packages/templates/EmptyStateTemplate:
     dependencies:
       '@react-cupertino-ui/button':
-        specifier: workspace:*
-        version: link:../../molecules/Button
+        specifier: 2.0.1
+        version: 2.0.1(@types/react@18.3.27)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@react-cupertino-ui/shared':
-        specifier: workspace:*
-        version: link:../../shared
+        specifier: 2.0.1
+        version: 2.0.1(react@18.3.1)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -1119,14 +1119,14 @@ importers:
   packages/templates/FullPlayerTemplate:
     dependencies:
       '@react-cupertino-ui/button':
-        specifier: workspace:*
-        version: link:../../molecules/Button
+        specifier: 2.0.1
+        version: 2.0.1(@types/react@18.3.27)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@react-cupertino-ui/shared':
-        specifier: workspace:*
-        version: link:../../shared
+        specifier: 2.0.1
+        version: 2.0.1(react@18.3.1)
       '@react-cupertino-ui/slider':
-        specifier: workspace:*
-        version: link:../../ui/Slider
+        specifier: 2.0.1
+        version: 2.0.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -1141,17 +1141,17 @@ importers:
   packages/templates/LandingPageTemplate:
     dependencies:
       '@react-cupertino-ui/button':
-        specifier: workspace:*
-        version: link:../../molecules/Button
+        specifier: 2.0.1
+        version: 2.0.1(@types/react@18.3.27)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@react-cupertino-ui/card':
-        specifier: workspace:*
-        version: link:../../organisms/Card
+        specifier: 2.0.1
+        version: 2.0.1(@types/react@18.3.27)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@react-cupertino-ui/shared':
-        specifier: workspace:*
-        version: link:../../shared
+        specifier: 2.0.1
+        version: 2.0.1(react@18.3.1)
       '@react-cupertino-ui/text-field':
-        specifier: workspace:*
-        version: link:../../molecules/TextField
+        specifier: 2.0.1
+        version: 2.0.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -1166,8 +1166,8 @@ importers:
   packages/templates/ListTemplate:
     dependencies:
       '@react-cupertino-ui/shared':
-        specifier: workspace:*
-        version: link:../../shared
+        specifier: 2.0.1
+        version: 2.0.1(react@18.3.1)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -1182,11 +1182,11 @@ importers:
   packages/templates/MailDetailTemplate:
     dependencies:
       '@react-cupertino-ui/button':
-        specifier: workspace:*
-        version: link:../../molecules/Button
+        specifier: 2.0.1
+        version: 2.0.1(@types/react@18.3.27)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@react-cupertino-ui/shared':
-        specifier: workspace:*
-        version: link:../../shared
+        specifier: 2.0.1
+        version: 2.0.1(react@18.3.1)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -1201,8 +1201,8 @@ importers:
   packages/templates/MasterDetailTemplate:
     dependencies:
       '@react-cupertino-ui/shared':
-        specifier: workspace:*
-        version: link:../../shared
+        specifier: 2.0.1
+        version: 2.0.1(react@18.3.1)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -1217,11 +1217,11 @@ importers:
   packages/templates/OnboardingTemplate:
     dependencies:
       '@react-cupertino-ui/page-control':
-        specifier: workspace:*
-        version: link:../../atoms/PageControl
+        specifier: 2.0.1
+        version: 2.0.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@react-cupertino-ui/shared':
-        specifier: workspace:*
-        version: link:../../shared
+        specifier: 2.0.1
+        version: 2.0.1(react@18.3.1)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -1236,8 +1236,8 @@ importers:
   packages/templates/ProfileTemplate:
     dependencies:
       '@react-cupertino-ui/shared':
-        specifier: workspace:*
-        version: link:../../shared
+        specifier: 2.0.1
+        version: 2.0.1(react@18.3.1)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -1252,11 +1252,11 @@ importers:
   packages/templates/SettingsTemplate:
     dependencies:
       '@react-cupertino-ui/shared':
-        specifier: workspace:*
-        version: link:../../shared
+        specifier: 2.0.1
+        version: 2.0.1(react@18.3.1)
       '@react-cupertino-ui/switcher':
-        specifier: workspace:*
-        version: link:../../ui/Switcher
+        specifier: 2.0.1
+        version: 2.0.1(@types/react-dom@18.3.7(@types/react@18.3.27))(@types/react@18.3.27)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -1271,8 +1271,8 @@ importers:
   packages/templates/SplitViewTemplate:
     dependencies:
       '@react-cupertino-ui/shared':
-        specifier: workspace:*
-        version: link:../../shared
+        specifier: 2.0.1
+        version: 2.0.1(react@18.3.1)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -1287,8 +1287,8 @@ importers:
   packages/ui/AIActionList:
     dependencies:
       '@react-cupertino-ui/shared':
-        specifier: workspace:*
-        version: link:../../shared
+        specifier: 2.0.1
+        version: 2.0.1(react@18.3.1)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -1303,8 +1303,8 @@ importers:
   packages/ui/AIInsightCard:
     dependencies:
       '@react-cupertino-ui/shared':
-        specifier: workspace:*
-        version: link:../../shared
+        specifier: 2.0.1
+        version: 2.0.1(react@18.3.1)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -1319,8 +1319,8 @@ importers:
   packages/ui/AIRecommenderGrid:
     dependencies:
       '@react-cupertino-ui/shared':
-        specifier: workspace:*
-        version: link:../../shared
+        specifier: 2.0.1
+        version: 2.0.1(react@18.3.1)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -1335,8 +1335,8 @@ importers:
   packages/ui/Accordion:
     dependencies:
       '@react-cupertino-ui/shared':
-        specifier: workspace:*
-        version: link:../../shared
+        specifier: 2.0.1
+        version: 2.0.1(react@18.3.1)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -1351,8 +1351,8 @@ importers:
   packages/ui/AlbumCover:
     dependencies:
       '@react-cupertino-ui/shared':
-        specifier: workspace:*
-        version: link:../../shared
+        specifier: 2.0.1
+        version: 2.0.1(react@18.3.1)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -1367,8 +1367,8 @@ importers:
   packages/ui/Avatar:
     dependencies:
       '@react-cupertino-ui/shared':
-        specifier: workspace:*
-        version: link:../../shared
+        specifier: 2.0.1
+        version: 2.0.1(react@18.3.1)
       lucide-react:
         specifier: ^0.417.0
         version: 0.417.0(react@18.3.1)
@@ -1386,8 +1386,8 @@ importers:
   packages/ui/Badge:
     dependencies:
       '@react-cupertino-ui/shared':
-        specifier: workspace:*
-        version: link:../../shared
+        specifier: 2.0.1
+        version: 2.0.1(react@18.3.1)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -1402,8 +1402,8 @@ importers:
   packages/ui/Breadcrumb:
     dependencies:
       '@react-cupertino-ui/shared':
-        specifier: workspace:*
-        version: link:../../shared
+        specifier: 2.0.1
+        version: 2.0.1(react@18.3.1)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -1418,8 +1418,8 @@ importers:
   packages/ui/CalendarHeatmap:
     dependencies:
       '@react-cupertino-ui/shared':
-        specifier: workspace:*
-        version: link:../../shared
+        specifier: 2.0.1
+        version: 2.0.1(react@18.3.1)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -1437,8 +1437,8 @@ importers:
         specifier: ^1.1.0
         version: 1.2.4(@types/react@18.3.27)(react@18.3.1)
       '@react-cupertino-ui/shared':
-        specifier: workspace:*
-        version: link:../../shared
+        specifier: 2.0.1
+        version: 2.0.1(react@18.3.1)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -1453,8 +1453,8 @@ importers:
   packages/ui/Carousel:
     dependencies:
       '@react-cupertino-ui/shared':
-        specifier: workspace:*
-        version: link:../../shared
+        specifier: 2.0.1
+        version: 2.0.1(react@18.3.1)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -1469,8 +1469,8 @@ importers:
   packages/ui/Checkbox:
     dependencies:
       '@react-cupertino-ui/shared':
-        specifier: workspace:*
-        version: link:../../shared
+        specifier: 2.0.1
+        version: 2.0.1(react@18.3.1)
       lucide-react:
         specifier: ^0.417.0
         version: 0.417.0(react@18.3.1)
@@ -1488,8 +1488,8 @@ importers:
   packages/ui/ColorTokensViewer:
     dependencies:
       '@react-cupertino-ui/shared':
-        specifier: workspace:*
-        version: link:../../shared
+        specifier: 2.0.1
+        version: 2.0.1(react@18.3.1)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -1504,8 +1504,8 @@ importers:
   packages/ui/CommandPalette:
     dependencies:
       '@react-cupertino-ui/shared':
-        specifier: workspace:*
-        version: link:../../shared
+        specifier: 2.0.1
+        version: 2.0.1(react@18.3.1)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -1523,8 +1523,8 @@ importers:
         specifier: ^1.1.0
         version: 1.2.4(@types/react@18.3.27)(react@18.3.1)
       '@react-cupertino-ui/shared':
-        specifier: workspace:*
-        version: link:../../shared
+        specifier: 2.0.1
+        version: 2.0.1(react@18.3.1)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -1539,8 +1539,8 @@ importers:
   packages/ui/List:
     dependencies:
       '@react-cupertino-ui/shared':
-        specifier: workspace:*
-        version: link:../../shared
+        specifier: 2.0.1
+        version: 2.0.1(react@18.3.1)
       lucide-react:
         specifier: ^0.417.0
         version: 0.417.0(react@18.3.1)
@@ -1558,8 +1558,8 @@ importers:
   packages/ui/MediaTransport:
     dependencies:
       '@react-cupertino-ui/shared':
-        specifier: workspace:*
-        version: link:../../shared
+        specifier: 2.0.1
+        version: 2.0.1(react@18.3.1)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -1574,8 +1574,8 @@ importers:
   packages/ui/MiniNotification:
     dependencies:
       '@react-cupertino-ui/shared':
-        specifier: workspace:*
-        version: link:../../shared
+        specifier: 2.0.1
+        version: 2.0.1(react@18.3.1)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -1590,8 +1590,8 @@ importers:
   packages/ui/NotificationBanner:
     dependencies:
       '@react-cupertino-ui/shared':
-        specifier: workspace:*
-        version: link:../../shared
+        specifier: 2.0.1
+        version: 2.0.1(react@18.3.1)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -1609,8 +1609,8 @@ importers:
         specifier: ^1.1.0
         version: 1.2.4(@types/react@18.3.27)(react@18.3.1)
       '@react-cupertino-ui/shared':
-        specifier: workspace:*
-        version: link:../../shared
+        specifier: 2.0.1
+        version: 2.0.1(react@18.3.1)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -1625,8 +1625,8 @@ importers:
   packages/ui/PhotosGrid:
     dependencies:
       '@react-cupertino-ui/shared':
-        specifier: workspace:*
-        version: link:../../shared
+        specifier: 2.0.1
+        version: 2.0.1(react@18.3.1)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -1641,8 +1641,8 @@ importers:
   packages/ui/PlaybackQueue:
     dependencies:
       '@react-cupertino-ui/shared':
-        specifier: workspace:*
-        version: link:../../shared
+        specifier: 2.0.1
+        version: 2.0.1(react@18.3.1)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -1657,8 +1657,8 @@ importers:
   packages/ui/ProgressBar:
     dependencies:
       '@react-cupertino-ui/shared':
-        specifier: workspace:*
-        version: link:../../shared
+        specifier: 2.0.1
+        version: 2.0.1(react@18.3.1)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -1673,8 +1673,8 @@ importers:
   packages/ui/Radio:
     dependencies:
       '@react-cupertino-ui/shared':
-        specifier: workspace:*
-        version: link:../../shared
+        specifier: 2.0.1
+        version: 2.0.1(react@18.3.1)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -1689,8 +1689,8 @@ importers:
   packages/ui/Rating:
     dependencies:
       '@react-cupertino-ui/shared':
-        specifier: workspace:*
-        version: link:../../shared
+        specifier: 2.0.1
+        version: 2.0.1(react@18.3.1)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -1705,8 +1705,8 @@ importers:
   packages/ui/SegmentedControl:
     dependencies:
       '@react-cupertino-ui/shared':
-        specifier: workspace:*
-        version: link:../../shared
+        specifier: 2.0.1
+        version: 2.0.1(react@18.3.1)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -1721,8 +1721,8 @@ importers:
   packages/ui/SegmentedTabs:
     dependencies:
       '@react-cupertino-ui/shared':
-        specifier: workspace:*
-        version: link:../../shared
+        specifier: 2.0.1
+        version: 2.0.1(react@18.3.1)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -1737,8 +1737,8 @@ importers:
   packages/ui/Select:
     dependencies:
       '@react-cupertino-ui/shared':
-        specifier: workspace:*
-        version: link:../../shared
+        specifier: 2.0.1
+        version: 2.0.1(react@18.3.1)
       lucide-react:
         specifier: ^0.417.0
         version: 0.417.0(react@18.3.1)
@@ -1759,8 +1759,8 @@ importers:
         specifier: ^1.1.1
         version: 1.1.15(@types/react-dom@18.3.7(@types/react@18.3.27))(@types/react@18.3.27)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@react-cupertino-ui/shared':
-        specifier: workspace:*
-        version: link:../../shared
+        specifier: 2.0.1
+        version: 2.0.1(react@18.3.1)
       class-variance-authority:
         specifier: ^0.7.0
         version: 0.7.1
@@ -1781,8 +1781,8 @@ importers:
   packages/ui/SiriShortcutChip:
     dependencies:
       '@react-cupertino-ui/shared':
-        specifier: workspace:*
-        version: link:../../shared
+        specifier: 2.0.1
+        version: 2.0.1(react@18.3.1)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -1797,8 +1797,8 @@ importers:
   packages/ui/Skeleton:
     dependencies:
       '@react-cupertino-ui/shared':
-        specifier: workspace:*
-        version: link:../../shared
+        specifier: 2.0.1
+        version: 2.0.1(react@18.3.1)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -1813,8 +1813,8 @@ importers:
   packages/ui/Slider:
     dependencies:
       '@react-cupertino-ui/shared':
-        specifier: workspace:*
-        version: link:../../shared
+        specifier: 2.0.1
+        version: 2.0.1(react@18.3.1)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -1829,8 +1829,8 @@ importers:
   packages/ui/SuggestionBar:
     dependencies:
       '@react-cupertino-ui/shared':
-        specifier: workspace:*
-        version: link:../../shared
+        specifier: 2.0.1
+        version: 2.0.1(react@18.3.1)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -1848,8 +1848,8 @@ importers:
         specifier: ^1.1.0
         version: 1.2.6(@types/react-dom@18.3.7(@types/react@18.3.27))(@types/react@18.3.27)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@react-cupertino-ui/shared':
-        specifier: workspace:*
-        version: link:../../shared
+        specifier: 2.0.1
+        version: 2.0.1(react@18.3.1)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -1864,8 +1864,8 @@ importers:
   packages/ui/Tabs:
     dependencies:
       '@react-cupertino-ui/shared':
-        specifier: workspace:*
-        version: link:../../shared
+        specifier: 2.0.1
+        version: 2.0.1(react@18.3.1)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -1880,8 +1880,8 @@ importers:
   packages/ui/Timeline:
     dependencies:
       '@react-cupertino-ui/shared':
-        specifier: workspace:*
-        version: link:../../shared
+        specifier: 2.0.1
+        version: 2.0.1(react@18.3.1)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -1899,8 +1899,8 @@ importers:
         specifier: ^1.1.0
         version: 1.2.4(@types/react@18.3.27)(react@18.3.1)
       '@react-cupertino-ui/shared':
-        specifier: workspace:*
-        version: link:../../shared
+        specifier: 2.0.1
+        version: 2.0.1(react@18.3.1)
       class-variance-authority:
         specifier: ^0.7.0
         version: 0.7.1
@@ -1918,8 +1918,8 @@ importers:
   packages/ui/Toast:
     dependencies:
       '@react-cupertino-ui/shared':
-        specifier: workspace:*
-        version: link:../../shared
+        specifier: 2.0.1
+        version: 2.0.1(react@18.3.1)
       lucide-react:
         specifier: ^0.417.0
         version: 0.417.0(react@18.3.1)
@@ -1940,8 +1940,8 @@ importers:
         specifier: ^1.1.2
         version: 1.2.8(@types/react-dom@18.3.7(@types/react@18.3.27))(@types/react@18.3.27)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@react-cupertino-ui/shared':
-        specifier: workspace:*
-        version: link:../../shared
+        specifier: 2.0.1
+        version: 2.0.1(react@18.3.1)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -3308,6 +3308,83 @@ packages:
 
   '@radix-ui/rect@1.1.1':
     resolution: {integrity: sha512-HPwpGIzkl28mWyZqG52jiqDJ12waP11Pa1lGoiyUkIEuMLBP0oeK/C89esbXrxsky5we7dfd8U58nm0SgAWpVw==}
+
+  '@react-cupertino-ui/ai-prompt-input@2.0.1':
+    resolution: {integrity: sha512-YkdZJnxZrFUrC7MJv6CmvL+Q4tujRjrs/EogqKnc7y2WgA18vYgmnXE1QLrEOOV2bkAdHRMEbOtCKdlAllSZHw==}
+    peerDependencies:
+      react: ^18.3.1
+      react-dom: ^18.3.1
+
+  '@react-cupertino-ui/ai-response-bubble@2.0.1':
+    resolution: {integrity: sha512-mZttGMW7IV84wXyU5KsH6/wZJ+jGKwNSBBUeUASNHlzc+FlEPQs2/rJUY2hfk1kWN+Fl5rpGHAcgTtKdud9rZw==}
+    peerDependencies:
+      react: ^18.3.1
+      react-dom: ^18.3.1
+
+  '@react-cupertino-ui/button@2.0.1':
+    resolution: {integrity: sha512-9XDpa65T0SQbyQthxhE3XNjq+h/YLLEKOvoXiuNBGF/QLhH8Q4w5owUnXB9cOt9RbadT0zfdl/4wEzaWzlmOpQ==}
+    peerDependencies:
+      react: ^18.3.1
+      react-dom: ^18.3.1
+
+  '@react-cupertino-ui/card@2.0.1':
+    resolution: {integrity: sha512-9gfrwtPwRYap/eEnu+HlR7orRQpcOrhzTLbc8x40UoSs4onNeLdPVSuA5zVOVYBgeM/KyXvxO1l1VcwrA0FDrA==}
+    peerDependencies:
+      react: ^18.3.1
+      react-dom: ^18.3.1
+
+  '@react-cupertino-ui/list@2.0.1':
+    resolution: {integrity: sha512-seaE75DY5iBDe6/4JR4tIPUyY544TXqfbuegpEIFKa8POauwENqUULqlCbq6FvZsO5uly1V+oC2EKz1JFolYPg==}
+    peerDependencies:
+      react: ^18.3.1
+      react-dom: ^18.3.1
+
+  '@react-cupertino-ui/page-control@2.0.1':
+    resolution: {integrity: sha512-gWjs5B/Wr2FsIO7k1iVUeEAdQyvLJOxASDSjE+qx6wXY39hu2erEiWnSZgLWytbrD+e4HoUeK08qIpzwoap+qw==}
+    peerDependencies:
+      react: ^18.3.1
+      react-dom: ^18.3.1
+
+  '@react-cupertino-ui/picker@2.0.1':
+    resolution: {integrity: sha512-+QrX95KWYfhc2NOQ63zVYYNnKrdqxvJTLdHxHDyEHgQpr2ht9y+EDwu4LnOa+4sQnVPwQVlkYdfbPlHDWoGxHg==}
+    peerDependencies:
+      react: ^18.3.1
+      react-dom: ^18.3.1
+
+  '@react-cupertino-ui/shared@2.0.1':
+    resolution: {integrity: sha512-e7lyqLSkUtgO15+s3Ffn9NV7NJ08X63lc/uHAF9AcAKsXWOXtfPTdyk0V+kkBS6XCwYD9rEDGKatqlG07mNoIw==}
+    peerDependencies:
+      react: ^18.3.1
+
+  '@react-cupertino-ui/slider@2.0.1':
+    resolution: {integrity: sha512-wJ5aK28+idN8Q9FcyYWSyBCpEq92iLt2F6mfICpLRzj6/4ibMMjBr5fLdxP8xTIKHK0lAgU8Gl+SX0/ADhF9BA==}
+    peerDependencies:
+      react: ^18.3.1
+      react-dom: ^18.3.1
+
+  '@react-cupertino-ui/suggestion-chip@2.0.1':
+    resolution: {integrity: sha512-xiEhIWOd/MTwOgAxw3dNKtlFC5D7a9xDPLBZ030XJmMgTuhTcqwabcaLkuKqN9RlNZUG2oaI22p72Vg/IxY3Ew==}
+    peerDependencies:
+      react: ^18.3.1
+      react-dom: ^18.3.1
+
+  '@react-cupertino-ui/swipe-actions@2.0.1':
+    resolution: {integrity: sha512-MiFwY/L6mGSwD+myiPq2fLPy5wQIbXUxquRmi+Ha6WDertLiZpW0UFY36Mb7/t7hdKlUfcjVY0fCSmJV0lpIJg==}
+    peerDependencies:
+      react: ^18.3.1
+      react-dom: ^18.3.1
+
+  '@react-cupertino-ui/switcher@2.0.1':
+    resolution: {integrity: sha512-FxkLNc9fLBVtpXmAcOk+mOEwCILLTyZJ84Rq50PIne1Rj4IERBAagGx5CJP9wV/lax/e/v/cZymc5qfxJcul0A==}
+    peerDependencies:
+      react: ^18.3.1
+      react-dom: ^18.3.1
+
+  '@react-cupertino-ui/text-field@2.0.1':
+    resolution: {integrity: sha512-a9M2Mm04acSCDVFUosxIQb0cut26XEBWIxy9NSbsg0qi6TafVzXaIDoSdXvehQJ423cIuLhvQ2Zx93FQLatO1Q==}
+    peerDependencies:
+      react: ^18.3.1
+      react-dom: ^18.3.1
 
   '@rolldown/pluginutils@1.0.0-beta.27':
     resolution: {integrity: sha512-+d0F4MKMCbeVUJwG96uQ4SgAznZNSq93I3V+9NHA4OpvqG8mRCpGdKmK8l/dl02h2CCDHwW2FqilnTyDcAnqjA==}
@@ -8270,6 +8347,105 @@ snapshots:
       '@types/react-dom': 18.3.7(@types/react@18.3.27)
 
   '@radix-ui/rect@1.1.1': {}
+
+  '@react-cupertino-ui/ai-prompt-input@2.0.1(@types/react@18.3.27)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+    dependencies:
+      '@radix-ui/react-slot': 1.2.4(@types/react@18.3.27)(react@18.3.1)
+      '@react-cupertino-ui/shared': 2.0.1(react@18.3.1)
+      '@react-cupertino-ui/suggestion-chip': 2.0.1(@types/react@18.3.27)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
+    transitivePeerDependencies:
+      - '@types/react'
+
+  '@react-cupertino-ui/ai-response-bubble@2.0.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+    dependencies:
+      '@react-cupertino-ui/shared': 2.0.1(react@18.3.1)
+      dompurify: 3.3.1
+      marked: 11.2.0
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
+
+  '@react-cupertino-ui/button@2.0.1(@types/react@18.3.27)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+    dependencies:
+      '@radix-ui/react-slot': 1.2.4(@types/react@18.3.27)(react@18.3.1)
+      '@react-cupertino-ui/shared': 2.0.1(react@18.3.1)
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
+    transitivePeerDependencies:
+      - '@types/react'
+
+  '@react-cupertino-ui/card@2.0.1(@types/react@18.3.27)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+    dependencies:
+      '@radix-ui/react-slot': 1.2.4(@types/react@18.3.27)(react@18.3.1)
+      '@react-cupertino-ui/shared': 2.0.1(react@18.3.1)
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
+    transitivePeerDependencies:
+      - '@types/react'
+
+  '@react-cupertino-ui/list@2.0.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+    dependencies:
+      '@react-cupertino-ui/shared': 2.0.1(react@18.3.1)
+      lucide-react: 0.417.0(react@18.3.1)
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
+
+  '@react-cupertino-ui/page-control@2.0.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+    dependencies:
+      '@react-cupertino-ui/shared': 2.0.1(react@18.3.1)
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
+
+  '@react-cupertino-ui/picker@2.0.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+    dependencies:
+      '@react-cupertino-ui/shared': 2.0.1(react@18.3.1)
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
+
+  '@react-cupertino-ui/shared@2.0.1(react@18.3.1)':
+    dependencies:
+      class-variance-authority: 0.7.1
+      clsx: 2.1.1
+      react: 18.3.1
+      tailwind-merge: 2.6.0
+
+  '@react-cupertino-ui/slider@2.0.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+    dependencies:
+      '@react-cupertino-ui/shared': 2.0.1(react@18.3.1)
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
+
+  '@react-cupertino-ui/suggestion-chip@2.0.1(@types/react@18.3.27)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+    dependencies:
+      '@radix-ui/react-slot': 1.2.4(@types/react@18.3.27)(react@18.3.1)
+      '@react-cupertino-ui/shared': 2.0.1(react@18.3.1)
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
+    transitivePeerDependencies:
+      - '@types/react'
+
+  '@react-cupertino-ui/swipe-actions@2.0.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+    dependencies:
+      '@react-cupertino-ui/shared': 2.0.1(react@18.3.1)
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
+
+  '@react-cupertino-ui/switcher@2.0.1(@types/react-dom@18.3.7(@types/react@18.3.27))(@types/react@18.3.27)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+    dependencies:
+      '@radix-ui/react-switch': 1.2.6(@types/react-dom@18.3.7(@types/react@18.3.27))(@types/react@18.3.27)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@react-cupertino-ui/shared': 2.0.1(react@18.3.1)
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
+    transitivePeerDependencies:
+      - '@types/react'
+      - '@types/react-dom'
+
+  '@react-cupertino-ui/text-field@2.0.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+    dependencies:
+      '@react-cupertino-ui/shared': 2.0.1(react@18.3.1)
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
 
   '@rolldown/pluginutils@1.0.0-beta.27': {}
 

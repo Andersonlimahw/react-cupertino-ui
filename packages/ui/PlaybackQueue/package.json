@@ -1,6 +1,6 @@
 {
   "name": "@react-cupertino-ui/playback-queue",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "description": "Playback queue list for MusicKit",
   "type": "module",
   "main": "./dist/index.js",

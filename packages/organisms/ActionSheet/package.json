@@ -1,6 +1,6 @@
 {
   "name": "@react-cupertino-ui/action-sheet",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "description": "ActionSheet component from React Cupertino UI",
   "type": "module",
   "main": "./dist/index.js",

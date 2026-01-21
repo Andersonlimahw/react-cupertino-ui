@@ -1,6 +1,6 @@
 {
   "name": "@react-cupertino-ui/album-cover",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "description": "Album cover preview with Liquid Glass overlays",
   "type": "module",
   "main": "./dist/index.js",

@@ -1,6 +1,6 @@
 {
   "name": "@react-cupertino-ui/command-palette",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "description": "Command palette overlay inspired by Spotlight",
   "type": "module",
   "main": "./dist/index.js",

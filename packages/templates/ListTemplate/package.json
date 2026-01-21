@@ -1,6 +1,6 @@
 {
   "name": "@react-cupertino-ui/list-template",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "description": "List template layout for React Cupertino UI",
   "type": "module",
   "main": "./dist/index.js",

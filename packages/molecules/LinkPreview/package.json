@@ -1,6 +1,6 @@
 {
   "name": "@react-cupertino-ui/link-preview",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "description": "LinkPreview component from React Cupertino UI",
   "type": "module",
   "main": "./dist/index.js",

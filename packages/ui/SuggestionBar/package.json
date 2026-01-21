@@ -1,6 +1,6 @@
 {
   "name": "@react-cupertino-ui/suggestion-bar",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "description": "Row of Siri-style suggestion chips",
   "type": "module",
   "main": "./dist/index.js",

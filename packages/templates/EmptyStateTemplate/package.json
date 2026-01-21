@@ -1,6 +1,6 @@
 {
   "name": "@react-cupertino-ui/empty-state-template",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "description": "Empty state template for React Cupertino UI",
   "type": "module",
   "main": "./dist/index.js",

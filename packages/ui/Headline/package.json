@@ -1,6 +1,6 @@
 {
   "name": "@react-cupertino-ui/headline",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "description": "Headline component from React Cupertino UI",
   "type": "module",
   "main": "./dist/index.js",

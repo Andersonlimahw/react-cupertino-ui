@@ -1,6 +1,6 @@
 {
   "name": "@react-cupertino-ui/media-session-card",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "description": "Media session card with track list",
   "type": "module",
   "main": "./dist/index.js",

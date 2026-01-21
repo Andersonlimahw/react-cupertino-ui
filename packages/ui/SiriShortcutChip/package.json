@@ -1,6 +1,6 @@
 {
   "name": "@react-cupertino-ui/siri-shortcut-chip",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "description": "Shortcut chip inspired by Siri Suggestions",
   "type": "module",
   "main": "./dist/index.js",

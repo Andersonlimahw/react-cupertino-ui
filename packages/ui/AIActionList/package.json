@@ -1,6 +1,6 @@
 {
   "name": "@react-cupertino-ui/ai-action-list",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "description": "List of recommended AI actions",
   "type": "module",
   "main": "./dist/index.js",

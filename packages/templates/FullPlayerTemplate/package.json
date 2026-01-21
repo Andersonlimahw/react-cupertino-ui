@@ -1,6 +1,6 @@
 {
   "name": "@react-cupertino-ui/full-player-template",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "description": "Full music player template for React Cupertino UI",
   "type": "module",
   "main": "./dist/index.js",

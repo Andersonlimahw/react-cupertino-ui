@@ -1,6 +1,6 @@
 {
   "name": "@react-cupertino-ui/breadcrumb",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "description": "Cupertino-style breadcrumb component",
   "type": "module",
   "main": "./dist/index.js",

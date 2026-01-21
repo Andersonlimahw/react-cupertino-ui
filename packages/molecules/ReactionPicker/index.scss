@@ -1,0 +1,45 @@
+@use "@/styles/mixins/glass" as glass;
+
+.react-cupertino-ui-reaction-picker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 999px;
+  @include glass.glass-panel(light);
+
+  button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    padding: 0;
+    border: none;
+    background: transparent;
+    border-radius: 999px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: transform 120ms ease, background-color 120ms ease;
+
+    &:hover {
+      background: rgba(0, 0, 0, 0.05);
+      transform: scale(1.15);
+    }
+
+    &:active {
+      transform: scale(0.95);
+    }
+
+    &:focus-visible {
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.3);
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .react-cupertino-ui-reaction-picker button {
+    transition-duration: 0ms;
+  }
+}

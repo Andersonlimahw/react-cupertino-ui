@@ -179,11 +179,11 @@ type DialogButtonOptions = Partial<
 
 interface AlertDialogActionProps
   extends React.ComponentPropsWithoutRef<typeof AlertDialogPrimitive.Action>,
-    DialogButtonOptions {}
+  DialogButtonOptions { }
 
 interface AlertDialogCancelProps
   extends React.ComponentPropsWithoutRef<typeof AlertDialogPrimitive.Cancel>,
-    DialogButtonOptions {}
+  DialogButtonOptions { }
 
 const AlertDialogAction = React.forwardRef<
   React.ElementRef<typeof AlertDialogPrimitive.Action>,
@@ -266,3 +266,19 @@ export {
   AlertDialogAction,
   AlertDialogCancel,
 };
+
+// Alias exports for better DX - consumers can use either naming convention
+export {
+  AlertDialog as Dialog,
+  AlertDialogTrigger as DialogTrigger,
+  AlertDialogPortal as DialogPortal,
+  AlertDialogOverlay as DialogOverlay,
+  AlertDialogContent as DialogContent,
+  AlertDialogHeader as DialogHeader,
+  AlertDialogFooter as DialogFooter,
+  AlertDialogTitle as DialogTitle,
+  AlertDialogDescription as DialogDescription,
+  AlertDialogAction as DialogAction,
+  AlertDialogCancel as DialogCancel,
+};
+

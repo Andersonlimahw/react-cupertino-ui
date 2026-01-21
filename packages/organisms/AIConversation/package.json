@@ -1,6 +1,6 @@
 {
   "name": "@react-cupertino-ui/ai-conversation",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "AI Conversation organism for React Cupertino UI",
   "type": "module",
   "main": "./dist/index.js",

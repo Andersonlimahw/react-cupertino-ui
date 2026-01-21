@@ -1,6 +1,6 @@
 {
   "name": "@react-cupertino-ui/playback-controls",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "Playback control buttons (play/pause/skip)",
   "type": "module",
   "main": "./dist/index.js",

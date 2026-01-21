@@ -1,6 +1,6 @@
 {
   "name": "@react-cupertino-ui/media-transport",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "Media transport controls (play/pause/skip) with Liquid Glass styling",
   "type": "module",
   "main": "./dist/index.js",

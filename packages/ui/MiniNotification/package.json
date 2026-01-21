@@ -1,6 +1,6 @@
 {
   "name": "@react-cupertino-ui/mini-notification",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "Compact notification banner",
   "type": "module",
   "main": "./dist/index.js",

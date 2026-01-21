@@ -1,6 +1,6 @@
 {
   "name": "@react-cupertino-ui/rating",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "Liquid Glass rating component",
   "type": "module",
   "main": "./dist/index.js",

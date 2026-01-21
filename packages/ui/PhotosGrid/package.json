@@ -1,6 +1,6 @@
 {
   "name": "@react-cupertino-ui/photos-grid",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "Photo grid gallery inspired by Photos app",
   "type": "module",
   "main": "./dist/index.js",

@@ -1,6 +1,6 @@
 {
   "name": "@react-cupertino-ui/conversation-list",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "Conversation list organism for React Cupertino UI",
   "type": "module",
   "main": "./dist/index.js",

@@ -1,6 +1,6 @@
 {
   "name": "@react-cupertino-ui/auth-template",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "Authentication template for React Cupertino UI",
   "type": "module",
   "main": "./dist/index.js",
